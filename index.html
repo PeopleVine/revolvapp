@@ -31,7 +31,13 @@
     <script src="/plugins/reorder/reorder.js"></script>
     <script src="/pv-blocks/upcoming-events.js"></script>
 
-    <script src="new-plugin.js"></script>
+    <!-- new plugins-->
+    <script src="/plugins/templates/templates.js"></script>
+    <script src="/plugins/undo/undo.js"></script>
+    <script src="/plugins/save/save.js"></script>
+    <script src="/plugins/redo/redo.js"></script>
+
+
 
 
 
@@ -43,7 +49,7 @@
             console.log(html);
         }
         Revolvapp('#myemail', {
-            plugins: ['variable', 'reorder', 'template', 'myplugin'],
+            plugins: ['variable', 'reorder', 'code', 'templates', 'undo', 'save', 'redo'],
             variable: {
                 items: ['email', 'first_name', 'last_name']
             },

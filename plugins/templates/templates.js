@@ -1,15 +1,15 @@
 (function() {
-    Revolvapp.add('plugin', 'myplugin', {
+    Revolvapp.add('plugin', 'templates', {
         start: function() {
-            this.app.toolbar.add('mybutton', {
+            this.app.toolbar.add('templates', {
                 title: 'Templates',
                 icon: '<i class="fa-solid fa-book"></i>',
-                command: 'myplugin.toggle',
+                command: 'templates.toggle',
                 position: 'first'
             });
         },
         toggle: function(args) {
-            alert('My Button is toggled!');
+            alert('Show all email templates!');
         }
     });
 })(Revolvapp);
