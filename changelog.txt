@@ -1,0 +1,12 @@
+Changes Made:
+
+2/13/23
+1. Customize Variable Plugin CSS to insert a span element and added CSS styling 
+2. Built new starter template 
+3. Add getHTML flow - console logs the raw HTML
+
+2/14/23
+1. Added <re-options> to template - this will store style settings inside the template 
+
+2/20/23
+1. Updated starter template
