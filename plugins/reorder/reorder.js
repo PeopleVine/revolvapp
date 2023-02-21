@@ -35,7 +35,7 @@
             this.$win = this.app.editor.getWin();
             this.tolerance = this.$btn.width();
             this.$clickItem = null;
-            this.$dragItem  = null;
+            this.$dragItem = null;
             this.oldY = 0;
             this.dragging = false;
 
@@ -106,15 +106,13 @@
             var end, startStop = false;
             if (isScrollTarget) {
                 end = $target.height() + $target.offset().top - tolerance;
-            }
-            else if (isFrameScroll) {
+            } else if (isFrameScroll) {
                 end = framePos.bottom - tolerance;
                 endWin = this.app.$win.height() + docScrollTop - tolerance;
                 if (endWin < end) {
                     end = endWin;
                 }
-            }
-            else {
+            } else {
                 startStop = !this.app.toolbar.isSticky();
                 end = this.app.$win.height() + scrollTop - tolerance;
             }
@@ -222,7 +220,7 @@
             var $targetSource = targetInstance.getSource();
 
             var offset = $target.offset();
-            var height = $target.height()/2;
+            var height = $target.height() / 2;
             var func = (height + offset.top > y) ? 'before' : 'after';
 
             $target[func]($item);
@@ -236,7 +234,7 @@
         },
         _isFrameScroll: function() {
             var frameHeight = this.app.editor.getFrame().height();
-            var bodyHeight =  this.app.editor.getBody().height();
+            var bodyHeight = this.app.editor.getBody().height();
 
             return (bodyHeight > frameHeight);
         },
