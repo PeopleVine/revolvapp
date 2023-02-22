@@ -1329,6 +1329,10 @@
     border: 1px solid rgba(0, 11, 29, 0.1);
 }
 
+.rex-form-color-select-eye-dropper {
+    margin-left: 8px;
+}
+
 .rex-form-color-select-pointer {
     cursor: pointer;
 }

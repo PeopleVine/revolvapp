@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Revolvapp</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <!-- revolvapp css -->
     <link rel="stylesheet" href="./css/revolvapp.css" />
     <link rel="stylesheet" href="/plugins/variable/variable.css" />
-    <script src="https://kit.fontawesome.com/261503e59d.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/261503e59d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-</head>
-
-<body>
-    <div style="max-width: 1000px; margin:0 auto; text-align: center;">
-        <p>
-            This page must be run over http or https in order for the Revolvapp frame to display by CORS policy.
-        </p>
-        <button onclick="getHtml();">Get HTML code in console</button>
+  <body>
+    <div style="max-width: 1000px; margin: 0 auto; text-align: center">
+      <p>
+        This page must be run over http or https in order for the Revolvapp
+        frame to display by CORS policy.
+      </p>
+      <button onclick="getHtml();">Get HTML code in console</button>
     </div>
 
     <!-- element -->
-    <div id="myemail" style="max-width: 1000px; margin-left: auto; margin-right: auto;"></div>
+    <div
+      id="myemail"
+      style="max-width: 1000px; margin-left: auto; margin-right: auto"
+    ></div>
 
     <!-- revolvapp js -->
     <script src="revolvapp.js"></script>
@@ -38,31 +43,54 @@
     <script src="/plugins/save/save.js"></script>
     <script src="/plugins/redo/redo.js"></script>
 
-
-
-
-
-
-
     <!-- call -->
     <script>
-        function getHtml() {
-            var app = Revolvapp('#myemail');
-            var html = app.editor.getHtml();
-            console.log(html);
-        }
-        Revolvapp('#myemail', {
-            plugins: ['add', 'variable', 'reorder', 'code', 'templates', 'undo', 'save', 'redo'],
-            variable: {
-                items: ['email', 'first_name', 'last_name']
+      function getHtml() {
+        var app = Revolvapp("#myemail");
+        var html = app.editor.getHtml();
+        console.log(html);
+      }
+      Revolvapp("#myemail", {
+        plugins: [
+          "add",
+          "variable",
+          "reorder",
+          "code",
+          "templates",
+          "style",
+          "undo",
+          "save",
+          "redo",
+        ],
+        style: {
+          styles: {
+            block: {
+              shadow: {
+                title: "Shadow",
+                css: {
+                  "box-shadow": "0 20px 30px rgba(0, 0, 0, .3)",
+                },
+              },
+              dark: {
+                title: "Dark",
+                css: {
+                  "background-color": "#111",
+                  color: "#eee",
+                  "link-color": "#fff",
+                },
+              },
             },
-            editor: {
-                font: 'Open Sans, Helvetica, sans-serif',
-                path: './',
-                template: './templates/index.html'
-            }
-        });
+          },
+        },
+        variable: {
+          items: ["email", "first_name", "last_name"],
+        },
+        editor: {
+          font: "Open Sans, Helvetica, sans-serif",
+          path: "./",
+          template: "./templates/index.html",
+        },
+      });
     </script>
-</body>
-
+  </body>
 </html>

@@ -7,8 +7,8 @@
                 command: 'redo.toggle',
             });
         },
-        toggle: function(args) {
-            alert('Redo last action!');
+        toggle: function() {
+            this.app.state.redo();
         }
     });
 })(Revolvapp);

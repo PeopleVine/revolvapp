@@ -7,8 +7,8 @@
                 command: 'undo.toggle',
             });
         },
-        toggle: function(args) {
-            alert('Undo last action!');
+        toggle: function() {
+            this.app.state.undo();
         }
     });
 })(Revolvapp);

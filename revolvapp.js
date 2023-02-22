@@ -1308,7 +1308,9 @@
             heading: {
                 'font-family': false,
                 'font-weight': 'bold',
-                'color': '#111118'
+                'color': '#111118',
+                'margin-top': '20px',
+                'margin-bottom': '20px'
             },
             link: {
                 'color': '#0091ff',
@@ -1320,7 +1322,10 @@
                 'font-weight': 'normal',
                 'color': '#fff',
                 'background-color': '#0091ff',
-                'padding': '14px 40px',
+                'padding-top': '14px',
+                'padding-bottom': '14px',
+                'padding-right': '40px',
+                'padding-left': '40px',
                 'border-radius': '24px'
             },
             code: {
@@ -1339,7 +1344,8 @@
                 'background-color': '#111118'
             },
             table: {
-                'padding': '10px 12px'
+                'padding-top': '10px',
+                'padding-bottom': '12px',
             }
         },
         headings: {
@@ -1741,7 +1747,23 @@
             "radius": "Radius",
             "image-width": "Image Width",
             "padding": "Padding",
+            "padding-left": "Padding Left",
+            "padding-right": "Padding Right",
+            "padding-top": "Padding Top",
+            "padding-bottom": "Padding Bottom",
             "margin": "Margin",
+            "border-radius": "Border Radius",
+            "border-width": "Border Width",
+            "border-color": "Border Color",
+            "border-style": "Border Style",
+            "background-color": "Background Color",
+            "text-align": "Text Align",
+            "font-weight": "Font Weight",
+            "margin-left": "Margin Left",
+            "font-family": "Font Family",
+            "margin-right": "Margin Right",
+            "margin-top": "Margin Top",
+            "margin-bottom": "Margin Bottom",
             "column-space": "Column Space",
             "height": "Height",
             "text-size": "Text Size",
@@ -2292,7 +2314,15 @@
                     break;
                 case 'color':
                 case 'padding':
+                case 'padding-top':
+                case 'padding-right':
+                case 'padding-bottom':
+                case 'padding-left':
                 case 'margin':
+                case 'margin-top':
+                case 'margin-right':
+                case 'margin-bottom':
+                case 'margin-left':
                 case 'width':
                 case 'height':
                 case 'border':
@@ -8214,14 +8244,13 @@
             }
         },
         add: function(el, editable) {
-
             var instance = this.app.component.get();
             var offset = false;
             if (instance) {
                 var $el = instance.getElement();
                 offset = (editable) ? this.app.offset.get($el) : offset;
             }
-            var html = el.innerHTML;
+            var html = this.app.editor.$template.html();
             var lastState = this._getLastUndo();
 
             this.prevState = this.app.content.removeTemplateUtils(this.app.editor.$template.html());
@@ -9174,11 +9203,43 @@
         setter: function(name, value) {
             switch (name) {
                 case 'padding':
+                case 'padding-left':
+                    value = new String(value).trim();
+                    value = (value === '') ? 0 : value;
+                    break;
+                case 'padding-right':
+                    value = new String(value).trim();   
+                    value = (value === '') ? 0 : value;
+                    break;
+                case 'padding-top':
+                    value = new String(value).trim();
+                    value = (value === '') ? 0 : value;
+                    break;
+                case 'padding-bottom':
+                    value = new String(value).trim();
+                    value = (value === '') ? 0 : value;
+                    break;
                 case 'alt':
                 case 'href':
                     value = new String(value).trim();
                     break;
                 case 'margin':
+                    value = new String(value).trim();
+                    value = (value === '') ? 0 : value;
+                    break;
+                case 'margin-left':
+                    value = new String(value).trim();
+                    value = (value === '') ? 'auto' : value;
+                    break;
+                case 'margin-right':
+                    value = new String(value).trim();
+                    value = (value === '') ? 'auto' : value;
+                    break;
+                case 'margin-top':
+                    value = new String(value).trim();
+                    value = (value === '') ? 0 : value;
+                    break;
+                case 'margin-bottom':
                     value = new String(value).trim();
                     value = (value === '') ? 0 : value;
                     break;
@@ -10048,6 +10109,10 @@
             this.$select = this.dom('<span>').addClass(this.prefix + '-form-color-select');
             this.$checkbox = this.dom('<input>').addClass(this.prefix + '-form-checkbox').attr('type', 'checkbox');
 
+            this.$eyeDropper = this.dom('<button>').addClass(this.prefix + '-form-color-select-eye-dropper');
+            this.$eyeDropper.html('<i class="fa-solid fa-eye-dropper"></i>')
+            this.$eyeDropper.on('click', this._eyeDropperSelect.bind(this));
+
             this.$input.css('max-width', '90px');
             this.$input.on('keydown blur', this._changeColorSelect.bind(this));
 
@@ -10066,6 +10131,7 @@
 
             this.$box.append(this.$select);
             this.$box.append(this.$input);
+            this.$box.append(this.$eyeDropper);
             this.$tool.append(this.$box);
 
             if (this._has('picker')) {
@@ -10156,9 +10222,32 @@
                 stack.collapse();
             }
         },
+        _eyeDropperSelect: function(e) {
+            e.preventDefault();
+
+            var dropper = new EyeDropper();
+            dropper.open().then(function(val) {
+                var color = val.sRGBHex;
+    
+                this.$input.val(color);
+                this.$select.css('background-color', color);
+    
+                if (this.picker) {
+                    this.picker.setColor(color);
+                }
+    
+                this.$checkbox.attr('checked', (color !== ''));
+
+                this.setColor(color);
+                this.app.api(this.setter, this.popup);
+            }.bind(this));
+        },  
         _changeColorSelect: function(e) {
             if (e.type === 'keydown' && e.which !== 13) return;
             if (e.type === 'keydown') e.preventDefault();
+
+            console.log('change color select')
+
 
             var value = this.$input.val();
             value = this.app.color.normalize(value);
@@ -10175,6 +10264,7 @@
         _changeColorState: function(e) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('change color state')
 
             var state = this.$checkbox.attr('checked');
             var value = (state) ? '#ffffff' : '';
@@ -10409,9 +10499,21 @@
                 }
             },
             settings: {
-                'padding': {
+                'padding-top': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-top ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
                 }
             }
         },
@@ -10435,7 +10537,10 @@
                 'background-image': { target: ['element'] },
                 'background-size': { target: ['element'] },
                 'class': { target: ['cell'] },
-                'padding': { target: ['cell'] }
+                'padding-top': { target: ['cell'] },
+                'padding-right': { target: ['cell'] },
+                'padding-bottom': { target: ['cell'] },
+                'padding-left': { target: ['cell'] }
             };
         },
         render: function() {
@@ -10480,9 +10585,21 @@
         },
         forms: {
             settings: {
-                'padding': {
+                'padding-top': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-top ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
                 }
             }
         },
@@ -10498,7 +10615,10 @@
             this.data = {
                 'class': { target: ['cell'] },
                 'width': { target: ['element'] },
-                'padding': { target: ['cell'] },
+                'padding-top': { target: ['cell'] },
+                'padding-right': { target: ['cell'] },
+                'padding-bottom': { target: ['cell'] },
+                'padding-left': { target: ['cell'] },
                 'background-color': { target: ['cell'] },
                 'background-image': { target: ['cell'] },
                 'background-size': { target: ['cell'] },
@@ -10522,9 +10642,21 @@
         },
         forms: {
             settings: {
-                'padding': {
+                'padding-top': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-top ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
                 }
             }
         },
@@ -10540,7 +10672,10 @@
             this.data = {
                 'class': { target: ['cell'] },
                 'width': { target: ['element'] },
-                'padding': { target: ['cell'] },
+                'padding-top': { target: ['cell'] },
+                'padding-right': { target: ['cell'] },
+                'padding-bottom': { target: ['cell'] },
+                'padding-left': { target: ['cell'] },
                 'background-color': { target: ['cell'] },
                 'background-image': { target: ['cell'] },
                 'background-size': { target: ['cell'] },
@@ -10564,9 +10699,21 @@
         },
         forms: {
             settings: {
-                'padding': {
+                'padding-top': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-top ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
                 }
             }
         },
@@ -10582,7 +10729,10 @@
             this.data = {
                 'class': { target: ['cell'] },
                 'width': { target: ['element'] },
-                'padding': { target: ['cell'] },
+                'padding-top': { target: ['cell'] },
+                'padding-right': { target: ['cell'] },
+                'padding-bottom': { target: ['cell'] },
+                'padding-left': { target: ['cell'] },
                 'background-color': { target: ['cell'] },
                 'background-image': { target: ['cell'] },
                 'background-size': { target: ['cell'] },
@@ -10610,7 +10760,6 @@
             this.data = {
                 'class': { target: ['cell'] },
                 'width': { target: ['element'] },
-                'padding': { target: ['cell'] },
                 'background-color': { target: ['cell'] },
                 'background-image': { target: ['cell'] },
                 'background-size': { target: ['cell'] },
@@ -10639,9 +10788,26 @@
         },
         forms: {
             settings: {
-                'padding': {
+                'padding-top': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-top ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
+                },
+                'column-width': {
+                    type: 'input',
+                    label: '## form.column-width ##',
+                    observer: 'component.checkColumnWidth'
                 },
                 'column-space': {
                     type: 'number',
@@ -10666,7 +10832,10 @@
             this.data = {
                 'align': { target: ['cell'] },
                 'valign': { target: ['cell'] },
-                'padding': { target: ['cell'] },
+                'padding-top': { target: ['cell'] },
+                'padding-right': { target: ['cell'] },
+                'padding-bottom': { target: ['cell'] },
+                'padding-left': { target: ['cell'] },
                 'background-color': { target: ['cell'] },
                 'background-image': { target: ['cell'] },
                 'background-size': { target: ['cell'] },
@@ -10822,9 +10991,21 @@
         },
         forms: {
             settings: {
-                'margin': {
+                'margin-top': {
                     type: 'input',
-                    label: '## form.margin ##'
+                    label: '## form.margin-top ##'
+                },
+                'margin-bottom': {
+                    type: 'input',
+                    label: '## form.margin-bottom ##'
+                },
+                'margin-left': {
+                    type: 'input',
+                    label: '## form.margin-left ##'
+                },
+                'margin-right': {
+                    type: 'input',
+                    label: '## form.margin-right ##'
                 },
                 'font-size': {
                     type: 'number',
@@ -10850,6 +11031,10 @@
                 'link-color': { target: false, getter: 'getLinkColor', setter: 'setLinkColor', prop: this.getStyle('link', 'color') },
                 'align': { target: ['element'], getter: 'getAlign' },
                 'margin': { target: ['element'] },
+                'margin-top': { target: ['element'] },
+                'margin-bottom': { target: ['element'] },
+                'margin-left': { target: ['element'] },
+                'margin-right': { target: ['element'] },
                 'class': { target: ['element'] },
                 'font-weight': { target: ['element'] },
                 'font-style': { target: ['element'] },
@@ -10894,9 +11079,21 @@
         },
         forms: {
             settings: {
-                'margin': {
+                'margin-top': {
                     type: 'input',
-                    label: '## form.margin ##'
+                    label: '## form.margin-top ##'
+                },
+                'margin-bottom': {
+                    type: 'input',
+                    label: '## form.margin-bottom ##'
+                },
+                'margin-left': {
+                    type: 'input',
+                    label: '## form.margin-left ##'
+                },
+                'margin-right': {
+                    type: 'input',
+                    label: '## form.margin-right ##'
                 },
                 'href': {
                     type: 'input',
@@ -10930,6 +11127,10 @@
                 'text-decoration': { target: ['link'], prop: 'underline' },
                 'align': { target: ['element'], getter: 'getAlign' },
                 'margin': { target: ['element'] },
+                'margin-top': { target: ['element'] },
+                'margin-bottom': { target: ['element'] },
+                'margin-left': { target: ['element'] },
+                'margin-right': { target: ['element'] },
                 'href': { target: ['link'] },
                 'class': { target: ['link'] },
                 'font-style': { target: ['link'] },
@@ -10974,9 +11175,21 @@
         },
         forms: {
             settings: {
-                'margin': {
+                'margin-top': {
                     type: 'input',
-                    label: '## form.margin ##'
+                    label: '## form.margin-top ##'
+                },
+                'margin-bottom': {
+                    type: 'input',
+                    label: '## form.margin-bottom ##'
+                },
+                'margin-left': {
+                    type: 'input',
+                    label: '## form.margin-left ##'
+                },
+                'margin-right': {
+                    type: 'input',
+                    label: '## form.margin-right ##'
                 },
                 'href': {
                     type: 'input',
@@ -11023,7 +11236,10 @@
                 'font-size': { target: ['element', 'link'], prop: this.getHeadingStyleByLevel(this.params.level, 'font-size') },
                 'line-height': { target: ['element', 'link'], prop: this.getHeadingStyleByLevel(this.params.level, 'line-height') },
                 'align': { target: ['element'], getter: 'getAlign' },
-                'margin': { target: ['element'] },
+                'margin-top': { target: ['element'], prop: this.getStyle('heading', 'margin-top') },
+                'margin-bottom': { target: ['element'], prop: this.getStyle('heading', 'margin-bottom') },
+                'margin-left': { target: ['element'], prop: this.getStyle('heading', 'margin-left') },
+                'margin-right': { target: ['element'], prop: this.getStyle('heading', 'margin-right') },
                 'class': { target: ['element'] },
                 'font-style': { target: ['element', 'link'] },
                 'text-decoration': { target: ['element', 'link'] },
@@ -11118,9 +11334,21 @@
         },
         forms: {
             settings: {
-                'padding': {
+                'padding-left': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-left ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'padding-top': {
+                    type: 'input',
+                    label: '## form.padding-top ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
                 },
                 'width': {
                     type: 'input',
@@ -11140,7 +11368,10 @@
                 'align': { target: ['element'], setter: 'setAlign' },
                 'valign': { target: ['element'] },
                 'width': { target: ['element'] },
-                'padding': { target: ['element'] },
+                'padding-top': { target: ['element'] },
+                'padding-right': { target: ['element'] },
+                'padding-bottom': { target: ['element'] },
+                'padding-left': { target: ['element'] },
                 'background-color': { target: ['element'] },
                 'background-image': { target: ['element'] },
                 'background-size': { target: ['element'] },
@@ -11413,9 +11644,21 @@
                 }
             },
             settings: {
-                'margin': {
+                'margin-top': {
                     type: 'input',
-                    label: '## form.margin ##'
+                    label: '## form.margin-top ##'
+                },
+                'margin-bottom': {
+                    type: 'input',
+                    label: '## form.margin-bottom ##'
+                },
+                'margin-left': {
+                    type: 'input',
+                    label: '## form.margin-left ##'
+                },
+                'margin-right': {
+                    type: 'input',
+                    label: '## form.margin-right ##'
                 },
                 'font-size': {
                     type: 'number',
@@ -11436,6 +11679,10 @@
                 'font-size': { target: false, getter: 'getTextSize', setter: 'setTextSize', prop: this.getStyle('text', 'font-size') },
                 'align': { target: ['element'], getter: 'getAlign' },
                 'margin': { target: ['element'] },
+                'margin-top': { target: ['element'] },
+                'margin-bottom': { target: ['element'] },
+                'margin-left': { target: ['element'] },
+                'margin-right': { target: ['element'] },
                 'class': { target: ['element'] },
                 'html': { target: false, getter: 'getSpacerContent', setter: 'setSpacerContent' }
             };
@@ -11612,10 +11859,22 @@
                 }
             },
             settings: {
-                'margin': {
+                'margin-top': {
                     type: 'input',
-                    label: '## form.margin ##'
-                }
+                    label: '## form.margin-top ##'
+                },
+                'margin-bottom': {
+                    type: 'input',
+                    label: '## form.margin-bottom ##'
+                },
+                'margin-left': {
+                    type: 'input',
+                    label: '## form.margin-left ##'
+                },
+                'margin-right': {
+                    type: 'input',
+                    label: '## form.margin-right ##'
+                },
             }
         },
         create: function() {
@@ -11626,6 +11885,10 @@
             this.data = {
                 'align': { target: ['element'], getter: 'getAlign' },
                 'margin': { target: ['element'] },
+                'margin-top': { target: ['element'] },
+                'margin-bottom': { target: ['element'] },
+                'margin-left': { target: ['element'] },
+                'margin-right': { target: ['element'] },
                 'class': { target: ['element'] }
             };
         },
@@ -11791,13 +12054,100 @@
         },
         forms: {
             settings: {
-                'margin': {
+                'margin-top': {
                     type: 'input',
-                    label: '## form.margin ##'
+                    label: '## form.margin-top ##'
                 },
-                'padding': {
+                'margin-bottom': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.margin-bottom ##'
+                },
+                'margin-left': {
+                    type: 'input',
+                    label: '## form.margin-left ##'
+                },
+                'margin-right': {
+                    type: 'input',
+                    label: '## form.margin-right ##'
+                },
+                'padding-top': {
+                    type: 'input',
+                    label: '## form.padding-top ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
+                },
+                'border-radius': {
+                    type: 'input',
+                    label: '## form.border-radius ##'
+                },
+                'border-width': {
+                    type: 'input',
+                    label: '## form.border-width ##'
+                },
+                'border-color': {
+                    type: 'input',
+                    label: '## form.border-color ##'
+                },
+                'border-style': {
+                    type: 'select',
+                    label: '## form.border-style ##',
+                    options: {
+                        'none': '## form.none ##',
+                        'solid': '## form.solid ##',
+                        'dotted': '## form.dotted ##',
+                        'dashed': '## form.dashed ##'
+                    }
+                },
+                'width': {
+                    type: 'input',
+                    label: '## form.width ##'
+                },
+                'height': {
+                    type: 'input',
+                    label: '## form.height ##'
+                },
+                'text': {
+                    type: 'input',
+                    label: '## form.text ##'
+                },
+                'text-align': {
+                    type: 'select',
+                    label: '## form.text-align ##',
+                    options: {
+                        'left': '## form.left ##',
+                        'center': '## form.center ##',
+                        'right': '## form.right ##'
+                    }
+                },
+                'font-size': {
+                    type: 'input',
+                    label: '## form.text-size ##'
+                },
+                'font-weight': {
+                    type: 'select',
+                    label: '## form.font-weight ##',
+                    options: {
+                        'normal': '## form.normal ##',
+                        'bold': '## form.bold ##'
+                    }
+                },
+                'font-family': {
+                    type: 'input',
+                    label: '## form.font-family ##'
+                },
+                'color': {
+                    type: 'input',
+                    label: '## form.color ##'
                 },
                 'href': {
                     type: 'input',
@@ -11838,8 +12188,14 @@
                 'color': { target: ['element', 'link'], prop: this.getStyle('button', 'color') },
                 'border-radius': { target: ['element', 'link', 'cell'], prop: this.getStyle('button', 'border-radius') },
                 'border': { target: ['link'], setter: 'setBorder', prop: '1px solid ' + border },
-                'padding': { target: ['link'], prop: this.getStyle('button', 'padding') },
-                'margin': { target: ['element'] },
+                'padding-top': { target: ['element'], prop: this.getStyle('button', 'padding-top') },
+                'padding-bottom': { target: ['element'], prop: this.getStyle('button', 'padding-bottom') },
+                'padding-left': { target: ['element'], prop: this.getStyle('button', 'padding-left') },
+                'padding-right': { target: ['element'], prop: this.getStyle('button', 'padding-right') },
+                'margin-top': { target: ['element'] },
+                'margin-bottom': { target: ['element'] },
+                'margin-left': { target: ['element'] },
+                'margin-right': { target: ['element'] },
                 'font-style': { target: ['element', 'link'] },
                 'class': { target: ['link'] },
                 'href': { target: ['link'] },
@@ -11953,9 +12309,21 @@
                     type: 'input',
                     label: '## form.width ##'
                 },
-                'padding': {
+                'padding-top': {
                     type: 'input',
-                    label: '## form.padding ##'
+                    label: '## form.padding-top ##'
+                },
+                'padding-bottom': {
+                    type: 'input',
+                    label: '## form.padding-bottom ##'
+                },
+                'padding-left': {
+                    type: 'input',
+                    label: '## form.padding-left ##'
+                },
+                'padding-right': {
+                    type: 'input',
+                    label: '## form.padding-right ##'
                 },
                 'font-size': {
                     type: 'number',
@@ -11978,7 +12346,10 @@
                 'rowspan': { target: ['element'] },
                 'colspan': { target: ['element'] },
                 'class': { target: ['element'] },
-                'padding': { target: ['element'], prop: this.getStyle('table', 'padding') },
+                'padding-top': { target: ['element'], },
+                'padding-bottom': { target: ['element'],  },
+                'padding-left': { target: ['element'],  },
+                'padding-right': { target: ['element'], },
                 'border': { target: ['element'] },
                 'color': { target: ['element'] },
                 'font-size': { target: ['element'], setter: 'setTextSize', prop: this.getStyle('text', 'font-size') },
@@ -12017,7 +12388,10 @@
                 'font-size': { target: ['element'], prop: this.getStyle('code', 'font-size') },
                 'line-height': { target: ['element'], prop: this.getStyle('code', 'line-height') },
                 'color': { target: ['element'], prop: this.getStyle('code', 'color') },
-                'padding': { target: ['element'], prop: this.getStyle('code', 'padding') },
+                'padding-top': { target: ['element'],  },
+                'padding-bottom': { target: ['element'],  },
+                'padding-left': { target: ['element'],   },
+                'padding-right': { target: ['element'],  },
                 'background-color': { target: ['element'], prop: this.getStyle('code', 'background-color') },
                 'class': { target: ['element'] },
                 'border': { target: ['element'] }
