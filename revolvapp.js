@@ -10583,6 +10583,9 @@
             'border': { title: '## buttons.border ##', command: 'component.popup' },
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
+        control: {
+            add: { command: 'component.popup' },
+        },
         forms: {
             settings: {
                 'padding-top': {
@@ -10640,6 +10643,9 @@
             'border': { title: '## buttons.border ##', command: 'component.popup' },
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
+        control: {
+            add: { command: 'component.popup' },
+        },
         forms: {
             settings: {
                 'padding-top': {
@@ -10696,6 +10702,9 @@
             'background': { title: '## buttons.background ##', command: 'component.popup', color: true, observer: 'component.observe' },
             'border': { title: '## buttons.border ##', command: 'component.popup' },
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
+        },
+        control: {
+            add: { command: 'component.popup' },
         },
         forms: {
             settings: {
@@ -10783,6 +10792,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -10880,6 +10890,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -11170,6 +11181,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -11452,6 +11464,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -11625,6 +11638,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -11829,6 +11843,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -12049,6 +12064,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
@@ -12413,6 +12429,7 @@
             'tune': { title: '## buttons.settings ##', command: 'component.popup' }
         },
         control: {
+            add: { command: 'component.popup' },
             trash: { command: 'component.remove' },
             duplicate: { command: 'component.duplicate' }
         },
