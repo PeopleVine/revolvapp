@@ -6044,6 +6044,8 @@
         },
         stop: function() {
             this.$toolbar.remove();
+            this.$savebar.remove();
+            this.$actionbar.remove();
             this.customButtons = {};
         },
         // compatibility 2.2.0
@@ -6052,6 +6054,8 @@
         },
         build: function() {
             this.$toolbar.html('');
+            this.$savebar.html('');
+            this.$actionbar.html('');
             this._buildButtons();
 
             if (this.opts.editor.viewOnly) {
@@ -6126,9 +6130,16 @@
 
         // private
         _build: function() {
+            
             this.$toolbar = this.dom('<div>').addClass(this.prefix + '-toolbar');
+            this.$savebar = this.dom('<div>').addClass(this.prefix + '-savebar');
+            this.$actionbar = this.dom('<div>').addClass(this.prefix + '-actionbar');
+
             var $container = this.app.container.get('toolbar');
+            $container.append(this.$savebar);
             $container.append(this.$toolbar);
+            $container.append(this.$actionbar);
+            
             $container.on('mouseover.' + this.prefix, this._buildHover.bind(this));
         },
         _buildHover: function() {
@@ -6150,16 +6161,19 @@
             var instance = (this.app.component.is()) ? this.app.component.get() : this.app.editor.getBodyInstance();
             var buttons = instance.toolbar;
 
+            const savebarButtons = ['undo', 'redo', 'save'];
+            const toolbarButtons = ['code', 'mobile']
+
             for (var name in buttons) {
                 if (instance.isAllowedButton(buttons[name])) {
-                    this.app.create('button', name, buttons[name], this.$toolbar, 'toolbar');
+                    this.app.create('button', name, buttons[name], (toolbarButtons.includes(name) ? this.$toolbar : savebarButtons.includes(name) ? this.$savebar : this.$actionbar), 'toolbar');
                 }
             }
 
             // custom buttons
             for (var cname in this.customButtons) {
                 if (instance.isAllowedButton(this.customButtons[cname])) {
-                    this.app.create('button', cname, this.customButtons[cname], this.$toolbar, 'toolbar');
+                    this.app.create('button', cname, this.customButtons[cname], (toolbarButtons.includes(cname) ? this.$toolbar : savebarButtons.includes(cname) ? this.$savebar : this.$actionbar), 'toolbar');
                 }
             }
         },
