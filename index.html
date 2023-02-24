@@ -37,11 +37,63 @@
 
     <!-- call -->
     <script>
-      function getHtml() {
+      function getHtml(action) {
         var app = Revolvapp("#myemail");
         var html = app.editor.getHtml();
-        console.log(html);
+
+        var body = app.editor.getTemplate();
+
+        var updateMethod;
+        switch ("newsletter") {
+          case "content":
+            updateMethod = "updatePage";
+            dataObject = {
+              page: {
+                page_no: 0,
+                archivePrevious: true,
+                page_status: "active",
+                updateFields:
+                  "page_status, page_content, template_fields, template_no",
+                template_no: -1,
+                template_fields: body,
+                page_content: html,
+              },
+            };
+            break;
+          case "newsletter":
+            updateMethod = "updateNewsletter";
+            dataObject = {
+              newsletter: {
+                newsletter_no: 30461,
+                updateFields: "newsletter_body, template_fields, template_no",
+                newsletter_body: html,
+                template_fields: body,
+                template_no: -1,
+              },
+            };
+            break;
+        }
+
+        ajaxCall({
+          type: "POST",
+          url: "/methods.asmx/" + updateMethod,
+          data: dataObject,
+          success: function (response) {
+            var result = JSON.parse(response).d;
+            // Optional Success Callback
+            console.log(result);
+          },
+          fail: function (http) {
+            // Optional Fail Callback
+            console.log(http);
+          },
+          always: function (http) {
+            // Optional Always Callback
+            console.log(http);
+          },
+        });
       }
+
       Revolvapp("#myemail", {
         plugins: [
           //"add",
