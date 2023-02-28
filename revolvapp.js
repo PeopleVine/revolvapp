@@ -1904,7 +1904,7 @@
     },
     _blocks: {},
     _styles:
-      ".variable-block{background-color: #E0F4ED; display: inline-block; border-radius: 16px; font-size: inherit; color: #111; line-height: inherit; min-height: initial; padding: 4px 10px; white-space: nowrap; text-transform: none; font-weight: bold;}#outlook a{padding:0}.ExternalClass{width:100%}#outlook a{padding:0}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%}body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic}img{border:0;outline:none;text-decoration:none}a img{border:none}td img{vertical-align:top}table,table td{border-collapse:collapse}body{margin:0;padding:0;width:100% !important}.mobile-spacer{width:0;display:none}@media all and (max-width:639px){.container{width:100% !important;max-width:600px !important}.mobile{width:auto !important;max-width:100% !important;display:block !important}.mobile-center{text-align:center !important}.mobile-right{text-align:right !important}.mobile-left{text-align:left!important;}.mobile-hidden{max-height:0;display:none !important;mso-hide:all;overflow:hidden}.mobile-spacer{width:auto !important;display:table !important}.mobile-image,.mobile-image img {height: auto !important; max-width: 600px !important; width: 100% !important}}",
+      ".variable-block{background-color: #e2eafd; display: inline-block; border-radius: 16px; font-size: inherit; color: #111; line-height: inherit; min-height: initial; padding: 4px 10px; white-space: nowrap; text-transform: none; font-weight: bold;}#outlook a{padding:0}.ExternalClass{width:100%}#outlook a{padding:0}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%}body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic}img{border:0;outline:none;text-decoration:none}a img{border:none}td img{vertical-align:top}table,table td{border-collapse:collapse}body{margin:0;padding:0;width:100% !important}.mobile-spacer{width:0;display:none}@media all and (max-width:639px){.container{width:100% !important;max-width:600px !important}.mobile{width:auto !important;max-width:100% !important;display:block !important}.mobile-center{text-align:center !important}.mobile-right{text-align:right !important}.mobile-left{text-align:left!important;}.mobile-hidden{max-height:0;display:none !important;mso-hide:all;overflow:hidden}.mobile-spacer{width:auto !important;display:table !important}.mobile-image,.mobile-image img {height: auto !important; max-width: 600px !important; width: 100% !important}}",
     _msoStyles:
       '<!--[if mso]><style type="text/css">body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }</style><![endif]-->',
     _tags: [
@@ -5588,7 +5588,6 @@
         top = offset.top - $target.offset().top;
         targetHeight =
           $target.height() - parseInt($target.css("border-bottom-width"));
-        console.log("top", top);
       } else {
         top = offset.top - $target.scrollTop();
         targetHeight = $target.height();
@@ -6951,6 +6950,7 @@
 
     // private
     _build: function () {
+      this.$navbar = this.dom("<div>").addClass(this.prefix + "-navbar");
       this.$toolbar = this.dom("<div>").addClass(this.prefix + "-toolbar");
       this.$savebar = this.dom("<div>").addClass(this.prefix + "-savebar");
       this.$actionbar = this.dom("<div>").addClass(this.prefix + "-actionbar");
@@ -6963,7 +6963,8 @@
       $container.append(this.$toolbar);
       $container.append(this.$actionbar);
       $container.append(this.$rightActionbar);
-
+      $container.append(this.$navbar);
+      
       $container.on("mouseover." + this.prefix, this._buildHover.bind(this));
     },
     _buildHover: function () {
@@ -7473,7 +7474,6 @@
       this.popups.open(button, name);
     },
     openAdd: function (params, button) {
-      console.log(button);
       this.popups.add(button);
     },
 
@@ -7758,7 +7758,6 @@
       this._setAddInstance($blockElement);
     },
     buildAddItems: function (stack) {
-      console.log(this.opts._blocks);
       for (var key in this.opts._blocks) {
         var $section = this.dom("<div>").addClass(
           this.prefix + "-popup-section"
@@ -7771,7 +7770,6 @@
         $section.html(sectionTitle || key);
 
         // items
-        console.log(key);
         var items = this.opts._blocks[key];
         for (var index in items) {
           if (this._isHiddenBlock(items[index].type)) {
@@ -8501,8 +8499,6 @@
       var $el = this.getBody();
       var $layers = this.app.element.getChildren($el, types);
 
-      console.log($layers);
-
       $layers.each(
         function ($node) {
           var instance = $node.dataget("instance");
@@ -8683,7 +8679,6 @@
           }
         }
       }
-      console.log(this.opts._blocks);
     },
     _buildOptions: function () {
       var $e = this.$editor;
@@ -13033,19 +13028,14 @@
       settings: {
         width: {
           section: "settings",
-          type: "input",
-          width: "65px",
+          type: "number",
+          width: 65,
           label: "## form.width ##",
         },
         alt: {
           section: "settings",
           type: "input",
           label: "## form.alt-text ##",
-        },
-        href: {
-          section: "link",
-          label: "## form.link ##",
-          type: "input",
         },
         responsive: {
           section: "settings",
@@ -13088,7 +13078,6 @@
         "margin-bottom": { target: ["img"] },
         "margin-left": { target: ["img"] },
         border: { target: ["img"] },
-        href: { target: ["link"] },
         responsive: {
           target: false,
           setter: "setResponsive",
@@ -13244,8 +13233,8 @@
       settings: {
         width: {
           section: "settings",
-          type: "input",
-          width: "65px",
+          type: "number",
+          width: 65,
           label: "## form.width ##",
         },
         alt: {
@@ -13867,6 +13856,10 @@
     },
     forms: {
       settings: {
+        href: {
+          type: "input",
+          label: "## form.url ##",
+        },
         "border-radius": {
           type: "input",
           label: "## form.border-radius ##",
@@ -13929,10 +13922,6 @@
         color: {
           type: "input",
           label: "## form.color ##",
-        },
-        href: {
-          type: "input",
-          label: "## form.url ##",
         },
         "font-size": {
           type: "number",
