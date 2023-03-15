@@ -31,7 +31,7 @@ jobs:
         if: ${{ endsWith(github.ref, 'qa') }}
         uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: public
+          source_dir: .
           container_name: files
           connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
           extra_args: "--destination-path revolveapp/qa"
@@ -41,7 +41,7 @@ jobs:
         if: ${{ endsWith(github.ref, 'staging') }}
         uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: public
+          source_dir: .
           container_name: files
           connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
           extra_args: "--destination-path revolveapp/staging"
@@ -51,7 +51,7 @@ jobs:
         if: ${{ endsWith(github.ref, 'master') }}
         uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: public
+          source_dir: .
           container_name: files
           connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
           extra_args: "--destination-path revolveapp/prod"
