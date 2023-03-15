@@ -27,12 +27,6 @@ jobs:
       - name: Append to .npmrc
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT }}" >> .npmrc
 
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14.x"
-      - run: yarn install --frozen-lockfile --production=false && yarn build
-
       - name: Publish to QA
         if: ${{ endsWith(github.ref, 'qa') }}
         uses: bacongobbler/azure-blob-storage-upload@main
@@ -40,7 +34,7 @@ jobs:
           source_dir: public
           container_name: files
           connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
-          extra_args: "--destination-path 83/build/qa"
+          extra_args: "--destination-path revolveapp/qa"
           overwrite: "true"
 
       - name: Publish to Staging
