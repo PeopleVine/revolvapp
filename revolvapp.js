@@ -3603,6 +3603,9 @@
 
       this.$icon.append(span);
       this.$button.append(this.$icon);
+      if (this.type === "actionbar") {
+        this.$button.append(this.title);
+      }
     },
     _buildIconElement: function () {
       return this.dom("<span>").addClass(this.prefix + "-button-icon");
@@ -5612,9 +5615,13 @@
       }
 
       // set
-      this.$popup.css({
+      /* this.$popup.css({
         top: pos.top - topFix + "px",
         left: pos.left + "px",
+      }); */
+      this.$popup.css({
+        top: "105px",
+        left: "55px",
       });
     },
     _buildPositionButton: function () {
@@ -6856,6 +6863,8 @@
       this._buildSticky();
     },
     stop: function () {
+      this.$topBar.remove();
+      this.$sidenav.remove();
       this.$toolbar.remove();
       this.$savebar.remove();
       this.$actionbar.remove();
@@ -6867,10 +6876,13 @@
       this.build();
     },
     build: function () {
+      this.$topBar.html("");
+      this.$sidenav.html("");
       this.$toolbar.html("");
       this.$savebar.html("");
       this.$actionbar.html("");
       this.$rightActionbar.html("");
+
       this._buildButtons();
 
       if (this.opts.editor.viewOnly) {
@@ -6950,10 +6962,11 @@
 
     // private
     _build: function () {
-      this.$navbar = this.dom("<div>").addClass(this.prefix + "-navbar");
+      this.$topBar = this.dom("<div>").addClass(this.prefix + "-topbar");
       this.$toolbar = this.dom("<div>").addClass(this.prefix + "-toolbar");
       this.$savebar = this.dom("<div>").addClass(this.prefix + "-savebar");
       this.$actionbar = this.dom("<div>").addClass(this.prefix + "-actionbar");
+      this.$sidenav = this.dom("<div>").addClass(this.prefix + "-sidenav");
       this.$rightActionbar = this.dom("<div>").addClass(
         this.prefix + "-actionbar-right"
       );
@@ -6963,8 +6976,8 @@
       $container.append(this.$toolbar);
       $container.append(this.$actionbar);
       $container.append(this.$rightActionbar);
-      $container.append(this.$navbar);
-      
+      $container.append(this.$sidenav);
+
       $container.on("mouseover." + this.prefix, this._buildHover.bind(this));
     },
     _buildHover: function () {
@@ -6991,24 +7004,28 @@
         : this.app.editor.getBodyInstance();
       var buttons = instance.toolbar;
 
-      const savebarButtons = ["undo", "redo", "save"];
-      const toolbarButtons = ["code", "mobile"];
-      const rightActionbarButtons = ["shortcut"];
+      const sidenavButtons = [""];
+      const savebarButtons = ["code", "mobile", "shortcut"];
+      const toolbarButtons = ["save", "undo", "redo"];
+      const rightActionbarButtons = [];
 
       for (var name in buttons) {
         if (instance.isAllowedButton(buttons[name])) {
+          const container = rightActionbarButtons.includes(name)
+            ? this.$rightActionbar
+            : toolbarButtons.includes(name)
+            ? this.$toolbar
+            : savebarButtons.includes(name)
+            ? this.$savebar
+            : this.$sidenav;
+
           this.app.create(
             "button",
             name,
             buttons[name],
-            rightActionbarButtons.includes(name)
-              ? this.$rightActionbar
-              : toolbarButtons.includes(name)
-              ? this.$toolbar
-              : savebarButtons.includes(name)
-              ? this.$savebar
-              : this.$actionbar,
+            container,
             "toolbar"
+            //container === this.$sidenav ? "actionbar" : "toolbar"
           );
         }
       }
@@ -7026,7 +7043,7 @@
               ? this.$toolbar
               : savebarButtons.includes(cname)
               ? this.$savebar
-              : this.$actionbar,
+              : this.$sidenav,
             "toolbar"
           );
         }
@@ -7126,7 +7143,7 @@
     },
     _build: function () {
       this.$path = this.dom("<div>").addClass(this.prefix + "-path");
-      this.app.container.get("toolbar").append(this.$path);
+      this.app.container.get("main").append(this.$path);
     },
     _findItems: function () {
       return this.$path.find("." + this.prefix + "-path-item");
@@ -8188,6 +8205,8 @@
         "block",
         "column",
         "footer",
+        "heading",
+        "image",
       ];
       var instance = this.app.component.get();
 
@@ -12443,22 +12462,6 @@
     },
     forms: {
       settings: {
-        "margin-top": {
-          type: "number",
-          label: "## form.margin-top ##",
-        },
-        "margin-bottom": {
-          type: "number",
-          label: "## form.margin-bottom ##",
-        },
-        "margin-left": {
-          type: "number",
-          label: "## form.margin-left ##",
-        },
-        "margin-right": {
-          type: "number",
-          label: "## form.margin-right ##",
-        },
         "font-size": {
           type: "number",
           label: "## form.text-size ##",
@@ -12561,22 +12564,6 @@
     },
     forms: {
       settings: {
-        "margin-top": {
-          type: "number",
-          label: "## form.margin-top ##",
-        },
-        "margin-bottom": {
-          type: "number",
-          label: "## form.margin-bottom ##",
-        },
-        "margin-left": {
-          type: "number",
-          label: "## form.margin-left ##",
-        },
-        "margin-right": {
-          type: "number",
-          label: "## form.margin-right ##",
-        },
         href: {
           type: "input",
           label: "## form.url ##",
@@ -12684,22 +12671,6 @@
     },
     forms: {
       settings: {
-        "margin-top": {
-          type: "number",
-          label: "## form.margin-top ##",
-        },
-        "margin-bottom": {
-          type: "number",
-          label: "## form.margin-bottom ##",
-        },
-        "margin-left": {
-          type: "number",
-          label: "## form.margin-left ##",
-        },
-        "margin-right": {
-          type: "number",
-          label: "## form.margin-right ##",
-        },
         href: {
           type: "input",
           label: "## form.url ##",

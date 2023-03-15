@@ -53,7 +53,7 @@
 .rex-editor-container {
     border: 1px solid rgba(0, 11, 29, 0.1);
     background-color: #F5F5F6;
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 .rex-source,
@@ -69,10 +69,12 @@
     box-shadow: none;
     border-radius: 0;
     background-color: #262F3F;
+    padding-top: 55px;
+    padding-left: 55px;
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
     outline: none;
-    padding: 10px 18px 20px 18px;
+    padding: 100px 18px 20px 50px;
     line-height: 1.5;
     min-height: 60px;
     resize: vertical;
@@ -434,14 +436,15 @@
 .rex-popup {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 14px 28px rgba(0, 11, 29, 0.25), 0 10px 10px rgba(0, 11, 29, 0.1);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
     margin-bottom: 16px;
     overflow-x: auto;
+    max-height: calc(100vh - 65px);
 }
 
 .rex-popup-body {
@@ -1179,7 +1182,9 @@
 }
 
 .rex-toolbar-container {
-    position: relative;
+    position: fixed;
+    top: 48px !important;
+    left: 0;
     z-index: 4;
     display: flex;
     flex-direction: row-reverse;
@@ -1188,13 +1193,13 @@
     margin: 0;
     padding: 0;
     height: 40px;
-    box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 11, 29, 0.32);
 }
 
 .rex-toolbar-sticky {
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
 }
 
 .rex-toolbar {
@@ -1207,6 +1212,67 @@
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+}
+
+.rex-sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
+    display: flex;
+    flex-direction: column;
+    margin-top: 88px;
+}
+
+.master-bar {
+    position: fixed;
+    top: 0;
+    height: 48px;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.master-bar nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #bbbbbb;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.master-bar a {
+    color: #bbbbbb;
+    text-decoration: none;
+    font-family: sans-serif;
+    padding: 0 10px;
+    text-transform: uppercase;
+}
+
+.master-bar a.active {
+    color: #000B1D;
+}
+
+.master-bar .next {
+    cursor: pointer;
+    position: absolute;
+    right: 80px;
+    background: none;
+    border: 0;
+}
+
+.master-bar .exit {
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    background: none;
+    border: 0;
 }
 
 .rex-actionbar {
@@ -1246,6 +1312,12 @@
 }
 
 .rex-path {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    z-index: 100000;
+    transform-origin: top left;
+    transform: rotate(270deg);
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
     font-size: 13px;
