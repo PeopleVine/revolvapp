@@ -1,0 +1,64 @@
+name: Publish Static Files
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - staging
+      - qa
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment for branch
+        run: |
+          if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
+              echo "NODE_ENV=production" >> "$GITHUB_ENV"
+          fi
+
+      - name: Checkout master
+        uses: actions/checkout@master
+
+      - name: Set build number
+        run: echo "BUILD_NUMBER=$(echo $GITHUB_RUN_ID)" >> $GITHUB_ENV
+
+      - name: Append to .npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PAT }}" >> .npmrc
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+      - run: yarn install --frozen-lockfile --production=false && yarn build
+
+      - name: Publish to QA
+        if: ${{ endsWith(github.ref, 'qa') }}
+        uses: bacongobbler/azure-blob-storage-upload@main
+        with:
+          source_dir: public
+          container_name: files
+          connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
+          extra_args: "--destination-path 83/build/qa"
+          overwrite: "true"
+
+      - name: Publish to Staging
+        if: ${{ endsWith(github.ref, 'staging') }}
+        uses: bacongobbler/azure-blob-storage-upload@main
+        with:
+          source_dir: public
+          container_name: files
+          connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
+          extra_args: "--destination-path revolveapp/staging"
+          overwrite: "true"
+
+      - name: Publish to Prod
+        if: ${{ endsWith(github.ref, 'master') }}
+        uses: bacongobbler/azure-blob-storage-upload@main
+        with:
+          source_dir: public
+          container_name: files
+          connection_string: ${{ secrets.AZURE_CONNECTION_STRING }}
+          extra_args: "--destination-path revolveapp/prod"
+          overwrite: "true"
