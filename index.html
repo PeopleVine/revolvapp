@@ -11,26 +11,32 @@
       src="https://kit.fontawesome.com/261503e59d.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <!-- element -->
     <div class="master-bar">
-      <nav>
-        <a href="">Email Settings</a>
-        &gt;
-        <a href="">Choose Template</a>
-        &gt;
-        <a href="" class="active">Design Email</a>
-        &gt;
-        <a href="">Choose Audience</a>
-        &gt;
-        <a href="">Send</a>
-      </nav>
-      <button class="next">Next &rarr;</button>
-      <button class="exit">Exit</button>
+      <div class="master-bar-inner">
+        <div>
+          <button class="next">Save and Continue</button>
+          <button class="next draft">Save as a Draft</button>
+        </div>
+        <nav>Editing Invoice</nav>
+        <div class="prev-wrapper">
+          Close and Back to Templates
+          <button class="prev"><img src="./icons/close.png" /></button>
+        </div>
+      </div>
     </div>
     <div id="myemail"></div>
+
+    <div class="rex-popup-default">Select a component</div>
 
     <!-- revolvapp js -->
     <script src="revolvapp.js"></script>

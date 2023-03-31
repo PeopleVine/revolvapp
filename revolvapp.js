@@ -5620,8 +5620,8 @@
         left: pos.left + "px",
       }); */
       this.$popup.css({
-        top: "105px",
-        left: "55px",
+        top: "145px",
+        left: "0px",
       });
     },
     _buildPositionButton: function () {
@@ -6972,8 +6972,9 @@
       );
 
       var $container = this.app.container.get("toolbar");
+      var $editor = this.app.container.get("editor");
       $container.append(this.$savebar);
-      $container.append(this.$toolbar);
+      $editor.append(this.$toolbar);
       $container.append(this.$actionbar);
       $container.append(this.$rightActionbar);
       $container.append(this.$sidenav);
@@ -7006,7 +7007,7 @@
 
       const sidenavButtons = [""];
       const savebarButtons = ["code", "mobile", "shortcut"];
-      const toolbarButtons = ["save", "undo", "redo"];
+      const toolbarButtons = ["undo", "redo"];
       const rightActionbarButtons = [];
 
       for (var name in buttons) {
@@ -8116,7 +8117,7 @@
       this._unsetComponent(button);
 
       this.app.popup.create("add", {
-        width: "600px",
+        width: "350px",
         title: "## editor.add-block ##",
         builder: "component.buildAddItems",
       });

@@ -5,6 +5,10 @@
     display: none;
 } */
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 @keyframes slideUp {
     to {
         height: 0;
@@ -53,7 +57,7 @@
 .rex-editor-container {
     border: 1px solid rgba(0, 11, 29, 0.1);
     background-color: #F5F5F6;
-    margin-top: 80px;
+    margin-top: calc(72px*2);
 }
 
 .rex-source,
@@ -436,7 +440,7 @@
 .rex-popup {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: white;
     box-shadow: 0 14px 28px rgba(0, 11, 29, 0.25), 0 10px 10px rgba(0, 11, 29, 0.1);
     position: fixed;
     top: 0;
@@ -445,6 +449,18 @@
     margin-bottom: 16px;
     overflow-x: auto;
     max-height: calc(100vh - 65px);
+}
+
+.rex-popup-default {
+    position: fixed;
+    top: 145px;
+    left: 0;
+    width: 350px;
+    height: calc(100% - 150px);
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .rex-popup-body {
@@ -1183,16 +1199,17 @@
 
 .rex-toolbar-container {
     position: fixed;
-    top: 48px !important;
+    top: 72px !important;
     left: 0;
     z-index: 4;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     background-color: #ffffff;
     margin: 0;
     padding: 0;
-    height: 40px;
+    height: 72px;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.32);
 }
 
@@ -1204,6 +1221,9 @@
 
 .rex-toolbar {
     display: flex;
+    padding: 0 280px;
+    height: 28px;
+    justify-content: flex-end;
 }
 
 .rex-button-icon-color {
@@ -1217,33 +1237,44 @@
 .rex-sidenav {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 100000;
     height: 100%;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
     display: flex;
     flex-direction: column;
-    margin-top: 88px;
+    margin-top: calc(72px + 72px);
 }
 
 .master-bar {
     position: fixed;
     top: 0;
-    height: 48px;
+    left: 0;
+    height: 72px;
     width: 100%;
-    background: white;
+    background: #212224;
+    
+    color: white;
+    font-size: 16px;
+}
+
+.master-bar-inner {
+    padding: 0 18px;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .master-bar nav {
+    position: fixed;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #bbbbbb;
-    font-size: 12px;
     font-weight: bold;
 }
 
@@ -1253,6 +1284,7 @@
     font-family: sans-serif;
     padding: 0 10px;
     text-transform: uppercase;
+    
 }
 
 .master-bar a.active {
@@ -1261,10 +1293,21 @@
 
 .master-bar .next {
     cursor: pointer;
-    position: absolute;
-    right: 80px;
-    background: none;
+    background: #4C7664;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    padding: 8px 16px;
     border: 0;
+    text-transform: uppercase;
+    font-family: Jost;
+    margin-right: 8px;
+}
+
+.master-bar .draft {
+    background: transparent;
+    outline: 1px solid #E8E7E9;
+    color: #E8E7E9;
 }
 
 .master-bar .exit {
@@ -1273,6 +1316,31 @@
     right: 30px;
     background: none;
     border: 0;
+}
+
+.master-bar .prev-wrapper {
+
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+}
+
+.master-bar .prev {
+    margin-left: 8px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid #E8E7E9;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.master-bar .prev img {
+    height: 20px;
+    width: 20px;
 }
 
 .rex-actionbar {
@@ -1314,10 +1382,10 @@
 .rex-path {
     position: fixed;
     top: 100%;
-    left: 0;
+    right: 0;
     z-index: 100000;
-    transform-origin: top left;
-    transform: rotate(270deg);
+    transform-origin: top right;
+    transform: rotate(-270deg);
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
     font-size: 13px;
