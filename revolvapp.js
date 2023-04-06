@@ -3679,6 +3679,7 @@
       var instance = $btn.dataget("instance");
 
       // command
+      console.log(command, this.getParams(), instance, name, e);
       this.app.api(command, this.getParams(), instance, name, e);
       this.app.tooltip.close();
     },
@@ -5619,10 +5620,18 @@
         top: pos.top - topFix + "px",
         left: pos.left + "px",
       }); */
-      this.$popup.css({
-        top: "145px",
-        left: "0px",
-      });
+      console.log(this.supername);
+      if (this.supername === "add") {
+        this.$popup.css({
+          top: "145px",
+          left: "0px",
+        });
+      } else {
+        this.$popup.css({
+          top: "264px",
+          left: "calc(100vw - 350px)",
+        });
+      }
     },
     _buildPositionButton: function () {
       var editorRect = this.app.editor.getRect();
@@ -6340,7 +6349,7 @@
       this._reset();
       var len = this._buildItems(stacks);
       if (len > 0) {
-        this._buildClose();
+        //this._buildClose();
       }
     },
 
@@ -6691,6 +6700,7 @@
       }
 
       // command
+
       this.app.api(command, this.getParams(), this, name, e);
     },
   });
@@ -8952,6 +8962,20 @@
       // element
       if ($element.length !== 0 && !this._isNoneditable($element)) {
         this.app.component.set($element);
+        this.app.api(
+          "component.popup",
+          false,
+          {
+            getName: () => "Add",
+            isControl: () => false,
+            get: () => $element,
+            getOffset: () => 0,
+            getDimension: () => ({ width: 0, height: 0 }),
+          },
+          "add",
+          e
+        );
+        console.log($element);
       } else if (this.app.popup.isOpen()) {
         this.app.popup.close();
       } else {
