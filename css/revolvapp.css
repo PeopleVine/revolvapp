@@ -1406,6 +1406,9 @@ body {
     border-bottom: 1px solid #E8E7E9;
     margin-left: 24px;
     width: calc(350px - 48px);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .rex-path::-webkit-scrollbar {
@@ -1449,6 +1452,7 @@ body {
     color: #000B1D;
     text-decoration: none;
     cursor: text;
+    margin-right: 4px;
 }
 
 .rex-path-item.active::before {

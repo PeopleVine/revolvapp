@@ -2079,6 +2079,7 @@
       menu: "Menu",
       "heading-text": "Heading & text",
       "two-text": "Text",
+      "block-wrapper": "Block Wrapper",
       "two-headings-text": "Headings & text",
       "two-images": "Images",
       "two-images-text": "Images with text",
@@ -15178,6 +15179,31 @@
       this.block.add(text);
     },
   });
+
+  Revolvapp.add("block", "block.block-wrapper", {
+    mixins: ["block"],
+    type: "block-wrapper",
+    section: "one",
+    priority: 5,
+    build: function () {
+      // block
+      this.block = this.app.create("tag.block", {
+        padding: "24px 12px",
+      });
+
+      var block2 = this.app.create("tag.block", {});
+
+      var text = this.app.create("tag.text", {
+        html: this.lang.get("placeholders.lorem"),
+      });
+
+      block2.add(text);
+
+      // add
+      this.block.add(block2);
+    },
+  });
+
   Revolvapp.add("block", "block.heading", {
     mixins: ["block"],
     type: "heading",
