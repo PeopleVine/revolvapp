@@ -2009,7 +2009,7 @@
     editor: {
       title: "Body",
       blocks: "Blocks",
-      "add-block": "Add Block",
+      "add-block": "",
     },
     placeholders: {
       "type-url-to-add-link": "Type url to add a link...",
@@ -2047,9 +2047,10 @@
     },
     "add-sections": {
       headers: "Headers",
-      one: "One",
-      two: "Two",
-      three: "Three",
+      footers: "Footers",
+      one: "1 Column block",
+      two: "2 Column block",
+      three: "3 Column block",
       misc: "Misc",
     },
     shortcuts: {
@@ -5630,7 +5631,7 @@
       } else {
         this.$popup.css({
           top: "264px",
-          left: "calc(100vw - 350px)",
+          left: "calc(100vw - 320px)",
         });
       }
     },
@@ -7015,9 +7016,15 @@
         ? this.app.component.get()
         : this.app.editor.getBodyInstance();
       var buttons = instance.toolbar;
+      console.log(instance.toolbar);
 
-      const sidenavButtons = [""];
-      const savebarButtons = ["code", "mobile", "shortcut"];
+      buttons["mobile"] = {
+        command: "editor.toggleView",
+        title: "## buttons.mobile-view ##",
+      };
+
+      const sidenavButtons = ["shortcut", "code"];
+      const savebarButtons = ["mobile"];
       const toolbarButtons = ["undo", "redo"];
       const rightActionbarButtons = [];
 
@@ -7506,6 +7513,11 @@
       this.popups.add(button);
     },
 
+    edit_image: function () {
+      console.log("edit_image");
+      this.app.broadcast("component.edit_image");
+    },
+
     // actions
     duplicate: function () {
       var instance = this.get();
@@ -7786,49 +7798,141 @@
       // set
       this._setAddInstance($blockElement);
     },
-    buildAddItems: function (stack) {
-      for (var key in this.opts._blocks) {
-        var $section = this.dom("<div>").addClass(
-          this.prefix + "-popup-section"
-        );
-        var $sectionBox = this.dom("<div>").addClass(
-          this.prefix + "-popup-section-box"
-        );
+    buildContent: function (stack) {
+      var self = this;
 
-        var sectionTitle = this.lang.get("add-sections." + key);
-        $section.html(sectionTitle || key);
+      return function (e) {
+        var target = e.target;
+
+        var key = target.getAttribute("data-key");
+
+        var $section = self
+          .dom("<div>")
+          .addClass(this.prefix + "-popup-section");
+        var $sectionBox = self
+          .dom("<div>")
+          .addClass(this.prefix + "-popup-section-box");
 
         // items
-        var items = this.opts._blocks[key];
+        var items = self.opts._blocks[key];
         for (var index in items) {
-          if (this._isHiddenBlock(items[index].type)) {
+          if (self._isHiddenBlock(items[index].type)) {
             continue;
           }
 
-          var $item = this.dom("<span>").addClass(
-            this.prefix + "-popup-section-item"
-          );
+          var $item = self
+            .dom("<span>")
+            .addClass(this.prefix + "-popup-section-item");
           $item.attr("data-type", items[index].type);
 
           if (items[index].icon) {
             $item.html(items[index].icon);
           } else {
-            var $blockmap = this.dom("<div>").addClass(
-              this.prefix +
-                "-popup-block-map " +
+            var $blockmap = self
+              .dom("<div>")
+              .addClass(
                 this.prefix +
-                "-b-map-" +
-                items[index].type
-            );
+                  "-popup-block-map " +
+                  this.prefix +
+                  "-b-map-" +
+                  items[index].type
+              );
             $item.append($blockmap);
           }
 
-          var $title = this.dom("<span>").html(items[index].title);
+          var $title = self.dom("<span>").html(items[index].title);
           $item.append($title);
           $sectionBox.append($item);
 
-          $item.on("click.revolvapp", this.add.bind(this));
+          $item.on("click.revolvapp", self.add.bind(this));
+
+          if ($sectionBox.html() !== "") {
+            stack.$body.append($section);
+            stack.$body.append($sectionBox);
+          }
         }
+      };
+    },
+    buildAddItems: function (stack) {
+      // Layout header
+      var $layout = this.dom("<div>").addClass(
+        this.prefix + "-popup-section-box"
+      );
+      $layout.html("<span>Layout</span>");
+
+      for (var key in this.opts._blocks) {
+        var $section = this.dom("<div>").addClass(
+          this.prefix + "-popup-section-choice"
+        );
+
+        var $sectionTitle = this.dom("<div>")
+          .html(this.lang.get("add-sections." + key))
+          .addClass(this.prefix + "-popup-section");
+
+        var $button = this.dom("<button>")
+          .addClass(this.prefix + "-popup-button")
+          .addClass(this.prefix + "-popup-button-" + key);
+
+        $button.attr("data-type", key);
+
+        $button.on("click.revolvapp", this.buildContent.bind(this)(stack));
+
+        var $sectionBox = this.dom("<div>").addClass(
+          this.prefix + "-popup-section-box"
+        );
+
+        $section.append($sectionTitle);
+        $section.append($button);
+
+        $layout.append($section);
+      }
+
+      stack.$body.append($layout);
+
+      // Content header
+      var $content = this.dom("<div >").addClass(
+        this.prefix + "-popup-section-box"
+      );
+      $content.html('<span style="margin-top: 20px">Content</span>');
+      stack.$body.append($content);
+
+      var key = "one";
+
+      var $section = this.dom("<div>").addClass(this.prefix + "-popup-section");
+      var $sectionBox = this.dom("<div>").addClass(
+        this.prefix + "-popup-section-box"
+      );
+
+      // items
+      var items = this.opts._blocks[key];
+      for (var index in items) {
+        if (this._isHiddenBlock(items[index].type)) {
+          continue;
+        }
+
+        var $item = this.dom("<span>").addClass(
+          this.prefix + "-popup-section-item"
+        );
+        $item.attr("data-type", items[index].type);
+
+        if (items[index].icon) {
+          $item.html(items[index].icon);
+        } else {
+          var $blockmap = this.dom("<div>").addClass(
+            this.prefix +
+              "-popup-block-map " +
+              this.prefix +
+              "-b-map-" +
+              items[index].type
+          );
+          $item.append($blockmap);
+        }
+
+        var $title = this.dom("<span>").html(items[index].title);
+        $item.append($title);
+        $sectionBox.append($item);
+
+        $item.on("click.revolvapp", this.add.bind(this));
 
         if ($sectionBox.html() !== "") {
           stack.$body.append($section);
@@ -8128,7 +8232,7 @@
       this._unsetComponent(button);
 
       this.app.popup.create("add", {
-        width: "350px",
+        width: "320px",
         title: "## editor.add-block ##",
         builder: "component.buildAddItems",
       });
@@ -8576,7 +8680,7 @@
         this.mobileMode = false;
       } else {
         this.$editor.css("width", this.opts.editor.mobile + "px");
-        this.app.event.pause();
+        //  this.app.event.pause();
         this.app.component.unset();
         this.app.path.disable();
         this.app.toolbar.disableButtons(["mobile"]);
@@ -8976,7 +9080,6 @@
           "add",
           e
         );
-        console.log($element);
       } else if (this.app.popup.isOpen()) {
         this.app.popup.close();
       } else {
@@ -13214,6 +13317,7 @@
       add: { command: "component.popup" },
       trash: { command: "component.remove" },
       duplicate: { command: "component.duplicate" },
+      edit_image: { command: "component.edit_image" },
     },
     forms: {
       image: {

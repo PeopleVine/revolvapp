@@ -430,6 +430,22 @@ body {
     content: "\e93d";
 }
 
+.icon {
+
+}
+
+.icon.icon-sm {
+    width: 20px;
+    height: 20px;
+}
+
+.rex-icon-edit_image {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/edit.png') center center/cover;
+    width: 13px;
+    height: 13px;
+    border: 0;
+}
+
 .rex-tooltip {
     position: absolute;
     z-index: 99;
@@ -457,11 +473,15 @@ body {
 
 }
 
+.rex-popup-stack-add {
+    padding-bottom: 100px;
+}
+
 .rex-popup-default {
     position: fixed;
     top: 145px;
     left: 0;
-    width: 350px;
+    width: 320px;
     height: calc(100% - 150px);
     background: white;
     display: flex;
@@ -1229,7 +1249,7 @@ body {
 
 .rex-toolbar {
     display: flex;
-    padding: 0 350px;
+    padding: 0 320px;
     height: 28px;
     justify-content: flex-end;
 }
@@ -1249,7 +1269,7 @@ body {
     right: 0;
     z-index: 100000;
     height: 100%;
-    width: 350px;
+    width: 320px;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
     display: flex;
@@ -1346,6 +1366,7 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .master-bar .prev img {
@@ -1392,7 +1413,7 @@ body {
 .rex-path {
     position: fixed;
     top: 164px;
-    left: calc(100vw - 350px);
+    left: calc(100vw - 320px);
     z-index: 100000;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
@@ -1405,7 +1426,7 @@ body {
     -ms-overflow-style: none;
     border-bottom: 1px solid #E8E7E9;
     margin-left: 24px;
-    width: calc(350px - 48px);
+    width: calc(320px - 48px);
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -1610,6 +1631,52 @@ body {
     font-weight: bold;
     color: rgba(0, 11, 29, 0.55);
     padding: 20px 20px 4px 20px;
+}
+
+.rex-popup-section-choice {
+    width: 100%;
+    margin: 4px 0;
+}
+
+.rex-popup-section-choice:hover {
+    
+}
+
+.rex-popup-section-choice .rex-popup-section {
+    padding-left: 0;
+    padding-bottom: 8px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.rex-popup-button {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    height: 52px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #E8E7E9;
+    box-shadow: none;
+}
+
+.rex-popup-button:hover {
+    background-color: rgba(0, 11, 29, 0.05);
+}
+
+.rex-popup-button {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Rectangle_3362_(1).png') center center/contain no-repeat;
+    background-size: 80%;
+}
+
+.rex-popup-button-two {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6138_(1).png') center center/contain no-repeat;
+    background-size: 80%;
+}
+
+.rex-popup-button-three {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6138.png') center center/contain no-repeat;
+    background-size: 80%;
 }
 
 .rex-popup-section-box {
