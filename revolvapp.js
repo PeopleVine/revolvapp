@@ -5622,15 +5622,14 @@
         top: pos.top - topFix + "px",
         left: pos.left + "px",
       }); */
-      console.log(this.supername);
       if (this.supername === "add") {
         this.$popup.css({
-          top: "145px",
+          top: "120.5px",
           left: "0px",
         });
       } else {
         this.$popup.css({
-          top: "264px",
+          top: "240px",
           left: "calc(100vw - 320px)",
         });
       }
@@ -5781,7 +5780,8 @@
         this.$popup.show();
         this._opened();
       } else {
-        this.$popup.fadeIn(100, this._opened.bind(this));
+        this.$popup.show();
+        this._opened();
       }
     },
     _opened: function () {
@@ -6028,7 +6028,7 @@
       }
 
       // close stacks
-      this.popup.closeStacks();
+      //this.popup.closeStacks();
 
       // set
       this.app.popup.setStack(this);
@@ -7729,6 +7729,7 @@
           "." + this.prefix + "-popup-section-item"
         );
         var type = $item.attr("data-type");
+        console.log($item);
         newInstance = this.app.create("block." + type);
       } else {
         newInstance = this.app.create("tag.block", html);
@@ -7806,9 +7807,6 @@
 
         var key = target.getAttribute("data-key");
 
-        var $section = self
-          .dom("<div>")
-          .addClass(this.prefix + "-popup-section");
         var $sectionBox = self
           .dom("<div>")
           .addClass(this.prefix + "-popup-section-box");
@@ -7847,18 +7845,20 @@
           $item.on("click.revolvapp", self.add.bind(this));
 
           if ($sectionBox.html() !== "") {
-            stack.$body.append($section);
             stack.$body.append($sectionBox);
           }
         }
       };
     },
     buildAddItems: function (stack) {
+      const self = this;
       // Layout header
-      var $layout = this.dom("<div>").addClass(
-        this.prefix + "-popup-section-box"
-      );
-      $layout.html("<span>Layout</span>");
+      var $layoutHeader = this.dom("<div>")
+        .addClass(this.prefix + "-popup-section-box")
+        .html("<span>Add Block</span>");
+      var $layout = this.dom("<div>")
+        .addClass(this.prefix + "-popup-section-box")
+        .addClass(this.prefix + "-popup-section-box-layout");
 
       for (var key in this.opts._blocks) {
         var $section = this.dom("<div>").addClass(
@@ -7869,78 +7869,60 @@
           .html(this.lang.get("add-sections." + key))
           .addClass(this.prefix + "-popup-section");
 
-        var $button = this.dom("<button>")
+        var $layoutButton = this.dom("<button>")
           .addClass(this.prefix + "-popup-button")
           .addClass(this.prefix + "-popup-button-" + key);
 
-        $button.attr("data-type", key);
+        $layoutButton.attr("data-type", key);
 
-        $button.on("click.revolvapp", this.buildContent.bind(this)(stack));
+        var $sectionBox = self
+          .dom("<div>")
+          .addClass(self.prefix + "-popup-section-box")
+          .addClass(self.prefix + "-popup-section-box-content");
 
-        var $sectionBox = this.dom("<div>").addClass(
-          this.prefix + "-popup-section-box"
-        );
+        $sectionBox.html("<span>Add:</span>");
+
+        $layoutButton.on("click.revolvapp", function () {
+          $sectionBox.html("<span>Add:</span>");
+          // items
+          var items = self.opts._blocks[this.dataset["type"]];
+          for (var index in items) {
+            if (self._isHiddenBlock(items[index].type)) {
+              continue;
+            }
+
+            var $button = self
+              .dom("<button>")
+              .addClass(self.prefix + "-popup-button")
+              .addClass(self.prefix + "-popup-button-text")
+              .addClass(self.prefix + "-popup-section-item")
+              .addClass(self.prefix + "-popup-button-" + this.dataset["type"])
+              .html(items[index].title);
+
+            $button.attr("data-type", items[index].type);
+
+            $sectionBox.append($button);
+            $button.on("click.revolvapp", self.add.bind(self));
+
+            if ($sectionBox.html() !== "") {
+              stack.$body.append($sectionBox);
+            }
+          }
+        });
 
         $section.append($sectionTitle);
-        $section.append($button);
+        $section.append($layoutButton);
 
         $layout.append($section);
       }
 
+      stack.$body.append($layoutHeader);
       stack.$body.append($layout);
-
-      // Content header
-      var $content = this.dom("<div >").addClass(
-        this.prefix + "-popup-section-box"
-      );
-      $content.html('<span style="margin-top: 20px">Content</span>');
-      stack.$body.append($content);
-
-      var key = "one";
-
-      var $section = this.dom("<div>").addClass(this.prefix + "-popup-section");
-      var $sectionBox = this.dom("<div>").addClass(
-        this.prefix + "-popup-section-box"
-      );
-
-      // items
-      var items = this.opts._blocks[key];
-      for (var index in items) {
-        if (this._isHiddenBlock(items[index].type)) {
-          continue;
-        }
-
-        var $item = this.dom("<span>").addClass(
-          this.prefix + "-popup-section-item"
-        );
-        $item.attr("data-type", items[index].type);
-
-        if (items[index].icon) {
-          $item.html(items[index].icon);
-        } else {
-          var $blockmap = this.dom("<div>").addClass(
-            this.prefix +
-              "-popup-block-map " +
-              this.prefix +
-              "-b-map-" +
-              items[index].type
-          );
-          $item.append($blockmap);
-        }
-
-        var $title = this.dom("<span>").html(items[index].title);
-        $item.append($title);
-        $sectionBox.append($item);
-
-        $item.on("click.revolvapp", this.add.bind(this));
-
-        if ($sectionBox.html() !== "") {
-          stack.$body.append($section);
-          stack.$body.append($sectionBox);
-        }
-      }
     },
-
+    buildAddContent: function (stack) {
+      console.log("add content!");
+      console.log(stack);
+    },
     // private
     _isActive: function ($el) {
       return this.instance && $el.get() === this.get().$element.get();
@@ -8141,6 +8123,7 @@
       else if (name === "tune") this.settings(button);
       else if (name === "items") this.items(button);
       else if (name === "add") this.add(button);
+      else if (name === "add-content") this.addContent(button);
       else if (name === "image") this.image(button);
       else if (name === "video") this.video(button);
     },
@@ -8193,7 +8176,7 @@
 
       // stack
       var stack = this.app.popup.add("add-item", {
-        width: "320px",
+        width: "173px",
         title: "## popup.add-item ##",
         form: component.forms.item,
         footer: {
@@ -8232,12 +8215,21 @@
       this._unsetComponent(button);
 
       this.app.popup.create("add", {
-        width: "320px",
+        width: "173px",
         title: "## editor.add-block ##",
         builder: "component.buildAddItems",
       });
 
-      this.app.popup.open({ button: button });
+      this.app.popup.open({ button: button, autoclose: false });
+    },
+    addContent: function (button) {
+      this.app.popup.create("add-content", {
+        width: "320px",
+        title: "## editor.add-content ##",
+        builder: "component.buildAddContent",
+      });
+
+      this.app.popup.open({ button: button, autoclose: false });
     },
     textcolor: function (button) {
       var names = ["block", "column", "text"];
@@ -12021,11 +12013,6 @@
     mixins: ["tag"],
     type: "body",
     toolbar: {
-      shortcut: {
-        title: "## buttons.shortcuts ##",
-        command: "shortcut.popup",
-        observer: "shortcut.observePopup",
-      },
       mobile: {
         title: "## buttons.mobile-view ##",
         command: "editor.toggleView",
@@ -12133,7 +12120,6 @@
     mixins: ["tag"],
     type: "header",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       background: {
         title: "## buttons.background ##",
         command: "component.popup",
@@ -12183,7 +12169,6 @@
     mixins: ["tag"],
     type: "main",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       background: {
         title: "## buttons.background ##",
         command: "component.popup",
@@ -12233,7 +12218,6 @@
     mixins: ["tag"],
     type: "footer",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       background: {
         title: "## buttons.background ##",
         command: "component.popup",
@@ -12310,7 +12294,6 @@
     mixins: ["tag"],
     type: "block",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",
@@ -12439,7 +12422,6 @@
     mixins: ["tag"],
     type: "spacer",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       tune: { title: "## buttons.settings ##", command: "component.popup" },
     },
     control: {
@@ -12502,7 +12484,6 @@
     mixins: ["tag"],
     type: "divider",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       background: {
         title: "## buttons.background ##",
         command: "component.popup",
@@ -12571,7 +12552,6 @@
     type: "text",
     editable: true,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",
@@ -12674,7 +12654,6 @@
     type: "link",
     editable: true,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",
@@ -12780,7 +12759,6 @@
     editable: true,
     href: false,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",
@@ -12937,9 +12915,7 @@
   Revolvapp.add("class", "tag.grid", {
     mixins: ["tag"],
     type: "grid",
-    toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
-    },
+    toolbar: {},
     control: {
       trash: { command: "component.remove" },
       duplicate: { command: "component.duplicate" },
@@ -13103,7 +13079,6 @@
     type: "video",
     href: false,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       border: { title: "## buttons.border ##", command: "component.popup" },
       video: { title: "## buttons.video ##", command: "component.popup" },
       tune: { title: "## buttons.settings ##", command: "component.popup" },
@@ -13308,7 +13283,6 @@
     type: "image",
     href: false,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       border: { title: "## buttons.border ##", command: "component.popup" },
       image: { title: "## buttons.image ##", command: "component.popup" },
       tune: { title: "## buttons.settings ##", command: "component.popup" },
@@ -13501,7 +13475,6 @@
     mixins: ["tag"],
     type: "menu",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",
@@ -13729,7 +13702,6 @@
     mixins: ["tag"],
     type: "social",
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",
@@ -13934,7 +13906,6 @@
     type: "button",
     editable: true,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       background: {
         title: "## buttons.background ##",
         command: "component.popup",
@@ -14341,7 +14312,6 @@
     type: "list",
     editable: true,
     toolbar: {
-      add: { title: "## buttons.add ##", command: "component.popup" },
       alignment: {
         title: "## buttons.alignment ##",
         command: "component.popup",

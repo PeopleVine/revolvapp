@@ -61,7 +61,7 @@ body {
 .rex-editor-container {
     border: 1px solid rgba(0, 11, 29, 0.1);
     background-color: #F5F5F6;
-    margin-top: calc(72px*2);
+    margin-top: calc(60px*2);
     padding-top: 16px;
     padding-bottom: 32px;
 }
@@ -468,20 +468,21 @@ body {
     z-index: 100;
     margin-bottom: 16px;
     overflow-x: auto;
-    max-height: calc(100vh - 65px);
     padding: 8px;
-
+    
 }
 
-.rex-popup-stack-add {
-    padding-bottom: 100px;
+.rex-popup-add {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.06);
+    border-right: 1px solid #E8E7E9;
+    height: calc(100vh - 120.5px);
 }
 
 .rex-popup-default {
     position: fixed;
-    top: 145px;
+    top: 120.5px;
     left: 0;
-    width: 320px;
+    width: 173px;
     height: calc(100% - 150px);
     background: white;
     display: flex;
@@ -1227,7 +1228,7 @@ body {
 
 .rex-toolbar-container {
     position: fixed;
-    top: 72px !important;
+    top: 60px !important;
     left: 0;
     z-index: 4;
     display: flex;
@@ -1237,7 +1238,7 @@ body {
     background-color: #ffffff;
     margin: 0;
     padding: 0;
-    height: 72px;
+    height: 60px;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.32);
 }
 
@@ -1251,7 +1252,7 @@ body {
     display: flex;
     padding: 0 320px;
     height: 28px;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .rex-button-icon-color {
@@ -1264,7 +1265,7 @@ body {
 
 .rex-sidenav {
     position: fixed;
-    padding-top: 80px;
+    padding-top: 68px;
     top: 0;
     right: 0;
     z-index: 100000;
@@ -1273,7 +1274,7 @@ body {
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
     display: flex;
-    margin-top: calc(72px + 72px);
+    margin-top: 120.5px;
     padding-left: 16px;
 }
 
@@ -1281,10 +1282,10 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    height: 72px;
+    height: 60px;
     width: 100%;
     background: #212224;
-    
+    z-index: 100;
     color: white;
     font-size: 16px;
 }
@@ -1412,7 +1413,7 @@ body {
 
 .rex-path {
     position: fixed;
-    top: 164px;
+    top: 140px;
     left: calc(100vw - 320px);
     z-index: 100000;
     box-sizing: border-box;
@@ -1445,21 +1446,26 @@ body {
     padding-right: 14px;
     line-height: 1;
     position: relative;
+    font-size: 14px;
 }
 
-.rex-path-item:after {
-    content: '-';
+.rex-path-item:not(:first-of-type)::after {
+    content: '/';
     position: absolute;
     right: 4px;
     color: rgba(0, 11, 29, 0.4);
 }
 
-.rex-path-item:last-child {
-    padding-right: 0;
+.rex-path-item.active::after {
+    content: '/';
+    position: absolute;
+    right: -9px;
+    font-weight: normal;
+    color: rgba(0, 11, 29, 0.4);
 }
 
-.rex-path-item:last-child:after {
-    display: none;
+.rex-path-item:last-child {
+    padding-right: 0;
 }
 
 .rex-path-item:hover {
@@ -1473,20 +1479,7 @@ body {
     color: #000B1D;
     text-decoration: none;
     cursor: text;
-    margin-right: 4px;
-}
-
-.rex-path-item.active::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5px;
-    width: 100%;
-    height: 22px;
-    border-radius: 4px;
-    background-color: rgba(49, 139, 27, 0.15);
+    margin-right: 14px;
 }
 
 .rex-path-item.disable,
@@ -1627,10 +1620,10 @@ body {
 
 .rex-popup-section {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: rgba(0, 11, 29, 0.55);
-    padding: 20px 20px 4px 20px;
+    padding: 8px 20px 4px 20px;
 }
 
 .rex-popup-section-choice {
@@ -1638,26 +1631,28 @@ body {
     margin: 4px 0;
 }
 
-.rex-popup-section-choice:hover {
-    
-}
-
 .rex-popup-section-choice .rex-popup-section {
     padding-left: 0;
     padding-bottom: 8px;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .rex-popup-button {
     width: 100%;
     display: block;
     border-radius: 4px;
-    height: 52px;
+    height: 48px;
     cursor: pointer;
     background: none;
-    border: 1px solid #E8E7E9;
     box-shadow: none;
+    border: 1px solid #868690;
+}
+
+.rex-popup-button-text {
+    background: none !important;
+    margin-bottom: 18px;
+    color: #6E6D79;
 }
 
 .rex-popup-button:hover {
@@ -1681,9 +1676,37 @@ body {
 
 .rex-popup-section-box {
     padding: 0 20px 10px 20px;
-    border-bottom: 1px solid rgba(0, 11, 29, 0.07);
     display: flex;
     flex-wrap: wrap;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.rex-popup-section-box-layout {
+    border-bottom: 1px solid rgba(0, 11, 29, 0.1);
+}
+
+.rex-popup-section-box-content-header {
+    margin-top: 20px;
+}
+
+.rex-popup-section-box-content {
+    position: fixed;
+    top: 120.5px;
+    left: 173px;
+    width: 200px;
+    height: calc(100vh - 120px);
+    overflow-y: scroll;
+    background: white;
+    display: block;
+    padding-top: 25px;
+    background: #F9F9F9;
+}
+
+.rex-popup-section-box-content > span {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
 .rex-popup-section-box:last-child {
@@ -1691,7 +1714,7 @@ body {
     margin-bottom: 0;
 }
 
-.rex-popup-section-item {
+.rex-popup-section-item:not(.rex-popup-button) {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
     width: 90px;
     text-align: center;
