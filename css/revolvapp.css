@@ -1263,6 +1263,16 @@ body {
     justify-content: center;
 }
 
+.templates-popup {
+    height: calc(100vh - 120px);
+    z-index: 9999999999;
+}
+
+.templates-popup .rex-popup-header-item {
+    font-size: 24px;
+    margin-left: 24px;
+}
+
 .rex-button-icon-color {
     width: 24px;
     height: 24px;

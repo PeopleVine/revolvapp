@@ -2271,9 +2271,23 @@
 
       // started
       this.broadcast("app.start");
+
+      var self = this;
+
+      var html = this.ajax.get({
+        url: "./templates/Simple Theme/general.html",
+        success: function (data) {
+          self.app.editor.setTemplate(data);
+        },
+      });
+      //this.app.editor.setTemplate();
     },
     isStarted: function () {
       return this.started;
+    },
+
+    openTemplatesPicker: function () {
+      this.app.popup.open("templates");
     },
 
     // stop
@@ -5628,6 +5642,14 @@
           left: "0px",
           maxHeight: "unset",
         });
+      } else if (this.supername === "templates") {
+        this.$popup.addClass("templates-popup");
+        this.$popup.css({
+          top: "120.5px",
+          left: "0px",
+          width: "100vw",
+          maxHeight: "unset",
+        });
       } else {
         this.$popup.css({
           maxHeight: "calc(100vh - 240px)",
@@ -7028,7 +7050,7 @@
       const sidenavButtons = ["shortcut", "code"];
       const savebarButtons = ["mobile"];
       const toolbarButtons = ["undo", "redo"];
-      const rightActionbarButtons = ["code"];
+      const rightActionbarButtons = ["code", "templates"];
 
       for (var name in buttons) {
         if (instance.isAllowedButton(buttons[name])) {
@@ -7895,10 +7917,10 @@
           .addClass(self.prefix + "-popup-section-box")
           .addClass(self.prefix + "-popup-section-box-content");
 
-        $sectionBox.html("<span>Add:</span>");
+        $sectionBox.html("<span>Insert below:</span>");
 
         $layoutButton.on("click.revolvapp", function () {
-          $sectionBox.html("<span>Add:</span>");
+          $sectionBox.html("<span>Insert below:</span>");
           // items
           var items = self.opts._blocks[this.dataset["type"]];
           for (var index in items) {
