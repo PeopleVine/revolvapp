@@ -1260,7 +1260,6 @@ body {
 .rex-toolbar {
     display: flex;
     padding: 0 320px;
-    height: 28px;
     justify-content: center;
 }
 
