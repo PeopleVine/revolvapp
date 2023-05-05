@@ -5626,9 +5626,11 @@
         this.$popup.css({
           top: "120.5px",
           left: "0px",
+          maxHeight: "unset",
         });
       } else {
         this.$popup.css({
+          maxHeight: "calc(100vh - 240px)",
           top: "240px",
           left: "calc(100vw - 320px)",
         });
@@ -7026,7 +7028,7 @@
       const sidenavButtons = ["shortcut", "code"];
       const savebarButtons = ["mobile"];
       const toolbarButtons = ["undo", "redo"];
-      const rightActionbarButtons = [];
+      const rightActionbarButtons = ["code"];
 
       for (var name in buttons) {
         if (instance.isAllowedButton(buttons[name])) {
@@ -7729,7 +7731,6 @@
           "." + this.prefix + "-popup-section-item"
         );
         var type = $item.attr("data-type");
-        console.log($item);
         newInstance = this.app.create("block." + type);
       } else {
         newInstance = this.app.create("tag.block", html);
@@ -7860,7 +7861,21 @@
         .addClass(this.prefix + "-popup-section-box")
         .addClass(this.prefix + "-popup-section-box-layout");
 
-      for (var key in this.opts._blocks) {
+      var nums = {
+        one: "1",
+        two: "2",
+        three: "3",
+      };
+
+      const keys = Object.keys(this.opts._blocks).sort((a, b) => {
+        const _a = nums[a] || a;
+        const _b = nums[b] || b;
+
+        return _a.localeCompare(_b);
+      });
+
+      for (var key of keys) {
+        console.log(key);
         var $section = this.dom("<div>").addClass(
           this.prefix + "-popup-section-choice"
         );
@@ -7898,6 +7913,12 @@
               .addClass(self.prefix + "-popup-section-item")
               .addClass(self.prefix + "-popup-button-" + this.dataset["type"])
               .html(items[index].title);
+
+            var $buttonImg = self
+              .dom("<div>")
+              .addClass(self.prefix + "-popup-button-img");
+
+            $button.prepend($buttonImg);
 
             $button.attr("data-type", items[index].type);
 
@@ -9315,11 +9336,6 @@
           },
         },
         footer: {
-          save: {
-            title: "## buttons.save ##",
-            command: "link.save",
-            type: "primary",
-          },
           unlink: {
             title: "## buttons.unlink ##",
             command: "link.unlink",
