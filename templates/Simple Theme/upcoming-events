@@ -1,0 +1,101 @@
+<re-html>
+    <re-options>{ "text": { "font-family": "sans-serif", "font-size": "18px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#111" } }</re-options>
+    <re-head>
+        <re-title>
+            My Email
+        </re-title>
+        <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    </re-head>
+    <re-body background-color="#fff">
+        <re-preheader>
+            {@preheader@}
+        </re-preheader>
+        <re-header>
+            <re-block padding="0px">
+                <re-grid>
+                    <re-column padding="0px" width="50%">
+                        <re-image src="https://peoplevine.blob.core.windows.net/media/1153/fc27ab7e-91d9-4ff4-96df-5287624850b2/nicole-herrero-rUxkZj6yHrA-unsplash.jpg" width="300px" responsive="true"></re-image>
+                    </re-column>
+                    <re-column padding="0px" width="50%">
+                        <re-image responsive="true" src="https://peoplevine.blob.core.windows.net/media/1153/98234b20-aacf-4654-bdd1-ae889a2d52b8/andreas-ronningen-S2YssLw97l4-unsplash.jpg" width="300px"></re-image>
+                    </re-column>
+                </re-grid>
+            </re-block>
+            <re-block align="center" background-color="#E5D5C6" padding="20px 0px">
+                <re-image src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png" width="65px"></re-image>
+            </re-block>
+            <re-block padding="10px 20px 20px 20px" background-color="#E5D5C6">
+                <re-text font-size="24px" align="center">
+                    <b>YOUR UPCOMING EVENTS THIS MONTH</b>
+                </re-text>
+            </re-block>
+        </re-header>
+        <re-main background-color="#fff" border-radius="6px">
+            <re-block border-radius="0px" align="left" padding="0px 24px 0px 24px" background-color="#E5D5C6" src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png">
+                <re-image src="https://peoplevine.blob.core.windows.net/media/1153/images/Rectangle_965.png" width="572px"></re-image>
+                <re-spacer height="24px"></re-spacer>
+                <re-text align="left" color="#3C2B24" font-size="14px">
+                    <u>OUR SOMMELIER SUGGESTS</u><br>
+                </re-text>
+                <re-spacer></re-spacer>
+                <re-text align="left" color="#908075" font-size="14px">
+                    March 10, 2023 8:00 PM - 11:00 PM | The Red Room
+                </re-text>
+                <re-spacer></re-spacer>
+                <re-text align="left" color="#908075" font-size="14px">
+                    Each Friday, our head Sommelier opens a bottle of something special. We invite you to enjoy a glass at an especially price. This week we’ll offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett, Mosel, at just $ 36.<br>
+                </re-text>
+                <re-spacer></re-spacer>
+                <re-text align="left" color="#908075" font-size="14px">
+                    — <a href="https://peoplevine.com/">View event</a><br>
+                </re-text>
+                <re-spacer height="24px"></re-spacer>
+            </re-block>
+            <re-block border-radius="0px" align="left" padding="0px 24px 0px 24px" background-color="#E5D5C6" src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png">
+                <re-image src="https://peoplevine.blob.core.windows.net/media/1153/images/Rectangle_965.png" width="552px"></re-image>
+                <re-spacer height="24px"></re-spacer>
+                <re-text align="left" color="#3C2B24" font-size="14px">
+                    <u>OUR SOMMELIER SUGGESTS</u><br>
+                </re-text>
+                <re-spacer></re-spacer>
+                <re-text align="left" color="#908075" font-size="14px">
+                    March 10, 2023 8:00 PM - 11:00 PM | The Red Room
+                </re-text>
+                <re-spacer></re-spacer>
+                <re-text align="left" color="#908075" font-size="14px">
+                    Each Friday, our head Sommelier opens a bottle of something special. We invite you to enjoy a glass at an especially price. This week we’ll offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett, Mosel, at just $ 36.<br>
+                </re-text>
+                <re-spacer></re-spacer>
+                <re-text align="left" color="#908075" font-size="14px">
+                    — <a href="https://peoplevine.com/" style="color: rgb(0, 145, 255);">View event</a><br>
+                </re-text>
+                <re-spacer height="24px"></re-spacer>
+            </re-block>
+            <re-block padding="10px 20px" align="center" background-color="#E5D5C6">
+                <re-button background-color="#E19C5C" border="1px solid #E19C5C" font-size="16px">
+                    View All Events
+                </re-button>
+                <re-spacer height="32px"></re-spacer>
+            </re-block>
+        </re-main>
+        <re-footer>
+            <re-block align="center" padding-top="50px" padding-right="60px" padding-bottom="60px" padding-left="60px" background-color="#E5D5C6" padding="12px 24px 24px 24px">
+                <re-social margin-top="40px" margin-right="0" margin-bottom="40px" margin-left="0" align="center">
+                    <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png" width="24px" alt="Facebook"></re-social-item>
+                    <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+                    <re-social-item href="https://twitter.com/" src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png" width="24px" alt="Twitter"></re-social-item>
+                    <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+                    <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png" width="24px" alt="Instagram"></re-social-item>
+                </re-social>
+                <re-spacer height="24px"></re-spacer>
+                <re-text color="#3C2B24" font-size="13px" align="center">
+                    Copyright © 2023 Company Name All rights reserved<br>
+                </re-text>
+                <re-spacer height="12px"></re-spacer>
+                <re-text color="#3C2B24" font-size="13px" align="center">
+                    You can unsubscribe from this email list <a href="https://www.peoplevine.com/" target="_blank" style="color: #3C2B24;">here</a>&nbsp;
+                </re-text>
+            </re-block>
+        </re-footer>
+    </re-body>
+</re-html>
