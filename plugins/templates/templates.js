@@ -43,8 +43,78 @@
         {
           name: "General",
           url: "./templates/Simple Theme/general.html",
+          description: "A general template.",
+          image: "/img/general.png",
+        },
+        {
+          name: "Pending Invoice",
+          url: "./templates/Simple Theme/pending-invoice.html",
+          description: "A simple invoice template.",
+          image: "/img/invoice.png",
+        },
+        {
+          name: "Welcome",
+          url: "./templates/Simple Theme/welcome.html",
+          description: "Welcome members to their new membership.",
+          image: "/img/welcome.png",
         },
       ];
+
+      for (let i = 0; i < templateData.length; i++) {
+        var template = templateData[i];
+
+        var self = this;
+
+        var $section = this.dom("<div>").addClass(
+          this.prefix + "-template-card"
+        );
+
+        var $sectionImageContainer = this.dom("<div>").addClass(
+          this.prefix + "-template-image-container"
+        );
+
+        var $sectionImage = this.dom("<img>")
+          .addClass(this.prefix + "-template-image")
+          .attr("src", template.image);
+
+        var $sectionContent = this.dom("<div>").addClass(
+          this.prefix + "-template-content"
+        );
+
+        var $sectionTitle = this.dom("<div>")
+          .addClass(this.prefix + "-template-title")
+          .text(template.name);
+
+        var $sectionDescription = this.dom("<div>")
+          .addClass(this.prefix + "-template-description")
+          .text(template.description);
+
+        var $sectionButton = this.dom("<button>")
+          .addClass(this.prefix + "-template-button")
+          .text("Select");
+
+        $sectionButton.on("click", () => {
+          console.log(template.url);
+          self.ajax.get({
+            url: templateData[i].url,
+            success: function (data) {
+              self.app.editor.setTemplate(data);
+              self.app.popup.close();
+            },
+          });
+        });
+
+        $sectionImageContainer.append($sectionImage);
+
+        $sectionContent.append($sectionTitle);
+        $sectionContent.append($sectionDescription);
+        $sectionContent.append($sectionButton);
+
+        $section.append($sectionImageContainer);
+        $section.append($sectionContent);
+
+        stack.$body.append($section);
+      }
     },
 
     // private

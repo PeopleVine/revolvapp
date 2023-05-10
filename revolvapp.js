@@ -2274,12 +2274,12 @@
 
       var self = this;
 
-      var html = this.ajax.get({
+      /* var html = this.ajax.get({
         url: "./templates/Simple Theme/general.html",
         success: function (data) {
           self.app.editor.setTemplate(data);
         },
-      });
+      }); */
       //this.app.editor.setTemplate();
     },
     isStarted: function () {
@@ -5643,7 +5643,6 @@
           maxHeight: "unset",
         });
       } else if (this.supername === "templates") {
-        this.$popup.addClass("templates-popup");
         this.$popup.css({
           top: "120.5px",
           left: "0px",
@@ -5654,7 +5653,7 @@
         this.$popup.css({
           maxHeight: "calc(100vh - 240px)",
           top: "240px",
-          left: "calc(100vw - 320px)",
+          left: "calc(100vw - 300px)",
         });
       }
     },
@@ -8173,7 +8172,7 @@
     video: function (button) {
       var instance = this.app.component.get();
       this.app.popup.create("video", {
-        width: "320px",
+        width: "300px",
         title: instance.getTitle(),
         instance: instance,
         getter: "component.getData",
@@ -8187,7 +8186,7 @@
     image: function (button) {
       var instance = this.app.component.get();
       this.app.popup.create("image", {
-        width: "320px",
+        width: "300px",
         title: instance.getTitle(),
         instance: instance,
         getter: "component.getData",
@@ -8244,7 +8243,7 @@
       var component = this.app.component.get();
       var instance = item.getInstance();
       var stack = this.app.popup.add("edit-item", {
-        width: "320px",
+        width: "300px",
         title: "## popup.edit-item ##",
         instance: instance,
         getter: "component.items.getItemData",
@@ -8267,7 +8266,7 @@
     },
     addContent: function (button) {
       this.app.popup.create("add-content", {
-        width: "320px",
+        width: "300px",
         title: "## editor.add-content ##",
         builder: "component.buildAddContent",
       });
@@ -8280,7 +8279,7 @@
 
       this.app.popup.create("text-color", {
         title: "## popup.text-color ##",
-        width: "320px",
+        width: "300px",
         getter: "component.getData",
         setter: "component.setData",
         form: this.opts.forms.textcolor,
@@ -8290,7 +8289,7 @@
         this.app.popup.add("link-color", {
           collapse: false,
           title: "## popup.link-color ##",
-          width: "320px",
+          width: "300px",
           getter: "component.getData",
           setter: "component.setData",
           form: this.opts.forms.linkcolor,
@@ -8305,7 +8304,7 @@
 
       this.app.popup.create("background", {
         title: "## popup.background ##",
-        width: "320px",
+        width: "300px",
         getter: "component.getData",
         setter: "component.setData",
         form: this.opts.forms.background,
@@ -8317,7 +8316,7 @@
       ) {
         this.app.popup.add("background-image", {
           collapse: false,
-          width: "320px",
+          width: "300px",
           title: "## popup.background-image ##",
           instance: instance,
           getter: "component.getData",
@@ -8366,7 +8365,7 @@
         ? this.lang.get("popup.settings")
         : instance.getTitle();
       this.app.popup.create("settings", {
-        width: "320px",
+        width: "300px",
         title: title,
         instance: instance,
         getter: "component.getData",
@@ -8378,7 +8377,7 @@
         this.app.popup.add("margin", {
           collapse: false,
           title: "## popup.margin ##",
-          width: "320px",
+          width: "300px",
           getter: "component.getData",
           setter: "component.setData",
           form: this.opts.forms.margin,
@@ -8387,7 +8386,7 @@
         this.app.popup.add("padding", {
           collapse: false,
           title: "## popup.padding ##",
-          width: "320px",
+          width: "300px",
           getter: "component.getData",
           setter: "component.setData",
           form: this.opts.forms.padding,
@@ -8990,7 +8989,7 @@
       // stacks
       this.app.popup.create("background", {
         title: "## popup.background ##",
-        width: "320px",
+        width: "300px",
         getter: "editor.getData",
         setter: "editor.setData",
         form: instance.forms.background,
