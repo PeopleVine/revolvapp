@@ -1,14 +1,20 @@
-(function() {
-    Revolvapp.add('plugin', 'add', {
-        start: function() {
-            this.app.control.add('add', {
-                icon: '<i class="fa fa-plus"></i>',
-                command: 'add.toggle',
-                position: 'first'
-            });
+(function () {
+  Revolvapp.add("plugin", "add", {
+    start: function () {
+      this.app.api(
+        "component.popup",
+        false,
+        {
+          getName: () => "Add",
+          isControl: () => false,
+          get: () => {},
+          getOffset: () => 0,
+          getDimension: () => ({ width: 0, height: 0 }),
         },
-        toggle: function(args) {
-            alert("open add blocks")
-        }
-    });
+        "add",
+        {}
+      );
+    },
+    toggle: function (args) {},
+  });
 })(Revolvapp);

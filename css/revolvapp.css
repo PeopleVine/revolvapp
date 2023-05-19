@@ -482,7 +482,6 @@ body {
 }
 
 .rex-popup-add {
-    box-shadow: 6px 0 4px -4px rgba(0,0,0,0.7); 
     border-right: 1px solid #E8E7E9;
     height: calc(100vh - 120.5px);
 }
@@ -1484,7 +1483,96 @@ body {
     top: 0px;
     height: 60px;
     z-index: 1000000;
-    width: 50%;
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;  
+    align-items: center;
+}
+
+.rex-button-icon {
+    position: relative;
+}
+
+.rex-icon-alignment {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6892_(1).png') center center/130%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rex-icon-alignment::before {
+    content: '';
+    display: block;
+}
+
+.rex-icon-tune {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6898.png') center center/130%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rex-icon-tune::before {
+    content: '';
+    display: block;
+}
+
+nav.nav {
+}
+
+.nav-item.selected {
+    cursor: pointer;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 16px;
+    appearance: none;
+    margin-top: -5px;
+}
+
+.nav-item.selected:focus + .nav-options {
+    display: flex;
+}
+
+.nav-chevron {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-bottom: -5px;
+}
+
+.nav-options {
+    display: none;
+    position: absolute;
+    background: white;
+    color: #9F9EA6;
+    top: calc(100% + 5px);
+    padding: 10px;
+    border-radius: 4px;
+    min-width: 500px;
+    justify-content: space-between;
+}
+
+.nav-options .nav-item {
+    flex-shrink: 0;  
+}
+
+.nav-options .nav-item.on {
+    font-weight: bold;
+    color: black;
+}
+
+.rex-undobar {
+    right: 100px;
+    position: absolute;
+    top: 0px;
+    height: 60px;
+    z-index: 1000000;
+    width: 25%;
     display: flex;
     justify-content: flex-end;  
     align-items: center;
@@ -1708,8 +1796,10 @@ body {
 
 
 .rex-popup-section-choice {
+    position: relative;
     width: 100%;
     margin: 4px 0;
+    
 }
 
 .rex-popup-section-choice .rex-popup-section {
@@ -1719,7 +1809,35 @@ body {
     font-size: 13px;
 }
 
+.rex-popup-section-box-content-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #E8E7E9;
+    padding-bottom: 16px;
+}
+
+.close-button {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.close-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.warning-icon {
+    height: auto;
+    width: 30px;
+}
+
 .rex-popup-button {
+    position: relative;
     width: 100%;
     display: block;
     border-radius: 4px;
@@ -1728,6 +1846,22 @@ body {
     background: none;
     box-shadow: none;
     border: 2px solid #CFCFD3;
+}
+
+.rex-popup-section-box-content .rex-popup-button::after {
+    position: absolute;
+    display: block;
+    content: "";
+    right: 100%;
+    transform: translateX(50%);
+    width: 16px;
+    height: 16px;
+    background: url(https://peoplevine.blob.core.windows.net/media/361/plus-circle.png) center center/contain;
+}
+
+.rex-popup-section-box-content .rex-popup-button:hover {
+    border: 1px solid #57806E;
+    color: #57806E;
 }
 
 .rex-popup-button-text {
@@ -1741,6 +1875,7 @@ body {
 }
 
 .rex-popup-button-img {
+    position: relative;
     margin-right: 8px;
     width: 20px;
     height: 20px;
@@ -1772,18 +1907,34 @@ body {
     background-image: url(https://peoplevine.blob.core.windows.net/media/361/782e8d40-1a32-4a3f-a6d9-26b6fcb5058d/fb.png)
 }
 
+.rex-popup-button[data-type="heading"] .rex-popup-button-img {
+    background-image: url(https://peoplevine.blob.core.windows.net/media/361/heading_1.png)
+}
+
+.rex-popup-button[data-type="menu"] .rex-popup-button-img {
+    background-image: url(https://peoplevine.blob.core.windows.net/media/361/menu.png)
+}
+
+.rex-popup-button[data-type="list"] .rex-popup-button-img {
+    background-image: url(https://peoplevine.blob.core.windows.net/media/361/ordered-list.png)
+}
+
+.rex-popup-button[data-type="divider"] .rex-popup-button-img {
+    background-image: url(https://peoplevine.blob.core.windows.net/media/361/scan.png)
+}
+
 
 .rex-popup-button:hover {
     background-color: rgba(0, 11, 29, 0.05);
     border-color:#4C7664;
 }
 
-.rex-popup-button {
+.rex-popup-button-one {
     background: url('https://peoplevine.blob.core.windows.net/media/361/Rectangle_3363_(1).png') center center/contain no-repeat;
     background-size: 80%;
 }
 
-.rex-popup-button:not(.rex-popup-button-two, .rex-popup-button-three):hover {
+.rex-popup-button-one:hover {
     background-image: url('https://peoplevine.blob.core.windows.net/media/361/Rectangle_3363_(1).png');
 }
 
@@ -1795,6 +1946,28 @@ body {
 .rex-popup-button-three {
     background: url('https://peoplevine.blob.core.windows.net/media/361/648a848d-9951-461f-b8ea-ce2a855f5b83/Frame_6138_(3).png') center center/contain no-repeat;
     background-size: 80%;
+}
+
+.rex-popup-section-choice .rex-popup-button:not(.rex-popup-button-one, .rex-popup-button-two, .rex-popup-button-three) ~ .rex-popup-section {
+    font-weight: bold;
+}
+
+.rex-popup-section-choice .rex-popup-button:not(.rex-popup-button-one, .rex-popup-button-two, .rex-popup-button-three) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+}
+
+.rex-popup-section-choice .rex-popup-button:not(.rex-popup-button-one, .rex-popup-button-two, .rex-popup-button-three):after {
+    position: absolute;
+    right: 0;
+    content: '›';
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
 }
 
 .rex-popup-section-box {
@@ -1824,6 +1997,7 @@ body {
     display: block;
     padding-top: 25px;
     background: #F9F9F9;
+    box-shadow: inset 120px 0px 37px -150px rgba(0,0,0,0.75);
 }
 
 .rex-popup-section-box-content > span {

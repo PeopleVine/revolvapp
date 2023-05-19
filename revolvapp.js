@@ -3695,7 +3695,6 @@
       var instance = $btn.dataget("instance");
 
       // command
-      console.log(command, this.getParams(), instance, name, e);
       this.app.api(command, this.getParams(), instance, name, e);
       this.app.tooltip.close();
     },
@@ -5497,6 +5496,10 @@
 
     // close
     close: function (e, name) {
+      if (this.name === "add") {
+        return;
+      }
+
       if (this.autoclose === false) {
         if (e === true) {
         } else if (!name) {
@@ -6903,6 +6906,7 @@
       this.$toolbar.remove();
       this.$savebar.remove();
       this.$actionbar.remove();
+      this.$undoBar.remove();
       this.$rightActionbar.remove();
       this.customButtons = {};
     },
@@ -6917,6 +6921,7 @@
       this.$savebar.html("");
       this.$actionbar.html("");
       this.$rightActionbar.html("");
+      this.$undoBar.html("");
 
       this._buildButtons();
 
@@ -7002,6 +7007,7 @@
       this.$savebar = this.dom("<div>").addClass(this.prefix + "-savebar");
       this.$actionbar = this.dom("<div>").addClass(this.prefix + "-actionbar");
       this.$sidenav = this.dom("<div>").addClass(this.prefix + "-sidenav");
+      this.$undoBar = this.dom("<div>").addClass(this.prefix + "-undobar");
       this.$rightActionbar = this.dom("<div>").addClass(
         this.prefix + "-actionbar-right"
       );
@@ -7013,6 +7019,7 @@
       $container.append(this.$actionbar);
       $container.append(this.$rightActionbar);
       $container.append(this.$sidenav);
+      $container.append(this.$undoBar);
 
       $container.on("mouseover." + this.prefix, this._buildHover.bind(this));
     },
@@ -7039,24 +7046,22 @@
         ? this.app.component.get()
         : this.app.editor.getBodyInstance();
       var buttons = instance.toolbar;
-      console.log(instance.toolbar);
 
       buttons["mobile"] = {
         command: "editor.toggleView",
         title: "## buttons.mobile-view ##",
       };
 
-      const sidenavButtons = ["shortcut", "code"];
       const savebarButtons = ["mobile"];
-      const toolbarButtons = ["undo", "redo"];
-      const rightActionbarButtons = ["code", "templates"];
+      const undoBarButtons = ["undo", "redo"];
+      const rightActionbarButtons = ["undo", "redo", "templates"];
 
       for (var name in buttons) {
+        console.log(name);
+        console.log(undoBarButtons.includes(name));
         if (instance.isAllowedButton(buttons[name])) {
           const container = rightActionbarButtons.includes(name)
             ? this.$rightActionbar
-            : toolbarButtons.includes(name)
-            ? this.$toolbar
             : savebarButtons.includes(name)
             ? this.$savebar
             : this.$sidenav;
@@ -7079,10 +7084,10 @@
             "button",
             cname,
             this.customButtons[cname],
-            rightActionbarButtons.includes(cname)
+            undoBarButtons.includes(cname)
+              ? this.$undoBar
+              : rightActionbarButtons.includes(cname)
               ? this.$rightActionbar
-              : toolbarButtons.includes(cname)
-              ? this.$toolbar
               : savebarButtons.includes(cname)
               ? this.$savebar
               : this.$sidenav,
@@ -7537,7 +7542,6 @@
     },
 
     edit_image: function () {
-      console.log("edit_image");
       this.app.broadcast("component.edit_image");
     },
 
@@ -7896,7 +7900,6 @@
       });
 
       for (var key of keys) {
-        console.log(key);
         var $section = this.dom("<div>").addClass(
           this.prefix + "-popup-section-choice"
         );
@@ -7916,10 +7919,21 @@
           .addClass(self.prefix + "-popup-section-box")
           .addClass(self.prefix + "-popup-section-box-content");
 
-        $sectionBox.html("<span>Insert below:</span>");
+        $sectionBox.html("<span>Add below:</span>");
 
         $layoutButton.on("click.revolvapp", function () {
-          $sectionBox.html("<span>Insert below:</span>");
+          $sectionBox.html(`
+          <div class="${self.prefix + "-popup-section-box-content-heading"}">
+            <span>Add below:</span>
+            <span>
+              <button class="close-button">
+                <img src="https://peoplevine.blob.core.windows.net/media/361/close.png" />
+              </button>
+            </span>
+          </div>`);
+          $sectionBox.find(".close-button").on("click.revolvapp", function () {
+            $sectionBox.remove();
+          });
           // items
           var items = self.opts._blocks[this.dataset["type"]];
           for (var index in items) {
@@ -7961,10 +7975,7 @@
       stack.$body.append($layoutHeader);
       stack.$body.append($layout);
     },
-    buildAddContent: function (stack) {
-      console.log("add content!");
-      console.log(stack);
-    },
+    buildAddContent: function (stack) {},
     // private
     _isActive: function ($el) {
       return this.instance && $el.get() === this.get().$element.get();
@@ -8003,6 +8014,31 @@
     _getAddInstance: function () {
       var types = ["main", "header", "footer"];
       var button = this.app.popup.getButton();
+
+      if (!button.getElement) {
+        Toastify({
+          duration: 2000,
+          position: "center",
+          node: this.dom(
+            `<div>
+              <img class="warning-icon" src="https://peoplevine.blob.core.windows.net/media/361/warning.png" />
+              <div>
+                Tap anywhere on the content to add a block
+              </div>
+            </div>`
+          ).nodes[0],
+          style: {
+            background: "#F8F8F8",
+            border: "2px solid #F8F8F8",
+            color: "#212224",
+            borderRadius: "8px",
+            width: "230px",
+            fontSize: "14px",
+            textAlign: "center",
+          },
+        }).showToast();
+      }
+
       var $el = button.getElement();
       var $layer = this.app.element.getClosest($el, types);
 
@@ -12053,11 +12089,6 @@
       mobile: {
         title: "## buttons.mobile-view ##",
         command: "editor.toggleView",
-      },
-      code: {
-        title: "## buttons.html ##",
-        command: "source.toggle",
-        observer: "source.checkCodeView",
       },
       background: {
         title: "## buttons.background ##",

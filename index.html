@@ -17,6 +17,11 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Roboto:wght@100;400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
 
   <body>
@@ -26,7 +31,26 @@
         <div>
           <button class="next">Save and Continue</button>
         </div>
-        <nav>Editing Invoice</nav>
+        <nav class="nav">
+          <button class="nav-item selected">
+            3/5.&nbsp;&nbsp; Editing Invoice
+            <img
+              class="nav-chevron"
+              src="https://peoplevine.blob.core.windows.net/media/361/chevron.png"
+            />
+          </button>
+          <div class="nav-options">
+            <div class="nav-item">1. Menu</div>
+            /
+            <div class="nav-item">2. Templates</div>
+            /
+            <div class="nav-item on">3. Editor</div>
+            /
+            <div class="nav-item">4. Select audience</div>
+            /
+            <div class="nav-item">5. Send</div>
+          </div>
+        </nav>
         <div class="prev-wrapper">
           Close and back to menu
           <button class="prev"><img src="./icons/close.png" /></button>
@@ -112,7 +136,7 @@
 
       Revolvapp("#myemail", {
         plugins: [
-          //"add",
+          "add",
           "variable",
           "reorder",
           "code",
@@ -151,5 +175,9 @@
         },
       });
     </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
   </body>
 </html>
