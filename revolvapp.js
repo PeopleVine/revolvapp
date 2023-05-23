@@ -7057,8 +7057,6 @@
       const rightActionbarButtons = ["undo", "redo", "templates"];
 
       for (var name in buttons) {
-        console.log(name);
-        console.log(undoBarButtons.includes(name));
         if (instance.isAllowedButton(buttons[name])) {
           const container = rightActionbarButtons.includes(name)
             ? this.$rightActionbar
@@ -7921,6 +7919,67 @@
 
         $sectionBox.html("<span>Add below:</span>");
 
+        var setsNav = self
+          .dom("<div>")
+          .addClass(self.prefix + "-popup-section-box-content-nav");
+
+        var singlesButton = self
+          .dom("<button>Singles</button>")
+          .addClass(self.prefix + "-popup-button")
+          .addClass(self.prefix + "-popup-button-single")
+          .addClass("selected");
+
+        var setsButton = self
+          .dom("<button>Sets</button>")
+          .addClass(self.prefix + "-popup-button")
+          .addClass(self.prefix + "-popup-button-set");
+
+        setsNav.append(singlesButton);
+        setsNav.append(setsButton);
+
+        singlesButton.on("click.revolvapp", function (e) {
+          document
+            .querySelector("." + self.prefix + "-popup-button-single")
+            .classList.add("selected");
+          document
+            .querySelector("." + self.prefix + "-popup-button-set")
+            .classList.remove("selected");
+
+          document.querySelector(
+            "." + self.prefix + "-popup-section-box-content-single"
+          ).style.display = "block";
+
+          document.querySelector(
+            "." + self.prefix + "-popup-section-box-content-set"
+          ).style.display = "none";
+        });
+
+        setsButton.on("click.revolvapp", function (e) {
+          document
+            .querySelector("." + self.prefix + "-popup-button-set")
+            .classList.add("selected");
+
+          document
+            .querySelector("." + self.prefix + "-popup-button-single")
+            .classList.remove("selected");
+
+          document.querySelector(
+            "." + self.prefix + "-popup-section-box-content-single"
+          ).style.display = "none";
+
+          document.querySelector(
+            "." + self.prefix + "-popup-section-box-content-set"
+          ).style.display = "block";
+        });
+
+        var $singleContent = self
+          .dom("<div>")
+          .addClass(self.prefix + "-popup-section-box-content-single");
+
+        var $setContent = self
+          .dom("<div>")
+          .addClass(self.prefix + "-popup-section-box-content-set");
+
         $layoutButton.on("click.revolvapp", function () {
           $sectionBox.html(`
           <div class="${self.prefix + "-popup-section-box-content-heading"}">
@@ -7931,12 +7990,15 @@
               </button>
             </span>
           </div>`);
+          $sectionBox.append(setsNav);
           $sectionBox.find(".close-button").on("click.revolvapp", function () {
             $sectionBox.remove();
           });
           // items
+          console.log(self.opts._blocks);
           var items = self.opts._blocks[this.dataset["type"]];
           for (var index in items) {
+            console.log(items[index]);
             if (self._isHiddenBlock(items[index].type)) {
               continue;
             }
@@ -7957,12 +8019,20 @@
 
             $button.attr("data-type", items[index].type);
 
-            $sectionBox.append($button);
-            $button.on("click.revolvapp", self.add.bind(self));
-
-            if ($sectionBox.html() !== "") {
-              stack.$body.append($sectionBox);
+            if (items[index].set) {
+              $setContent.append($button);
+            } else {
+              $singleContent.append($button);
             }
+
+            $button.on("click.revolvapp", self.add.bind(self));
+          }
+
+          $sectionBox.append($singleContent);
+          $sectionBox.append($setContent);
+
+          if ($sectionBox.html() !== "") {
+            stack.$body.append($sectionBox);
           }
         });
 
@@ -8864,7 +8934,12 @@
             continue;
           }
 
-          var data = { type: obj.type, icon: obj.icon, title: title };
+          var data = {
+            type: obj.type,
+            icon: obj.icon,
+            title: title,
+            set: !!obj.set,
+          };
 
           if (priority) {
             this.opts._blocks[obj.section][priority] = data;
@@ -15325,6 +15400,7 @@
   Revolvapp.add("block", "block.block-wrapper", {
     mixins: ["block"],
     type: "block-wrapper",
+    set: true,
     section: "one",
     priority: 5,
     build: function () {
@@ -15369,6 +15445,7 @@
   Revolvapp.add("block", "block.heading-text", {
     mixins: ["block"],
     type: "heading-text",
+    set: true,
     section: "one",
     priority: 30,
     build: function () {
@@ -15434,6 +15511,7 @@
   Revolvapp.add("block", "block.image-text", {
     mixins: ["block"],
     type: "image-text",
+    set: true,
     section: "one",
     priority: 50,
     build: function () {
@@ -15457,6 +15535,7 @@
   Revolvapp.add("block", "block.image-heading-text", {
     mixins: ["block"],
     type: "image-heading-text",
+    set: true,
     section: "one",
     priority: 60,
     build: function () {

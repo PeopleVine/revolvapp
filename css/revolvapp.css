@@ -1812,9 +1812,40 @@ nav.nav {
 .rex-popup-section-box-content-heading {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     border-bottom: 1px solid #E8E7E9;
     padding-bottom: 16px;
+}
+
+.rex-popup-section-box-content-set {
+    display: none;
+}
+
+.rex-popup-section-box-content-nav {
+    display: flex;
+    margin: 0 4px 32px 4px;
+}
+
+button.rex-popup-button.rex-popup-button-single.selected, button.rex-popup-button.rex-popup-button-set.selected {
+    border-bottom: 3px solid #57806E;
+    margin-bottom: -3px;
+}
+button.rex-popup-button.rex-popup-button-single.selected:hover, button.rex-popup-button.rex-popup-button-set.selected:hover {
+    border-bottom: 3px solid #57806E;
+}
+
+button.rex-popup-button.rex-popup-button-single, button.rex-popup-button.rex-popup-button-set {
+    border: 0;
+    border-radius: 0;
+    padding: 4px;
+    height: unset;
+}
+button.rex-popup-button.rex-popup-button-single:hover, button.rex-popup-button.rex-popup-button-set:hover {
+    border: 0;
+    background: none;
+}
+button.rex-popup-button.rex-popup-button-single:after, button.rex-popup-button.rex-popup-button-set:after {
+    display: none;
 }
 
 .close-button {
