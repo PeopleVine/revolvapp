@@ -1489,12 +1489,16 @@ body {
     align-items: center;
 }
 
+.rex-button-icon-color {
+    background: transparent !important;
+}
+
 .rex-button-icon {
     position: relative;
 }
 
 .rex-icon-alignment {
-    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6892_(1).png') center center/130%;
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6892_(1).png') center center/110%;
     position: absolute;
     top: 0;
     left: 0;
@@ -1521,7 +1525,93 @@ body {
     display: block;
 }
 
-nav.nav {
+.rex-icon-background {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6895.png') center center/150%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rex-icon-background::before {
+    content: '';
+    display: block;
+}
+
+.rex-icon-text-color {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6896.png') center center/150%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rex-icon-text-color::before {
+    content: '';
+    display: block;
+}
+
+.rex-icon-border {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6897.png') center center/120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rex-icon-border::before {
+    content: '';
+    display: block;
+}
+
+.rex-icon-link {
+    background: url('https://peoplevine.blob.core.windows.net/media/361/Frame_6895_(1).png') center center/120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.rex-icon-link::before {
+    content: '';
+    display: block;
+}
+
+.rex-form-input {
+    font-size: 12px;
+    color: #6E6D79;
+    background: white;
+}
+
+.rex-form-container-flex.rex-form-container-color {
+    display: inline-flex;
+    border: 1px solid #E8E7E9;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0 8px;
+}
+
+.rex-form-container-color .rex-form-color-select {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+    margin-right: 8px;
+}
+
+.rex-form-container-color .rex-form-input {
+    border: 0;
+    min-height: 45px;
+}
+
+.rex-form-color-select-eye-dropper {
+    background: none;
+    border: 0;
+    filter: invert(1) brightness(0.5);
 }
 
 .nav-item.selected {
@@ -1740,7 +1830,7 @@ nav.nav {
 .rex-form-colors {
     box-sizing: border-box;
     flex-direction: column;
-    width: 22px;
+    width: 19px;
     line-height: 1;
 }
 
@@ -2213,6 +2303,10 @@ only screen and (min-device-pixel-ratio: 2) {
 
 .rex-b-map-list {
     background-position: -1200px 0;
+}
+
+.rex-popup-ext {
+    width: 173px;
 }
 
 .rex-popup-shortcut-item {

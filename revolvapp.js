@@ -1716,6 +1716,12 @@
       hidden: false,
     },
     forms: {
+      link: {
+        href: {
+          type: "text",
+          label: "## form.href ##",
+        },
+      },
       textcolor: {
         color: {
           type: "color",
@@ -1743,6 +1749,7 @@
       padding: {
         "padding-top": {
           type: "number",
+          value: "padding-top",
           label: "## form.padding-top ##",
         },
         "padding-bottom": {
@@ -2151,7 +2158,7 @@
       "edit-column": "Edit Column",
       border: "Border",
       items: "Items",
-      background: "Background",
+      background: "Background Color",
       "background-image": "Image",
       "text-color": "Text Color",
       "link-color": "Link Color",
@@ -2796,48 +2803,48 @@
         case "padding":
         case "padding-top":
           $target.css(name, value);
-          if (name === "padding-top" && !value.includes("px")) {
+          if (name === "padding-top" && typeof value === "number") {
             $target.css(name, value + "px");
           }
           break;
         case "padding-right":
           $target.css(name, value);
-          if (name === "padding-right" && !value.includes("px")) {
+          if (name === "padding-right" && typeof value === "number") {
             $target.css(name, value + "px");
           }
           break;
         case "padding-bottom":
           $target.css(name, value);
-          if (name === "padding-bottom" && !value.includes("px")) {
+          if (name === "padding-bottom" && typeof value === "number") {
             $target.css(name, value + "px");
           }
         case "padding-left":
           $target.css(name, value);
-          if (name === "padding-left" && !value.includes("px")) {
+          if (name === "padding-left" && typeof value === "number") {
             $target.css(name, value + "px");
           }
         case "margin":
         case "margin-top":
           $target.css(name, value);
-          if (name === "margin-top" && !value.includes("px")) {
+          if (name === "margin-top" && typeof value === "number") {
             $target.css(name, value + "px");
           }
           break;
         case "margin-right":
           $target.css(name, value);
-          if (name === "margin-right" && !value.includes("px")) {
+          if (name === "margin-right" && typeof value === "number") {
             $target.css(name, value + "px");
           }
           break;
         case "margin-bottom":
           $target.css(name, value);
-          if (name === "margin-bottom" && !value.includes("px")) {
+          if (name === "margin-bottom" && typeof value === "number") {
             $target.css(name, value + "px");
           }
           break;
         case "margin-left":
           $target.css(name, value);
-          if (name === "margin-left" && !value.includes("px")) {
+          if (name === "margin-left" && typeof value === "number") {
             $target.css(name, value + "px");
           }
           break;
@@ -5396,7 +5403,7 @@
         return this.stack;
       }
 
-      this._reset();
+      this._reset(name);
       this.name = name;
       this.supername = name;
       this.stack = this._createStack(name, params);
@@ -5428,7 +5435,11 @@
     getName: function () {
       return this.name;
     },
-    getElement: function () {
+    getElement: function (name) {
+      if (name === "add") {
+        return this.$addPopup;
+      }
+
       return this.$popup;
     },
     getButton: function () {
@@ -5574,8 +5585,15 @@
       this.$popup.hide();
       this.$popup.attr("dir", this.opts.editor.direction);
 
+      this.$addPopup = this.dom("<div>").addClass(
+        this.prefix + "-popup " + this.prefix + "-popup-" + "ext"
+      );
+      this.$addPopup.hide();
+      this.$addPopup.attr("dir", this.opts.editor.direction);
+
       // append
       this.app.$body.append(this.$popup);
+      this.app.$body.append(this.$addPopup);
     },
     _buildDepth: function () {
       if (this.opts.bsmodal) {
@@ -5594,7 +5612,11 @@
         ? params.control
         : false;
     },
-    _buildName: function () {
+    _buildName: function (params) {
+      if (params.button.getName === "Add") {
+        this.$addPopup.attr("data-" + this.prefix + "-popup-name", this.name);
+        this.$addPopup.addClass(this.prefix + "-popup-" + this.name);
+      }
       this.$popup.attr("data-" + this.prefix + "-popup-name", this.name);
       this.$popup.addClass(this.prefix + "-popup-" + this.name);
     },
@@ -5641,6 +5663,11 @@
       }); */
       if (this.supername === "add") {
         this.$popup.css({
+          top: "120.5px",
+          left: "0px",
+          maxHeight: "unset",
+        });
+        this.$addPopup.css({
           top: "120.5px",
           left: "0px",
           maxHeight: "unset",
@@ -5771,10 +5798,11 @@
 
     // open
     _open: function (params, animation) {
+      console.log(params);
       this._buildButton(params);
       this._buildControl(params);
-      this._buildName();
-      this._buildHeader();
+      this._buildName(params);
+      this._buildHeader(params);
 
       // broadcast
       var event = this.app.broadcast("popup.before.open");
@@ -5800,6 +5828,10 @@
 
       // build position
       this._buildPosition();
+
+      if (params.button.getName() === "Add") {
+        this.$addPopup.show();
+      }
 
       // show
       if (animation === false) {
@@ -5868,12 +5900,18 @@
     },
 
     // reset
-    _reset: function () {
+    _reset: function (name) {
       this.button = false;
       this.control = false;
       this.autoclose = true;
       this.stack = false;
       this.stacks = [];
+
+      if (name === "add") {
+        this.$addPopup.html("");
+        this.$addPopup.removeClass("has-footer has-items has-form");
+      }
+
       this.$popup.html("");
       this.$popup.removeClass("has-footer has-items has-form");
     },
@@ -6054,7 +6092,7 @@
       }
 
       // close stacks
-      //this.popup.closeStacks();
+      this.popup.closeStacks();
 
       // set
       this.app.popup.setStack(this);
@@ -6161,7 +6199,8 @@
       this.$stack.attr("data-" + this.prefix + "-stack-name", this.name);
 
       // append
-      this.popup.getElement().append(this.$stack);
+      console.log(this.name);
+      this.popup.getElement(this.name).append(this.$stack);
     },
     _buildBody: function () {
       this.$body = this.dom("<div>").addClass(this.prefix + "-popup-body");
@@ -6374,10 +6413,11 @@
         .addClass("active");
     },
     render: function (stacks) {
-      this._reset();
+      console.log("render", stacks);
+      this._reset(Object.keys(stacks)[0]);
       var len = this._buildItems(stacks);
       if (len > 0) {
-        //this._buildClose();
+        this._buildClose();
       }
     },
 
@@ -7054,7 +7094,7 @@
 
       const savebarButtons = ["mobile"];
       const undoBarButtons = ["undo", "redo"];
-      const rightActionbarButtons = ["undo", "redo", "templates"];
+      const rightActionbarButtons = ["undo", "redo", "templates", "shortcut"];
 
       for (var name in buttons) {
         if (instance.isAllowedButton(buttons[name])) {
@@ -7981,6 +8021,7 @@
           .addClass(self.prefix + "-popup-section-box-content-set");
 
         $layoutButton.on("click.revolvapp", function () {
+          console.log($sectionBox);
           $sectionBox.html(`
           <div class="${self.prefix + "-popup-section-box-content-heading"}">
             <span>Add below:</span>
@@ -7995,10 +8036,8 @@
             $sectionBox.remove();
           });
           // items
-          console.log(self.opts._blocks);
           var items = self.opts._blocks[this.dataset["type"]];
           for (var index in items) {
-            console.log(items[index]);
             if (self._isHiddenBlock(items[index].type)) {
               continue;
             }
@@ -8073,7 +8112,7 @@
       this.get().getSource().removeAttr("active");
     },
     _setAddInstance: function ($el) {
-      this.app.popup.close();
+      //this.app.popup.close();
       this.set($el);
       this.app.editor.rebuild();
       this.app.element.scrollTo($el);
@@ -8447,6 +8486,15 @@
         getter: "component.getData",
         setter: "component.setData",
         form: this.opts.forms.border,
+      });
+      this.app.popup.open({ button: button });
+    },
+    link: function (button) {
+      this.app.popup.create("link", {
+        title: "## popup.link ##",
+        getter: "component.getData",
+        setter: "component.setData",
+        form: this.opts.forms.link,
       });
       this.app.popup.open({ button: button });
     },
@@ -11960,6 +12008,7 @@
 
     // private
     _buildInput: function () {
+      console.log(this);
       this.$input.attr("min", 0).css("max-width", "65px");
       this.$tool.append(this.$input);
     },
@@ -12171,7 +12220,6 @@
         color: true,
         observer: "editor.observe",
       },
-      tune: { title: "## buttons.settings ##", command: "editor.popup" },
     },
     forms: {
       background: {
@@ -12196,7 +12244,6 @@
           },
         },
       },
-      settings: {},
     },
     create: function () {
       this.$element = this.dom("<body>");
@@ -14063,6 +14110,7 @@
       },
       border: { title: "## buttons.border ##", command: "component.popup" },
       tune: { title: "## buttons.settings ##", command: "component.popup" },
+      link: { title: "## buttons.link ##", command: "component.popup" },
     },
     control: {
       add: { command: "component.popup" },
@@ -15400,7 +15448,6 @@
   Revolvapp.add("block", "block.block-wrapper", {
     mixins: ["block"],
     type: "block-wrapper",
-    set: true,
     section: "one",
     priority: 5,
     build: function () {
@@ -15445,6 +15492,7 @@
   Revolvapp.add("block", "block.heading-text", {
     mixins: ["block"],
     type: "heading-text",
+    icon: `heading|text`,
     set: true,
     section: "one",
     priority: 30,
