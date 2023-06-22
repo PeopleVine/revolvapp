@@ -1730,38 +1730,45 @@
       },
       margin: {
         "margin-top": {
-          type: "number",
+          type: "margin",
+          direction: "top",
           label: "## form.margin-top ##",
         },
         "margin-bottom": {
-          type: "number",
+          type: "margin",
+          direction: "bottom",
           label: "## form.margin-bottom ##",
         },
         "margin-left": {
-          type: "number",
+          type: "margin",
+          direction: "left",
           label: "## form.margin-left ##",
         },
         "margin-right": {
-          type: "number",
+          type: "margin",
+          direction: "right",
           label: "## form.margin-right ##",
         },
       },
       padding: {
         "padding-top": {
-          type: "number",
-          value: "padding-top",
+          type: "padding",
+          direction: "top",
           label: "## form.padding-top ##",
         },
         "padding-bottom": {
-          type: "number",
+          type: "padding",
+          direction: "bottom",
           label: "## form.padding-bottom ##",
         },
         "padding-left": {
-          type: "number",
+          type: "padding",
+          direction: "left",
           label: "## form.padding-left ##",
         },
         "padding-right": {
-          type: "number",
+          type: "padding",
+          direction: "right",
           label: "## form.padding-right ##",
         },
       },
@@ -2180,10 +2187,10 @@
       radius: "Radius",
       "image-width": "Image Width",
       padding: "Padding",
-      "padding-left": "Padding Left",
-      "padding-right": "Padding Right",
-      "padding-top": "Padding Top",
-      "padding-bottom": "Padding Bottom",
+      "padding-left": "Left Padding",
+      "padding-right": "Right Padding",
+      "padding-top": "Top Padding",
+      "padding-bottom": "Bottom Padding",
       margin: "Margin",
       "border-radius": "Border Radius",
       "border-width": "Border Width",
@@ -2192,11 +2199,11 @@
       "background-color": "Background Color",
       "text-align": "Text Align",
       "font-weight": "Font Weight",
-      "margin-left": "Margin Left",
+      "margin-left": "Left Margin",
       "font-family": "Font Family",
-      "margin-right": "Margin Right",
-      "margin-top": "Margin Top",
-      "margin-bottom": "Margin Bottom",
+      "margin-right": "Right Margin",
+      "margin-top": "Top Margin",
+      "margin-bottom": "Bottom Margin",
       "column-space": "Column Space",
       height: "Height",
       "text-size": "Text Size",
@@ -3704,6 +3711,15 @@
       // command
       this.app.api(command, this.getParams(), instance, name, e);
       this.app.tooltip.close();
+    },
+  });
+  Revolvapp.add("module", "shorthand", {
+    init: function () {},
+    parse: function (shorthand) {
+      const [top, right = top, bottom = top, left = right] = (shorthand || "0")
+        .split(" ")
+        .map((val) => parseInt(val));
+      return { top, right, bottom, left };
     },
   });
   Revolvapp.add("module", "color", {
@@ -5798,7 +5814,6 @@
 
     // open
     _open: function (params, animation) {
-      console.log(params);
       this._buildButton(params);
       this._buildControl(params);
       this._buildName(params);
@@ -6199,7 +6214,6 @@
       this.$stack.attr("data-" + this.prefix + "-stack-name", this.name);
 
       // append
-      console.log(this.name);
       this.popup.getElement(this.name).append(this.$stack);
     },
     _buildBody: function () {
@@ -6413,7 +6427,6 @@
         .addClass("active");
     },
     render: function (stacks) {
-      console.log("render", stacks);
       this._reset(Object.keys(stacks)[0]);
       var len = this._buildItems(stacks);
       if (len > 0) {
@@ -8021,7 +8034,6 @@
           .addClass(self.prefix + "-popup-section-box-content-set");
 
         $layoutButton.on("click.revolvapp", function () {
-          console.log($sectionBox);
           $sectionBox.html(`
           <div class="${self.prefix + "-popup-section-box-content-heading"}">
             <span>Add below:</span>
@@ -8031,10 +8043,12 @@
               </button>
             </span>
           </div>`);
+
           $sectionBox.append(setsNav);
           $sectionBox.find(".close-button").on("click.revolvapp", function () {
             $sectionBox.remove();
           });
+
           // items
           var items = self.opts._blocks[this.dataset["type"]];
           for (var index in items) {
@@ -8047,15 +8061,41 @@
               .addClass(self.prefix + "-popup-button")
               .addClass(self.prefix + "-popup-button-text")
               .addClass(self.prefix + "-popup-section-item")
-              .addClass(self.prefix + "-popup-button-" + this.dataset["type"])
-              .html(items[index].title);
+              .addClass(self.prefix + "-popup-button-" + this.dataset["type"]);
 
-            var $buttonImg = self
-              .dom("<div>")
-              .addClass(self.prefix + "-popup-button-img");
+            console.log(items[index].icon);
+
+            var $buttonImg;
+            if (items[index].icon) {
+              const icons = items[index].icon
+                .split("|")
+                .map((i) => i.split(","));
+
+              console.log(icons);
+              $buttonImg = self
+                .dom("<div>")
+                .addClass(self.prefix + "-popup-button-multi");
+              icons.forEach((row) => {
+                const $row = self
+                  .dom("<div>")
+                  .addClass(self.prefix + "-popup-button-row");
+                row.forEach((icon) => {
+                  const $icon = self
+                    .dom("<div>")
+                    .attr("data-type", icon)
+                    .addClass(self.prefix + "-popup-button-icon");
+                  $row.append($icon);
+                });
+                $buttonImg.append($row);
+              });
+            } else {
+              $button.html(items[index].title);
+              $buttonImg = self
+                .dom("<div>")
+                .addClass(self.prefix + "-popup-button-img");
+            }
 
             $button.prepend($buttonImg);
-
             $button.attr("data-type", items[index].type);
 
             if (items[index].set) {
@@ -11997,6 +12037,86 @@
       this.app.api(this.setter, this.stack);
     },
   });
+  Revolvapp.add("class", "tool.padding", {
+    mixins: ["tool"],
+    type: "number",
+    input: {
+      tag: "input",
+      type: "number",
+      classname: "-form-input",
+    },
+
+    // private
+    _buildInput: function () {
+      const direction = this.obj.direction;
+      this.$input.attr("min", 0).css("max-width", "65px");
+
+      const padding = this.app.shorthand.parse(
+        this.app.component.instance.$cell.css("padding")
+      );
+
+      setTimeout(() => {
+        switch (direction) {
+          case "top":
+            this.$input.val(padding.top);
+            break;
+          case "right":
+            this.$input.val(padding.right);
+            break;
+          case "bottom":
+            this.$input.val(padding.bottom);
+            break;
+          case "left":
+            this.$input.val(padding.left);
+            break;
+          default:
+            break;
+        }
+      }, 0);
+
+      this.$tool.append(this.$input);
+    },
+  });
+  Revolvapp.add("class", "tool.margin", {
+    mixins: ["tool"],
+    type: "number",
+    input: {
+      tag: "input",
+      type: "number",
+      classname: "-form-input",
+    },
+
+    // private
+    _buildInput: function () {
+      const direction = this.obj.direction;
+      this.$input.attr("min", 0).css("max-width", "65px");
+
+      const margin = this.app.shorthand.parse(
+        this.app.component.instance.$cell.css("margin")
+      );
+
+      setTimeout(() => {
+        switch (direction) {
+          case "top":
+            this.$input.val(margin.top);
+            break;
+          case "right":
+            this.$input.val(margin.right);
+            break;
+          case "bottom":
+            this.$input.val(margin.bottom);
+            break;
+          case "left":
+            this.$input.val(margin.left);
+            break;
+          default:
+            break;
+        }
+      }, 0);
+
+      this.$tool.append(this.$input);
+    },
+  });
   Revolvapp.add("class", "tool.number", {
     mixins: ["tool"],
     type: "number",
@@ -12008,7 +12128,6 @@
 
     // private
     _buildInput: function () {
-      console.log(this);
       this.$input.attr("min", 0).css("max-width", "65px");
       this.$tool.append(this.$input);
     },
@@ -12547,6 +12666,10 @@
         align: { target: ["cell"] },
         valign: { target: ["cell"] },
         margin: { target: ["cell"] },
+        "margin-top": { target: ["cell"] },
+        "margin-right": { target: ["cell"] },
+        "margin-bottom": { target: ["cell"] },
+        "margin-left": { target: ["cell"] },
         padding: { target: ["cell"] },
         "padding-top": { target: ["cell"] },
         "padding-right": { target: ["cell"] },
@@ -15492,7 +15615,7 @@
   Revolvapp.add("block", "block.heading-text", {
     mixins: ["block"],
     type: "heading-text",
-    icon: `heading|text`,
+    icon: `heading,text`,
     set: true,
     section: "one",
     priority: 30,
@@ -15559,6 +15682,7 @@
   Revolvapp.add("block", "block.image-text", {
     mixins: ["block"],
     type: "image-text",
+    icon: "image|text",
     set: true,
     section: "one",
     priority: 50,
@@ -15583,6 +15707,7 @@
   Revolvapp.add("block", "block.image-heading-text", {
     mixins: ["block"],
     type: "image-heading-text",
+    icon: "image,heading,text",
     set: true,
     section: "one",
     priority: 60,
