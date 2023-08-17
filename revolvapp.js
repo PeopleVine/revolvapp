@@ -1918,7 +1918,7 @@
     },
     _blocks: {},
     _styles:
-      ".variable-block{background-color: #e2eafd; display: inline-block; border-radius: 16px; font-size: inherit; color: #111; line-height: inherit; min-height: initial; padding: 4px 10px; white-space: nowrap; text-transform: none; font-weight: bold;}#outlook a{padding:0}.ExternalClass{width:100%}#outlook a{padding:0}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%}body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic}img{border:0;outline:none;text-decoration:none}a img{border:none}td img{vertical-align:top}table,table td{border-collapse:collapse}body{margin:0;padding:0;width:100% !important}.mobile-spacer{width:0;display:none}@media all and (max-width:639px){.container{width:100% !important;max-width:600px !important}.mobile{width:auto !important;max-width:100% !important;display:block !important}.mobile-center{text-align:center !important}.mobile-right{text-align:right !important}.mobile-left{text-align:left!important;}.mobile-hidden{max-height:0;display:none !important;mso-hide:all;overflow:hidden}.mobile-spacer{width:auto !important;display:table !important}.mobile-image,.mobile-image img {height: auto !important; max-width: 600px !important; width: 100% !important}}",
+      ".variable-block{background-color: #transparent; display: inline-block; border-radius: 16px; font-size: inherit; color: #111; line-height: inherit; min-height: initial; padding: 4px 10px; white-space: nowrap; text-transform: none; font-weight: bold;}#outlook a{padding:0}.ExternalClass{width:100%}#outlook a{padding:0}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%}body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic}img{border:0;outline:none;text-decoration:none}a img{border:none}td img{vertical-align:top}table,table td{border-collapse:collapse}body{margin:0;padding:0;width:100% !important}.mobile-spacer{width:0;display:none}@media all and (max-width:639px){.container{width:100% !important;max-width:600px !important}.mobile{width:auto !important;max-width:100% !important;display:block !important}.mobile-center{text-align:center !important}.mobile-right{text-align:right !important}.mobile-left{text-align:left!important;}.mobile-hidden{max-height:0;display:none !important;mso-hide:all;overflow:hidden}.mobile-spacer{width:auto !important;display:table !important}.mobile-image,.mobile-image img {height: auto !important; max-width: 600px !important; width: 100% !important}}",
     _msoStyles:
       '<!--[if mso]><style type="text/css">body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }</style><![endif]-->',
     _tags: [
@@ -8051,6 +8051,10 @@
 
           // items
           var items = self.opts._blocks[this.dataset["type"]];
+  
+          $setContent.empty()
+          $singleContent.empty()
+  
           for (var index in items) {
             if (self._isHiddenBlock(items[index].type)) {
               continue;
@@ -8063,15 +8067,12 @@
               .addClass(self.prefix + "-popup-section-item")
               .addClass(self.prefix + "-popup-button-" + this.dataset["type"]);
 
-            console.log(items[index].icon);
-
             var $buttonImg;
             if (items[index].icon) {
               const icons = items[index].icon
                 .split("|")
                 .map((i) => i.split(","));
 
-              console.log(icons);
               $buttonImg = self
                 .dom("<div>")
                 .addClass(self.prefix + "-popup-button-multi");
@@ -8106,7 +8107,6 @@
 
             $button.on("click.revolvapp", self.add.bind(self));
           }
-
           $sectionBox.append($singleContent);
           $sectionBox.append($setContent);
 
@@ -8403,7 +8403,7 @@
 
       // stack
       var stack = this.app.popup.add("add-item", {
-        width: "173px",
+        width: "300px",
         title: "## popup.add-item ##",
         form: component.forms.item,
         footer: {
@@ -12090,7 +12090,7 @@
     _buildInput: function () {
       const direction = this.obj.direction;
       this.$input.attr("min", 0).css("max-width", "65px");
-
+  
       const margin = this.app.shorthand.parse(
         this.app.component.instance.$cell.css("margin")
       );
@@ -12230,7 +12230,7 @@
       return this._has("direct") && o && o.url;
     },
     _isLayerType: function () {
-      var type = this.instance.getType();
+      var type = this.app.component.get().getType();
       return type !== "image" && type !== "social-item";
     },
     _catchDirectInput: function (e) {
@@ -14813,7 +14813,7 @@
       });
 
       /** Create the following structure using individual calls to this.app.create
-       * 
+       *
        * <re-block>
             <re-grid>
                 <re-column width="300px" padding="0 0 10px 0">
