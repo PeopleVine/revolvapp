@@ -70,7 +70,7 @@ body {
 .rex-editor-container {
     border: 1px solid rgba(0, 11, 29, 0.1);
     background-color: #9F9EA6;
-    margin-top: calc(60px*2);
+    margin-top: calc(72px*2);
     padding-top: 48px;
     padding-bottom: 32px;
 }
@@ -552,7 +552,7 @@ body {
     font-size: 14px;
     font-weight: bold;
     color: #000B1D;
-    padding: 0 16px;
+    padding: 0 22px;
     position: relative;
 }
 
@@ -813,7 +813,7 @@ body {
 }
 
 .rex-form-item {
-    padding: 16px 16px 0 16px;
+    padding: 16px 22px 0;
 }
 
 .rex-form-item:empty {
@@ -1122,8 +1122,9 @@ body {
 }
 
 .rex-button-icon {
-    width: 31px;
-    height: 30px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
@@ -1131,10 +1132,9 @@ body {
 }
 
 .rex-button-toolbar {
-    padding-top: 1px;
     width: 40px;
     min-width: 40px;
-    height: 41px;
+    height: 40px;
 }
 
 .rex-button-topbar {
@@ -1244,7 +1244,7 @@ body {
 
 .rex-toolbar-container {
     position: fixed;
-    top: 60px !important;
+    top: 72px !important;
     left: 0;
     z-index: 4;
     display: flex;
@@ -1254,7 +1254,7 @@ body {
     background-color: #ffffff;
     margin: 0;
     padding: 0;
-    height: 60px;
+    height: 72px;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.32);
 }
 
@@ -1350,24 +1350,47 @@ body {
 
 .rex-sidenav {
     position: fixed;
-    padding-top: 68px;
     top: 0;
     right: 0;
     z-index: 100000;
     height: 100%;
     width: 300px;
+    margin-top: 144.5px;
+    padding: 91px 30px 0;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
     display: flex;
-    margin-top: 120.5px;
-    padding-left: 16px;
+    gap: 10px;
+    overflow-x: scroll;
+}
+
+.rex-sidenav:before {
+    content: '';
+    width: 30px;
+    height: 100%;
+    position: fixed;
+    top: 144.5px;
+    right: 270px;
+    z-index: 100;
+    background-color: white;
+}
+
+.rex-sidenav:after {
+    content: '';
+    width: 30px;
+    height: 100%;
+    position: fixed;
+    top: 144.5px;
+    right: 0;
+    z-index: 100;
+    background-color: white;
 }
 
 .master-bar {
     position: fixed;
     top: 0;
     left: 0;
-    height: 60px;
+    height: 72px;
     width: 100%;
     background: #212224;
     z-index: 100;
@@ -1384,14 +1407,11 @@ body {
 }
 
 .master-bar nav {
-    position: fixed;
-    left: 50%;
-    top: 25px;
-    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    font-family: Roboto, sans-serif;
 }
 
 .master-bar a {
@@ -1489,7 +1509,7 @@ body {
     right: 0;
     position: absolute;
     top: 0px;
-    height: 60px;
+    height: 72px;
     z-index: 1000000;
     width: 25%;
     display: flex;
@@ -1628,6 +1648,8 @@ body {
     border: 0;
     color: white;
     font-size: 16px;
+    font-weight: 900;
+    font-family: Roboto, sans-serif;
     appearance: none;
     margin-top: -5px;
 }
@@ -1668,7 +1690,7 @@ body {
     right: 100px;
     position: absolute;
     top: 0px;
-    height: 60px;
+    height: 72px;
     z-index: 1000000;
     width: 25%;
     display: flex;
@@ -1678,7 +1700,7 @@ body {
 
 .rex-path {
     position: fixed;
-    top: 140px;
+    top: 144.5px;
     left: calc(100vw - 300px);
     z-index: 100000;
     box-sizing: border-box;
@@ -1691,7 +1713,7 @@ body {
     scrollbar-width: none;
     -ms-overflow-style: none;
     border-bottom: 1px solid #E8E7E9;
-    margin-left: 24px;
+    margin-left: 30px;
     width: calc(300px - 48px);
     display: flex;
     flex-direction: row-reverse;
@@ -1707,7 +1729,7 @@ body {
     color: rgba(0, 11, 29, 0.8);
     text-decoration: none;
     display: inline-block;
-    padding: 14px 0;
+    padding: 32px 0 16.5px;
     padding-right: 14px;
     line-height: 1;
     position: relative;
@@ -1838,22 +1860,22 @@ body {
 .rex-form-colors {
     box-sizing: border-box;
     flex-direction: column;
-    width: 19px;
+    width: 17.36px;
     line-height: 1;
 }
 
 .rex-color {
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 4px;
     border: 1px solid transparent;
     cursor: pointer;
     position: relative;
     box-sizing: border-box;
     line-height: 18px;
-    margin-right: 1px;
-    margin-bottom: 1px;
+    margin-right: 1.36px;
+    margin-bottom: 3px;
 }
 
 .rex-color.active:after {
@@ -2132,14 +2154,14 @@ button.rex-popup-button.rex-popup-button-single:after, button.rex-popup-button.r
 
 .rex-popup-section-box-content {
     position: fixed;
-    top: 120.5px;
+    top: 144.5px;
     left: 173px;
     width: 192px;
     height: calc(100vh - 120px);
     overflow-y: scroll;
     background: white;
     display: block;
-    padding-top: 25px;
+    padding-top: 16px;
     background: #F9F9F9;
     box-shadow: inset 120px 0px 37px -150px rgba(0,0,0,0.75);
 }
@@ -2330,6 +2352,7 @@ only screen and (min-device-pixel-ratio: 2) {
 
 .rex-popup-ext {
     width: 173px;
+    padding-top: 32px;
 }
 
 .rex-popup-shortcut-item {

@@ -5679,26 +5679,26 @@
       }); */
       if (this.supername === "add") {
         this.$popup.css({
-          top: "120.5px",
+          top: "144.5px",
           left: "0px",
           maxHeight: "unset",
         });
         this.$addPopup.css({
-          top: "120.5px",
+          top: "144.5px",
           left: "0px",
           maxHeight: "unset",
         });
       } else if (this.supername === "templates") {
         this.$popup.css({
-          top: "120.5px",
+          top: "144.5px",
           left: "0px",
           width: "100vw",
           maxHeight: "unset",
         });
       } else {
         this.$popup.css({
-          maxHeight: "calc(100vh - 240px)",
-          top: "240px",
+          maxHeight: "calc(100vh - 300px)",
+          top: "300px",
           left: "calc(100vw - 300px)",
         });
       }
@@ -14219,6 +14219,10 @@
     type: "button",
     editable: true,
     toolbar: {
+      alignment: {
+        title: "## buttons.alignment ##",
+        command: "component.popup",
+      },
       background: {
         title: "## buttons.background ##",
         command: "component.popup",
@@ -14339,6 +14343,7 @@
       }
 
       this.data = {
+        align: { target: ["element"], getter: "getAlign" },
         html: { target: ["link"] },
         "font-size": {
           target: ["element", "link"],
