@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+    width: 0;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -631,7 +635,7 @@ body {
 .rex-popup-item {
     font-size: 14px;
     border-radius: 4px;
-    padding: 10px 8px;
+    padding: 10px 8px 10px 14px;
     display: flex;
     line-height: 1;
     align-items: center;

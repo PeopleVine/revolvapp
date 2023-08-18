@@ -5973,7 +5973,7 @@
       footer: false,
     },
     init: function (name, params, collapse, popup) {
-      this.defaultWidth = "240px";
+      this.defaultWidth = "300px";
       this.popup = popup;
       this.name = name;
       this.tools = {};
@@ -7127,6 +7127,8 @@
           );
         }
       }
+  
+      console.log(this.app.popup.getElement('alignment'));
 
       // custom buttons
       for (var cname in this.customButtons) {
@@ -9197,7 +9199,7 @@
       if (this.app.editor.isImageChange()) {
         this.app.popup.add("background-image", {
           collapse: false,
-          width: "400px",
+          width: "300px",
           title: "## popup.background-image ##",
           instance: instance,
           getter: "editor.getData",
@@ -9521,7 +9523,7 @@
   Revolvapp.add("module", "link", {
     popups: {
       add: {
-        width: "400px",
+        width: "300px",
         title: "## popup.insert-link ##",
         form: {
           text: {
@@ -9543,7 +9545,7 @@
         },
       },
       edit: {
-        width: "400px",
+        width: "300px",
         title: "## popup.edit-link ##",
         form: {
           text: {
