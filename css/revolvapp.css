@@ -1156,13 +1156,10 @@ body {
     fill: rgba(0, 11, 29, 0.8);
 }
 
-.rex-button-toolbar.active .rex-button-icon,
-.rex-button-topbar.active .rex-button-icon {
-    border-color: #e4e8ed;
-    background-color: rgba(228, 232, 237, 0.5);
+.rex-button-toolbar.active, .rex-button-toolbar.toggled {
+    border-bottom: 3px solid #57806E;
 }
 
-.rex-button-toolbar.toggled,
 .rex-button-topbar.toggled {
     background-color: #E4E8ED;
     color: #000B1D;

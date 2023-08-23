@@ -7023,7 +7023,7 @@
     },
     setToggled: function (name) {
       if (!this.opts.toolbar) return;
-      this._findButtons().removeClass(this.toggledClass);
+      this._findButtons().removeClass(this.toggledClass).removeClass(this.activeClass);
       this._findButton(name)
         .removeClass(this.disableClass)
         .addClass(this.toggledClass);
@@ -7108,6 +7108,7 @@
       const savebarButtons = ["mobile"];
       const undoBarButtons = ["undo", "redo"];
       const rightActionbarButtons = ["undo", "redo", "templates", "shortcut"];
+      // let firstBtn = true;
 
       for (var name in buttons) {
         if (instance.isAllowedButton(buttons[name])) {
@@ -7125,10 +7126,13 @@
             "toolbar"
             //container === this.$sidenav ? "actionbar" : "toolbar"
           );
+          
+          // if (firstBtn && name !== 'mobile') {
+          //   this.setActive(name)
+          //   firstBtn = false
+          // }
         }
       }
-  
-      console.log(this.app.popup.getElement('alignment'));
 
       // custom buttons
       for (var cname in this.customButtons) {
@@ -7160,10 +7164,10 @@
       );
     },
     _findButtons: function () {
-      return this.$toolbar.find(".rex-button-toolbar");
+      return this.$sidenav.find(".rex-button-toolbar");
     },
     _findButton: function (name) {
-      return this.$toolbar.find("[data-name=" + name + "]");
+      return this.$sidenav.find("[data-name=" + name + "]");
     },
   });
   Revolvapp.add("module", "path", {
@@ -8570,14 +8574,16 @@
       });
 
       if (names.indexOf(instance.getType()) !== -1) {
-        this.app.popup.add("margin", {
-          collapse: false,
-          title: "## popup.margin ##",
-          width: "300px",
-          getter: "component.getData",
-          setter: "component.setData",
-          form: this.opts.forms.margin,
-        });
+        if (instance.getType() !== 'block') {
+          this.app.popup.add("margin", {
+            collapse: false,
+            title: "## popup.margin ##",
+            width: "300px",
+            getter: "component.getData",
+            setter: "component.setData",
+            form: this.opts.forms.margin,
+          });
+        }
 
         this.app.popup.add("padding", {
           collapse: false,
@@ -12041,7 +12047,7 @@
   });
   Revolvapp.add("class", "tool.padding", {
     mixins: ["tool"],
-    type: "number",
+    type: "padding",
     input: {
       tag: "input",
       type: "number",
@@ -12052,9 +12058,12 @@
     _buildInput: function () {
       const direction = this.obj.direction;
       this.$input.attr("min", 0).css("max-width", "65px");
-
+      
+      const instance = this.app.component.instance
+      const type = instance.getType()
+      const element = instance.$cell && type !== 'button' ? instance.$cell : instance.$element
       const padding = this.app.shorthand.parse(
-        this.app.component.instance.$cell.css("padding")
+        element.css("padding")
       );
 
       setTimeout(() => {
@@ -12081,7 +12090,7 @@
   });
   Revolvapp.add("class", "tool.margin", {
     mixins: ["tool"],
-    type: "number",
+    type: "margin",
     input: {
       tag: "input",
       type: "number",
@@ -12093,8 +12102,11 @@
       const direction = this.obj.direction;
       this.$input.attr("min", 0).css("max-width", "65px");
   
+      const instance = this.app.component.instance
+      const type = instance.getType()
+      const element = instance.$cell && type !== 'button' ? instance.$cell : instance.$element
       const margin = this.app.shorthand.parse(
-        this.app.component.instance.$cell.css("margin")
+        element.css("margin")
       );
 
       setTimeout(() => {
@@ -12232,7 +12244,7 @@
       return this._has("direct") && o && o.url;
     },
     _isLayerType: function () {
-      var type = this.app.component.get().getType();
+      var type = this.instance ? this.instance.getType() : this.app.component.get().getType();
       return type !== "image" && type !== "social-item";
     },
     _catchDirectInput: function (e) {
@@ -12667,16 +12679,40 @@
       this.data = {
         align: { target: ["cell"] },
         valign: { target: ["cell"] },
-        margin: { target: ["cell"] },
-        "margin-top": { target: ["cell"] },
-        "margin-right": { target: ["cell"] },
-        "margin-bottom": { target: ["cell"] },
-        "margin-left": { target: ["cell"] },
         padding: { target: ["cell"] },
-        "padding-top": { target: ["cell"] },
-        "padding-right": { target: ["cell"] },
-        "padding-bottom": { target: ["cell"] },
-        "padding-left": { target: ["cell"] },
+        "padding-top": {
+          target: ["element"],
+          setter: 'setTopPadding',
+        },
+        "padding-bottom": {
+          target: ["element"],
+          setter: 'setBottomPadding',
+        },
+        "padding-left": {
+          target: ["element"],
+          setter: 'setLeftPadding',
+        },
+        "padding-right": {
+          target: ["element"],
+          setter: 'setRightPadding',
+        },
+        margin: { target: ["element"] },
+        "margin-top": {
+          target: ["element"],
+          setter: 'setTopMargin',
+        },
+        "margin-bottom": {
+          target: ["element"],
+          setter: 'setBottomMargin',
+        },
+        "margin-left": {
+          target: ["element"],
+          setter: 'setLeftMargin',
+        },
+        "margin-right": {
+          target: ["element"],
+          setter: 'setRightMargin',
+        },
         "background-color": { target: ["cell"] },
         "background-image": { target: ["cell"] },
         "background-size": { target: ["cell"] },
@@ -12705,6 +12741,38 @@
     },
     render: function () {
       return this.$cell;
+    },
+    setTopPadding: function (value) {
+      const paddingTop = value + 'px'
+      this.$element.find('td').eq(0).css("padding-top", paddingTop);
+    },
+    setBottomPadding: function (value) {
+      const paddingBottom = value + 'px'
+      this.$element.find('td').eq(0).css("padding-bottom", paddingBottom);
+    },
+    setLeftPadding: function (value) {
+      const paddingLeft = value + 'px'
+      this.$element.find('td').eq(0).css("padding-left", paddingLeft);
+    },
+    setRightPadding: function (value) {
+      const paddingRight = value + 'px'
+      this.$element.find('td').eq(0).css("padding-right", paddingRight);
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
     getColumnSpace: function () {
       var $el = this.getElements(["column-spacer"]).first();
@@ -12926,15 +12994,39 @@
         },
         align: { target: ["element"], getter: "getAlign" },
         padding: { target: ["element"] },
-        "padding-top": { target: ["element"] },
-        "padding-bottom": { target: ["element"] },
-        "padding-left": { target: ["element"] },
-        "padding-right": { target: ["element"] },
+        "padding-top": {
+          target: ["element"],
+          setter: 'setTopPadding',
+        },
+        "padding-bottom": {
+          target: ["element"],
+          setter: 'setBottomPadding',
+        },
+        "padding-left": {
+          target: ["element"],
+          setter: 'setLeftPadding',
+        },
+        "padding-right": {
+          target: ["element"],
+          setter: 'setRightPadding',
+        },
         margin: { target: ["element"] },
-        "margin-top": { target: ["element"] },
-        "margin-bottom": { target: ["element"] },
-        "margin-left": { target: ["element"] },
-        "margin-right": { target: ["element"] },
+        "margin-top": {
+          target: ["element"],
+          setter: 'setTopMargin',
+        },
+        "margin-bottom": {
+          target: ["element"],
+          setter: 'setBottomMargin',
+        },
+        "margin-left": {
+          target: ["element"],
+          setter: 'setLeftMargin',
+        },
+        "margin-right": {
+          target: ["element"],
+          setter: 'setRightMargin',
+        },
         class: { target: ["element"] },
         "font-weight": { target: ["element"] },
         "font-style": { target: ["element"] },
@@ -12953,6 +13045,38 @@
         $a.length !== 0 ? $a.get().style.color : this.getStyle("link", "color");
 
       return this.app.color.normalize(color);
+    },
+    setTopPadding: function (value) {
+      const paddingTop = value + 'px'
+      this.$element.css("padding-top", paddingTop);
+    },
+    setBottomPadding: function (value) {
+      const paddingBottom = value + 'px'
+      this.$element.css("padding-bottom", paddingBottom);
+    },
+    setLeftPadding: function (value) {
+      const paddingLeft = value + 'px'
+      this.$element.css("padding-left", paddingLeft);
+    },
+    setRightPadding: function (value) {
+      const paddingRight = value + 'px'
+      this.$element.css("padding-right", paddingRight);
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
     setTextSize: function (value) {
       this.$element.find("a").css("font-size", value);
@@ -14315,10 +14439,6 @@
           type: "input",
           label: "## form.color ##",
         },
-        "font-size": {
-          type: "number",
-          label: "## form.text-size ##",
-        },
       },
     },
     create: function () {
@@ -14375,25 +14495,41 @@
         padding: { target: ["element"] },
         "padding-top": {
           target: ["element"],
+          setter: 'setTopPadding',
           prop: this.getStyle("button", "padding-top"),
         },
         "padding-bottom": {
           target: ["element"],
+          setter: 'setBottomPadding',
           prop: this.getStyle("button", "padding-bottom"),
         },
         "padding-left": {
           target: ["element"],
+          setter: 'setLeftPadding',
           prop: this.getStyle("button", "padding-left"),
         },
         "padding-right": {
           target: ["element"],
+          setter: 'setRightPadding',
           prop: this.getStyle("button", "padding-right"),
         },
         margin: { target: ["element"] },
-        "margin-top": { target: ["element"] },
-        "margin-bottom": { target: ["element"] },
-        "margin-left": { target: ["element"] },
-        "margin-right": { target: ["element"] },
+        "margin-top": {
+          target: ["element"],
+          setter: 'setTopMargin',
+        },
+        "margin-bottom": {
+          target: ["element"],
+          setter: 'setBottomMargin',
+        },
+        "margin-left": {
+          target: ["element"],
+          setter: 'setLeftMargin',
+        },
+        "margin-right": {
+          target: ["element"],
+          setter: 'setRightMargin',
+        },
         "font-style": { target: ["element", "link"] },
         class: { target: ["link"] },
         href: { target: ["link"] },
@@ -14412,6 +14548,34 @@
       this.$link.css("border", value);
       this.$cell.attr("bgcolor", arr[2]);
       this.$source.attr("border", value);
+    },
+    setTopPadding: function (value) {
+      this.$element.css("padding-top", value);
+    },
+    setBottomPadding: function (value) {
+      this.$element.css("padding-bottom", value);
+    },
+    setLeftPadding: function (value) {
+      this.$element.css("padding-left", value);
+    },
+    setRightPadding: function (value) {
+      this.$element.css("padding-right", value);
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
 
     // private
