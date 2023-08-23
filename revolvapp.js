@@ -13281,21 +13281,43 @@
           prop: this.getHeadingStyleByLevel(this.params.level, "line-height"),
         },
         align: { target: ["element"], getter: "getAlign" },
+        padding: { target: ["element"] },
+        "padding-top": {
+          target: ["element"],
+          setter: 'setTopPadding',
+          prop: this.getStyle("button", "padding-top"),
+        },
+        "padding-bottom": {
+          target: ["element"],
+          setter: 'setBottomPadding',
+          prop: this.getStyle("button", "padding-bottom"),
+        },
+        "padding-left": {
+          target: ["element"],
+          setter: 'setLeftPadding',
+          prop: this.getStyle("button", "padding-left"),
+        },
+        "padding-right": {
+          target: ["element"],
+          setter: 'setRightPadding',
+          prop: this.getStyle("button", "padding-right"),
+        },
+        margin: { target: ["element"] },
         "margin-top": {
           target: ["element"],
-          prop: this.getStyle("heading", "margin-top"),
+          setter: 'setTopMargin',
         },
         "margin-bottom": {
           target: ["element"],
-          prop: this.getStyle("heading", "margin-bottom"),
+          setter: 'setBottomMargin',
         },
         "margin-left": {
           target: ["element"],
-          prop: this.getStyle("heading", "margin-left"),
+          setter: 'setLeftMargin',
         },
         "margin-right": {
           target: ["element"],
-          prop: this.getStyle("heading", "margin-right"),
+          setter: 'setRightMargin',
         },
         class: { target: ["element"] },
         "font-style": { target: ["element", "link"] },
@@ -13309,6 +13331,38 @@
       this._createElementLink();
 
       return this.$element;
+    },
+    setTopPadding: function (value) {
+      const paddingTop = value + 'px'
+      this.$element.css("padding-top", paddingTop);
+    },
+    setBottomPadding: function (value) {
+      const paddingBottom = value + 'px'
+      this.$element.css("padding-bottom", paddingBottom);
+    },
+    setLeftPadding: function (value) {
+      const paddingLeft = value + 'px'
+      this.$element.css("padding-left", paddingLeft);
+    },
+    setRightPadding: function (value) {
+      const paddingRight = value + 'px'
+      this.$element.css("padding-right", paddingRight);
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
 
     setLevel: function (value) {
@@ -13582,15 +13636,39 @@
         alt: { target: ["img"] },
         "border-radius": { target: ["img"] },
         padding: { target: ["img"] },
-        "padding-top": { target: ["img"] },
-        "padding-right": { target: ["img"] },
-        "padding-bottom": { target: ["img"] },
-        "padding-left": { target: ["img"] },
+        "padding-top": {
+          target: ["img"],
+          setter: 'setTopPadding',
+        },
+        "padding-bottom": {
+          target: ["img"],
+          setter: 'setBottomPadding',
+        },
+        "padding-left": {
+          target: ["img"],
+          setter: 'setLeftPadding',
+        },
+        "padding-right": {
+          target: ["img"],
+          setter: 'setRightPadding',
+        },
         margin: { target: ["img"] },
-        "margin-top": { target: ["img"] },
-        "margin-right": { target: ["img"] },
-        "margin-bottom": { target: ["img"] },
-        "margin-left": { target: ["img"] },
+        "margin-top": {
+          target: ["img"],
+          setter: 'setTopMargin',
+        },
+        "margin-bottom": {
+          target: ["img"],
+          setter: 'setBottomMargin',
+        },
+        "margin-left": {
+          target: ["img"],
+          setter: 'setLeftMargin',
+        },
+        "margin-right": {
+          target: ["img"],
+          setter: 'setRightMargin',
+        },
         border: { target: ["img"] },
         responsive: {
           target: false,
@@ -13631,6 +13709,38 @@
         this.$element.removeClass("mobile-image");
         this.$source.removeAttr("responsive");
       }
+    },
+    setTopPadding: function (value) {
+      const paddingTop = value + 'px'
+      this.$element.css("padding-top", paddingTop);
+    },
+    setBottomPadding: function (value) {
+      const paddingBottom = value + 'px'
+      this.$element.css("padding-bottom", paddingBottom);
+    },
+    setLeftPadding: function (value) {
+      const paddingLeft = value + 'px'
+      this.$element.css("padding-left", paddingLeft);
+    },
+    setRightPadding: function (value) {
+      const paddingRight = value + 'px'
+      this.$element.css("padding-right", paddingRight);
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
     setWidth: function (value) {
       if (this.params.placeholder) return;
@@ -13791,16 +13901,40 @@
         src: { target: ["img"], setter: "setImage", getter: "getImage" },
         alt: { target: ["img"] },
         "border-radius": { target: ["img"] },
-        margin: { target: ["img"] },
         padding: { target: ["img"] },
-        "margin-top": { target: ["img"] },
-        "margin-bottom": { target: ["img"] },
-        "margin-left": { target: ["img"] },
-        "margin-right": { target: ["img"] },
-        "padding-top": { target: ["img"] },
-        "padding-bottom": { target: ["img"] },
-        "padding-left": { target: ["img"] },
-        "padding-right": { target: ["img"] },
+        "padding-top": {
+          target: ["img"],
+          setter: 'setTopPadding',
+        },
+        "padding-bottom": {
+          target: ["img"],
+          setter: 'setBottomPadding',
+        },
+        "padding-left": {
+          target: ["img"],
+          setter: 'setLeftPadding',
+        },
+        "padding-right": {
+          target: ["img"],
+          setter: 'setRightPadding',
+        },
+        margin: { target: ["img"] },
+        "margin-top": {
+          target: ["img"],
+          setter: 'setTopMargin',
+        },
+        "margin-bottom": {
+          target: ["img"],
+          setter: 'setBottomMargin',
+        },
+        "margin-left": {
+          target: ["img"],
+          setter: 'setLeftMargin',
+        },
+        "margin-right": {
+          target: ["img"],
+          setter: 'setRightMargin',
+        },
         border: { target: ["img"] },
         href: { target: ["link"] },
         responsive: {
@@ -13842,6 +13976,38 @@
         this.$element.removeClass("mobile-image");
         this.$source.removeAttr("responsive");
       }
+    },
+    setTopPadding: function (value) {
+      const paddingTop = value + 'px'
+      this.$element.css("padding-top", paddingTop);
+    },
+    setBottomPadding: function (value) {
+      const paddingBottom = value + 'px'
+      this.$element.css("padding-bottom", paddingBottom);
+    },
+    setLeftPadding: function (value) {
+      const paddingLeft = value + 'px'
+      this.$element.css("padding-left", paddingLeft);
+    },
+    setRightPadding: function (value) {
+      const paddingRight = value + 'px'
+      this.$element.css("padding-right", paddingRight);
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
     setWidth: function (value) {
       if (this.params.placeholder) return;
@@ -14550,16 +14716,20 @@
       this.$source.attr("border", value);
     },
     setTopPadding: function (value) {
-      this.$element.css("padding-top", value);
+      const paddingTop = value.includes('px') ? value : value + 'px'
+      this.$element.css("padding-top", paddingTop);
     },
     setBottomPadding: function (value) {
-      this.$element.css("padding-bottom", value);
+      const paddingBottom = value.includes('px') ? value : value + 'px'
+      this.$element.css("padding-bottom", paddingBottom);
     },
     setLeftPadding: function (value) {
-      this.$element.css("padding-left", value);
+      const paddingLeft = value.includes('px') ? value : value + 'px'
+      this.$element.css("padding-left", paddingLeft);
     },
     setRightPadding: function (value) {
-      this.$element.css("padding-right", value);
+      const paddingRight = value.includes('px') ? value : value + 'px'
+      this.$element.css("padding-right", paddingRight);
     },
     setTopMargin: function (value) {
       const marginTop = value + 'px'
