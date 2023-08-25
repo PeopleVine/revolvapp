@@ -6981,6 +6981,8 @@
       if (this.opts.editor.viewOnly) {
         this.removeAll(["mobile", "code"]);
       }
+      
+      this.imitateClickButton();
     },
 
     // public
@@ -7051,6 +7053,9 @@
     },
     enableButtons: function () {
       this._findButtons().removeClass(this.disableClass);
+    },
+    imitateClickButton: function () {
+      this.app.toolbar._findButtons().nodes[0].click()
     },
 
     // private
@@ -7520,6 +7525,8 @@
       this.app.path.build();
       this.app.control.open(instance);
       this.app.popup.close();
+  
+      setTimeout(() => this.app.toolbar.imitateClickButton(), 1)
 
       // broadcast
       if (callEvent !== false) {
@@ -12681,36 +12688,36 @@
         valign: { target: ["cell"] },
         padding: { target: ["cell"] },
         "padding-top": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setTopPadding',
         },
         "padding-bottom": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setBottomPadding',
         },
         "padding-left": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setLeftPadding',
         },
         "padding-right": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setRightPadding',
         },
-        margin: { target: ["element"] },
+        margin: { target: ["cell"] },
         "margin-top": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setTopMargin',
         },
         "margin-bottom": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setBottomMargin',
         },
         "margin-left": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setLeftMargin',
         },
         "margin-right": {
-          target: ["element"],
+          target: ["cell"],
           setter: 'setRightMargin',
         },
         "background-color": { target: ["cell"] },
