@@ -7113,7 +7113,6 @@
       const savebarButtons = ["mobile"];
       const undoBarButtons = ["undo", "redo"];
       const rightActionbarButtons = ["undo", "redo", "templates", "shortcut"];
-      // let firstBtn = true;
 
       for (var name in buttons) {
         if (instance.isAllowedButton(buttons[name])) {
@@ -7131,11 +7130,6 @@
             "toolbar"
             //container === this.$sidenav ? "actionbar" : "toolbar"
           );
-          
-          // if (firstBtn && name !== 'mobile') {
-          //   this.setActive(name)
-          //   firstBtn = false
-          // }
         }
       }
 
@@ -8177,9 +8171,10 @@
       var types = ["main", "header", "footer"];
       var button = this.app.popup.getButton();
 
-      if (!button.getElement) {
+      if (!button.getElement || !this.instance) {
         Toastify({
           duration: 2000,
+          close: true,
           position: "center",
           node: this.dom(
             `<div>
@@ -8191,12 +8186,13 @@
           ).nodes[0],
           style: {
             background: "#F8F8F8",
-            border: "2px solid #F8F8F8",
+            border: "2px solid #E8E7E9",
             color: "#212224",
             borderRadius: "8px",
             width: "230px",
             fontSize: "14px",
             textAlign: "center",
+            boxShadow: "0 0 31px rgba(0, 0, 0, 0.06)",
           },
         }).showToast();
       }
