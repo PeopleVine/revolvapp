@@ -65,20 +65,19 @@
 .rex-plus-button,
 .rex-plus-button:empty {
   display: block;
-  border: 3px solid #0058FB;
   font-size: 13px;
-  height: 36px;
-  width: 36px;
+  height: 32px;
+  width: 32px;
   border-radius: 999px;
   position: relative;
   cursor: pointer;
-  margin: 10px auto; }
+  margin: 60px auto 30px; }
   .rex-plus-button:after, .rex-plus-button:before,
   .rex-plus-button:empty:after,
   .rex-plus-button:empty:before {
     content: "";
     display: block;
-    background-color: #0058FB;
+    background-color: #E98365;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -93,8 +92,17 @@
     width: 1.5em; }
   .rex-plus-button:hover,
   .rex-plus-button:empty:hover {
-    border-color: #0044C3; }
+    border-color: #E98365; }
   .rex-plus-button:hover:after, .rex-plus-button:hover:before,
   .rex-plus-button:empty:hover:after,
   .rex-plus-button:empty:hover:before {
-    background-color: #0044C3; }
+    background-color: #E98365; }
+  
+.rex-empty-title {
+  margin-bottom: 16px;
+  color: #6E6D79;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 120%;
+}

@@ -7598,6 +7598,15 @@
     openAdd: function (params, button) {
       this.popups.add(button);
     },
+    openAddHeader: function () {
+      document.querySelector('.rex-popup-button-headers').click()
+    },
+    openAddFooter: function () {
+      document.querySelector('.rex-popup-button-footers').click()
+    },
+    openAddBlock: function () {
+      document.querySelector('.rex-popup-button-one').click()
+    },
 
     edit_image: function () {
       this.app.broadcast("component.edit_image");
@@ -7837,6 +7846,10 @@
       var $element = instance.getElement();
       var $blockSource = newInstance.getSource();
       var $blockElement = newInstance.getElement();
+  
+      if ($target.nodes[0].classList.contains(this.prefix + "-empty-layer")) {
+        $target.removeClass(this.prefix + "-empty-layer").html("");
+      }
 
       if (mode === "element") {
         // add as elements via addbar
@@ -8869,24 +8882,29 @@
     buildEmptyLayers: function () {
       if (this.opts.editor.viewOnly) return;
 
-      var types = ["main", "header", "footer"];
+      var types = ["header", "main", "footer"];
       var $el = this.getBody();
       var $layers = this.app.element.getChildren($el, types);
 
       $layers.each(
-        function ($node) {
+        function ($node, index) {
           var instance = $node.dataget("instance");
           if (!instance.getTarget().hasClass(this.prefix + "-empty-layer")) {
             var $elms = instance.getElements();
             if ($elms.length === 0) {
               var $target = instance.getTarget();
               $target.addClass(this.prefix + "-empty-layer");
+              var $name = instance.getType()
 
               var obj = {
-                command: "component.openAdd",
+                command: $name === 'header' ? "component.openAddHeader" : $name === 'footer' ? "component.openAddFooter" : "component.openAddBlock",
                 classname: this.prefix + "-plus-button",
               };
               this.app.create("button", "addempty", obj, $target);
+              
+              $target.append(`
+                <div class="rex-empty-title">This ${$name.slice(0, 1).toUpperCase() + $name.slice(1)} can’t be empty. Tap on button to add a block.</div>
+              `)
             }
           }
         }.bind(this)
