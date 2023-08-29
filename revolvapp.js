@@ -12016,6 +12016,8 @@
         var stack = this.app.popup.getStack();
         stack.collapse();
       }
+      
+      this._changeMainBodyColor(value);
     },
     _eyeDropperSelect: function (e) {
       e.preventDefault();
@@ -12064,6 +12066,12 @@
 
       this.setValue(value);
       this.app.api(this.setter, this.stack);
+    },
+    _changeMainBodyColor: function (value) {
+      if (!this.app.component.instance) {
+        const mainBody = document.querySelector('.rex-editor-container')
+        mainBody.style.background = value
+      }
     },
   });
   Revolvapp.add("class", "tool.padding", {
