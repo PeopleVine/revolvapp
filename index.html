@@ -6,6 +6,7 @@
 
     <!-- revolvapp css -->
     <link rel="stylesheet" href="./css/revolvapp.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
     <link rel="stylesheet" href="/plugins/variable/variable.css" />
     <script
       src="https://kit.fontawesome.com/261503e59d.js"
@@ -26,6 +27,7 @@
 
   <body>
     <!-- element -->
+    <div class="blur-layout closed"></div>
     <div class="master-bar">
       <div class="master-bar-inner">
         <div>
@@ -53,13 +55,32 @@
         </nav>
         <div class="prev-wrapper">
           Close and back to menu
-          <button class="prev"><img src="./icons/close.png" /></button>
+          <button class="prev modal-opener"><img src="./icons/close.png" /></button>
         </div>
       </div>
     </div>
     <div id="myemail"></div>
 
     <div class="rex-popup-default">Select a component</div>
+    
+    <div class="exit-modal closed">
+      <div class="img-container">
+        <img src="img/modal-img.png" alt="">
+      </div>
+      <h5>Are you sure?</h5>
+      <span class="spacer"></span>
+      <p>Are you sure you want to quit without saving your work? Tap “Save and Exit” if no.</p>
+      
+      <div class="btns-container">
+        <button class="secondary prev">Exit without saving</button>
+        <button class="primary next">Save and exit</button>
+      </div>
+  
+  
+      <div class="close-btn-container">
+        <button class="exit-btn"><img src="img/close-btn-img.svg" alt=""></button>
+      </div>
+    </div>
 
     <!-- revolvapp js -->
     <script src="revolvapp.js"></script>
@@ -74,6 +95,9 @@
     <script src="/plugins/templates/templates.js"></script>
     <script src="/plugins/undo/undo.js"></script>
     <script src="/plugins/redo/redo.js"></script>
+    
+    <!-- modal-->
+    <script src="modal-opener"></script>
 
     <!-- call -->
     <script>
