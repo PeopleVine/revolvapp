@@ -127,10 +127,20 @@ body.dark-theme .rex-popup-body .rex-form-label {
   font-size: 12px;
   font-weight: 400;
 }
-body.dark-theme .rex-popup-body .rex-form-input {
+body.dark-theme .rex-popup-body .rex-form-input, body.dark-theme .rex-popup-body .rex-form-select {
   border-color: #55555E;
   background-color: transparent;
   color: white;
+}
+body.dark-theme .rex-popup-body .rex-form-select {
+  background-image: url("../icons/chevron.svg");
+  background-repeat: no-repeat;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+body.dark-theme .rex-popup-body .rex-form-select option {
+  background-color: #212224;
 }
 body.dark-theme .rex-popup-body .rex-form-segment {
   width: fit-content;
@@ -159,8 +169,9 @@ body.dark-theme .rex-popup-body .rex-form-segment-item:last-child {
   border-radius: 0 3px 3px 0;
 }
 body.dark-theme .rex-popup-body .rex-template-card {
-  background-color: #3B3B40;
+  background-color: rgb(47, 47, 51);
   border-color: #3B3B40;
+  box-shadow: 0 0 23px rgba(12, 24, 43, 0.32);
 }
 body.dark-theme .rex-popup-body .rex-template-card .rex-template-title {
   color: white;

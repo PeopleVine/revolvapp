@@ -176,10 +176,22 @@ body.dark-theme {
           font-weight: 400;
         }
 
-        &-input {
+        &-input, &-select {
           border-color: #55555E;
           background-color: transparent;
           color: white;
+        }
+
+        &-select {
+          background-image: url("../icons/chevron.svg");
+          background-repeat: no-repeat;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
+        }
+
+        &-select option {
+          background-color: #212224;
         }
 
         &-segment {
@@ -215,8 +227,9 @@ body.dark-theme {
       }
 
       .rex-template-card {
-        background-color: #3B3B40;
+        background-color: rgb(47, 47, 51);
         border-color: #3B3B40;
+        box-shadow: 0 0 23px rgba(12, 24, 43, 0.32);
 
         .rex-template-title {
           color: white;
