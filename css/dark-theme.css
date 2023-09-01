@@ -77,14 +77,14 @@ body.dark-theme .rex-popup-section-box-content .rex-popup-button {
 body.dark-theme .rex-popup-section-box-content .rex-popup-button:after {
   display: none;
 }
-body.dark-theme .rex-popup-section-box-content .rex-popup-button-img {
+body.dark-theme .rex-popup-section-box-content .rex-popup-button-img, body.dark-theme .rex-popup-section-box-content .rex-popup-button-icon {
   filter: brightness(0) invert(1);
   transition: filter 0.3s;
 }
 body.dark-theme .rex-popup-section-box-content .rex-popup-button:hover {
   color: #57806E;
 }
-body.dark-theme .rex-popup-section-box-content .rex-popup-button:hover .rex-popup-button-img {
+body.dark-theme .rex-popup-section-box-content .rex-popup-button:hover .rex-popup-button-img, body.dark-theme .rex-popup-section-box-content .rex-popup-button:hover .rex-popup-button-icon {
   filter: invert(45%) sepia(13%) saturate(756%) hue-rotate(101deg) brightness(99%) contrast(93%);
 }
 body.dark-theme .rex-popup-header-item, body.dark-theme .rex-popup-header-item-link {
@@ -131,6 +131,7 @@ body.dark-theme .rex-popup-body .rex-form-input, body.dark-theme .rex-popup-body
   border-color: #55555E;
   background-color: transparent;
   color: white;
+  font-size: 12px;
 }
 body.dark-theme .rex-popup-body .rex-form-select {
   background-image: url("../icons/chevron.svg");

@@ -1836,6 +1836,16 @@
           label: "## form.radius ##",
         },
       },
+      typography: {
+        "font-family": {
+          type: "select",
+          label: "## form.font-family ##",
+        },
+        "text-type": {
+          type: "select",
+          label: "## form.text-type ##",
+        },
+      },
     },
 
     // private
@@ -2058,6 +2068,7 @@
       items: "Items",
       image: "Image",
       video: "Video",
+      typography: 'Typography',
     },
     "add-sections": {
       headers: "Headers",
@@ -2172,6 +2183,7 @@
       margin: "Margin",
       padding: "Padding",
       settings: "Settings",
+      typography: "Typography",
     },
     form: {
       "list-type": "List type",
@@ -2207,15 +2219,24 @@
       "column-space": "Column Space",
       height: "Height",
       "text-size": "Text Size",
+      center: "Center",
+      left: "Left",
+      right: "Right",
       pattern: "Pattern",
       image: "Image",
       video: "Video",
       upload: "Upload",
+      none: "None",
+      solid: "Solid",
+      dotted: "Dotted",
+      dashed: "Dashed",
+      normal: "Normal",
       bold: "Bold",
       underline: "Underline",
       "spacer-content": "Spacer Content",
       "heading-level": "Heading Level",
       "responsive-on-mobile": "Responsive on mobile",
+      "text-type": "Text Type",
     },
   };
   var App = function ($element, settings) {
@@ -2861,6 +2882,7 @@
         case "font-size":
         case "font-weight":
         case "font-style":
+        case "font-family":
         case "line-height":
         case "box-shadow":
         case "max-width":
@@ -5679,18 +5701,18 @@
       }); */
       if (this.supername === "add") {
         this.$popup.css({
-          top: "144.5px",
+          top: "144px",
           left: "0px",
           maxHeight: "unset",
         });
         this.$addPopup.css({
-          top: "144.5px",
+          top: "144px",
           left: "0px",
           maxHeight: "unset",
         });
       } else if (this.supername === "templates") {
         this.$popup.css({
-          top: "144.5px",
+          top: "144px",
           left: "0px",
           width: "100vw",
           maxHeight: "unset",
@@ -7041,7 +7063,7 @@
       $elms.removeClass(this.toggledClass);
     },
     disableButtons: function (except) {
-      this._findButtons().each(
+      this._findAllButtons().each(
         function ($btn) {
           var btnName = $btn.attr("data-name");
 
@@ -7052,7 +7074,7 @@
       );
     },
     enableButtons: function () {
-      this._findButtons().removeClass(this.disableClass);
+      this._findAllButtons().removeClass(this.disableClass);
     },
     imitateClickButton: function () {
       this.app.toolbar._findButtons().nodes[0].click()
@@ -7161,6 +7183,9 @@
         "top",
         0 - paddingTop + this.opts.toolbar.stickyTopOffset + "px"
       );
+    },
+    _findAllButtons: function () {
+      return this.$toolbar.find(".rex-button-toolbar");
     },
     _findButtons: function () {
       return this.$sidenav.find(".rex-button-toolbar");
@@ -8575,8 +8600,6 @@
         "image",
       ];
       var instance = this.app.component.get();
-
-      var instance = this.app.component.get();
       var title = instance.isType("image")
         ? this.lang.get("popup.settings")
         : instance.getTitle();
@@ -8588,6 +8611,7 @@
         setter: "component.setData",
         form: instance.forms.settings,
       });
+      console.log(instance);
 
       if (names.indexOf(instance.getType()) !== -1) {
         if (instance.getType() !== 'block') {
@@ -8945,6 +8969,7 @@
         this.app.popup.close();
         this.app.control.close();
         this.mobileMode = true;
+        this.app.toolbar.imitateClickButton();
       }
 
       this.adjustHeight();
@@ -8962,7 +8987,6 @@
     getData: function () {
       var instance = this.getBodyInstance();
       var data = instance.getData();
-
       return data;
     },
     setData: function (stack) {
@@ -9196,6 +9220,7 @@
     open: function (button, name) {
       if (name === "background") this.background(button);
       else if (name === "tune") this.settings(button);
+      else if (name === "typography") this.typography(button);
     },
     settings: function (button) {
       var instance = this.app.editor.getBodyInstance();
@@ -9236,6 +9261,22 @@
       }
 
       this.app.popup.open({ button: button });
+    },
+    typography: function (button) {
+      const instance = this.app.editor.getBodyInstance();
+    
+      this.app.popup.create("typography", {
+        title: "## popup.typography ##",
+        width: "300px",
+        getter: "editor.getData",
+        setter: "editor.setData",
+        form: instance.forms.typography,
+      });
+    
+      this.app.popup.open({ button: button });
+  
+      // hard set first option selected
+      document.querySelectorAll("select.rex-form-select").forEach(select => select.options[0].selected = true)
     },
   });
   Revolvapp.add("module", "event", {
@@ -12382,6 +12423,10 @@
         color: true,
         observer: "editor.observe",
       },
+      typography: {
+        title: "## buttons.typography ##",
+        command: "editor.popup",
+      }
     },
     forms: {
       background: {
@@ -12406,6 +12451,32 @@
           },
         },
       },
+      typography: {
+        "font-family": {
+          type: "select",
+          options: {
+            "'Open Sans', Helvetica, sans-serif": "Open Sans",
+            "Arial, sans-serif": "Arial",
+            "'Helvetica Neue', sans-serif": "Helvetica Neue",
+            "Helvetica, sans-serif": "Helvetica",
+            "'Lucida Grande', sans-serif": "Lucida Grande",
+            "Tahoma, sans-serif": "Tahoma",
+            "Verdana, sans-serif": "Verdana",
+            "'Courier New', monospace": "Courier New",
+            "Georgia, serif": "Georgia",
+            "'Times New Roman', serif": "Times New Roman",
+          },
+          label: "## form.font-family ##",
+        },
+        "text-type": {
+          type: "select",
+          options: {
+            normal: "Normal",
+            italic: "Italic",
+          },
+          label: "## form.text-type ##",
+        },
+      },
     },
     create: function () {
       this.$element = this.dom("<body>");
@@ -12427,6 +12498,15 @@
       };
 
       this.data = {
+        "font-family": {
+          target: ["element"],
+          getter: "getFontFamily",
+          setter: "setFontFamily",
+        },
+        "text-type": {
+          target: ["element"],
+          setter: "setTextType",
+        },
         "background-color": { target: ["element"] },
         "background-image": { target: ["element"] },
         "background-size": { target: ["element"] },
@@ -12436,6 +12516,21 @@
         "padding-bottom": { target: ["cell"] },
         "padding-left": { target: ["cell"] },
       };
+    },
+  
+    getFontFamily: function () {
+      return this.$element.css("font-family");
+    },
+  
+    setFontFamily: function (value) {
+      console.log(value);
+      this.$element.css("font-family", value);
+      this.$cell.find("p").css("font-family", value)
+      console.log(this);
+    },
+    setTextType: function (value) {
+      this.$element.css("font-style", value);
+      this.$cell.find("p").css("font-style", value)
     },
     render: function () {
       return this.$cell;
@@ -12706,7 +12801,7 @@
       };
 
       this.data = {
-        align: { target: ["cell"] },
+        align: { target: ["cell"], setter: 'setAlign' },
         valign: { target: ["cell"] },
         padding: { target: ["cell"] },
         "padding-top": {

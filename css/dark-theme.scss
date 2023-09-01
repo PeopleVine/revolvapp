@@ -99,7 +99,7 @@ body.dark-theme {
             display: none;
           }
 
-          &-img {
+          &-img, &-icon {
             filter: brightness(0) invert(1);
             transition: filter 0.3s;
           }
@@ -107,7 +107,7 @@ body.dark-theme {
           &:hover {
             color: #57806E;
 
-            .rex-popup-button-img {
+            .rex-popup-button-img, .rex-popup-button-icon {
               filter: invert(45%) sepia(13%) saturate(756%) hue-rotate(101deg) brightness(99%) contrast(93%);
             }
           }
@@ -180,6 +180,7 @@ body.dark-theme {
           border-color: #55555E;
           background-color: transparent;
           color: white;
+          font-size: 12px;
         }
 
         &-select {

@@ -72,7 +72,7 @@ body {
 }
 
 .rex-editor-container {
-    min-height: 100vh;
+    min-height: calc(100vh - 144px);
     border: 1px solid rgba(0, 11, 29, 0.1);
     background-color: #9F9EA6;
     margin-top: calc(72px*2);
@@ -1356,7 +1356,7 @@ body {
     z-index: 100000;
     height: 100%;
     width: 300px;
-    margin-top: 144.5px;
+    margin-top: 144px;
     padding: 91px 30px 0;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 11, 29, 0.12);
@@ -1566,6 +1566,15 @@ body {
 .rex-icon-background::before {
     content: '';
     display: block;
+}
+
+.rex-icon-typography {
+    background: url('../icons/font-size.png') center center/50% no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .rex-icon-text-color {
@@ -2160,16 +2169,24 @@ button.rex-popup-button.rex-popup-button-single:after, button.rex-popup-button.r
 
 .rex-popup-section-box-content {
     position: fixed;
-    top: 144.5px;
+    top: 144px;
     left: 173px;
     width: 192px;
     height: calc(100vh - 120px);
-    overflow-y: scroll;
     background: white;
     display: block;
     padding-top: 16px;
     background: #F9F9F9;
     box-shadow: inset 120px 0px 37px -150px rgba(0,0,0,0.75);
+}
+
+.rex-popup-section-box-content-single {
+    max-height: calc(100vh - 295px);
+    overflow-y: scroll;
+}
+
+.rex-popup-section-box-content-single::-webkit-scrollbar {
+    display: none;
 }
 
 .rex-popup-section-box-content > span {
