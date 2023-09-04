@@ -15274,7 +15274,6 @@
         "padding-bottom": "40px",
         "padding-left": "20px",
         "padding-right": "20px",
-        "background-color": "#ffffff",
       });
 
       /** Create the following structure using individual calls to this.app.create
@@ -15702,14 +15701,13 @@
       // header
       this.block = this.app.create("tag.block", {
         padding: "10px 10px 8px 10px",
-        "background-color": "#000",
       });
 
       // text
       var text = this.app.create("tag.text", {
         align: "center",
         "text-transform": "uppercase",
-        color: "#fff",
+        color: "rgb(60, 43, 36)",
         "font-weight": "bold",
         "font-size": "18px",
         "letter-spacing": "0.5em",
@@ -15768,13 +15766,12 @@
       // block
       this.block = this.app.create("tag.block", {
         padding: "20px 20px 60px 20px",
-        "background-color": "#ffffff",
       });
 
       // divider
       var divider = this.app.create("tag.divider", {
         height: "4px",
-        "background-color": "#f2f2f2",
+        "background-color": "#E8E7E9",
       });
 
       // grid
@@ -15941,7 +15938,7 @@
 
       // divider
       var divider = this.app.create("tag.divider", {
-        "background-color": "#111",
+        "background-color": "#E8E7E9",
         height: "6px",
       });
 
