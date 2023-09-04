@@ -12454,11 +12454,11 @@
         "font-family": {
           type: "select",
           options: {
-            "'Open Sans', Helvetica, sans-serif": "Open Sans",
-            "Arial, sans-serif": "Arial",
-            "'Helvetica Neue', sans-serif": "Helvetica Neue",
-            "Helvetica, sans-serif": "Helvetica",
-            "'Lucida Grande', sans-serif": "Lucida Grande",
+            "Open Sans": "Open Sans",
+            "Arial": "Arial",
+            "Helvetica Neue": "Helvetica Neue",
+            "Helvetica": "Helvetica",
+            "Lucida Grande": "Lucida Grande",
             "Tahoma, sans-serif": "Tahoma",
             "Verdana, sans-serif": "Verdana",
             "'Courier New', monospace": "Courier New",
