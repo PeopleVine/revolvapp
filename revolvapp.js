@@ -8611,7 +8611,6 @@
         setter: "component.setData",
         form: instance.forms.settings,
       });
-      console.log(instance);
 
       if (names.indexOf(instance.getType()) !== -1) {
         if (instance.getType() !== 'block') {
@@ -12523,10 +12522,8 @@
     },
   
     setFontFamily: function (value) {
-      console.log(value);
       this.$element.css("font-family", value);
       this.$cell.find("p").css("font-family", value)
-      console.log(this);
     },
     setTextType: function (value) {
       this.$element.css("font-style", value);
