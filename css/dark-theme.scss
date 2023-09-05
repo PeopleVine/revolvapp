@@ -259,6 +259,54 @@ body.dark-theme {
         }
       }
     }
+
+    &-stack-templates {
+      .rex-header-container {
+        .rex-template-menu {
+          &-item {
+            color: #CFCFD3;
+
+            &.active, &:hover {
+              color: #fff;
+            }
+          }
+        }
+
+        .rex-controls {
+          .rex-search-container {
+            .rex-search-input {
+              border-color: #3B3B40;
+
+              &:focus {
+                border-color: #57806E;
+              }
+            }
+          }
+          .rex-select-button {
+            border-color: #3B3B40;
+            color: #6E6D79;
+          }
+
+          .rex-dropdown {
+            background-color: #212224;
+
+            &-option {
+              color: #CFCFD3;
+
+              &:hover {
+                color: white;
+                background-color: rgba(207, 207, 211, 0.3);
+              }
+            }
+          }
+        }
+      }
+
+      .rex-template-tag {
+        background-color: #212224;
+        color: #CFCFD3;
+      }
+    }
   }
 
   .rex-sidenav {
