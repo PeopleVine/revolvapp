@@ -339,9 +339,22 @@ function debounce(func, wait) {
           this.prefix + "-template-card"
         );
   
-        var $sectionImageContainer = this.dom("<div>").addClass(
-          this.prefix + "-template-image-container"
-        );
+        var $sectionImageContainer = this.dom("<div>")
+        .addClass(this.prefix + "-template-image-container")
+        .on("mouseenter", () => {
+          if (template.saved) {
+            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/minus.png");
+          } else {
+            $savedBtn.css("opacity", "1")
+          }
+        })
+        .on("mouseleave", () => {
+          if (template.saved) {
+            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/saved-star.png");
+          } else {
+            $savedBtn.css("opacity", "0")
+          }
+        });
   
         var $sectionImage = this.dom("<img>")
         .addClass(this.prefix + "-template-image")
@@ -356,20 +369,6 @@ function debounce(func, wait) {
           } else {
             template.saved = true;
             $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/saved-star.png");
-          }
-        })
-        .on("mouseenter", () => {
-          if (template.saved) {
-            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/minus.png");
-          } else {
-            $savedBtn.css("opacity", "1")
-          }
-        })
-        .on("mouseleave", () => {
-          if (template.saved) {
-            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/saved-star.png");
-          } else {
-            $savedBtn.css("opacity", "0")
           }
         })
         

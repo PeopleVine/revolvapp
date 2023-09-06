@@ -1495,7 +1495,7 @@ input.rex-search-input:focus, .rex-select-button.focused {
     transition: transform 0.3s;
 }
 
-.rex-template-card:has(.rex-template-button:hover) {
+.rex-template-card:has(.rex-template-button:hover, .rex-template-image-container:hover) {
     transform: scale(0.98);
 }
 
@@ -1508,15 +1508,16 @@ input.rex-search-input:focus, .rex-select-button.focused {
 
 .rex-template-image-container {
     position: relative;
+    z-index: 11;
     height: 337px;
     width: 331px;
+    cursor: pointer;
 }
 
 .rex-saved-btn {
     position: absolute;
     bottom: 22px;
     left: 24px;
-    z-index: 11;
     width: 75px;
     height: 73px;
     display: flex;
