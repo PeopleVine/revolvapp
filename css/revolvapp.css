@@ -1280,6 +1280,7 @@ body {
 
 .rex-popup[data-rex-popup-name="templates"] .rex-popup-body {
     display: flex;
+    min-height: 300px;
 }
 
 .rex-popup[data-rex-popup-name="templates"] .rex-popup-header {
@@ -1376,10 +1377,10 @@ body {
 }
 
 .rex-select-icon-container {
-    background: url("../icons/chevron.svg") no-repeat;
+    background: url("../icons/chevron.svg") no-repeat center;
 }
 
-.rex-search-container:has(input:focus) .rex-search-icon-container {
+.rex-search-container:has(input:focus) .rex-search-icon-container, .rex-custom-select:has(.rex-select-button.focused) .rex-select-icon-container {
     filter: invert(49%) sepia(25%) saturate(402%) hue-rotate(102deg) brightness(89%) contrast(91%);
 }
 
@@ -1414,7 +1415,7 @@ input.rex-search-input::placeholder {
     color: #6E6D79;
 }
 
-input.rex-search-input:focus {
+input.rex-search-input:focus, .rex-select-button.focused {
     border-color: #57806E;
     color: #57806E;
 }
@@ -1441,11 +1442,33 @@ input.rex-search-input:focus {
     background-color: #F8F8F8;
 }
 
+.rex-btn-saved-templates {
+    width: 48px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid #E8E7E9;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.rex-btn-saved-templates:hover {
+    background-color: #CEEEE3;
+    border-color: #CEEEE3;
+}
+
 .rex-template-tags {
     margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 12px 8px;
+    overflow: hidden;
+    max-height: 52px;
+    transition: max-height 0.5s;
 }
 
 .rex-template-tag {
@@ -1484,8 +1507,27 @@ input.rex-search-input:focus {
 }
 
 .rex-template-image-container {
+    position: relative;
     height: 337px;
     width: 331px;
+}
+
+.rex-saved-btn {
+    position: absolute;
+    bottom: 22px;
+    left: 24px;
+    z-index: 11;
+    width: 75px;
+    height: 73px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    background-color: #57806E;
+    transition: all 0.3s;
+    cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .rex-template-content {

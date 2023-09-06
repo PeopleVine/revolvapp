@@ -202,6 +202,7 @@ body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-template-m
 }
 body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-search-container .rex-search-input {
   border-color: #3B3B40;
+  color: #57806E;
 }
 body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-search-container .rex-search-input:focus {
   border-color: #57806E;
@@ -209,6 +210,10 @@ body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .
 body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-select-button {
   border-color: #3B3B40;
   color: #6E6D79;
+}
+body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-select-button.focused {
+  border-color: #57806E;
+  color: #57806E;
 }
 body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-dropdown {
   background-color: #212224;
@@ -219,6 +224,12 @@ body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .
 body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-dropdown-option:hover {
   color: white;
   background-color: rgba(207, 207, 211, 0.3);
+}
+body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-btn-saved-templates {
+  border-color: #3B3B40;
+}
+body.dark-theme .rex-popup-stack-templates .rex-header-container .rex-controls .rex-btn-saved-templates:hover {
+  border-color: #CEEEE3;
 }
 body.dark-theme .rex-popup-stack-templates .rex-template-tag {
   background-color: #212224;

@@ -45,6 +45,8 @@ function debounce(func, wait) {
     init: function () {
       this.activeItem = null;
       this.activeType = null;
+      this.activeName = null;
+      this._createModal(this);
     },
     popup: function (params, button) {
       this.app.popup.create("templates", this.popups.base);
@@ -63,7 +65,7 @@ function debounce(func, wait) {
           description: "A general template.",
           image: "/img/general.png",
           type: "email-templates",
-          tags: ["Marketing", "Responsive", "Newsletter", "Promotion"],
+          tags: ["Marketing", "Responsive", "Newsletter", "Promotion", "Responsive", "Newsletter", "Promotion"],
           saved: false,
         },
         {
@@ -99,9 +101,10 @@ function debounce(func, wait) {
       .attr("placeholder", "Search templates")
       .on("input", debounce(function () {
         var searchTerm = this.value.trim().toLowerCase();
-        var templateByType = self.filterTemplatesByType(self.activeType, templateData)
-        var filteredTemplates = self._filterTemplatesBySearch(searchTerm, templateByType);
-        self.renderTemplates(filteredTemplates, stack);
+        var templateByType = self._filterTemplatesByType(self.activeType, templateData)
+        var templateByName = self.activeName ? self._filterTemplatesByName(self.activeName, templateByType) : templateByType
+        var filteredTemplates = self._filterTemplatesBySearch(searchTerm, templateByName);
+        self._renderTemplates(filteredTemplates, stack);
       }, 200)); // Adjust the debounce time as needed
   
       // Create a container for all controls
@@ -151,7 +154,7 @@ function debounce(func, wait) {
       $dropdownOptions.hide();
 
       // Define an array of option values
-      var optionValues = ["Email Templates", "Applications", "Blog Posts", "Widgets", "SMS", "FAQs"];
+      var optionValues = ["All", "General", "Pending Invoice", "Welcome"];
 
       // Create options for the custom dropdown based on optionValues
       optionValues.forEach((optionValue) => {
@@ -159,12 +162,17 @@ function debounce(func, wait) {
         .addClass(this.prefix + "-dropdown-option")
         .text(optionValue)
         .on("click", function () {
+          self.activeName = optionValue
           // Handle option selection logic here
           var selectedOption = optionValue;
           // Update the select button text with the selected option
           $selectButton.text(selectedOption);
           // Close the dropdown
           $dropdownOptions.hide();
+          const filteredTemplate = optionValue === "All"
+            ? self._filterTemplatesByType(self.activeType, templateData)
+            : self._filterTemplatesByName(optionValue, self._filterTemplatesByType(self.activeType, templateData));
+          self._renderTemplates(filteredTemplate, stack)
         });
         $dropdownOptions.append($option);
       });
@@ -173,6 +181,7 @@ function debounce(func, wait) {
       $dropdown.on("mouseleave", function () {
         // Mouse left the custom select
         if (isDropdownOpen) {
+          $selectButton.removeClass("focused")
           // If the dropdown is open, close it
           $dropdownOptions.hide();
           isDropdownOpen = false;
@@ -192,10 +201,12 @@ function debounce(func, wait) {
       // Handle the display and hiding of the dropdown when clicking the select button
       $selectButton.on("click", function () {
         if (!isDropdownOpen) {
+          $selectButton.addClass("focused")
           // If the dropdown is closed, open it
           $dropdownOptions.show();
           isDropdownOpen = true;
         } else {
+          $selectButton.removeClass("focused")
           // If the dropdown is open, close it
           $dropdownOptions.hide();
           isDropdownOpen = false;
@@ -209,6 +220,20 @@ function debounce(func, wait) {
         }
       });
   
+      var $showSavedButton = this.dom("<button>")
+      .addClass(this.prefix + "-btn-saved-templates")
+      .on("click", function () {
+        // Handle the logic to show saved templates here
+        var savedTemplates = templateData.filter((template) => template.saved);
+        self._renderTemplates(savedTemplates, stack);
+        self.activeItem.removeClass("active");
+        self.activeItem = null;
+      });
+      
+      $showSavedButton.append(this.dom("<img>").attr("src", "https://peoplevine.blob.core.windows.net/media/1087/star.png").attr("alt", ""));
+  
+      $controlsContainer.append($showSavedButton)
+      
       // Append the header container to the stack
       stack.$stack.prepend($headerContainer);
     },
@@ -221,6 +246,20 @@ function debounce(func, wait) {
           template.description.toLowerCase().includes(searchTerm)
         );
       });
+    },
+  
+    _filterTemplatesByName: function (name, templateData) {
+      // Filter templates based on the option value
+      return templateData.filter((template) => {
+        return (
+          template.name.toLowerCase().includes(name.toLowerCase())
+        );
+      });
+    },
+  
+    _filterTemplatesByType: function (type, templateData) {
+      // Filter templates based on the selected type
+      return templateData.filter((template) => template.type === type);
     },
 
     // private
@@ -236,9 +275,18 @@ function debounce(func, wait) {
       return str;
     },
   
+    // Function to handle navigation item click
+    _handleNavigationClick: function (action, templateData, stack) {
+      // Get the templates based on the selected type
+      var filteredTemplates = this._filterTemplatesByType(action, templateData);
+    
+      // Render the filtered templates
+      this._renderTemplates(filteredTemplates, stack);
+    },
+  
     _buildNavigationMenu: function (app, templateData, stack) {
       var $navigationMenu = app.dom("<ul>").addClass(this.prefix + "-template-menu");
-  
+    
       var items = [
         { label: "Email Templates", action: "email-templates" },
         { label: "Applications", action: "applications" },
@@ -247,7 +295,7 @@ function debounce(func, wait) {
         { label: "SMS", action: "sms" },
         { label: "FAQs", action: "faqs" },
       ];
-  
+    
       items.forEach((item, idx) => {
         var $menuItem = app.dom("<li>")
         .addClass(this.prefix + "-template-menu-item")
@@ -257,45 +305,31 @@ function debounce(func, wait) {
           if (this.activeItem) {
             this.activeItem.removeClass("active");
           }
-  
+        
           // Add "active" class to the clicked menu item
           $menuItem.addClass("active");
-  
+        
           this.activeItem = $menuItem; // Update the active item
-  
+        
           // Update the active type
-         this.activeType = item.action;
-          
+          this.activeType = item.action;
+        
           this._handleNavigationClick(item.action, templateData, stack);
         }.bind(this));
-        
+      
         if (idx === 0) {
           $menuItem.click()
         }
-    
+      
         $navigationMenu.append($menuItem);
       });
-  
+    
       return $navigationMenu;
     },
   
-    // Function to handle navigation item click
-    _handleNavigationClick: function (action, templateData, stack) {
-      // Get the templates based on the selected type
-      var filteredTemplates = this.filterTemplatesByType(action, templateData);
-    
-      // Render the filtered templates
-      this.renderTemplates(filteredTemplates, stack);
-    },
-  
-    filterTemplatesByType: function (type, templateData) {
-      // Filter templates based on the selected type
-      return templateData.filter((template) => template.type === type);
-    },
-  
-    renderTemplates: function (templates, stack) {
+    _renderTemplates: function (templates, stack) {
       // Clear the existing templates
-      this.clearTemplates(stack);
+      this._clearTemplates(stack);
     
       // Render the filtered templates
       templates.forEach((template) => {
@@ -312,6 +346,45 @@ function debounce(func, wait) {
         var $sectionImage = this.dom("<img>")
         .addClass(this.prefix + "-template-image")
         .attr("src", template.image);
+        
+        var $savedBtn = this.dom("<button>")
+        .addClass(this.prefix + "-saved-btn")
+        .on("click", () => {
+          if (template.saved) {
+            template.saved = false;
+            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/plus.png");
+          } else {
+            template.saved = true;
+            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/saved-star.png");
+          }
+        })
+        .on("mouseenter", () => {
+          if (template.saved) {
+            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/minus.png");
+          } else {
+            $savedBtn.css("opacity", "1")
+          }
+        })
+        .on("mouseleave", () => {
+          if (template.saved) {
+            $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/saved-star.png");
+          } else {
+            $savedBtn.css("opacity", "0")
+          }
+        })
+        
+        var $savedBtnImage = this.dom("<img>")
+        .addClass(this.prefix + "-saved-btn-image")
+        
+        if (template.saved) {
+          $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/saved-star.png")
+        } else {
+          $savedBtnImage.attr("src", "https://peoplevine.blob.core.windows.net/media/1087/plus.png")
+          $savedBtn.css("opacity", "0")
+        }
+        
+        $savedBtn.append($savedBtnImage)
+        $sectionImageContainer.append($savedBtn)
   
         var $sectionContent = this.dom("<div>").addClass(
           this.prefix + "-template-content"
@@ -340,12 +413,25 @@ function debounce(func, wait) {
         });
   
         var $sectionButton = this.dom("<button>")
-        .addClass(this.prefix + "-template-button")
+        .addClass(this.prefix + "-template-button");
   
         $sectionButton.on("click", () => {
-          // Create and display the modal dynamically
-          const $modal = this._createModal(template, self);
-          self.app.$body.append($modal);
+          const modal = document.querySelector(".rex-template-modal");
+          const continueBtn = modal.querySelector(".rex-modal-continue");
+          const blur = document.querySelector(".blur-layout");
+          
+          modal.classList.remove("closed")
+          blur.classList.remove("closed")
+          continueBtn.addEventListener("click", () => {
+            self.ajax.get({
+              url: template.url,
+              success: function (data) {
+                self.app.editor.setTemplate(data);
+                self.app.popup.close()
+                self.app.toolbar.imitateClickButton()
+              },
+            });
+          })
         });
   
         $sectionImageContainer.append($sectionImage);
@@ -364,11 +450,12 @@ function debounce(func, wait) {
     },
   
     // Function to create the modal dynamically
-    _createModal: function (template, self) {
-      const $modal = this.dom("<div>").addClass("rex-template-modal");
+    _createModal: function (self) {
+      const $blur = document.querySelector(".blur-layout");
+      const $modal = this.dom("<div>").addClass("rex-template-modal closed");
     
       const $imgContainer = this.dom("<div>").addClass("rex-img-container");
-      $imgContainer.append(this.dom("<img>").attr("src", "img/modal-img.png").attr("alt", ""));
+      $imgContainer.append(this.dom("<img>").attr("src", "https://peoplevine.blob.core.windows.net/media/1087/modal-img.png").attr("alt", ""));
       $modal.append($imgContainer);
     
       const $h5 = this.dom("<h5>").text("Are you sure?");
@@ -387,36 +474,30 @@ function debounce(func, wait) {
     
       const $closeContainer = this.dom("<div>").addClass("rex-close-container");
       const $closeBtn = this.dom("<button>").addClass("rex-close-btn");
-      $closeBtn.append(this.dom("<img>").attr("src", "img/close-btn-img.svg").attr("alt", ""));
+      $closeBtn.append(this.dom("<img>").attr("src", "https://peoplevine.blob.core.windows.net/media/1087/close.png").attr("alt", ""));
       $closeContainer.append($closeBtn);
       $modal.append($closeContainer)
     
       // Event listeners for modal buttons
       $cancelBtn.on("click", () => {
-        $modal.remove(); // Remove the modal from the DOM
+        $modal.addClass("closed");
+        $blur.classList.add("closed")
       });
     
       $continueBtn.on("click", () => {
-        // Perform the same action as the section button
-        self.ajax.get({
-          url: template.url,
-          success: function (data) {
-            self.app.editor.setTemplate(data);
-            self.app.popup.close();
-          },
-        });
-      
-        $modal.remove(); // Remove the modal from the DOM
+        $modal.addClass("closed");
+        $blur.classList.add("closed")
       });
     
       $closeBtn.on("click", () => {
-        $modal.remove(); // Remove the modal from the DOM
+        $modal.addClass("closed");
+        $blur.classList.add("closed")
       });
     
-      return $modal;
+      self.app.$body.append($modal)
     },
   
-    clearTemplates: function (stack) {
+    _clearTemplates: function (stack) {
       // Clear the existing templates from the UI
       stack.$body.empty();
     }

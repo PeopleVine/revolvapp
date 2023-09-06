@@ -5895,6 +5895,12 @@
       this.$popup.removeAttr(attrname);
       this.$popup.removeClass("open " + this.prefix + "-popup-" + name);
       this.saved = false;
+  
+      // Check if the closed popup is the "templates" popup
+      if (name === "templates") {
+        // Imitate click on the toolbar button only if it's the "templates" popup
+        this.app.toolbar.imitateClickButton();
+      }
 
       // broadcast
       this.app.broadcast("popup.close");
@@ -9492,9 +9498,9 @@
       this.app.broadcast("event.dragleave", { e: e });
     },
     ondocclick: function (e) {
-      if (!this.isPopupMouse && this.app.popup.isOpen()) {
-        this.app.popup.close(e);
-      }
+      // if (!this.isPopupMouse && this.app.popup.isOpen()) {
+      //   this.app.popup.close(e);
+      // }
 
       var isPopup =
         this.dom(e.target).closest("." + this.prefix + "-popup").length !== 0;

@@ -276,6 +276,7 @@ body.dark-theme {
           .rex-search-container {
             .rex-search-input {
               border-color: #3B3B40;
+              color: #57806E;
 
               &:focus {
                 border-color: #57806E;
@@ -285,6 +286,11 @@ body.dark-theme {
           .rex-select-button {
             border-color: #3B3B40;
             color: #6E6D79;
+
+            &.focused {
+              border-color: #57806E;
+              color: #57806E;
+            }
           }
 
           .rex-dropdown {
@@ -297,6 +303,14 @@ body.dark-theme {
                 color: white;
                 background-color: rgba(207, 207, 211, 0.3);
               }
+            }
+          }
+
+          .rex-btn-saved-templates {
+            border-color: #3B3B40;
+
+            &:hover {
+              border-color: #CEEEE3;
             }
           }
         }
