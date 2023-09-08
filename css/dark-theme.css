@@ -115,9 +115,12 @@ body.dark-theme .rex-popup-body .rex-form-container-color .rex-form-color-select
   border: 1px solid #3B3B40;
   border-radius: 4px;
 }
-body.dark-theme .rex-popup-body .rex-form-container-color .rex-form-input {
+body.dark-theme .rex-popup-body .rex-form-container-color .rex-form-input, body.dark-theme .rex-popup-body .rex-form-container-color .rex-form-color-opacity {
   background-color: transparent;
   color: white;
+}
+body.dark-theme .rex-popup-body .rex-form-container-color .rex-input-color-separator {
+  background-color: #3B3B40;
 }
 body.dark-theme .rex-popup-body .rex-form-checkbox-item span {
   color: white;
@@ -144,20 +147,9 @@ body.dark-theme .rex-popup-body .rex-form-select option {
   background-color: #212224;
 }
 body.dark-theme .rex-popup-body .rex-form-segment {
-  width: fit-content;
-  height: 48px;
-  padding: 0;
-  background-color: transparent;
-  border: 1px solid #55555E;
+  border-color: #55555E;
 }
 body.dark-theme .rex-popup-body .rex-form-segment-item {
-  min-width: 48px;
-  max-width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0;
-  margin: 0;
   color: white;
 }
 body.dark-theme .rex-popup-body .rex-form-segment-item.active, body.dark-theme .rex-popup-body .rex-form-segment-item:hover {
@@ -238,7 +230,7 @@ body.dark-theme .rex-popup-stack-templates .rex-template-tag {
 body.dark-theme .rex-sidenav:after, body.dark-theme .rex-sidenav:before {
   background-color: #212224;
 }
-body.dark-theme .rex-sidenav a.rex-button-target .rex-button-icon > span {
+body.dark-theme .rex-sidenav a.rex-button-target .rex-button-icon > span, body.dark-theme .rex-sidenav a.rex-button-target img {
   filter: brightness(0) invert(1);
 }
 body.dark-theme .rex-sidenav a.rex-button-target svg {
@@ -247,7 +239,7 @@ body.dark-theme .rex-sidenav a.rex-button-target svg {
 body.dark-theme .rex-sidenav a.rex-button-target:hover {
   background: #CFCFD3;
 }
-body.dark-theme .rex-sidenav a.rex-button-target:hover .rex-button-icon > span {
+body.dark-theme .rex-sidenav a.rex-button-target:hover .rex-button-icon > span, body.dark-theme .rex-sidenav a.rex-button-target:hover img {
   filter: brightness(0);
 }
 body.dark-theme .rex-sidenav a.rex-button-target:hover svg {

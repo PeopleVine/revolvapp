@@ -1827,13 +1827,14 @@
           type: "number",
           label: "## form.width ##",
         },
-        "border-color": {
-          type: "color",
-          label: "## form.color ##",
-        },
         "border-radius": {
           type: "number",
           label: "## form.radius ##",
+        },
+        "border-color": {
+          type: "color",
+          picker: true,
+          label: "## form.color ##",
         },
       },
       typography: {
@@ -9280,8 +9281,6 @@
     
       this.app.popup.open({ button: button });
   
-      // hard set first option selected
-      document.querySelectorAll("select.rex-form-select").forEach(select => select.options[0].selected = true)
     },
   });
   Revolvapp.add("module", "event", {
@@ -11929,6 +11928,7 @@
           }
         }.bind(this)
       );
+      this._changeMainBodyColor(color)
     },
 
     // private
@@ -11949,11 +11949,27 @@
       this.$eyeDropper = this.dom("<button>").addClass(
         this.prefix + "-form-color-select-eye-dropper"
       );
-      this.$eyeDropper.html('<i class="fa-solid fa-eye-dropper"></i>');
+      
+      this.$separator = this.dom("<span>").addClass(this.prefix + "-input-color-separator")
+      
+      this.$colorOpacity = this.dom("<input>")
+      .addClass(this.prefix + "-form-color-opacity")
+      .attr("type", "text")
+      .val("100%")
+      .on("keydown blur", this._changeColorOpacity.bind(this));
+      
+      this.$eyeDropper.html('<img src="https://peoplevine.blob.core.windows.net/media/1087/color-picker_2.png" alt="">');
       this.$eyeDropper.on("click", this._eyeDropperSelect.bind(this));
 
       this.$input.css("max-width", "90px");
       this.$input.on("keydown blur", this._changeColorSelect.bind(this));
+  
+      this.$box.append(this.$select);
+      this.$box.append(this.$input);
+      this.$box.append(this.$eyeDropper);
+      this.$box.append(this.$separator);
+      this.$box.append(this.$colorOpacity);
+      this.$tool.append(this.$box);
 
       if (this._has("picker")) {
         this.$picker = this._createPicker();
@@ -11967,11 +11983,6 @@
         this.$box.append(this.$checkbox);
         this.$checkbox.on("change", this._changeColorState.bind(this));
       }
-
-      this.$box.append(this.$select);
-      this.$box.append(this.$input);
-      this.$box.append(this.$eyeDropper);
-      this.$tool.append(this.$box);
 
       if (this._has("picker")) {
         this._buildColors();
@@ -12049,18 +12060,13 @@
       this.$picker.find("." + this.prefix + "-color").removeClass("active");
       $color.addClass("active");
       $color.css("color", this.app.color.invert(value));
+      // Set the opacity input value to "100%"
+      this.$colorOpacity.val("100%");
 
       this._setColorToInput(value);
 
       if (this.setter) {
         this.app.api(this.setter, this.popup);
-      }
-
-      if (this._has("picker")) {
-        this.app.popup.close();
-      } else {
-        var stack = this.app.popup.getStack();
-        stack.collapse();
       }
       
       this._changeMainBodyColor(value);
@@ -12083,6 +12089,8 @@
           this.$checkbox.attr("checked", color !== "");
 
           this.setColor(color);
+          // Set the opacity input value to "100%"
+          this.$colorOpacity.val("100%");
           this.app.api(this.setter, this.popup);
         }.bind(this)
       );
@@ -12102,6 +12110,13 @@
       }
 
       this.$checkbox.attr("checked", value !== "");
+      this._changeMainBodyColor(value);
+      // Set the opacity input value to "100%"
+      this.$colorOpacity.val("100%");
+  
+      if (this.setter) {
+        this.app.api(this.setter, this.stack);
+      }
     },
     _changeColorState: function (e) {
       e.preventDefault();
@@ -12118,6 +12133,71 @@
         const mainBody = document.querySelector('.rex-editor-container')
         mainBody.style.background = value
       }
+    },
+    _changeColorOpacity: function (e) {
+      if (e.type === "keydown" && e.which !== 13) return;
+      if (e.type === "keydown") e.preventDefault();
+    
+      // Get the opacity value from the input
+      var opacityValue = this.$colorOpacity.val();
+    
+      // Parse the opacity value (e.g., "50%" => 0.5)
+      var opacityDecimal = parseFloat(opacityValue) / 100;
+    
+      // Get the current color value (assumed to be in HEX format)
+      var currentColor = this.$input.val();
+    
+      // Check if the opacity value is valid
+      if (!isNaN(opacityDecimal) && opacityDecimal >= 0 && opacityDecimal <= 1) {
+        var isHex = currentColor.startsWith("#");
+  
+        var modifiedColor;
+        if (isHex) {
+          // HEX format
+          modifiedColor = this._changeHexOpacity(currentColor, opacityDecimal).toUpperCase();
+        } else {
+          // RGB format
+          modifiedColor = this._changeRgbOpacity(currentColor, opacityDecimal);
+        }
+        this.$input.val(modifiedColor);
+        this.$select.css("background-color", modifiedColor);
+      
+        if (this.picker) {
+          this.picker.setColor(modifiedColor);
+        }
+      
+        this.setColor(modifiedColor);
+      
+        if (this.setter) {
+          this.app.api(this.setter, this.popup);
+        }
+      }
+    },
+
+    _changeHexOpacity: function (hexColor, opacity) {
+      // Remove "#" symbol from HEX color
+      hexColor = hexColor.replace(/^#/, "");
+    
+      // Parse HEX color components (R, G, B)
+      var r = parseInt(hexColor.substring(0, 2), 16);
+      var g = parseInt(hexColor.substring(2, 4), 16);
+      var b = parseInt(hexColor.substring(4, 6), 16);
+    
+      // Convert opacity to an alpha value in the range [0, 255]
+      var alpha = Math.round(opacity * 255);
+    
+      // Return the modified color in HEX format
+      return "#" + this._componentToHex(r) + this._componentToHex(g) + this._componentToHex(b) + this._componentToHex(alpha);
+    },
+
+    _componentToHex: function (c) {
+      var hex = c.toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    },
+
+    _changeRgbOpacity: function (rgbColor, opacity) {
+      var rgbaColor = `rgba${rgbColor.slice(3, -1)}, ${opacity})`;
+      return rgbaColor;
     },
   });
   Revolvapp.add("class", "tool.padding", {
@@ -12460,16 +12540,16 @@
         "font-family": {
           type: "select",
           options: {
-            "Open Sans": "Open Sans",
-            "Arial": "Arial",
-            "Helvetica Neue": "Helvetica Neue",
-            "Helvetica": "Helvetica",
-            "Lucida Grande": "Lucida Grande",
+            '"Open Sans", Helvetica, sans-serif': "Open Sans",
+            "Arial, sans-serif": "Arial",
+            "Helvetica Neue, sans-serif": "Helvetica Neue",
+            "Helvetica, sans-serif": "Helvetica",
+            "Lucida Grande, sans-serif": "Lucida Grande",
             "Tahoma, sans-serif": "Tahoma",
-            "Verdana, sans-serif": "Verdana",
-            "'Courier New', monospace": "Courier New",
-            "Georgia, serif": "Georgia",
-            "'Times New Roman', serif": "Times New Roman",
+            "Verdana": "Verdana",
+            "'Courier New'": "Courier New",
+            "Georgia": "Georgia",
+            "'Times New Roman'": "Times New Roman",
           },
           label: "## form.font-family ##",
         },
@@ -12510,6 +12590,7 @@
         },
         "text-type": {
           target: ["element"],
+          getter: "getTextType",
           setter: "setTextType",
         },
         "background-color": { target: ["element"] },
@@ -12522,6 +12603,10 @@
         "padding-left": { target: ["cell"] },
       };
     },
+    
+    getTextType: function() {
+      return this.$element.css("font-style")
+    },
   
     getFontFamily: function () {
       return this.$element.css("font-family");
@@ -12531,10 +12616,12 @@
       this.$element.css("font-family", value);
       this.$cell.find("p").css("font-family", value)
       this.$cell.find("a.rex-editable").css("font-family", value)
+      this.$cell.find("li").css("font-family", value)
     },
     setTextType: function (value) {
       this.$element.css("font-style", value);
       this.$cell.find("p").css("font-style", value)
+      this.$cell.find("li").css("font-style", value)
     },
     render: function () {
       return this.$cell;
@@ -12578,13 +12665,9 @@
         observer: "component.observe",
       },
       border: { title: "## buttons.border ##", command: "component.popup" },
-      tune: { title: "## buttons.settings ##", command: "component.popup" },
     },
     control: {
       add: { command: "component.popup" },
-    },
-    forms: {
-      settings: {},
     },
     create: function () {
       this.$element = this._createTableContainer(this.params.width);
@@ -12598,12 +12681,6 @@
       this.data = {
         class: { target: ["cell"] },
         width: { target: ["element"] },
-        padding: { target: ["cell"] },
-        margin: { target: ["cell"] },
-        "padding-top": { target: ["cell"] },
-        "padding-right": { target: ["cell"] },
-        "padding-bottom": { target: ["cell"] },
-        "padding-left": { target: ["cell"] },
         "background-color": { target: ["cell"] },
         "background-image": { target: ["cell"] },
         "background-size": { target: ["cell"] },
@@ -12627,13 +12704,9 @@
         observer: "component.observe",
       },
       border: { title: "## buttons.border ##", command: "component.popup" },
-      tune: { title: "## buttons.settings ##", command: "component.popup" },
     },
     control: {
       add: { command: "component.popup" },
-    },
-    forms: {
-      settings: {},
     },
     create: function () {
       this.$element = this._createTableContainer(this.params.width);
@@ -12647,12 +12720,6 @@
       this.data = {
         class: { target: ["cell"] },
         width: { target: ["element"] },
-        margin: { target: ["cell"] },
-        padding: { target: ["cell"] },
-        "padding-top": { target: ["cell"] },
-        "padding-right": { target: ["cell"] },
-        "padding-bottom": { target: ["cell"] },
-        "padding-left": { target: ["cell"] },
         "background-color": { target: ["cell"] },
         "background-image": { target: ["cell"] },
         "background-size": { target: ["cell"] },
@@ -12676,14 +12743,10 @@
         observer: "component.observe",
       },
       border: { title: "## buttons.border ##", command: "component.popup" },
-      tune: { title: "## buttons.settings ##", command: "component.popup" },
     },
     control: {
       add: { command: "component.popup" },
       trash: { command: "component.remove" },
-    },
-    forms: {
-      settings: {},
     },
     create: function () {
       this.$element = this._createTableContainer(this.params.width);
@@ -12697,12 +12760,6 @@
       this.data = {
         class: { target: ["cell"] },
         width: { target: ["element"] },
-        margin: { target: ["cell"] },
-        padding: { target: ["cell"] },
-        "padding-top": { target: ["cell"] },
-        "padding-right": { target: ["cell"] },
-        "padding-bottom": { target: ["cell"] },
-        "padding-left": { target: ["cell"] },
         "background-color": { target: ["cell"] },
         "background-image": { target: ["cell"] },
         "background-size": { target: ["cell"] },
@@ -12845,6 +12902,11 @@
         "background-image": { target: ["cell"] },
         "background-size": { target: ["cell"] },
         border: { target: ["cell"] },
+        "border-width": {
+          target: ["cell"],
+          getter: "getBorderWidth",
+          setter: "setBorderWidth",
+        },
         "border-radius": { target: ["cell"] },
         class: { target: ["cell"] },
         color: {
@@ -12869,6 +12931,12 @@
     },
     render: function () {
       return this.$cell;
+    },
+    getBorderWidth: function() {
+      return this.$cell.css("border-width");
+    },
+    setBorderWidth: function(value) {
+      this.$cell.css("border-width", value)
     },
     setTopPadding: function (value) {
       const paddingTop = value + 'px'
@@ -13085,6 +13153,14 @@
         "font-size": {
           type: "number",
           label: "## form.text-size ##",
+        },
+        "font-weight": {
+          type: "select",
+          label: "## form.font-weight ##",
+          options: {
+            normal: "## form.normal ##",
+            bold: "## form.bold ##",
+          },
         },
       },
     },
@@ -13798,6 +13874,11 @@
           setter: 'setRightMargin',
         },
         border: { target: ["img"] },
+        "border-width": {
+          target: ["img"],
+          getter: "getBorderWidth",
+          setter: "setBorderWidth",
+        },
         responsive: {
           target: false,
           setter: "setResponsive",
@@ -13817,6 +13898,12 @@
 
     isPlaceholder: function () {
       return this.params.placeholder;
+    },
+    getBorderWidth: function() {
+      return this.$img.css("border-width");
+    },
+    setBorderWidth: function(value) {
+      this.$img.css("border-width", value)
     },
     getImage: function () {
       return this.params.placeholder ? "" : this.$img.attr("src");
@@ -14064,6 +14151,11 @@
           setter: 'setRightMargin',
         },
         border: { target: ["img"] },
+        "border-width": {
+          target: ["img"],
+          getter: "getBorderWidth",
+          setter: "setBorderWidth",
+        },
         href: { target: ["link"] },
         responsive: {
           target: false,
@@ -14085,11 +14177,17 @@
     isPlaceholder: function () {
       return this.params.placeholder;
     },
+    getBorderWidth: function() {
+      return this.$img.css("border-width");
+    },
+    setBorderWidth: function(value) {
+      this.$img.css("border-width", value)
+    },
     getImage: function () {
       return this.params.placeholder ? "" : this.$img.attr("src");
     },
     getWidth: function () {
-      return this.params.placeholder ? "" : this.$img.css("width");
+      return this.params.placeholder ? "" : this.$img.css("width").replace("px", "");
     },
     getResponsive: function () {
       return this.params.placeholder
@@ -14440,7 +14538,6 @@
         command: "component.popup",
       },
       items: { title: "## buttons.items ##", command: "component.popup" },
-      tune: { title: "## buttons.settings ##", command: "component.popup" },
     },
     control: {
       add: { command: "component.popup" },
@@ -14462,7 +14559,6 @@
         width: {
           type: "input",
           label: "## form.image-width ##",
-          width: "75px",
         },
         href: {
           type: "input",
@@ -14473,7 +14569,6 @@
           label: "## form.alt-text ##",
         },
       },
-      settings: {},
     },
     create: function () {
       this.$element = this.dom("<div>");
@@ -14558,7 +14653,7 @@
       }
     },
     getWidth: function () {
-      return this.params.placeholder ? "" : this.$img.css("width");
+      return this.params.placeholder ? "" : this.$img.css("width").replace("px", "");
     },
     getImage: function () {
       return this.params.placeholder ? "" : this.$img.attr("src");
@@ -14670,13 +14765,13 @@
           type: "input",
           label: "## form.url ##",
         },
-        "border-radius": {
-          type: "input",
-          label: "## form.border-radius ##",
-        },
         "border-width": {
-          type: "input",
+          type: "number",
           label: "## form.border-width ##",
+        },
+        "border-radius": {
+          type: "number",
+          label: "## form.border-radius ##",
         },
         "border-color": {
           type: "input",
@@ -14693,11 +14788,11 @@
           },
         },
         width: {
-          type: "input",
+          type: "number",
           label: "## form.width ##",
         },
         height: {
-          type: "input",
+          type: "number",
           label: "## form.height ##",
         },
         text: {
@@ -14714,19 +14809,32 @@
           },
         },
         "font-size": {
-          type: "input",
+          type: "number",
           label: "## form.text-size ##",
         },
         "font-weight": {
           type: "select",
           label: "## form.font-weight ##",
           options: {
-            normal: "## form.normal ##",
-            bold: "## form.bold ##",
+            normal: "Normal",
+            bold: "Bold",
           },
         },
         "font-family": {
-          type: "input",
+          type: "select",
+          options: {
+            "sans-serif": "sans-serf",
+            "Open Sans": "Open Sans",
+            "Arial": "Arial",
+            "Helvetica Neue": "Helvetica Neue",
+            "Helvetica": "Helvetica",
+            "Lucida Grande": "Lucida Grande",
+            "Tahoma, sans-serif": "Tahoma",
+            "Verdana, sans-serif": "Verdana",
+            "'Courier New', monospace": "Courier New",
+            "Georgia, serif": "Georgia",
+            "'Times New Roman', serif": "Times New Roman",
+          },
           label: "## form.font-family ##",
         },
         color: {
@@ -14742,6 +14850,9 @@
         "vertical-align": "top",
         "text-align": "center",
         "font-family": this.getStyle("text", "font-family"),
+      });
+      this.$element.css({
+        "font-family": this.opts.editor.font,
       });
     },
     build: function () {
@@ -14764,6 +14875,11 @@
         "font-size": {
           target: ["element", "link"],
           prop: this.getStyle("button", "font-size"),
+        },
+        "font-family": {
+          target: ["element", "link"],
+          getter: "getFontFamily",
+          setter: "setFontFamily",
         },
         "font-weight": {
           target: ["element", "link"],
@@ -14829,6 +14945,8 @@
         href: { target: ["link"] },
         "letter-spacing": { target: ["link"] },
         "text-transform": { target: ["link"] },
+        width: { target: ["element"], getter: "getWidth", setter: "setWidth"},
+        height: { target: ["element"], getter: "getHeight", setter: "setHeight"},
       };
     },
     render: function () {
@@ -14836,7 +14954,14 @@
 
       return this.$link;
     },
-
+  
+    getFontFamily: function () {
+      return this.$element.css("font-family");
+    },
+    setFontFamily: function (value) {
+      this.$element.css("font-family", value);
+      this.$cell.find("a.rex-editable").css("font-family", value)
+    },
     setBorder: function (value) {
       var arr = value.split(" ");
       this.$link.css("border", value);
@@ -14874,6 +14999,20 @@
     setRightMargin: function (value) {
       const marginRight = value + 'px'
       this.$element.css("margin-right", marginRight);
+    },
+    getWidth: function () {
+      return this.$element.css("width").replace("px", "")
+    },
+    setWidth: function (value) {
+      const width = value.includes("px") ? value : value + "px"
+      this.$element.css("width", width)
+    },
+    getHeight: function () {
+      return this.$element.css("height").replace("px", "")
+    },
+    setHeight: function (value) {
+      const height = value.includes("px") ? value : value + "px"
+      this.$element.css("height", height)
     },
 
     // private
@@ -15131,6 +15270,14 @@
           type: "number",
           label: "## form.text-size ##",
         },
+        "font-weight": {
+          type: "select",
+          label: "## form.font-weight ##",
+          options: {
+            normal: "Normal",
+            bold: "Bold",
+          },
+        },
       },
     },
     create: function () {
@@ -15142,6 +15289,7 @@
         margin: 0,
         padding: 0,
         "font-family": this.getStyle("text", "font-family"),
+        "font-weight": this.getStyle("text", "font-weight")
       });
     },
     build: function () {
@@ -15169,7 +15317,8 @@
         },
         "font-weight": {
           target: ["element"],
-          prop: this.getStyle("text", "font-weight"),
+          getter: "getFontWeight",
+          setter: "setFontWeight",
         },
         "line-height": {
           target: ["element"],
@@ -15180,6 +15329,19 @@
     },
     render: function () {
       return this.$element;
+    },
+    getFontWeight: function () {
+      console.log(this.$element.css("font-weight") === "700");
+      if (this.$element.css("font-weight") === "400") {
+        return "normal"
+      } else if (this.$element.css("font-weight") === "700") {
+        return "bold"
+      }
+    },
+    
+    setFontWeight: function(value) {
+      console.log(value);
+      this.$element.css("font-weight", value)
     },
     getListType: function () {
       var tag = this.getTag();

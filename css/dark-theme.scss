@@ -160,9 +160,13 @@ body.dark-theme {
             border-radius: 4px;
           }
 
-          .rex-form-input {
+          .rex-form-input, .rex-form-color-opacity {
             background-color: transparent;
             color: white;
+          }
+
+          .rex-input-color-separator {
+            background-color: #3B3B40;
           }
         }
 
@@ -196,20 +200,9 @@ body.dark-theme {
         }
 
         &-segment {
-          width: fit-content;
-          height: 48px;
-          padding: 0;
-          background-color: transparent;
-          border: 1px solid #55555E;
+          border-color: #55555E;
 
           &-item {
-            min-width: 48px;
-            max-width: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0;
-            margin: 0;
             color: white;
 
             &.active, &:hover {
@@ -329,7 +322,7 @@ body.dark-theme {
     }
 
     a.rex-button-target {
-      .rex-button-icon > span {
+      .rex-button-icon > span, img {
         filter: brightness(0) invert(1);
       }
 
@@ -340,7 +333,7 @@ body.dark-theme {
       &:hover {
         background: #CFCFD3;
 
-        .rex-button-icon > span {
+        .rex-button-icon > span, img {
           filter: brightness(0);
         }
 
