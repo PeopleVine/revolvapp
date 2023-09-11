@@ -17,7 +17,7 @@ function debounce(func, wait) {
     start: function () {
       this.app.toolbar.add("templates", {
         title: "Templates",
-        icon: '<i class="fa-solid fa-book"></i>',
+        icon: '<img src="https://peoplevine.blob.core.windows.net/media/1087/templates.png" alt="">',
         command: "templates.popup",
         position: "first",
       });

@@ -20,6 +20,24 @@ body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target, body.da
 body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target:hover, body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target:hover {
   color: #212224;
 }
+body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target[data-name=mobile], body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target[data-name=mobile] {
+  background-color: #55555E;
+}
+body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target[data-name=mobile] .rex-button-icon:after, body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target[data-name=mobile] .rex-button-icon:after {
+  background-color: #CFCFD3;
+}
+body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target[data-name=mobile] .rex-icon-mobile:before, body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target[data-name=mobile] .rex-icon-mobile:before {
+  filter: unset;
+}
+body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target[data-name=mobile] .rex-icon-mobile:after, body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target[data-name=mobile] .rex-icon-mobile:after {
+  filter: invert(72%) sepia(9%) saturate(175%) hue-rotate(208deg) brightness(88%) contrast(88%);
+}
+body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target[data-name=mobile].toggled .rex-icon-mobile:after, body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target[data-name=mobile].toggled .rex-icon-mobile:after {
+  filter: unset;
+}
+body.dark-theme .rex-toolbar-container .rex-savebar a.rex-button-target[data-name=mobile].toggled .rex-icon-mobile:before, body.dark-theme .rex-toolbar-container .rex-actionbar-right a.rex-button-target[data-name=mobile].toggled .rex-icon-mobile:before {
+  filter: invert(72%) sepia(9%) saturate(175%) hue-rotate(208deg) brightness(88%) contrast(88%);
+}
 body.dark-theme .rex-toolbar-container .rex-undobar a.rex-button-target img.icon {
   filter: invert(66%) sepia(5%) saturate(309%) hue-rotate(208deg) brightness(96%) contrast(88%);
 }

@@ -15,11 +15,21 @@
   cursor: text !important; }
 
 .rex-image-placeholder {
-  min-width: 100%; }
-  .rex-image-placeholder svg {
-    width: 100% !important;
-    height: auto;
-    fill: rgba(38, 47, 63, 0.5); }
+  padding: 64px 0 16px;
+  min-width: 100%;
+}
+
+.rex-image-placeholder svg {
+  margin-bottom: 35px;
+}
+
+.rex-image-placeholder p {
+  color: #6E6D79;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 120%;
+}
 
 .rex-social-placeholder svg {
   width: 30px !important;

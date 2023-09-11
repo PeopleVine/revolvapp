@@ -7054,7 +7054,8 @@
     },
     setToggled: function (name) {
       if (!this.opts.toolbar) return;
-      this._findButtons().removeClass(this.toggledClass).removeClass(this.activeClass);
+      this._findAllButtons().removeClass(this.toggledClass).removeClass(this.activeClass);
+  
       this._findButton(name)
         .removeClass(this.disableClass)
         .addClass(this.toggledClass);
@@ -7198,7 +7199,7 @@
       return this.$sidenav.find(".rex-button-toolbar");
     },
     _findButton: function (name) {
-      return this.$sidenav.find("[data-name=" + name + "]");
+      return name === "mobile" ? this.$savebar.find("[data-name=" + name + "]") : this.$sidenav.find("[data-name=" + name + "]");
     },
   });
   Revolvapp.add("module", "path", {
@@ -8975,7 +8976,6 @@
         this.app.popup.close();
         this.app.control.close();
         this.mobileMode = true;
-        this.app.toolbar.imitateClickButton();
       }
 
       this.adjustHeight();
@@ -11906,6 +11906,22 @@
     setValue: function (value) {
       this.$input.val(value);
       this.$select.css("background-color", value);
+  
+      // Check if the color value contains opacity
+      var hasOpacity = value.includes("rgba");
+  
+      if (!hasOpacity) {
+        // Check if the color value is in HEX format with opacity (e.g., #RRGGBBAA)
+        hasOpacity = /#(?:[0-9a-fA-F]{8})$/.test(value);
+      }
+  
+      // Set the opacity input value based on whether the color has opacity
+      if (hasOpacity) {
+        var opacity = this._extractOpacityFromColor(value, 2);
+        this.$colorOpacity.val(opacity * 100 + "%"); // Convert opacity to percentage
+      } else {
+        this.$colorOpacity.val("100%"); // Default to 100% opacity
+      }
 
       if (this.$picker) {
         this.setColor(value);
@@ -11955,7 +11971,6 @@
       this.$colorOpacity = this.dom("<input>")
       .addClass(this.prefix + "-form-color-opacity")
       .attr("type", "text")
-      .val("100%")
       .on("keydown blur", this._changeColorOpacity.bind(this));
       
       this.$eyeDropper.html('<img src="https://peoplevine.blob.core.windows.net/media/1087/color-picker_2.png" alt="">');
@@ -12089,8 +12104,6 @@
           this.$checkbox.attr("checked", color !== "");
 
           this.setColor(color);
-          // Set the opacity input value to "100%"
-          this.$colorOpacity.val("100%");
           this.app.api(this.setter, this.popup);
         }.bind(this)
       );
@@ -12198,6 +12211,32 @@
     _changeRgbOpacity: function (rgbColor, opacity) {
       var rgbaColor = `rgba${rgbColor.slice(3, -1)}, ${opacity})`;
       return rgbaColor;
+    },
+    _extractOpacityFromColor: function (color, decimalPlaces) {
+      // Check if the color is in RGBA format
+      if (color.startsWith("rgba")) {
+        var match = color.match(/rgba\([^)]*\)/);
+        if (match) {
+          var rgbaValues = match[0]
+          .replace(/rgba?\(|\)/g, "")
+          .split(",")
+          .map(function (value) {
+            return parseFloat(value);
+          });
+          if (rgbaValues.length === 4) {
+            return parseFloat(rgbaValues[3].toFixed(decimalPlaces));
+          }
+        }
+      }
+    
+      // Check if the color is in HEX format with opacity (e.g., #RRGGBBAA)
+      if (/^#(?:[0-9a-fA-F]{8})$/.test(color)) {
+        var opacity = parseInt(color.slice(7, 9), 16) / 255;
+        return parseFloat(opacity.toFixed(decimalPlaces));
+      }
+    
+      // Default to 1 (100% opacity) if opacity is not found
+      return 1;
     },
   });
   Revolvapp.add("class", "tool.padding", {
@@ -14019,9 +14058,18 @@
     },
 
     // private
+  
     _createElementImage: function () {
       if (this.params.placeholder) {
-        this.$img = this.dom(this.opts.placeholders.image);
+        this.$img = this.dom("<div>").addClass("rex-placeholder-container");
+        this.$img.append(
+          this.dom(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="22" viewBox="0 0 28 22" fill="none">\
+              <path d="M28 10.9123C28 10.8436 28 10.7654 27.9969 10.6748C27.9938 10.4217 27.9875 10.1373 27.9813 9.83418C27.9563 8.9623 27.9125 8.09355 27.8438 7.2748C27.75 6.14668 27.6125 5.20605 27.425 4.4998C27.2271 3.76277 26.8393 3.09058 26.3002 2.55042C25.7612 2.01026 25.0898 1.62104 24.3531 1.42168C23.4687 1.18418 21.7375 1.0373 19.3 0.94668C18.1406 0.90293 16.9 0.874804 15.6594 0.859179C15.225 0.852929 14.8219 0.849805 14.4594 0.84668L13.5406 0.84668C13.1781 0.849805 12.775 0.852929 12.3406 0.859179C11.1 0.874804 9.85937 0.90293 8.7 0.94668C6.2625 1.04043 4.52812 1.1873 3.64687 1.42168C2.91 1.62055 2.23834 2.0096 1.6992 2.54984C1.16006 3.09008 0.772375 3.76253 0.575 4.4998C0.384375 5.20605 0.25 6.14668 0.15625 7.2748C0.0875 8.09355 0.04375 8.9623 0.01875 9.83418C0.00937495 10.1373 0.00624995 10.4217 0.00312495 10.6748C0.00312495 10.7654 0 10.8436 0 10.9123L0 11.0873C0 11.1561 -4.77303e-08 11.2342 0.00312495 11.3248C0.00624995 11.5779 0.0125 11.8623 0.01875 12.1654C0.04375 13.0373 0.0875 13.9061 0.15625 14.7248C0.25 15.8529 0.3875 16.7936 0.575 17.4998C0.975 18.9967 2.15 20.1779 3.64687 20.5779C4.52812 20.8154 6.2625 20.9623 8.7 21.0529C9.85937 21.0967 11.1 21.1248 12.3406 21.1404C12.775 21.1467 13.1781 21.1498 13.5406 21.1529H14.4594C14.8219 21.1498 15.225 21.1467 15.6594 21.1404C16.9 21.1248 18.1406 21.0967 19.3 21.0529C21.7375 20.9592 23.4719 20.8123 24.3531 20.5779C25.85 20.1779 27.025 18.9998 27.425 17.4998C27.6156 16.7936 27.75 15.8529 27.8437 14.7248C27.9125 13.9061 27.9563 13.0373 27.9813 12.1654C27.9906 11.8623 27.9938 11.5779 27.9969 11.3248C27.9969 11.2342 28 11.1561 28 11.0873V10.9123V10.9123ZM25.75 11.0748C25.75 11.1404 25.75 11.2123 25.7469 11.2967C25.7438 11.5404 25.7375 11.8092 25.7313 12.0998C25.7094 12.9311 25.6656 13.7623 25.6 14.5342C25.5156 15.5404 25.3969 16.3654 25.25 16.9186C25.0563 17.6404 24.4875 18.2123 23.7687 18.4029C23.1125 18.5779 21.4594 18.7186 19.2125 18.8029C18.075 18.8467 16.85 18.8748 15.6281 18.8904C15.2 18.8967 14.8031 18.8998 14.4469 18.8998H13.5531L12.3719 18.8904C11.15 18.8748 9.92813 18.8467 8.7875 18.8029C6.54063 18.7154 4.88437 18.5779 4.23125 18.4029C3.5125 18.2092 2.94375 17.6404 2.75 16.9186C2.60313 16.3654 2.48438 15.5404 2.4 14.5342C2.33438 13.7623 2.29375 12.9311 2.26875 12.0998C2.25938 11.8092 2.25625 11.5373 2.25313 11.2967C2.25313 11.2123 2.25 11.1373 2.25 11.0748V10.9248C2.25 10.8592 2.25 10.7873 2.25313 10.7029C2.25625 10.4592 2.2625 10.1904 2.26875 9.8998C2.29063 9.06855 2.33438 8.2373 2.4 7.46543C2.48438 6.45918 2.60313 5.63418 2.75 5.08105C2.94375 4.35918 3.5125 3.7873 4.23125 3.59668C4.8875 3.42168 6.54063 3.28105 8.7875 3.19668C9.925 3.15293 11.15 3.1248 12.3719 3.10918C12.8 3.10293 13.1969 3.0998 13.5531 3.0998H14.4469L15.6281 3.10918C16.85 3.1248 18.0719 3.15293 19.2125 3.19668C21.4594 3.28418 23.1156 3.42168 23.7687 3.59668C24.4875 3.79043 25.0563 4.35918 25.25 5.08105C25.3969 5.63418 25.5156 6.45918 25.6 7.46543C25.6656 8.2373 25.7063 9.06855 25.7313 9.8998C25.7406 10.1904 25.7438 10.4623 25.7469 10.7029C25.7469 10.7873 25.75 10.8623 25.75 10.9248V11.0748ZM11.2187 15.1873L18.4688 10.9686L11.2187 6.8123V15.1873Z" fill="#E98365"/>\
+            </svg>'
+          )
+        );
+        this.$img.append("<p>Tap on section to add a video.</p>");
         this.$element.addClass("rex-image-placeholder");
       } else {
         this.$source.removeAttr("placeholder");
@@ -14281,7 +14329,15 @@
     // private
     _createElementImage: function () {
       if (this.params.placeholder) {
-        this.$img = this.dom(this.opts.placeholders.image);
+        this.$img = this.dom("<div>").addClass("rex-placeholder-container");
+        this.$img.append(
+          this.dom(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="22" viewBox="0 0 28 22" fill="none">\
+              <path d="M27 0L1 0C0.446875 0 0 0.446875 0 1L0 21C0 21.5531 0.446875 22 1 22L27 22C27.5531 22 28 21.5531 28 21L28 1C28 0.446875 27.5531 0 27 0ZM25.75 19.75L2.25 19.75V18.5031L6.57812 13.3687L11.2688 18.9312L18.5656 10.2813L25.75 18.8V19.75ZM25.75 15.6938L18.7563 7.4C18.6563 7.28125 18.475 7.28125 18.375 7.4L11.2688 15.825L6.76875 10.4906C6.66875 10.3719 6.4875 10.3719 6.3875 10.4906L2.25 15.3969L2.25 2.25L25.75 2.25L25.75 15.6938ZM7.5 9.25C7.86114 9.25 8.21873 9.17887 8.55238 9.04067C8.88602 8.90247 9.18918 8.6999 9.44454 8.44454C9.6999 8.18918 9.90247 7.88602 10.0407 7.55238C10.1789 7.21873 10.25 6.86114 10.25 6.5C10.25 6.13886 10.1789 5.78127 10.0407 5.44762C9.90247 5.11398 9.6999 4.81082 9.44454 4.55546C9.18918 4.3001 8.88602 4.09753 8.55238 3.95933C8.21873 3.82113 7.86114 3.75 7.5 3.75C6.77065 3.75 6.07118 4.03973 5.55546 4.55546C5.03973 5.07118 4.75 5.77065 4.75 6.5C4.75 7.22935 5.03973 7.92882 5.55546 8.44454C6.07118 8.96027 6.77065 9.25 7.5 9.25V9.25ZM7.5 5.625C7.98437 5.625 8.375 6.01563 8.375 6.5C8.375 6.98438 7.98437 7.375 7.5 7.375C7.01562 7.375 6.625 6.98438 6.625 6.5C6.625 6.01563 7.01562 5.625 7.5 5.625Z" fill="#E98365"/>\
+            </svg>'
+          )
+        );
+        this.$img.append("<p>Tap on section to add a picture.</p>");
         this.$element.addClass("rex-image-placeholder");
       } else {
         this.$source.removeAttr("placeholder");
@@ -14943,6 +14999,11 @@
         "font-style": { target: ["element", "link"] },
         class: { target: ["link"] },
         href: { target: ["link"] },
+        text: {
+          target: ["link"],
+          getter: "getText",
+          setter: "setText",
+        },
         "letter-spacing": { target: ["link"] },
         "text-transform": { target: ["link"] },
         width: { target: ["element"], getter: "getWidth", setter: "setWidth"},
@@ -14963,6 +15024,7 @@
       this.$cell.find("a.rex-editable").css("font-family", value)
     },
     setBorder: function (value) {
+      console.log(value);
       var arr = value.split(" ");
       this.$link.css("border", value);
       this.$cell.attr("bgcolor", arr[2]);
@@ -15013,6 +15075,12 @@
     setHeight: function (value) {
       const height = value.includes("px") ? value : value + "px"
       this.$element.css("height", height)
+    },
+    getText: function () {
+      return this.$link.text().trim();
+    },
+    setText: function(value) {
+      this.$link.text(value)
     },
 
     // private
@@ -15331,7 +15399,6 @@
       return this.$element;
     },
     getFontWeight: function () {
-      console.log(this.$element.css("font-weight") === "700");
       if (this.$element.css("font-weight") === "400") {
         return "normal"
       } else if (this.$element.css("font-weight") === "700") {
@@ -15340,7 +15407,6 @@
     },
     
     setFontWeight: function(value) {
-      console.log(value);
       this.$element.css("font-weight", value)
     },
     getListType: function () {

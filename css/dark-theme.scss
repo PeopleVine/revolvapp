@@ -25,6 +25,34 @@ body.dark-theme {
         &:hover {
           color: #212224;
         }
+
+        &[data-name="mobile"] {
+          background-color: #55555E;
+
+          & .rex-button-icon:after {
+            background-color: #CFCFD3;
+          }
+
+          & .rex-icon-mobile {
+            &:before {
+              filter: unset;
+            }
+
+            &:after {
+              filter: invert(72%) sepia(9%) saturate(175%) hue-rotate(208deg) brightness(88%) contrast(88%);
+            }
+          }
+
+          &.toggled .rex-icon-mobile {
+            &:after {
+              filter: unset;
+            }
+
+            &:before {
+              filter: invert(72%) sepia(9%) saturate(175%) hue-rotate(208deg) brightness(88%) contrast(88%);
+            }
+          }
+        }
       }
     }
 
