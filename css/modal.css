@@ -14,6 +14,16 @@ body:not(:has(.blur-layout.closed)) {
   overflow: hidden;
 }
 
+body:has(.rex-popup-templates) .blur-layout {
+  z-index: 101;
+  opacity: 1;
+  pointer-events: unset;
+}
+
+body:not(:has(.rex-template-modal.closed)) .blur-layout {
+  z-index: 103;
+}
+
 .blur-layout {
   position: fixed;
   top: 0;

@@ -5713,9 +5713,9 @@
         });
       } else if (this.supername === "templates") {
         this.$popup.css({
-          top: "144px",
-          left: "0px",
-          width: "100vw",
+          top: "50%",
+          left: "50%",
+          width: "1111px",
           maxHeight: "unset",
         });
       } else {
@@ -15024,7 +15024,6 @@
       this.$cell.find("a.rex-editable").css("font-family", value)
     },
     setBorder: function (value) {
-      console.log(value);
       var arr = value.split(" ");
       this.$link.css("border", value);
       this.$cell.attr("bgcolor", arr[2]);

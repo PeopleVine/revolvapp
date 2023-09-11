@@ -1427,6 +1427,8 @@ body {
     height: calc(100vh - 120px);
     z-index: 102;
     padding: 0 30px;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
 }
 
 .rex-popup[data-rex-popup-name="templates"] .rex-popup-body {
@@ -1435,13 +1437,45 @@ body {
 }
 
 .rex-popup[data-rex-popup-name="templates"] .rex-popup-header {
-    padding-left: 0;
-    margin-bottom: 32px;
-    margin-top: 32px;
+    padding: 0;
+    margin-top: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rex-popup[data-rex-popup-name="templates"] .rex-popup-header .rex-popup-close {
+    position: unset;
+    padding: 10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://peoplevine.blob.core.windows.net/media/1087/close.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: var(--grey-white);
+    border: 1px solid var(--grey-2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.5s;
+    opacity: 1;
+}
+
+.rex-popup[data-rex-popup-name="templates"] .rex-popup-header .rex-popup-close:hover {
+    transform: rotate(180deg);
+}
+
+.rex-popup[data-rex-popup-name="templates"] .rex-popup-header .rex-popup-close:after, .rex-popup[data-rex-popup-name="templates"] .rex-popup-header .rex-popup-close:before {
+    display: none;
 }
 
 .rex-popup[data-rex-popup-name="templates"] .rex-popup-header-item {
-    font-size: 24px;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-weight: 900;
 }
 
 .rex-popup-stack-templates {
@@ -1460,7 +1494,7 @@ body {
 }
 
 .rex-template-menu {
-    margin: 24px 0 32px;
+    margin: 16px 0 32px;
     padding: 0 0 18px;
     display: flex;
     gap: 36px;
@@ -2213,6 +2247,7 @@ input.rex-search-input:focus, .rex-select-button.focused {
     margin-right: auto;
     display: block;
     visibility: visible;
+    transition: width 0.5s;
 }
 
 .rex-form-container-color .rex-form-color-select {
