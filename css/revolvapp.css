@@ -1218,7 +1218,6 @@ body {
     height: 44px;
     border-radius: 99px;
     background-color: rgba(87, 128, 110, 0.06);
-    transform: translate(25%);
     justify-content: unset;
 }
 
