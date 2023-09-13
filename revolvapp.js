@@ -8596,12 +8596,10 @@
     settings: function (button) {
       var names = [
         "video",
-        "text",
         "button",
         "body",
         "header",
         "main",
-        "block",
         "column",
         "footer",
         "heading",
@@ -8621,16 +8619,14 @@
       });
 
       if (names.indexOf(instance.getType()) !== -1) {
-        if (instance.getType() !== 'block') {
-          this.app.popup.add("margin", {
-            collapse: false,
-            title: "## popup.margin ##",
-            width: "300px",
-            getter: "component.getData",
-            setter: "component.setData",
-            form: this.opts.forms.margin,
-          });
-        }
+        this.app.popup.add("margin", {
+          collapse: false,
+          title: "## popup.margin ##",
+          width: "300px",
+          getter: "component.getData",
+          setter: "component.setData",
+          form: this.opts.forms.margin,
+        });
 
         this.app.popup.add("padding", {
           collapse: false,
@@ -12867,15 +12863,25 @@
     },
     forms: {
       settings: {
-        "column-width": {
-          type: "input",
-          label: "## form.column-width ##",
-          observer: "component.checkColumnWidth",
+        "margin-top": {
+          type: "margin",
+          direction: "top",
+          label: "Margin Top",
         },
-        "column-space": {
-          type: "number",
-          label: "## form.column-space ##",
-          observer: "component.checkColumnSpacer",
+        "margin-bottom": {
+          type: "margin",
+          direction: "bottom",
+          label: "Margin Bottom",
+        },
+        "margin-left": {
+          type: "margin",
+          direction: "left",
+          label: "Margin Left",
+        },
+        "margin-right": {
+          type: "margin",
+          direction: "right",
+          label: "Margin Right",
         },
       },
     },
@@ -12919,23 +12925,6 @@
         "padding-right": {
           target: ["cell"],
           setter: 'setRightPadding',
-        },
-        margin: { target: ["cell"] },
-        "margin-top": {
-          target: ["cell"],
-          setter: 'setTopMargin',
-        },
-        "margin-bottom": {
-          target: ["cell"],
-          setter: 'setBottomMargin',
-        },
-        "margin-left": {
-          target: ["cell"],
-          setter: 'setLeftMargin',
-        },
-        "margin-right": {
-          target: ["cell"],
-          setter: 'setRightMargin',
         },
         "background-color": { target: ["cell"] },
         "background-image": { target: ["cell"] },
@@ -12992,22 +12981,6 @@
     setRightPadding: function (value) {
       const paddingRight = value + 'px'
       this.$element.find('td').eq(0).css("padding-right", paddingRight);
-    },
-    setTopMargin: function (value) {
-      const marginTop = value + 'px'
-      this.$element.css("margin-top", marginTop);
-    },
-    setBottomMargin: function (value) {
-      const marginBottom = value + 'px'
-      this.$element.css("margin-bottom", marginBottom);
-    },
-    setLeftMargin: function (value) {
-      const marginLeft = value + 'px'
-      this.$element.css("margin-left", marginLeft);
-    },
-    setRightMargin: function (value) {
-      const marginRight = value + 'px'
-      this.$element.css("margin-right", marginRight);
     },
     getColumnSpace: function () {
       var $el = this.getElements(["column-spacer"]).first();
@@ -13201,6 +13174,26 @@
             bold: "## form.bold ##",
           },
         },
+        "margin-top": {
+          type: "margin",
+          direction: "top",
+          label: "Margin Top",
+        },
+        "margin-bottom": {
+          type: "margin",
+          direction: "bottom",
+          label: "Margin Bottom",
+        },
+        "margin-left": {
+          type: "margin",
+          direction: "left",
+          label: "Margin Left",
+        },
+        "margin-right": {
+          type: "margin",
+          direction: "right",
+          label: "Margin Right",
+        },
       },
     },
     create: function () {
@@ -13236,23 +13229,6 @@
           prop: this.getStyle("link", "color"),
         },
         align: { target: ["element"], getter: "getAlign" },
-        padding: { target: ["element"] },
-        "padding-top": {
-          target: ["element"],
-          setter: 'setTopPadding',
-        },
-        "padding-bottom": {
-          target: ["element"],
-          setter: 'setBottomPadding',
-        },
-        "padding-left": {
-          target: ["element"],
-          setter: 'setLeftPadding',
-        },
-        "padding-right": {
-          target: ["element"],
-          setter: 'setRightPadding',
-        },
         margin: { target: ["element"] },
         "margin-top": {
           target: ["element"],
@@ -13288,22 +13264,6 @@
         $a.length !== 0 ? $a.get().style.color : this.getStyle("link", "color");
 
       return this.app.color.normalize(color);
-    },
-    setTopPadding: function (value) {
-      const paddingTop = value + 'px'
-      this.$element.css("padding-top", paddingTop);
-    },
-    setBottomPadding: function (value) {
-      const paddingBottom = value + 'px'
-      this.$element.css("padding-bottom", paddingBottom);
-    },
-    setLeftPadding: function (value) {
-      const paddingLeft = value + 'px'
-      this.$element.css("padding-left", paddingLeft);
-    },
-    setRightPadding: function (value) {
-      const paddingRight = value + 'px'
-      this.$element.css("padding-right", paddingRight);
     },
     setTopMargin: function (value) {
       const marginTop = value + 'px'

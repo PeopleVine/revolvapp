@@ -811,8 +811,8 @@ body {
 
 .rex-form-input[name="border-width"],
 .rex-form-input[name="border-radius"],
-.rex-popup-stack-padding .rex-form-item .rex-form-input,
-.rex-popup-stack-margin .rex-form-item .rex-form-input,
+.rex-form-input[data-type="padding"],
+.rex-form-input[data-type="margin"],
 .rex-popup-stack-settings .rex-form-input[name="width"],
 .rex-popup-stack-settings .rex-form-input[name="height"],
 .rex-popup-stack-settings .rex-form-input[name="font-size"] {
@@ -820,8 +820,8 @@ body {
 }
 
 .rex-form-item:has(.rex-form-input[name="border-width"], .rex-form-input[name="border-radius"]),
-.rex-popup-stack-padding .rex-form-item,
-.rex-popup-stack-margin .rex-form-item,
+.rex-form-item:has(.rex-form-input[data-type="padding"]),
+.rex-form-item:has(.rex-form-input[data-type="margin"]),
 .rex-popup-stack-settings .rex-form-item:has(.rex-form-input[name="font-size"]),
 .rex-popup-stack-settings .rex-form-item:has(.rex-form-select[name="font-weight"]) {
     display: inline-block;
@@ -829,8 +829,10 @@ body {
 }
 
 .rex-form-item:has(.rex-form-input[name="border-width"]),
-.rex-popup-stack-padding .rex-form-item:nth-child(2n + 1),
-.rex-popup-stack-margin .rex-form-item:nth-child(2n + 1),
+.rex-form-item:has(.rex-form-input[name="padding-top"]),
+.rex-form-item:has(.rex-form-input[name="padding-left"]),
+.rex-form-item:has(.rex-form-input[name="margin-top"]),
+.rex-form-item:has(.rex-form-input[name="margin-left"]),
 .rex-popup-stack-settings .rex-form-item:has(.rex-form-input[name="font-size"]){
     padding-right: 10px;
 }
@@ -844,37 +846,40 @@ body {
 }
 
 .rex-form-item:has(.rex-form-input[name="border-radius"]),
-.rex-popup-stack-padding .rex-form-item:nth-child(2n),
-.rex-popup-stack-margin .rex-form-item:nth-child(2n),
+.rex-form-item:has(.rex-form-input[name="padding-bottom"]),
+.rex-form-item:has(.rex-form-input[name="padding-right"]),
+.rex-form-item:has(.rex-form-input[name="margin-bottom"]),
+.rex-form-item:has(.rex-form-input[name="margin-right"]),
 .rex-popup-stack-settings .rex-form-item:has(.rex-form-select[name="font-weight"]) {
     padding-left: 0;
 }
 
-.rex-popup-stack-padding .rex-form-item .rex-form-input,
-.rex-popup-stack-margin .rex-form-item .rex-form-input {
+
+.rex-form-input[data-type="padding"],
+.rex-form-input[data-type="margin"] {
     text-align: right;
     background-position: center left 12px;
     background-repeat: no-repeat;
     background-size: 20px 20px;
 }
 
-.rex-popup-stack-padding .rex-form-item .rex-form-input[name="padding-top"],
-.rex-popup-stack-margin .rex-form-item .rex-form-input[name="margin-top"] {
+.rex-form-input[name="padding-top"],
+.rex-form-input[name="margin-top"] {
     background-image: url("https://peoplevine.blob.core.windows.net/media/1087/top.png");
 }
 
-.rex-popup-stack-padding .rex-form-item .rex-form-input[name="padding-bottom"],
-.rex-popup-stack-margin .rex-form-item .rex-form-input[name="margin-bottom"] {
+.rex-form-input[name="padding-bottom"],
+.rex-form-input[name="margin-bottom"] {
     background-image: url("https://peoplevine.blob.core.windows.net/media/1087/bottom.png");
 }
 
-.rex-popup-stack-padding .rex-form-item .rex-form-input[name="padding-left"],
-.rex-popup-stack-margin .rex-form-item .rex-form-input[name="margin-left"] {
+.rex-form-input[name="padding-left"],
+.rex-form-input[name="margin-left"] {
     background-image: url("https://peoplevine.blob.core.windows.net/media/1087/left.png");
 }
 
-.rex-popup-stack-padding .rex-form-item .rex-form-input[name="padding-right"],
-.rex-popup-stack-margin .rex-form-item .rex-form-input[name="margin-right"] {
+.rex-form-input[name="padding-right"],
+.rex-form-input[name="margin-right"] {
     background-image: url("https://peoplevine.blob.core.windows.net/media/1087/right.png");
 }
 
