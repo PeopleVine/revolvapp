@@ -1490,7 +1490,7 @@ body {
 .rex-popup-stack-templates .rex-popup-body {
     display: flex;
     flex-wrap: wrap;
-    gap: 35px;
+    gap: 24px;
 }
 
 .rex-popup-stack-templates::-webkit-scrollbar {

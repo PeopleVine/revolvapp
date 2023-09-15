@@ -1,61 +1,115 @@
 <re-html>
-    <re-options>{ "text": { "font-family": "sans-serif", "font-size": "18px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#111" } }</re-options>
+    <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#111" } }</re-options>
     <re-head>
         <re-title>
             My Email
         </re-title>
         <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+      <re-style>
+        .header .block td, .main .block td, .footer .block td {
+          transition: padding 0.5s;
+        }
+  
+        .main .block p[data-rex-type="heading"] {
+          transition: margin 0.5s;
+        }
+  
+        .footer .grid .column:first-of-type a {
+          text-decoration: none !important;
+        }
+        
+        @media (max-width: 430px) {
+          .header .block td {
+            padding-top: 60px !important;
+          }
+        
+          .main .block > tr > td {
+            padding-top: 36px !important;
+          }
+        
+          .main .block p[data-rex-type="heading"] {
+            font-size: 54px !important;
+            margin: 0 0 32px !important;
+          }
+  
+          .footer .block > tr > td {
+            padding-top: 80px !important;
+          }
+        
+          .footer .social {
+            text-align: left;
+          }
+          
+          .footer .grid .column:first-of-type {
+            margin-bottom: 32px;
+          }
+  
+          .footer .grid .column:last-of-type p {
+            text-align: left;
+          }
+        }
+      </re-style>
     </re-head>
     <re-body background-color="#f3f3f3" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
         <re-preheader>
             {@preheader@}
         </re-preheader>
-        <re-header>
-            <re-block align="center" padding-left="52px" padding-top="52px" padding-bottom="0px" padding-right="52px" background-color="#E5D5C6">
+        <re-header background-color="#E5D5C6">
+            <re-block align="center" padding="80px 0 0">
                 <re-image src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png" href="https://www.peoplevine.com/" width="95px"></re-image>
             </re-block>
         </re-header>
-        <re-main background-color="#fff" border-radius="6px">
-            <re-block border-radius="0px" align="left" padding="44px 24px 0px 24px" background-color="#E5D5C6">
-                <re-text align="left" font-size="20px" color="#3C2B24">
-                    DEAR CUSTOMERp
+        <re-main background-color="#E5D5C6" border-radius="6px">
+            <re-block border-radius="0px" align="left" padding="58px 20px 0" background-color="#E5D5C6">
+                <re-text align="left" font-size="16px" color="#3C2B24" margin="0 0 16px" line-height="100%">
+                    DEAR CUSTOMER
                 </re-text>
-                <re-text align="left" font-size="76px" margin="0px 0px 10px 0px" color="#3C2B24">
+                <re-heading font-size="100px" align="left" font-weight="normal" line-height="100%" margin="0 0 40px" color="#3C2B24" level="1">
                     WELCOME TO OUR CLUB
-                </re-text>
-                <re-image src="https://peoplevine.blob.core.windows.net/media/1153/images/theme-1-welcome-hero.jpg" width="552px"></re-image>
-                <re-text margin-top="36px" margin-right="0" margin-bottom="36px" margin-left="0" align="right" margin="10px 0px 0px 0px" color="#3C2B24">
-                    — Read more
-                </re-text>
-                <re-spacer height="32px"></re-spacer>
-                <re-text align="left" color="#908075">
-                    We are pleased to let you know that we have received your completed registration form. Your account has now been created and you can log in. Please visit our site for more detailed membership rules and any questions that may occur. We look forward to
-                    welcoming you soon!
+                </re-heading>
+                <re-image src="https://peoplevine.blob.core.windows.net/media/1153/images/theme-1-welcome-hero.jpg" width="704px"></re-image>
+                <re-text font-size="12px" align="right" margin="8px 0px 0px 0px" color="#3C2B24">
+                    —— Read more
                 </re-text>
                 <re-spacer height="32px"></re-spacer>
-                <re-button background-color="#E19C5C" border="1px solid #E19C5C">
-                    View Profile
+                <re-text align="left" color="#908075" max-width="519px">
+                  We are pleased to let you know that we have received your completed registration form. Your account has now been created and you can log in. Please visit our site for more detailed membership rules and any questions that may occur. We look forward to
+                  welcoming you soon!
+                </re-text>
+                <re-spacer height="32px"></re-spacer>
+                <re-button background-color="#E19C5C" border="1px solid #E19C5C" font-size="16px" font-weight="normal" text-transform="uppercase">
+                  sub header text
                 </re-button>
-                <re-spacer height="40px"></re-spacer>
             </re-block>
         </re-main>
-        <re-footer>
-            <re-block align="center" padding-top="50px" padding-right="60px" padding-bottom="60px" padding-left="60px" background-color="#E5D5C6" padding="12px 24px 24px 24px">
-                <re-social margin-top="40px" margin-right="0" margin-bottom="40px" margin-left="0" align="left">
+        <re-footer background-color="#E5D5C6">
+            <re-block align="center" background-color="#E5D5C6" padding="64px 20px 43px">
+                <re-social margin-bottom="16px" align="center">
                     <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png" width="24px" alt="Facebook"></re-social-item>
                     <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
                     <re-social-item href="https://twitter.com/" src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png" width="24px" alt="Twitter"></re-social-item>
                     <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
                     <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png" width="24px" alt="Instagram"></re-social-item>
                 </re-social>
-                <re-spacer height="24px"></re-spacer>
-                <re-text color="#3C2B24" font-size="13px" align="left">
-                    Copyright © 2023 Company Name All rights reserved<br>
-                </re-text>
-                <re-spacer height="24px"></re-spacer>
-                <re-text color="#3C2B24" font-size="13px" align="left">
-                    You can unsubscribe from this email list <a href="https://www.peoplevine.com/">here</a>&nbsp;
-                </re-text>
+                <re-grid>
+                  <re-column>
+                    <re-text margin="0 0 8px" color="#3C2B24" font-size="12px" align="left" text-decoration="none">
+                      Mailing address is:
+                      <a style="color: inherit; text-decoration: none" href="SomeEmail@gmail.com">SomeEmail@gmail.com</a>
+                    </re-text>
+                    <re-text color="#3C2B24" font-size="12px" align="left">
+                      Copyright (c). All rights reserved.
+                    </re-text>
+                  </re-column>
+                  <re-column>
+                    <re-text align="right" margin="0 0 8px" color="#3C2B24" font-size="12px">
+                      Want to change how you receive these emails?
+                    </re-text>
+                    <re-text align="right" color="#3C2B24" font-size="12px">
+                      You can <a style="color: inherit" href="https://www.peoplevine.com/">unsubscribe</a> from this email list.
+                    </re-text>
+                  </re-column>
+                </re-grid>
             </re-block>
         </re-footer>
     </re-body>

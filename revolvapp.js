@@ -1396,9 +1396,9 @@
       undoredo: false,
       shortcutsPopup: true,
       scrollTarget: window,
-      mobile: 400,
+      mobile: 430,
       zIndex: 100,
-      width: "600px",
+      width: "744px",
       align: "left", // center, right
       doctype:
         '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
@@ -8602,7 +8602,6 @@
         "main",
         "column",
         "footer",
-        "heading",
         "image",
       ];
       var instance = this.app.component.get();
@@ -12863,25 +12862,25 @@
     },
     forms: {
       settings: {
-        "margin-top": {
-          type: "margin",
+        "padding-top": {
+          type: "padding",
           direction: "top",
-          label: "Margin Top",
+          label: "Padding Top",
         },
-        "margin-bottom": {
-          type: "margin",
+        "padding-bottom": {
+          type: "padding",
           direction: "bottom",
-          label: "Margin Bottom",
+          label: "Padding Bottom",
         },
-        "margin-left": {
-          type: "margin",
+        "padding-left": {
+          type: "padding",
           direction: "left",
-          label: "Margin Left",
+          label: "Padding Left",
         },
-        "margin-right": {
-          type: "margin",
+        "padding-right": {
+          type: "padding",
           direction: "right",
-          label: "Margin Right",
+          label: "Padding Right",
         },
       },
     },
@@ -13211,6 +13210,7 @@
       };
 
       this.data = {
+        "max-width": { target: ["element"], prop: this.getStyle("text", "max-width") },
         html: { target: ["element"] },
         color: { target: ["element"], prop: this.getStyle("text", "color") },
         "font-size": {
@@ -13249,7 +13249,7 @@
         class: { target: ["element"] },
         "font-weight": { target: ["element"] },
         "font-style": { target: ["element"] },
-        "text-decoration": { target: ["element"] },
+        "text-decoration": { target: ["element"], prop: this.getStyle("text", "color") },
         "letter-spacing": { target: ["element"] },
         "text-transform": { target: ["element"] },
       };
@@ -13355,7 +13355,7 @@
           target: ["link"],
           prop: this.getStyle("text", "line-height"),
         },
-        "text-decoration": { target: ["link"], prop: "underline" },
+        "text-decoration": { target: ["link"], prop: prop.getStyle("link", "text-decoration") },
         align: { target: ["element"], getter: "getAlign" },
         padding: { target: ["element"] },
         "padding-top": { target: ["element"] },
@@ -13441,6 +13441,26 @@
           type: "checkbox",
           text: "## form.bold ##",
         },
+        "margin-top": {
+          type: "margin",
+          direction: "top",
+          label: "Margin Top",
+        },
+        "margin-bottom": {
+          type: "margin",
+          direction: "bottom",
+          label: "Margin Bottom",
+        },
+        "margin-left": {
+          type: "margin",
+          direction: "left",
+          label: "Margin Left",
+        },
+        "margin-right": {
+          type: "margin",
+          direction: "right",
+          label: "Margin Right",
+        },
       },
     },
     create: function () {
@@ -13484,27 +13504,6 @@
           prop: this.getHeadingStyleByLevel(this.params.level, "line-height"),
         },
         align: { target: ["element"], getter: "getAlign" },
-        padding: { target: ["element"] },
-        "padding-top": {
-          target: ["element"],
-          setter: 'setTopPadding',
-          prop: this.getStyle("button", "padding-top"),
-        },
-        "padding-bottom": {
-          target: ["element"],
-          setter: 'setBottomPadding',
-          prop: this.getStyle("button", "padding-bottom"),
-        },
-        "padding-left": {
-          target: ["element"],
-          setter: 'setLeftPadding',
-          prop: this.getStyle("button", "padding-left"),
-        },
-        "padding-right": {
-          target: ["element"],
-          setter: 'setRightPadding',
-          prop: this.getStyle("button", "padding-right"),
-        },
         margin: { target: ["element"] },
         "margin-top": {
           target: ["element"],
@@ -13534,22 +13533,6 @@
       this._createElementLink();
 
       return this.$element;
-    },
-    setTopPadding: function (value) {
-      const paddingTop = value + 'px'
-      this.$element.css("padding-top", paddingTop);
-    },
-    setBottomPadding: function (value) {
-      const paddingBottom = value + 'px'
-      this.$element.css("padding-bottom", paddingBottom);
-    },
-    setLeftPadding: function (value) {
-      const paddingLeft = value + 'px'
-      this.$element.css("padding-left", paddingLeft);
-    },
-    setRightPadding: function (value) {
-      const paddingRight = value + 'px'
-      this.$element.css("padding-right", paddingRight);
     },
     setTopMargin: function (value) {
       const marginTop = value + 'px'

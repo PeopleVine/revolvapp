@@ -64,7 +64,7 @@ function debounce(func, wait) {
           url: "./templates/Simple Theme/general.html",
           description: "A general template.",
           image: "/img/general.png",
-          type: "email-templates",
+          type: "templates",
           tags: ["Marketing", "Responsive", "Newsletter", "Promotion", "Responsive", "Newsletter", "Promotion"],
           saved: false,
         },
@@ -73,7 +73,7 @@ function debounce(func, wait) {
           url: "./templates/Simple Theme/pending-invoice.html",
           description: "A simple invoice template.",
           image: "/img/invoice.png",
-          type: "email-templates",
+          type: "templates",
           tags: ["Billing", "Professional", "Invoice", "Payment"],
           saved: false,
         },
@@ -82,7 +82,7 @@ function debounce(func, wait) {
           url: "./templates/Simple Theme/welcome.html",
           description: "Welcome members to their new membership.",
           image: "/img/welcome.png",
-          type: "sms",
+          type: "templates",
           tags: ["Membership", "Warm", "Onboarding", "Greeting"],
           saved: false,
         },
@@ -288,7 +288,7 @@ function debounce(func, wait) {
       var $navigationMenu = app.dom("<ul>").addClass(this.prefix + "-template-menu");
     
       var items = [
-        { label: "Email Templates", action: "email-templates" },
+        { label: "Templates", action: "templates" },
         { label: "Applications", action: "applications" },
         { label: "Blog Posts", action: "blog-posts" },
         { label: "Widgets", action: "widgets" },
