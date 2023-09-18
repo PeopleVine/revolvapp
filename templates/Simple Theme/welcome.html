@@ -6,11 +6,18 @@
         </re-title>
         <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
       <re-style>
-        .header .block td, .main .block td, .footer .block td {
-          transition: padding 0.5s;
+        .header span[data-rex-type="image"] {
+          margin-top: 20px;
+          transition: margin 0.3s;
         }
   
-        .main .block p[data-rex-type="heading"] {
+        .main .block p:first-of-type {
+          margin: 22px 0 16px;
+          transition: margin 0.3s;
+        }
+  
+        .main .block p.h1 {
+          margin: 0 0 40px;
           transition: margin 0.5s;
         }
   
@@ -19,24 +26,21 @@
         }
         
         @media (max-width: 430px) {
-          .header .block td {
-            padding-top: 60px !important;
-          }
-        
-          .main .block > tr > td {
-            padding-top: 36px !important;
-          }
-        
-          .main .block p[data-rex-type="heading"] {
-            font-size: 54px !important;
-            margin: 0 0 32px !important;
+          .header span[data-rex-type="image"] {
+            margin-top: 0px;
           }
   
-          .footer .block > tr > td {
-            padding-top: 80px !important;
+          .main .block p:first-of-type {
+            margin: 0 0 16px;
+          }
+        
+          .main .block p.h1 {
+            font-size: 54px !important;
+            margin: 0 0 32px;
           }
         
           .footer .social {
+            margin-top: 16px;
             text-align: left;
           }
           
@@ -55,16 +59,16 @@
             {@preheader@}
         </re-preheader>
         <re-header background-color="#E5D5C6">
-            <re-block align="center" padding="80px 0 0">
+            <re-block align="center" padding="60px 0 0">
                 <re-image src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png" href="https://www.peoplevine.com/" width="95px"></re-image>
             </re-block>
         </re-header>
         <re-main background-color="#E5D5C6" border-radius="6px">
-            <re-block border-radius="0px" align="left" padding="58px 20px 0" background-color="#E5D5C6">
-                <re-text align="left" font-size="16px" color="#3C2B24" margin="0 0 16px" line-height="100%">
+            <re-block border-radius="0px" align="left" padding="36px 20px 0" background-color="#E5D5C6">
+                <re-text align="left" font-size="16px" color="#3C2B24" line-height="100%">
                     DEAR CUSTOMER
                 </re-text>
-                <re-heading font-size="100px" align="left" font-weight="normal" line-height="100%" margin="0 0 40px" color="#3C2B24" level="1">
+                <re-heading font-size="100px" align="left" font-weight="normal" line-height="100%" color="#3C2B24" level="h1">
                     WELCOME TO OUR CLUB
                 </re-heading>
                 <re-image src="https://peoplevine.blob.core.windows.net/media/1153/images/theme-1-welcome-hero.jpg" width="704px"></re-image>

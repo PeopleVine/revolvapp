@@ -13198,8 +13198,6 @@
     create: function () {
       this.$element = this.dom("<p>").addClass("rex-editable");
       this.$element.css({
-        padding: 0,
-        margin: 0,
         "font-family": this.getStyle("text", "font-family"),
       });
       this.$element.html(this.params.html);
@@ -13355,13 +13353,8 @@
           target: ["link"],
           prop: this.getStyle("text", "line-height"),
         },
-        "text-decoration": { target: ["link"], prop: prop.getStyle("link", "text-decoration") },
+        "text-decoration": { target: ["link"], prop: this.getStyle("link", "text-decoration") },
         align: { target: ["element"], getter: "getAlign" },
-        padding: { target: ["element"] },
-        "padding-top": { target: ["element"] },
-        "padding-bottom": { target: ["element"] },
-        "padding-left": { target: ["element"] },
-        "padding-right": { target: ["element"] },
         margin: { target: ["element"] },
         "margin-top": { target: ["element"] },
         "margin-bottom": { target: ["element"] },
@@ -13378,6 +13371,22 @@
       this._createElementLink();
 
       return this.$link;
+    },
+    setTopMargin: function (value) {
+      const marginTop = value + 'px'
+      this.$element.css("margin-top", marginTop);
+    },
+    setBottomMargin: function (value) {
+      const marginBottom = value + 'px'
+      this.$element.css("margin-bottom", marginBottom);
+    },
+    setLeftMargin: function (value) {
+      const marginLeft = value + 'px'
+      this.$element.css("margin-left", marginLeft);
+    },
+    setRightMargin: function (value) {
+      const marginRight = value + 'px'
+      this.$element.css("margin-right", marginRight);
     },
 
     // private
@@ -13557,6 +13566,8 @@
         "line-height": this.getHeadingStyleByLevel(value, "line-height"),
       };
 
+      this.$element.removeAttr("class")
+      this.$element.addClass(value)
       this.$element.css(css);
       this.$link.css(css);
       this.$source.attr("level", value);
@@ -13571,8 +13582,6 @@
     // private
     _getCss: function () {
       return {
-        padding: 0,
-        margin: 0,
         "font-style": "normal",
         "font-family": this.getStyle("heading", "font-family"),
       };

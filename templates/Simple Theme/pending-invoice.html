@@ -9,13 +9,73 @@
     <re-font
       href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
     ></re-font>
+    <re-style>
+      .header span[data-rex-type="image"] {
+        margin-top: 20px;
+        transition: margin 0.3s;
+      }
+  
+      .main .block p:first-of-type {
+        margin: 22px 0 16px;
+        transition: margin 0.3s;
+      }
+  
+      .main .block p.h1 {
+        transition: margin 0.5s;
+      }
+      
+      .main .block .main-text {
+        margin: 0 104px 8px;
+        transition: margin 0.3s;
+      }
+      
+      .main .block .main-link{
+        margin: 0 104px 32px;
+        transition: margin 0.3s;
+      }
+      
+      .footer .main-footer-block {
+        padding: 275px 44px 80px;
+      }
+  
+      @media (max-width: 430px) {
+        .header span[data-rex-type="image"] {
+          margin-top: 0px;
+        }
+  
+        .main .block p:first-of-type {
+          margin: 0 0 8px;
+        }
+    
+        .main .block p.h1 {
+          font-size: 54px !important;
+        }
+  
+        .main .block .main-text {
+          margin: 0 0 8px;
+        }
+  
+        .main .block .main-link {
+          margin: 0 0 64px;
+          transition: margin 0.3s;
+        }
+  
+        .footer .main-footer-block {
+          padding: 300px 20px 60px;
+        }
+  
+        .footer .footer-main-text {
+          max-width: 355px;
+        }
+      }
+    </re-style>
   </re-head>
   <re-body background-color="#9F9EA6">
     <re-preheader> {@preheader@} </re-preheader>
     <re-header background-color="#E5D5C6">
       <re-block
         align="center"
-        padding="52px 52px 0px 52px"
+        padding="60px 52px 0 "
         background-color="#E5D5C6"
       >
         <re-image
@@ -32,24 +92,27 @@
         padding="44px 24px 0px 24px"
         background-color="#E5D5C6"
       >
-        <re-text align="center" font-size="20px" color="#3C2B24">
+        <re-text align="center" font-size="16px" color="#3C2B24">
           YOU HAVE A NEW INVOICE&nbsp;
         </re-text>
-        <re-text
+        <re-heading
+          margin="0 0 64px"
           align="center"
-          font-size="76px"
-          line-height="90px"
-          margin="0px 0px 10px 0px"
-          color="#3C2B24"
+          font-size="100px"
+          font-weight="normal"
+          line-height="100%"
+          color="#2B2D1F"
+          level="h1"
         >
           INVOICED
+        </re-heading>
+        <re-text align="left" color="#3C2B24" font-size="12px" class="main-text">
+          You have a new invoice to be proceeded. If you want to see details before payment, please
         </re-text>
-        <re-spacer height="32px"></re-spacer>
-        <re-text align="left" color="#908075" font-size="16px">
-          You have a new invoice in the amount of $1500. If you want to see
-          details before payment, please click below.
+        <re-text align="left" font-size="12px" color="#3C2B24" class="main-link">
+          —— &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" style="color:inherit;">View more here</a>
         </re-text>
-        <re-spacer height="32px"></re-spacer>
         <re-button
           background-color="#E19C5C"
           border="1px solid #E19C5C"
@@ -57,7 +120,6 @@
         >
           View Invoice
         </re-button>
-        <re-spacer height="40px"></re-spacer>
       </re-block>
     </re-main>
     <re-footer background-color="#E5D5C6">
@@ -68,33 +130,23 @@
         padding-bottom="60px"
         padding-left="60px"
         background-color="#E5D5C6"
-        padding="12px 24px 24px 24px"
+        class="main-footer-block"
       >
-        <re-social
-          margin-top="40px"
-          margin-right="0"
-          margin-bottom="40px"
-          margin-left="0"
-          align="center"
-        >
+        <re-social align="center">
           <re-social-item
             href="https://facebook.com/"
             src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
             width="24px"
             alt="Facebook"
           ></re-social-item>
-          <re-social-spacer
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
-          >
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
           <re-social-item
             href="https://twitter.com/"
             src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
             width="24px"
             alt="Twitter"
           ></re-social-item>
-          <re-social-spacer
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
-          >
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
           <re-social-item
             href="https://instagram.com/"
             src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
@@ -102,19 +154,17 @@
             alt="Instagram"
           ></re-social-item>
         </re-social>
-        <re-spacer height="24px"></re-spacer>
-        <re-text color="#3C2B24" font-size="13px" align="center">
-          Copyright © 2023 Company Name All rights reserved<br />
+        <re-spacer height="32px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" class="footer-main-text" margin="0">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
         </re-text>
-        <re-spacer height="12px"></re-spacer>
-        <re-text color="#3C2B24" font-size="13px" align="center">
-          You can unsubscribe from this email list
-          <a
-            href="https://www.peoplevine.com/"
-            target="_blank"
-            style="color: #3c2b24"
-            >here</a
-          >&nbsp;
+        <re-spacer height="8px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Apre Pass Company | 27459 Sky Square 456 | Jupiter, BC X4Y 1DF | (034) 364-3456
+        </re-text>
+        <re-spacer height="16px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Copyright (c). All rights reserved.
         </re-text>
       </re-block>
     </re-footer>
