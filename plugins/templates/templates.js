@@ -86,6 +86,15 @@ function debounce(func, wait) {
           tags: ["Membership", "Warm", "Onboarding", "Greeting"],
           saved: false,
         },
+        {
+          name: "Upcoming Events",
+          url: "./templates/Simple Theme/upcoming-events.html",
+          description: "A simple upcoming events template.",
+          image: "/img/upcoming-events.png",
+          type: "templates",
+          tags: ["Warm", "Responsive", "Newsletter", "Greeting"],
+          saved: false,
+        },
         // Add more template objects here with additional tags
       ];
       

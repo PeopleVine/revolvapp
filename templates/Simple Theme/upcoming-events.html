@@ -1,6 +1,6 @@
 <re-html>
   <re-options
-    >{ "text": { "font-family": "sans-serif", "font-size": "18px",
+    >{ "text": { "font-family": "Arial, sans-serif", "font-size": "18px",
     "line-height":"1.5", "color": "#222" }, "heading": { "font-family":
     "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
   >
@@ -9,135 +9,217 @@
     <re-font
       href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
     ></re-font>
+    <re-style>
+      
+      .header .header-column {
+        display: inline-block !important;
+        width: 50% !important;
+      }
+      
+      .main .main-container {
+        padding: 48px 20px 0;
+      }
+      
+      .main .main-content-container {
+        padding: 32px 0 0;
+      }
+  
+      .main .main-content-container img {
+        margin: 0 32px 0 0;
+      }
+      
+      .main .button-container {
+        padding: 36px 0 0;
+      }
+      
+      .footer .footer-container {
+        padding: 100px 20px 20px;
+      }
+      
+      @media (min-width: 431px) {
+        .main .main-content-container img {
+          margin: 0 32px 0 0;
+        }
+      
+        .main .main-content-container .column:first-of-type {
+          padding: 0 32px 0 0;
+        }
+      }
+  
+      @media (max-width: 430px) {
+        .rex-editor {
+          min-height: 2330px;
+        }
+      
+        .main .main-container {
+          padding: 32px 20px 0;
+        }
+      
+        .main .h3 {
+          font-size: 22px !important;
+        }
+  
+        .main .main-title-column {
+          display: inline-block !important;
+        }
+  
+        .main .main-title-column:first-of-type {
+          width: calc(100% - 65px) !important;
+        }
+  
+        .main .main-content-container {
+          padding: 40px 0 0;
+        }
+  
+        .main .main-content-container .column:first-of-type {
+          padding: 0 0 16px;
+        }
+  
+        .main .button-container {
+          padding: 64px 0 0;
+        }
+  
+        .footer .footer-container {
+          padding: 70px 20px 42px;
+        }
+      }
+    </re-style>
   </re-head>
   <re-body background-color="#9F9EA6">
     <re-preheader> {@preheader@} </re-preheader>
-    <re-header>
+    <re-header background-color="#E5D5C6">
       <re-block padding="0px">
         <re-grid>
-          <re-column padding="0px" width="50%">
+          <re-column padding="0px" width="50%" class="header-column">
             <re-image
               src="https://peoplevine.blob.core.windows.net/media/1153/fc27ab7e-91d9-4ff4-96df-5287624850b2/nicole-herrero-rUxkZj6yHrA-unsplash.jpg"
-              width="300px"
               responsive="true"
+              class="header-image"
             ></re-image>
           </re-column>
-          <re-column padding="0px" width="50%">
+          <re-column padding="0px" width="50%" class="header-column">
             <re-image
-              responsive="true"
               src="https://peoplevine.blob.core.windows.net/media/1153/98234b20-aacf-4654-bdd1-ae889a2d52b8/andreas-ronningen-S2YssLw97l4-unsplash.jpg"
-              width="300px"
+              responsive="true"
+              class="header-image"
             ></re-image>
           </re-column>
         </re-grid>
       </re-block>
-      <re-block align="center" background-color="#E5D5C6" padding="20px 0px">
-        <re-image
-          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
-          width="65px"
-        ></re-image>
-      </re-block>
-      <re-block padding="10px 20px 20px 20px" background-color="#E5D5C6">
-        <re-text font-size="24px" align="center">
-          <b>YOUR UPCOMING EVENTS THIS MONTH</b>
-        </re-text>
-      </re-block>
     </re-header>
-    <re-main background-color="#fff" border-radius="6px">
+    <re-main background-color="#E5D5C6" border-radius="6px">
       <re-block
         border-radius="0px"
         align="left"
-        padding="0px 24px 0px 24px"
         background-color="#E5D5C6"
-        src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+        class="main-container"
       >
-        <re-image
-          src="https://peoplevine.blob.core.windows.net/media/1153/images/Rectangle_965.png"
-          width="572px"
-        ></re-image>
-        <re-spacer height="24px"></re-spacer>
-        <re-text align="left" color="#3C2B24" font-size="14px">
-          <u>OUR SOMMELIER SUGGESTS</u><br />
-        </re-text>
-        <re-spacer></re-spacer>
-        <re-text align="left" color="#908075" font-size="14px">
-          March 10, 2023 8:00 PM - 11:00 PM | The Red Room
-        </re-text>
-        <re-spacer></re-spacer>
-        <re-text align="left" color="#908075" font-size="14px">
-          Each Friday, our head Sommelier opens a bottle of something special.
-          We invite you to enjoy a glass at an especially price. This week we’ll
-          offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett,
-          Mosel, at just $ 36.<br />
-        </re-text>
-        <re-spacer></re-spacer>
-        <re-text align="left" color="#908075" font-size="14px">
-          — <a href="https://peoplevine.com/">View event</a><br />
-        </re-text>
-        <re-spacer height="24px"></re-spacer>
+        <re-grid>
+          <re-column class="main-title-column">
+            <re-heading font-size="40px" align="left" margin="0 16px 0 0" text-transform="uppercase" level="h3">
+              YOUR UPCOMING EVENTS <br /> THIS week!
+            </re-heading>
+          </re-column>
+          <re-column width="65px" class="main-title-column">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+              width="65px"
+            ></re-image>
+          </re-column>
+        </re-grid>
+        <re-block class="main-content-container">
+          <re-grid>
+            <re-column width="130px">
+              <re-image
+                src="https://peoplevine.blob.core.windows.net/media/1153/images/Rectangle_965.png"
+                responsive="true"
+              ></re-image>
+            </re-column>
+            <re-column>
+              <re-text align="left" color="#3C2B24" font-size="16px" margin="0 0 16px" line-height="normal" text-decoration="underline" text-transform="uppercase">
+                OUR SOMMELIER SUGGESTS
+              </re-text>
+              <re-text align="left" color="#3C2B247F" font-weight="bold" font-size="14px" margin="0 0 8px">
+                March 10, 2023 8:00 PM - 11:00 PM | The Red Room
+              </re-text>
+              <re-text align="left" color="#3C2B247F" font-size="14px" margin="0">
+                Each Friday, our head Sommelier opens a bottle of something special.
+                We invite you to enjoy a glass at an especially price. This week we’ll
+                offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett,
+                Mosel, at just $ 36.
+              </re-text>
+            </re-column>
+          </re-grid>
+        </re-block>
+        <re-block class="main-content-container">
+          <re-grid>
+            <re-column width="130px">
+              <re-image
+                src="https://peoplevine.blob.core.windows.net/media/1087/upcoming-events-template-img02.png"
+                responsive="true"
+              ></re-image>
+            </re-column>
+            <re-column>
+              <re-text align="left" color="#3C2B24" font-size="16px" margin="0 0 16px" line-height="normal" text-decoration="underline" text-transform="uppercase">
+                OUR SOMMELIER SUGGESTS
+              </re-text>
+              <re-text align="left" color="#3C2B247F" font-weight="bold" font-size="14px" margin="0 0 8px">
+                March 10, 2023 8:00 PM - 11:00 PM | The Red Room
+              </re-text>
+              <re-text align="left" color="#3C2B247F" font-size="14px" margin="0">
+                Each Friday, our head Sommelier opens a bottle of something special.
+                We invite you to enjoy a glass at an especially price. This week we’ll
+                offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett,
+                Mosel, at just $ 36.
+              </re-text>
+            </re-column>
+          </re-grid>
+        </re-block>
+        <re-block class="main-content-container">
+          <re-grid>
+            <re-column width="130px">
+              <re-image
+                src="https://peoplevine.blob.core.windows.net/media/1087/upcoming-events-template-img03.png"
+                responsive="true"
+              ></re-image>
+            </re-column>
+            <re-column>
+              <re-text align="left" color="#3C2B24" font-size="16px" margin="0 0 16px" line-height="normal" text-decoration="underline" text-transform="uppercase">
+                OUR SOMMELIER SUGGESTS
+              </re-text>
+              <re-text align="left" color="#3C2B247F" font-weight="bold" font-size="14px" margin="0 0 8px">
+                March 10, 2023 8:00 PM - 11:00 PM | The Red Room
+              </re-text>
+              <re-text align="left" color="#3C2B247F" font-size="14px" margin="0">
+                Each Friday, our head Sommelier opens a bottle of something special.
+                We invite you to enjoy a glass at an especially price. This week we’ll
+                offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett,
+                Mosel, at just $ 36.
+              </re-text>
+            </re-column>
+          </re-grid>
+        </re-block>
       </re-block>
-      <re-block
-        border-radius="0px"
-        align="left"
-        padding="0px 24px 0px 24px"
-        background-color="#E5D5C6"
-        src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
-      >
-        <re-image
-          src="https://peoplevine.blob.core.windows.net/media/1153/images/Rectangle_965.png"
-          width="552px"
-        ></re-image>
-        <re-spacer height="24px"></re-spacer>
-        <re-text align="left" color="#3C2B24" font-size="14px">
-          <u>OUR SOMMELIER SUGGESTS</u><br />
-        </re-text>
-        <re-spacer></re-spacer>
-        <re-text align="left" color="#908075" font-size="14px">
-          March 10, 2023 8:00 PM - 11:00 PM | The Red Room
-        </re-text>
-        <re-spacer></re-spacer>
-        <re-text align="left" color="#908075" font-size="14px">
-          Each Friday, our head Sommelier opens a bottle of something special.
-          We invite you to enjoy a glass at an especially price. This week we’ll
-          offer a glass of 2013 Egon Muller, Riesling Scharzhofberger, Kabinett,
-          Mosel, at just $ 36.<br />
-        </re-text>
-        <re-spacer></re-spacer>
-        <re-text align="left" color="#908075" font-size="14px">
-          —
-          <a href="https://peoplevine.com/" style="color: rgb(0, 145, 255)"
-            >View event</a
-          ><br />
-        </re-text>
-        <re-spacer height="24px"></re-spacer>
-      </re-block>
-      <re-block padding="10px 20px" align="center" background-color="#E5D5C6">
+      <re-block align="center" background-color="#E5D5C6" class="button-container">
         <re-button
           background-color="#E19C5C"
           border="1px solid #E19C5C"
           font-size="16px"
+          font-weight="normal"
         >
           View All Events
         </re-button>
-        <re-spacer height="32px"></re-spacer>
       </re-block>
     </re-main>
-    <re-footer>
+    <re-footer background-color="#E5D5C6">
       <re-block
         align="center"
-        padding-top="50px"
-        padding-right="60px"
-        padding-bottom="60px"
-        padding-left="60px"
         background-color="#E5D5C6"
-        padding="12px 24px 24px 24px"
+        class="footer-container"
       >
         <re-social
-          margin-top="40px"
-          margin-right="0"
-          margin-bottom="40px"
-          margin-left="0"
-          align="center"
+          margin="0 0 16px"
+          align="left"
         >
           <re-social-item
             href="https://facebook.com/"
@@ -145,18 +227,14 @@
             width="24px"
             alt="Facebook"
           ></re-social-item>
-          <re-social-spacer
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
-          >
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
           <re-social-item
             href="https://twitter.com/"
             src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
             width="24px"
             alt="Twitter"
           ></re-social-item>
-          <re-social-spacer
-            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
-          >
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
           <re-social-item
             href="https://instagram.com/"
             src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
@@ -164,19 +242,11 @@
             alt="Instagram"
           ></re-social-item>
         </re-social>
-        <re-spacer height="24px"></re-spacer>
-        <re-text color="#3C2B24" font-size="13px" align="center">
-          Copyright © 2023 Company Name All rights reserved<br />
+        <re-text align="left" margin="0 0 8px" color="#3C2B24" font-size="12px">
+          Want to change how you receive these emails?
         </re-text>
-        <re-spacer height="12px"></re-spacer>
-        <re-text color="#3C2B24" font-size="13px" align="center">
-          You can unsubscribe from this email list
-          <a
-            href="https://www.peoplevine.com/"
-            target="_blank"
-            style="color: #3c2b24"
-            >here</a
-          >&nbsp;
+        <re-text align="left" color="#3C2B24" font-size="12px" margin="0">
+          You can <a style="color: inherit" href="https://www.peoplevine.com/">unsubscribe</a> from this email list.
         </re-text>
       </re-block>
     </re-footer>

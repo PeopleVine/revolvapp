@@ -8600,7 +8600,6 @@
         "body",
         "header",
         "main",
-        "column",
         "footer",
         "image",
       ];
@@ -8956,6 +8955,7 @@
     toggleView: function () {
       if (this.mobileMode) {
         this.$editor.css("width", "");
+        this.$editor.css("min-height", "")
         this.app.event.run();
         this.app.path.enable();
         this.app.toolbar.enableButtons();
@@ -8963,6 +8963,9 @@
         this.mobileMode = false;
       } else {
         this.$editor.css("width", this.opts.editor.mobile + "px");
+        if (this.opts.editor.template.includes("upcoming-events")) {
+          this.$editor.css("min-height", "2330px")
+        }
         //  this.app.event.pause();
         this.app.component.unset();
         this.app.path.disable();
@@ -13652,9 +13655,29 @@
     forms: {
       settings: {
         width: {
-          type: "input",
+          type: "number",
           width: "65px",
           label: "## form.width ##",
+        },
+        "padding-top": {
+          type: "padding",
+          direction: "top",
+          label: "Padding Top",
+        },
+        "padding-bottom": {
+          type: "padding",
+          direction: "bottom",
+          label: "Padding Bottom",
+        },
+        "padding-left": {
+          type: "padding",
+          direction: "left",
+          label: "Padding Left",
+        },
+        "padding-right": {
+          type: "padding",
+          direction: "right",
+          label: "Padding Right",
         },
       },
     },
@@ -13678,13 +13701,25 @@
         },
         align: { target: ["element"], setter: "setAlign" },
         valign: { target: ["element"] },
-        width: { target: ["element"] },
+        width: { target: ["element"], getter: "getWidth" },
         margin: { target: ["element"] },
         padding: { target: ["element"] },
-        "padding-top": { target: ["element"] },
-        "padding-right": { target: ["element"] },
-        "padding-bottom": { target: ["element"] },
-        "padding-left": { target: ["element"] },
+        "padding-top": {
+          target: ["element"],
+          setter: 'setTopPadding',
+        },
+        "padding-bottom": {
+          target: ["element"],
+          setter: 'setBottomPadding',
+        },
+        "padding-left": {
+          target: ["element"],
+          setter: 'setLeftPadding',
+        },
+        "padding-right": {
+          target: ["element"],
+          setter: 'setRightPadding',
+        },
         "background-color": { target: ["element"] },
         "background-image": { target: ["element"] },
         "background-size": { target: ["element"] },
@@ -13695,6 +13730,25 @@
     },
     render: function () {
       return this.$element;
+    },
+    getWidth: function () {
+      return this.$element.css("width").replace("px", "");
+    },
+    setTopPadding: function (value) {
+      const paddingTop = value + 'px'
+      this.$element.css("padding-top", paddingTop);
+    },
+    setBottomPadding: function (value) {
+      const paddingBottom = value + 'px'
+      this.$element.css("padding-bottom", paddingBottom);
+    },
+    setLeftPadding: function (value) {
+      const paddingLeft = value + 'px'
+      this.$element.css("padding-left", paddingLeft);
+    },
+    setRightPadding: function (value) {
+      const paddingRight = value + 'px'
+      this.$element.css("padding-right", paddingRight);
     },
 
     remove: function () {
