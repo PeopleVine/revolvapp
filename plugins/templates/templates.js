@@ -104,6 +104,15 @@ function debounce(func, wait) {
           tags: ["Billing", "Payment", "Newsletter", "Professional"],
           saved: false,
         },
+        {
+          name: "Download Membership",
+          url: "./templates/Simple Theme/download-membership.html",
+          description: "A simple download membership template.",
+          image: "/img/download-membership.png",
+          type: "templates",
+          tags: ["Membership", "Invoice", "Newsletter", "Professional"],
+          saved: false,
+        },
         // Add more template objects here with additional tags
       ];
       
