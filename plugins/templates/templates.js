@@ -95,6 +95,15 @@ function debounce(func, wait) {
           tags: ["Warm", "Responsive", "Newsletter", "Greeting"],
           saved: false,
         },
+        {
+          name: "Event Confirmation",
+          url: "./templates/Simple Theme/event-confirmation.html",
+          description: "A simple event confirmation template.",
+          image: "/img/event-confirmation.png",
+          type: "templates",
+          tags: ["Billing", "Payment", "Newsletter", "Professional"],
+          saved: false,
+        },
         // Add more template objects here with additional tags
       ];
       

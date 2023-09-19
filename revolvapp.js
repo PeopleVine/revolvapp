@@ -1929,7 +1929,7 @@
     },
     _blocks: {},
     _styles:
-      ".variable-block{background-color: #transparent; display: inline-block; border-radius: 16px; font-size: inherit; color: #111; line-height: inherit; min-height: initial; padding: 4px 10px; white-space: nowrap; text-transform: none; font-weight: bold;}#outlook a{padding:0}.ExternalClass{width:100%}#outlook a{padding:0}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%}body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic}img{border:0;outline:none;text-decoration:none}a img{border:none}td img{vertical-align:top}table,table td{border-collapse:collapse}body{margin:0;padding:0;width:100% !important}.mobile-spacer{width:0;display:none}@media all and (max-width:639px){.container{width:100% !important;max-width:600px !important}.mobile{width:auto !important;max-width:100% !important;display:block !important}.mobile-center{text-align:center !important}.mobile-right{text-align:right !important}.mobile-left{text-align:left!important;}.mobile-hidden{max-height:0;display:none !important;mso-hide:all;overflow:hidden}.mobile-spacer{width:auto !important;display:table !important}.mobile-image,.mobile-image img {height: auto !important; max-width: 600px !important; width: 100% !important}}",
+      ".variable-block{background-color: #transparent; display: inline-block; border-radius: 16px; font-size: inherit; color: #111; line-height: inherit; min-height: initial; padding: 4px 10px; white-space: nowrap; text-transform: none; font-weight: bold;}#outlook a{padding:0}.ExternalClass{width:100%}#outlook a{padding:0}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%}body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic}img{border:0;outline:none;text-decoration:none}a img{border:none}td img{vertical-align:top}table,table td{border-collapse:collapse}body{margin:0;padding:0;width:100% !important}.mobile-spacer{width:0;display:none}@media all and (max-width:639px){.container{width:100% !important;max-width:744px !important}.mobile{width:auto !important;max-width:100% !important;display:block !important}.mobile-center{text-align:center !important}.mobile-right{text-align:right !important}.mobile-left{text-align:left!important;}.mobile-hidden{max-height:0;display:none !important;mso-hide:all;overflow:hidden}.mobile-spacer{width:auto !important;display:table !important}.mobile-image,.mobile-image img {height: auto !important; max-width: 744px !important; width: 100% !important}}",
     _msoStyles:
       '<!--[if mso]><style type="text/css">body, table, td, a { font-family: Arial, Helvetica, sans-serif !important; }</style><![endif]-->',
     _tags: [
@@ -8965,6 +8965,8 @@
         this.$editor.css("width", this.opts.editor.mobile + "px");
         if (this.opts.editor.template.includes("upcoming-events")) {
           this.$editor.css("min-height", "2330px")
+        } else if (this.opts.editor.template.includes("event-confirmation")) {
+          this.$editor.css("min-height", "1150px")
         }
         //  this.app.event.pause();
         this.app.component.unset();
@@ -14527,6 +14529,7 @@
         href: { target: ["element"] },
         class: { target: ["element"] },
         "font-weight": { target: ["element"] },
+        "text-transform": { target: ["element"], prop: this.getStyle("text", "text-transform")},
       };
     },
     render: function () {
