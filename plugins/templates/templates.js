@@ -125,10 +125,19 @@ function debounce(func, wait) {
         {
           name: "Dining Promo",
           url: "./templates/Simple Theme/dining-promo.html",
-          description: "A simple dining promo template.",
+          description: "Whet appetites and boost sales with our Dining Promo template. Tempting offers and savory deals await your customers. Perfect for restaurants and food businesses looking to entice diners.",
           image: "/img/dining-promo.png",
           type: "templates",
           tags: ["DiningPromotion", "RestaurantPromo", "FoodDeals", "CulinaryOffer"],
+          saved: false,
+        },
+        {
+          name: "Refer a Friend",
+          url: "./templates/Simple Theme/refer-friend.html",
+          description: "Encourage referrals from your customers.",
+          image: "/img/refer-friend.png",
+          type: "templates",
+          tags: ["Referral", "Friend", "Promotion", "Campaign"],
           saved: false,
         },
         // Add more template objects here with additional tags

@@ -1,0 +1,147 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "sans-serif", "font-size": "12px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .header span[data-rex-type="image"] {
+      margin-top: 20px;
+      transition: margin 0.3s;
+      }
+      
+      .main .block p.h1 {
+        transition: margin 0.5s;
+      }
+      
+      .main .block .main-text {
+      margin: 0 46px 32px;
+      transition: margin 0.3s;
+      }
+      
+      .main .block .main-link{
+      margin: 0 104px 32px;
+      transition: margin 0.3s;
+      }
+      
+      .footer .main-footer-block {
+        padding: 80px 20px 106px;
+      }
+      
+      @media (max-width: 430px) {
+        .header span[data-rex-type="image"] {
+        margin-top: 0px;
+        }
+        
+        .main .block .main-text {
+          margin: 0 0 32px;
+        }
+        
+        .footer .main-footer-block {
+          padding: 80px 20px 22px;
+        }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="60px 52px 0 "
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="95px"
+        ></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6" border-radius="6px">
+      <re-block
+        border-radius="0px"
+        align="center"
+        padding="60px 20px 0px"
+        background-color="#E5D5C6"
+      >
+        <re-text
+          align="center"
+          font-size="16px"
+          color="#3C2B24"
+          text-transform="uppercase"
+          margin="0 0 8px"
+        >
+          dear customer
+        </re-text>
+        <re-heading
+          margin="0 0 64px"
+          align="center"
+          font-size="47px"
+          font-weight="normal"
+          line-height="100%"
+          color="#2B2D1F"
+          level="h1"
+          text-transform="uppercase"
+        >
+          Refer a friend
+        </re-heading>
+        <re-text align="left" color="#3C2B24" font-size="12px" class="main-text">
+          You have been invited to apply for membership at our Hotel by an existing member of the community. To submit an application, please follow the link via the button below. <br/>
+          <br/>
+          Our team will be in touch upon receipt and remains at your disposal should you have any questions.
+        </re-text>
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+        >
+          View Invoice
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        background-color="#E5D5C6"
+        class="main-footer-block"
+      >
+        <re-social align="center">
+          <re-social-item
+            href="https://facebook.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+            width="24px"
+            alt="Facebook"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://twitter.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+            width="24px"
+            alt="Twitter"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://instagram.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+            width="24px"
+            alt="Instagram"
+          ></re-social-item>
+        </re-social>
+        <re-spacer height="16px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" class="footer-main-text" margin="0" max-width="455px">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
+        </re-text>
+        <re-spacer height="8px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Apre Pass Company | 27459 Sky Square 456 | Jupiter, BC X4Y 1DF | (034) 364-3456
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
