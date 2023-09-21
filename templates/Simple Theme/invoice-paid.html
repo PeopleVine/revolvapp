@@ -1,0 +1,183 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "sans-serif", "font-size": "18px",
+    "line-height":"1.5", "color": "#222" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .header span[data-rex-type="image"] {
+        margin-top: 20px;
+        transition: margin 0.3s;
+      }
+      
+      .main .main-block {
+        padding: 36px 66px 0px 67px;
+        transition: padding 0.3s;
+      }
+      
+      .main .block p:first-of-type {
+        margin: 22px 0 16px;
+        transition: margin 0.3s;
+      }
+      
+      .main .block p.h1 {
+        margin: 0 0 80px;
+        transition: margin 0.5s;
+      }
+      
+      @media (max-width: 430px) {
+        .header span[data-rex-type="image"] {
+          margin-top: 0px;
+        }
+  
+        .main .main-block {
+          padding: 36px 20px 0;
+        }
+        
+        .main .block p:first-of-type {
+          margin: 0 0 8px;
+        }
+        
+        .main .block p.h1 {
+          margin: 0 0 98px;
+          font-size: 53px !important;
+        }
+      
+        .main .grid .column {
+          display: inline-block !important;
+          width: 50% !important;
+        }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="40px 52px 0 "
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="95px"
+        ></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6" border-radius="6px">
+      <re-block
+        border-radius="0px"
+        align="center"
+        background-color="#E5D5C6"
+        class="main-block"
+      >
+        <re-text align="center" font-size="16px" color="#3C2B24" text-transform="uppercase">
+          Dear customer, please see
+        </re-text>
+        <re-heading
+          align="center"
+          font-size="77px"
+          font-weight="normal"
+          line-height="100%"
+          color="#2B2D1F"
+          level="h1"
+          text-transform="uppercase"
+        >
+          Your INVOICE
+        </re-heading>
+        <re-grid>
+          <re-column>
+            <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+              Description
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+              Amount
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="8px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B24"></re-divider>
+        <re-spacer height="24ox"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+              Club Pass
+            </re-text>
+            <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+              Tax
+            </re-text>
+            <re-text align="left" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
+              Total
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+              $ 699.00
+            </re-text>
+            <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+              $ 9.00
+            </re-text>
+            <re-text align="right" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
+              $ 708.00
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="32px"></re-spacer>
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+          text-transform="uppercase"
+        >
+          print invoice
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="130px 20px 111px"
+        background-color="#E5D5C6"
+        class="main-footer-block"
+      >
+        <re-social align="center">
+          <re-social-item
+            href="https://facebook.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+            width="24px"
+            alt="Facebook"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://twitter.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+            width="24px"
+            alt="Twitter"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://instagram.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+            width="24px"
+            alt="Instagram"
+          ></re-social-item>
+        </re-social>
+        <re-spacer height="8px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Apre Pass Company | 27459 Sky Square 456 | Jupiter, BC X4Y 1DF | (034) 364-3456
+        </re-text>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>

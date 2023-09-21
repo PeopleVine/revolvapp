@@ -8897,7 +8897,7 @@
 
           this.$editor.height(height);
         }.bind(this),
-        50
+        300
       );
     },
     render: function ($nodes, $source) {
@@ -8955,7 +8955,6 @@
     toggleView: function () {
       if (this.mobileMode) {
         this.$editor.css("width", "");
-        this.$editor.css("min-height", "")
         this.app.event.run();
         this.app.path.enable();
         this.app.toolbar.enableButtons();
@@ -8963,11 +8962,6 @@
         this.mobileMode = false;
       } else {
         this.$editor.css("width", this.opts.editor.mobile + "px");
-        if (this.opts.editor.template.includes("upcoming-events")) {
-          this.$editor.css("min-height", "2330px")
-        } else if (this.opts.editor.template.includes("event-confirmation")) {
-          this.$editor.css("min-height", "1150px")
-        }
         //  this.app.event.pause();
         this.app.component.unset();
         this.app.path.disable();
@@ -8977,8 +8971,9 @@
         this.app.control.close();
         this.mobileMode = true;
       }
-
+  
       this.adjustHeight();
+
     },
     observe: function (obj, name) {
       if (name === "background") {

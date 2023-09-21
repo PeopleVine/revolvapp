@@ -113,6 +113,15 @@ function debounce(func, wait) {
           tags: ["Membership", "Invoice", "Newsletter", "Professional"],
           saved: false,
         },
+        {
+          name: "Invoice Paid",
+          url: "./templates/Simple Theme/invoice-paid.html",
+          description: "A simple invoice paid template.",
+          image: "/img/invoice-paid.png",
+          type: "templates",
+          tags: ["Billing", "Payment", "Newsletter", "Professional"],
+          saved: false,
+        },
         // Add more template objects here with additional tags
       ];
       
