@@ -1,0 +1,214 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "12px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .main .main-block {
+        padding: 114px 47px 0 20px;
+        transition: padding 0.3s;
+      }
+      
+      .main .main-subtitle {
+        margin: 42px 0 8px;
+        transition: margin 0.3s;
+      }
+      
+      .footer .main-footer-block {
+        padding: 122px 0 40px;
+        transition: padding 0.3s;
+      }
+      
+      .footer .block-grid .column {
+        width: calc(100% / 3);
+      }
+  
+      .footer .block-grid .social a:not(:last-of-type) {
+        margin-right: 28px;
+      }
+      
+      @media (min-width: 431px) {
+        .main .main-block .image-column {
+          padding: 0 47px 0 0;
+          width: 342px;
+          height: 385px;
+          overflow: hidden;
+        }
+        
+        .main .main-block .image-column span,
+        .main .main-block .image-column a,
+        .main .main-block .image-column img {
+          width: 100%;
+          height: 100%;
+        }
+        .main .main-block .image-column img {
+          object-fit: cover;
+        }
+        .footer .menu a:not(:last-of-type) {
+          margin: 0 36px 0 0;
+        }
+      }
+      
+      @media (max-width: 430px) {
+        .main .main-block {
+          padding: 40px 20px 0;
+        }
+  
+        .main .main-subtitle {
+          margin: 0 0 8px;
+        }
+      
+        .main .main-block .image-column {
+          padding: 0 0 20px;
+        }
+  
+        .footer .main-footer-block {
+          padding: 64px 0 44px;
+        }
+  
+        .footer .block-grid .column {
+          display: inline-block !important;
+          width: calc(100% / 3) !important;
+        }
+  
+        .footer .block-grid .social a:not(:last-of-type) {
+          margin-right: 10px;
+        }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="60px 0 0 "
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="95px"
+          margin="0 0 32px"
+        ></re-image>
+        <re-divider height="1px" background-color="#3C2B2433"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6" border-radius="6px">
+      <re-block
+        border-radius="0px"
+        align="center"
+        background-color="#E5D5C6"
+        class="main-block"
+      >
+        <re-grid>
+          <re-column width="342px" class="image-column">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/dining-promo-img.png"
+              href="https://www.peoplevine.com/"
+              responsive="true"
+              width="390px"
+            ></re-image>
+          </re-column>
+          <re-column>
+            <re-text
+              align="left"
+              font-size="16px"
+              color="#3C2B24"
+              text-transform="uppercase"
+              class="main-subtitle"
+            >
+              Promotion
+            </re-text>
+            <re-heading
+              align="left"
+              font-size="40px"
+              font-weight="normal"
+              line-height="100%"
+              color="#2B2D1F"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 40px"
+            >
+              dining Offer
+            </re-heading>
+            <re-text margin="0 0 8px">
+              Thank you for registering to attend this Event. We look forward to you joining us at this event. More information can be found in your personal account. To read more, please follow the link below. To download your e-ticket, please press the button below.
+            </re-text>
+            <re-text align="left" font-size="12px" color="#3C2B24" class="main-link" margin="0 0 48px">
+              —— &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.peoplevine.com/" style="color:inherit;">Sign up</a>
+            </re-text>
+            <re-button
+              align="left"
+              background-color="#E19C5C"
+              border="1px solid #E19C5C"
+              font-size="16px"
+              font-weight="normal"
+              text-transform="uppercase"
+            >
+              Download tickets
+            </re-button>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        background-color="#E5D5C6"
+        class="main-footer-block"
+      >
+        <re-divider height="1px" background-color="#3C2B2433"></re-divider>
+        <re-block padding="32px 20px 0" class="block-grid">
+          <re-grid>
+            <re-column valign="middle">
+              <re-image
+                src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+                href="https://www.peoplevine.com/"
+                width="74px"
+              ></re-image>
+            </re-column>
+            <re-column align="center" valign="middle">
+              <re-text  max-width="123px" margin="0">
+                Apre Pass Company
+                27459 Sky Square 456
+                Jupiter, BC X4Y 1DF
+                (034) 364-3456
+              </re-text>
+            </re-column>
+            <re-column valign="middle">
+              <re-social align="right">
+                <re-social-item
+                  href="https://facebook.com/"
+                  src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+                  width="24px"
+                  alt="Facebook"
+                ></re-social-item>
+                <re-social-item
+                  href="https://twitter.com/"
+                  src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+                  width="24px"
+                  alt="Twitter"
+                ></re-social-item>
+                <re-social-item
+                  href="https://instagram.com/"
+                  src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+                  width="24px"
+                  alt="Instagram"
+                ></re-social-item>
+              </re-social>
+            </re-column>
+          </re-grid>
+        </re-block>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+

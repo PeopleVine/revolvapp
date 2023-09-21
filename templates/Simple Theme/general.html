@@ -26,6 +26,12 @@
         text-decoration: none !important;
       }
       
+      .header-image,
+      span:has(.header-image),
+      span:has(.header-image) a {
+        width: 100% !important;
+      }
+      
       @media (max-width: 430px) {
         .main .h2 {
           font-size: 24px !important;
@@ -57,6 +63,7 @@
         <re-image
           src="https://peoplevine.blob.core.windows.net/media/1153/imagesralph-ravi-kayden-FqqiAvJejto-unsplash.jpg"
           width="744px"
+          class="header-image"
         ></re-image>
       </re-block>
     </re-header>

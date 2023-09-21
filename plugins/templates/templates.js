@@ -122,6 +122,15 @@ function debounce(func, wait) {
           tags: ["Billing", "Payment", "Newsletter", "Professional"],
           saved: false,
         },
+        {
+          name: "Dining Promo",
+          url: "./templates/Simple Theme/dining-promo.html",
+          description: "A simple dining promo template.",
+          image: "/img/dining-promo.png",
+          type: "templates",
+          tags: ["DiningPromotion", "RestaurantPromo", "FoodDeals", "CulinaryOffer"],
+          saved: false,
+        },
         // Add more template objects here with additional tags
       ];
       
