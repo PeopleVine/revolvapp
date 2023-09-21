@@ -15,11 +15,6 @@
         transition: padding 0.3s;
       }
       
-      .main .main-subtitle {
-        margin: 42px 0 8px;
-        transition: margin 0.3s;
-      }
-      
       .footer .main-footer-block {
         padding: 122px 0 40px;
         transition: padding 0.3s;
@@ -50,18 +45,11 @@
         .main .main-block .image-column img {
           object-fit: cover;
         }
-        .footer .menu a:not(:last-of-type) {
-          margin: 0 36px 0 0;
-        }
       }
       
       @media (max-width: 430px) {
         .main .main-block {
           padding: 40px 20px 0;
-        }
-  
-        .main .main-subtitle {
-          margin: 0 0 8px;
         }
       
         .main .main-block .image-column {
@@ -116,13 +104,14 @@
               width="390px"
             ></re-image>
           </re-column>
-          <re-column>
+          <re-column valign="middle">
             <re-text
               align="left"
               font-size="16px"
               color="#3C2B24"
               text-transform="uppercase"
               class="main-subtitle"
+              margin="0 0 8px"
             >
               Promotion
             </re-text>

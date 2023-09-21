@@ -140,6 +140,15 @@ function debounce(func, wait) {
           tags: ["Referral", "Friend", "Promotion", "Campaign"],
           saved: false,
         },
+        {
+          name: "Spa Service Promo",
+          url: "./templates/Simple Theme/spa-service-promo.html",
+          description: "Relax, rejuvenate, and save with our Spa Service Promo template. Highlight your spa's luxurious offerings and entice clients to pamper themselves. Ideal for promoting spa packages, massages, and self-care experiences.",
+          image: "/img/spa-service-promo.png",
+          type: "templates",
+          tags: ["Spa", "Wellness", "Promotion", "Self-Care"],
+          saved: false,
+        }
         // Add more template objects here with additional tags
       ];
       
