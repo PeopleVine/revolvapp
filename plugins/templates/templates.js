@@ -148,7 +148,16 @@ function debounce(func, wait) {
           type: "templates",
           tags: ["Spa", "Wellness", "Promotion", "Self-Care"],
           saved: false,
-        }
+        },
+        {
+          name: "Guest Pass Received",
+          url: "./templates/YourTheme/guest-pass-received.html",
+          description: "Notify guests that their pass has been received for an upcoming event.",
+          image: "/img/guest-pass-received.png",
+          type: "templates",
+          tags: ["Event", "Guest Pass", "Notification"],
+          saved: false
+        },
         // Add more template objects here with additional tags
       ];
       

@@ -12647,6 +12647,7 @@
     },
   
     setFontFamily: function (value) {
+      console.log(value);
       this.$element.css("font-family", value);
       this.$cell.find("p").css("font-family", value)
       this.$cell.find("a.rex-editable").css("font-family", value)

@@ -1729,9 +1729,15 @@ input.rex-search-input:focus, .rex-select-button.focused {
 }
 
 .rex-template-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top: 8px;
-    color: #868690;
     margin-bottom: 16px;
+    max-height: 42px;
+    color: #868690;
 }
 
 .rex-template-button {
