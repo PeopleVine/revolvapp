@@ -1411,7 +1411,8 @@ body {
     margin: 0;
     padding: 0;
     height: 72px;
-    box-shadow: 0 1px 3px rgba(0, 11, 29, 0.32);
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #E8E7E9;
 }
 
 .rex-toolbar-sticky {

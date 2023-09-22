@@ -158,6 +158,15 @@ function debounce(func, wait) {
           tags: ["Event", "Guest Pass", "Notification"],
           saved: false
         },
+        {
+          name: "Order Confirmation",
+          url: "./templates/YourTheme/order-confirmation.html",
+          description: "Confirm the details of an order placed by a customer.",
+          image: "/img/order-confirmation.png",
+          type: "templates",
+          tags: ["Order", "Confirmation", "Shopping", "Receipt"],
+          saved: false
+        }
         // Add more template objects here with additional tags
       ];
       
