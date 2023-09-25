@@ -212,6 +212,15 @@ function debounce(func, wait) {
           tags: ["Reservation", "Reminder", "Travel", "Booking"],
           saved: false
         },
+        {
+          name: "Forgot Password",
+          url: "./templates/Simple Theme/forgot-password.html",
+          description: "Send instructions for resetting the user's password.",
+          image: "/img/forgot-password.png",
+          type: "templates",
+          tags: ["Password", "Reset", "Security", "Authentication"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
