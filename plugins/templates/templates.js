@@ -151,7 +151,7 @@ function debounce(func, wait) {
         },
         {
           name: "Guest Pass Received",
-          url: "./templates/YourTheme/guest-pass-received.html",
+          url: "./templates/Simple Theme/guest-pass-received.html",
           description: "Notify guests that their pass has been received for an upcoming event.",
           image: "/img/guest-pass-received.png",
           type: "templates",
@@ -160,7 +160,7 @@ function debounce(func, wait) {
         },
         {
           name: "Order Confirmation",
-          url: "./templates/YourTheme/order-confirmation.html",
+          url: "./templates/Simple Theme/order-confirmation.html",
           description: "Confirm the details of an order placed by a customer.",
           image: "/img/order-confirmation.png",
           type: "templates",
@@ -169,7 +169,7 @@ function debounce(func, wait) {
         },
         {
           name: "Pre-Arrival Confirmation",
-          url: "./templates/YourTheme/pre-arrival-confirmation.html",
+          url: "./templates/Simple Theme/pre-arrival-confirmation.html",
           description: "Confirm a guest's upcoming arrival and provide essential information.",
           image: "/img/pre-arrival-confirmation.png",
           type: "templates",
@@ -178,7 +178,7 @@ function debounce(func, wait) {
         },
         {
           name: "Update Payment on File",
-          url: "./templates/YourTheme/update-payment.html",
+          url: "./templates/Simple Theme/update-payment.html",
           description: "Notify customers to update their payment information on file for future transactions.",
           image: "/img/update-payment.png",
           type: "templates",
@@ -187,11 +187,20 @@ function debounce(func, wait) {
         },
         {
           name: "Reservation Confirmation",
-          url: "./templates/YourTheme/reservation-confirmation.html",
+          url: "./templates/Simple Theme/reservation-confirmation.html",
           description: "Confirm a reservation and provide details to the guest.",
           image: "/img/reservation-confirmation.png",
           type: "templates",
           tags: ["Reservation", "Confirmation", "Travel", "Booking"],
+          saved: false
+        },
+        {
+          name: "Reservation Cancelled",
+          url: "./templates/Simple Theme/reservation-cancelled.html",
+          description: "Notify guests that their reservation has been cancelled.",
+          image: "/img/reservation-cancelled.png",
+          type: "templates",
+          tags: ["Reservation", "Cancelled", "Travel", "Booking"],
           saved: false
         },
       ];
