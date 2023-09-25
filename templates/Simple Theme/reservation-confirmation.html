@@ -1,0 +1,189 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px",
+    "line-height":"1.5", "color": "#3C2B2480" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .main-block {
+        padding: 64px 20px 0;
+      }
+      
+      .main .h2 {
+        margin: 0 0 80px;
+      }
+      
+      .main-text {
+        margin: 0 0 48px;
+      }
+      
+      .footer .footer-container {
+        padding: 80px 20px 38px;
+      }
+      
+      .footer .grid .column a {
+        text-decoration: none !important;
+      }
+  
+      .header-image,
+      span:has(.header-image),
+      span:has(.header-image) a {
+        width: 100% !important;
+      }
+      
+      @media (max-width: 430px) {
+        .main-block {
+          padding: 40px 20px 0;
+        }
+        .main .h2 {
+          font-size: 28px !important;
+          margin: 0 0 64px;
+        }
+  
+        .main-text {
+          margin: 0 0 32px;
+        }
+        
+        .footer .footer-container {
+          padding: 59px 29px 38px;
+        }
+      
+        .footer-container .column {
+          display: inline-block !important;
+        }
+  
+        .footer-container .column:first-of-type{
+          width: 30% !important;
+        }
+  
+        .footer-container .column:last-of-type {
+          width: 70% !important;
+        }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/reservation-confirmation-img.png"
+          width="744px"
+          class="header-image"
+          responsive="true"
+        ></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="#E5D5C6">
+      <re-block
+        align="left"
+        background-color="#E5D5C6"
+        class="main-block"
+      >
+        <re-heading
+          align="left"
+          font-size="40px"
+          color="#3C2B24"
+          level="h2"
+          class="main-title"
+          text-transform="uppercase"
+        >
+          Your holiday home in our hotel is confirmed!
+        </re-heading>
+        <re-text align="left" color="#3C2B24" font-size="16px" margin="0 0 16px">
+          DEAR CUSTOMER
+        </re-text>
+        <re-text align="left" class="main-text">
+          We look forward to seeing your shortly! <br/>
+          Your tour is scheduled for <span style="color: #3C2B24"><b>23/03/2023</b></span> at <span style="color: #3C2B24"><b>14:00</b></span>, apartment: <span style="color: #3C2B24"><b>King’s Suite</b></span>. <br/>
+          <br/>
+          If you are unable to attend, please do let us know by emailing us at this email. <br/>
+          <br/>
+          See you soon!
+        </re-text>
+        
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+          text-transform="uppercase"
+        >
+          View your reservation
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        background-color="#E5D5C6"
+        class="footer-container"
+      >
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+        <re-spacer></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+              width="75px"
+            ></re-image>
+          </re-column>
+          <re-column>
+            <re-social
+              align="right"
+              margin="0 0 8px"
+            >
+              <re-social-item
+                href="https://facebook.com/"
+                src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+                width="20px"
+                alt="Facebook"
+              ></re-social-item>
+              <re-social-spacer
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
+              >
+              <re-social-item
+                href="https://twitter.com/"
+                src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+                width="20px"
+                alt="Twitter"
+              ></re-social-item>
+              <re-social-spacer
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
+              >
+              <re-social-item
+                href="https://instagram.com/"
+                src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+                width="20px"
+                alt="Instagram"
+              ></re-social-item>
+            </re-social>
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="12px"
+              text-decoration="none"
+              margin="0 0 8px"
+            >
+              Mailing address is:
+              <a style="color: inherit; text-decoration: none" href="SomeEmail@gmail.com">SomeEmail@gmail.com</a>
+            </re-text>
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="12px"
+              margin="0"
+            >
+              Copyright (c). All rights reserved.
+            </re-text>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+

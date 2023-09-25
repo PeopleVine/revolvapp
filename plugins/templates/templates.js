@@ -184,8 +184,16 @@ function debounce(func, wait) {
           type: "templates",
           tags: ["Payment", "Update", "Billing", "Transaction"],
           saved: false
-        }
-        // Add more template objects here with additional tags
+        },
+        {
+          name: "Reservation Confirmation",
+          url: "./templates/YourTheme/reservation-confirmation.html",
+          description: "Confirm a reservation and provide details to the guest.",
+          image: "/img/reservation-confirmation.png",
+          type: "templates",
+          tags: ["Reservation", "Confirmation", "Travel", "Booking"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
