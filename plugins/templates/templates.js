@@ -166,7 +166,16 @@ function debounce(func, wait) {
           type: "templates",
           tags: ["Order", "Confirmation", "Shopping", "Receipt"],
           saved: false
-        }
+        },
+        {
+          name: "Pre-Arrival Confirmation",
+          url: "./templates/YourTheme/pre-arrival-confirmation.html",
+          description: "Confirm a guest's upcoming arrival and provide essential information.",
+          image: "/img/pre-arrival-confirmation.png",
+          type: "templates",
+          tags: ["Pre-Arrival", "Confirmation", "Guest Information", "Travel"],
+          saved: false
+        },
         // Add more template objects here with additional tags
       ];
       

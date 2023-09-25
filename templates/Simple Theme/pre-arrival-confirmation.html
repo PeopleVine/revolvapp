@@ -1,0 +1,147 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "12px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .main .main-block {
+        padding: 32px 94px 0;
+        transition: padding 0.3s;
+      }
+      
+      .main .block p.h1 {
+        transition: margin 0.5s;
+      }
+      
+      @media (max-width: 430px) {
+        .main .main-block {
+          padding: 32px 20px 0;
+        }
+      
+        .main .grid .first-column {
+          padding: 0 0 20px;
+        }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="40px 0 0"
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="76.5px"
+          margin="0 0 13px"
+        ></re-image>
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6" border-radius="6px">
+      <re-block
+        border-radius="0px"
+        align="center"
+        background-color="#E5D5C6"
+        class="main-block"
+      >
+        <re-text
+          align="left"
+          margin="0 0 8px"
+          class="main-text"
+        >
+          Dear Customer, <br/>
+          <br/>
+          We're excited to welcome you to {@company_name@} on {CHECK IN DATE IF PMS INTEGRATED} until {CHECK OUT DATE}. <br/>
+          <br/>
+          We'd like to confirm the following reservations (IF THEY EXIST):{APPOINTMENT TITLE}: DATE OF APPOINTMENT, NO. OF GUESTS; TIME{EVENTS TITLE} (as above){RESERVATIONS} (as above) <br/>
+          <br/>
+          If you'd like to change any of these, please login to the portal and apply changes. <br/>
+          <br/>
+          SECTION FOR OTHER FORMS (e.g. guest details, vehicle reg no. etc) <br/>
+          <br/>
+          Thank you.
+        </re-text>
+        <re-text
+          align="left"
+          class="main-link"
+          margin="0 0 40px"
+        >
+          —— &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" style="color:inherit;">More info can be find here</a>
+        </re-text>
+        <re-text
+          align="left"
+          font-size="16px"
+          font-weight="bold"
+          text-transform="uppercase"
+          margin="0 0 16px"
+        >
+          Other our services just for you
+        </re-text>
+        <re-grid>
+          <re-column width="50%" class="first-column">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/3dafb64c-5310-4d7a-a6f9-ed1166c13adc/pre-arrival-confirmation-img.png"
+              href="https://www.peoplevine.com/"
+              margin="0 0 8px"
+              responsive="true"
+            ></re-image>
+            <re-link
+              align="center"
+              font-size="16px"
+              text-transform="uppercase"
+              color="inherit"
+            >
+              spa day
+            </re-link>
+          </re-column>
+          <re-column-spacer></re-column-spacer>
+          <re-column width="50%">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/43e178ce-8b85-4a64-befd-f2f573b484bb/pre-arrival-confirmation-img02.png"
+              href="https://www.peoplevine.com/"
+              margin="0 0 8px"
+              responsive="true"
+            ></re-image>
+            <re-link
+              align="center"
+              font-size="16px"
+              text-transform="uppercase"
+              color="inherit"
+            >
+              vip day
+            </re-link>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="64px 0 18px"
+        background-color="#E5D5C6"
+      >
+        <re-divider height="1px" background-color="#3C2B24"></re-divider>
+        <re-spacer height=16px"></re-spacer>
+        <re-text align="center" max-width="123px">
+          Apre Pass Company
+          27459 Sky Square 456
+          Jupiter, BC X4Y 1DF
+          (034) 364-3456
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+
