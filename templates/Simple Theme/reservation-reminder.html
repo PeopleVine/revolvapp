@@ -1,0 +1,176 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "12px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .main .main-block {
+      padding: 36px 94px 0 93px;
+      transition: padding 0.3s;
+      }
+      
+      .main .block p.h1 {
+      transition: margin 0.5s;
+      }
+      
+      @media (max-width: 430px) {
+      .main .main-block {
+      padding: 32px 20px 0;
+      }
+      
+      .main .grid .first-column {
+      padding: 0 0 40px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="40px 0 0"
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="102px"
+        ></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6" border-radius="6px">
+      <re-block
+        border-radius="0px"
+        align="center"
+        background-color="#E5D5C6"
+        class="main-block"
+      >
+        <re-heading
+          font-size="32px"
+          font-weight="bold"
+          level="h1"
+          margin="0 0 16px"
+        >
+          Reservation Reminder
+        </re-heading>
+        <re-text
+          align="left"
+          margin="0 0 40px"
+        >
+          Dear Customer,<br/>
+          This is a reminder that you have an upcoming reservation on <b>Thursday</b>, <b>14/03/2023</b>. If you need to make any changes, you can do so below:
+        </re-text>
+  
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+          text-transform="uppercase"
+          margin="0 0 64px"
+        >
+          My account
+        </re-button>
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+        <re-spacer height="24px"></re-spacer>
+        <re-text
+          align="left"
+          font-size="16px"
+          margin="0 0 24px"
+        >
+          Other our services that yo may be interested in:
+        </re-text>
+        <re-grid>
+          <re-column width="50%" class="first-column">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/3dafb64c-5310-4d7a-a6f9-ed1166c13adc/pre-arrival-confirmation-img.png"
+              href="https://www.peoplevine.com/"
+              margin="0 0 8px"
+              responsive="true"
+            ></re-image>
+            <re-link
+              align="center"
+              font-size="16px"
+              text-transform="uppercase"
+              color="inherit"
+            >
+              breakfast in the Restaurant
+            </re-link>
+          </re-column>
+          <re-column-spacer></re-column-spacer>
+          <re-column width="50%">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/43e178ce-8b85-4a64-befd-f2f573b484bb/pre-arrival-confirmation-img02.png"
+              href="https://www.peoplevine.com/"
+              margin="0 0 8px"
+              responsive="true"
+            ></re-image>
+            <re-link
+              align="center"
+              font-size="16px"
+              text-transform="uppercase"
+              color="inherit"
+            >
+              Spa holiday DAY
+            </re-link>
+          </re-column>
+        </re-grid>
+        <re-spacer height="24px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="24px 0 30px"
+        background-color="#E5D5C6"
+      >
+        <re-spacer height=16px"></re-spacer>
+        <re-social
+          align="center"
+          margin="0 0 16px"
+        >
+          <re-social-item
+            href="https://facebook.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+            width="20px"
+            alt="Facebook"
+          ></re-social-item>
+          <re-social-spacer
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
+          >
+          <re-social-item
+            href="https://twitter.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+            width="20px"
+            alt="Twitter"
+          ></re-social-item>
+          <re-social-spacer
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer
+          >
+          <re-social-item
+            href="https://instagram.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+            width="20px"
+            alt="Instagram"
+          ></re-social-item>
+        </re-social>
+        <re-text align="center" max-width="123px">
+          Apre Pass Company
+          27459 Sky Square 456
+          Jupiter, BC X4Y 1DF
+          (034) 364-3456
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+
+

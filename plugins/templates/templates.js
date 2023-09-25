@@ -203,6 +203,15 @@ function debounce(func, wait) {
           tags: ["Reservation", "Cancelled", "Travel", "Booking"],
           saved: false
         },
+        {
+          name: "Reservation Reminder",
+          url: "./templates/Simple Theme/reservation-reminder.html",
+          description: "Send a reminder to guests about their upcoming reservation.",
+          image: "/img/reservation-reminder.png",
+          type: "templates",
+          tags: ["Reservation", "Reminder", "Travel", "Booking"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
