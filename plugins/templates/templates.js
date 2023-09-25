@@ -176,6 +176,15 @@ function debounce(func, wait) {
           tags: ["Pre-Arrival", "Confirmation", "Guest Information", "Travel"],
           saved: false
         },
+        {
+          name: "Update Payment on File",
+          url: "./templates/YourTheme/update-payment.html",
+          description: "Notify customers to update their payment information on file for future transactions.",
+          image: "/img/update-payment.png",
+          type: "templates",
+          tags: ["Payment", "Update", "Billing", "Transaction"],
+          saved: false
+        }
         // Add more template objects here with additional tags
       ];
       
