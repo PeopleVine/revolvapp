@@ -221,6 +221,15 @@ function debounce(func, wait) {
           tags: ["Password", "Reset", "Security", "Authentication"],
           saved: false
         },
+        {
+          name: "Password Changed",
+          url: "./templates/Simple Theme/password-changed.html",
+          description: "Notify users that their password has been successfully changed.",
+          image: "/img/password-changed.png",
+          type: "templates",
+          tags: ["Password", "Changed", "Security", "Authentication"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
