@@ -13,10 +13,6 @@
       .main-block {
         padding: 40px 20px 0;
       }
-      
-      .main .button-block .column:first-of-type {
-        padding: 0 32px 0 96px;
-      }
   
       .main .button-block table[data-rex-type="button"] {
         width: 240px;
@@ -148,7 +144,7 @@
         </re-block>
         <re-block class="button-block">
           <re-grid>
-            <re-column>
+            <re-column width="50%" align="right">
               <re-button
                 background-color="#E5D5C6"
                 border="1px solid #E19C5C"
@@ -160,6 +156,7 @@
                 Update payment
               </re-button>
             </re-column>
+            <re-column-spacer width="32px"></re-column-spacer>
             <re-column width="50%">
               <re-button
                 background-color="#E19C5C"

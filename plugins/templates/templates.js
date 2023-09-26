@@ -238,7 +238,16 @@ function debounce(func, wait) {
           type: "templates",
           tags: ["Membership", "Renewal", "Subscription", "Notification"],
           saved: false
-        }
+        },
+        {
+          name: "Transaction Receipt",
+          url: "./templates/Simple Theme/transaction-receipt.html",
+          description: "Send a receipt to customers for their recent transaction.",
+          image: "/img/transaction-receipt.png",
+          type: "templates",
+          tags: ["Receipt", "Transaction", "Billing", "Payment"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
