@@ -248,6 +248,15 @@ function debounce(func, wait) {
           tags: ["Receipt", "Transaction", "Billing", "Payment"],
           saved: false
         },
+        {
+          name: "Shared Voucher",
+          url: "./templates/Simple Theme/shared-voucher.html",
+          description: "Share a voucher or coupon with customers.",
+          image: "/img/shared-voucher.png",
+          type: "templates",
+          tags: ["Voucher", "Coupon", "Promotion", "Discount"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
