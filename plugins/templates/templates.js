@@ -257,6 +257,15 @@ function debounce(func, wait) {
           tags: ["Voucher", "Coupon", "Promotion", "Discount"],
           saved: false
         },
+        {
+          name: "Booking Confirmation",
+          url: "./templates/Simple Theme/booking-confirmation.html",
+          description: "Confirm a booking made through Book4Time and provide booking details.",
+          image: "/img/booking-confirmation.png",
+          type: "templates",
+          tags: ["Booking", "Confirmation", "Reservation", "Booking System"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
