@@ -230,6 +230,15 @@ function debounce(func, wait) {
           tags: ["Password", "Changed", "Security", "Authentication"],
           saved: false
         },
+        {
+          name: "Membership Renewal",
+          url: "./templates/Simple Theme/membership-renewal.html",
+          description: "Notify members about the renewal of their membership and provide renewal details.",
+          image: "/img/membership-renewal.png",
+          type: "templates",
+          tags: ["Membership", "Renewal", "Subscription", "Notification"],
+          saved: false
+        }
       ];
       
       // Create a navigation menu and append it to the stack

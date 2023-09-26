@@ -8897,7 +8897,7 @@
 
           this.$editor.height(height);
         }.bind(this),
-        300
+        350
       );
     },
     render: function ($nodes, $source) {
@@ -14918,7 +14918,6 @@
     },
     build: function () {
       this.params = {
-        width: "auto",
         html: this._getSourceHtml(),
       };
 
@@ -15029,10 +15028,7 @@
       this.$cell.find("a.rex-editable").css("font-family", value)
     },
     setBorder: function (value) {
-      var arr = value.split(" ");
-      this.$link.css("border", value);
-      this.$cell.attr("bgcolor", arr[2]);
-      this.$source.attr("border", value);
+      this.$element.css("border", value);
     },
     setTopPadding: function (value) {
       const paddingTop = value.includes('px') ? value : value + 'px'
