@@ -15010,8 +15010,17 @@
         },
         "letter-spacing": { target: ["link"] },
         "text-transform": { target: ["link"] },
-        width: { target: ["element"], getter: "getWidth", setter: "setWidth"},
-        height: { target: ["element"], getter: "getHeight", setter: "setHeight"},
+        width: {
+          target: ["element"],
+          getter: "getWidth",
+          setter: "setWidth",
+          prop: this.getStyle("button", "width"),
+        },
+        height: {
+          target: ["element"],
+          getter: "getHeight",
+          setter: "setHeight"
+        },
       };
     },
     render: function () {
