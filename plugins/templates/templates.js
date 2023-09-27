@@ -284,6 +284,15 @@ function debounce(func, wait) {
           tags: ["Booking", "Reminder", "Reservation", "Booking System"],
           saved: false
         },
+        {
+          name: "Post-Appointment Follow-up",
+          url: "./templates/Simple Theme/post-apt-follow-up.html",
+          description: "Follow up with customers after their appointment through Book4Time.",
+          image: "/img/post-apt-follow-up.png",
+          type: "templates",
+          tags: ["Booking", "Follow-up", "Appointment", "Booking System"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
