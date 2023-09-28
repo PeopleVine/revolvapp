@@ -1,0 +1,276 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .header-menu a:not(:last-child) {
+      margin-right: 48px;
+      }
+      
+      span:has(.marketing-promo),
+      span:has(.marketing-promo) a,
+      .marketing-promo {
+      width: 100% !important;
+      }
+      
+      @media (max-width: 430px) {
+      .header-menu a:not(:last-child) {
+      margin-right: 16px;
+      }
+      
+      .header-menu a {
+      font-size: 14px !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="0"
+        background-color="#E5D5C6"
+      >
+        <re-block
+          align="center"
+          padding="12px 10px"
+          background-color="#3C2B2480"
+        >
+          <re-text
+            font-size="16px"
+            color="#ffffff"
+            text-transform="uppercase"
+            margin="0"
+          >
+            Promotional letter for the client
+          </re-text>
+        </re-block>
+        <re-spacer height="32px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="102px"
+        ></re-image>
+        <re-spacer height="28px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+        <re-spacer height="16px"></re-spacer>
+        <re-menu align="center" class="header-menu">
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Hotel
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Events
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Spa
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Massage
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Restaurant
+          </re-menu-item>
+        </re-menu>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6">
+      <re-block
+        align="center"
+        padding="40px 30px 64px"
+        background-color="#E5D5C6"
+      >
+        <re-grid>
+          <re-column width="50%">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/7c1082a9-c349-44f0-a592-c8a90f63f4b7/markeing-image8.png"
+              class="marketing-promo"
+              border-radius="8px"
+              responsive="true"
+            ></re-image>
+            <re-spacer height="24px"></re-spacer>
+            <re-text align="left" margin="0">
+              Our spa services are now available for booking! Relax and rejuvenate with our massages, facials, and body treatments. Our expert therapists will tailor your experience to your needs.
+            </re-text>
+            <re-spacer height="8px"></re-spacer>
+            <re-text align="left" color="#3C2B24" font-size="14px" class="main-link" margin="0">
+              —— &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://peoplevine.com/" style="color: #3C2B24"
+              >Sign up</a>
+            </re-text>
+            <re-spacer height="20px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="20px"></re-column-spacer>
+          <re-column width="50%">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/320fa009-c268-43f2-a79d-1fe126a65864/markeing-image9.png"
+              class="marketing-promo"
+              border-radius="8px"
+              responsive="true"
+            ></re-image>
+            <re-spacer height="24px"></re-spacer>
+            <re-text align="left" margin="0">
+              Experience the ultimate culinary adventure at our hotel restaurant. <br/>
+              Our doors are now open, welcoming guests to indulge in the finest flavours.
+            </re-text>
+            <re-spacer height="8px"></re-spacer>
+            <re-text align="left" color="#3C2B24" font-size="14px" class="main-link" margin="0">
+              —— &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://peoplevine.com/" style="color: #3C2B24"
+              >Sign up</a>
+            </re-text>
+            <re-spacer height="20px"></re-spacer>
+          </re-column>
+        </re-grid>
+        <re-spacer height="44px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-heading
+              align="center"
+              font-size="40px"
+              font-weight="bold"
+              line-height="100%"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 16px"
+            >
+              -30% off
+            </re-heading>
+            <re-text
+              align="center"
+              font-size="18px;"
+              color="#3C2B247F"
+              margin="0"
+            >
+              for all SPA services
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="64px"></re-column-spacer>
+          <re-column>
+            <re-heading
+              align="center"
+              font-size="40px"
+              font-weight="bold"
+              line-height="100%"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 16px"
+            >
+              -10% off
+            </re-heading>
+            <re-text
+              align="center"
+              font-size="18px;"
+              color="#3C2B247F"
+              margin="0"
+            >
+              for Hotel booking
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="64px"></re-column-spacer>
+          <re-column>
+            <re-heading
+              align="center"
+              font-size="40px"
+              font-weight="bold"
+              line-height="100%"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 16px"
+            >
+              -60% off
+            </re-heading>
+            <re-text
+              align="center"
+              font-size="18px;"
+              color="#3C2B247F"
+              margin="0"
+            >
+              for Massage services
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+        </re-grid>
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+          text-transform="uppercase"
+          class="main-button"
+        >
+          sign up for our SPA Program
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        background-color="#E5D5C6"
+        padding="0 30px 33px"
+      >
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+        <re-spacer height="26px"></re-spacer>
+        <re-social align="center">
+          <re-social-item
+            href="https://facebook.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+            width="20px"
+            alt="Facebook"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://twitter.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+            width="20px"
+            alt="Twitter"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://instagram.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+            width="20px"
+            alt="Instagram"
+          ></re-social-item>
+        </re-social>
+        <re-spacer height="42px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" class="footer-main-text" margin="0">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
+        </re-text>
+        <re-spacer height="8px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Apre Pass Company | 27459 Sky Square 456 | Jupiter, BC X4Y 1DF | (034) 364-3456
+        </re-text>
+        <re-spacer height="16px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+
