@@ -293,6 +293,15 @@ function debounce(func, wait) {
           tags: ["Booking", "Follow-up", "Appointment", "Booking System"],
           saved: false
         },
+        {
+          name: "Marketing Newsletter",
+          url: "./templates/Simple Theme/marketing-newsletter.html",
+          description: "Send a marketing newsletter to your subscribers with updates and promotions.",
+          image: "/img/marketing-newsletter.png",
+          type: "templates",
+          tags: ["Marketing", "Newsletter", "Promotions", "Updates"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack

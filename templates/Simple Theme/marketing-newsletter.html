@@ -1,0 +1,537 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .header-menu a:not(:last-child) {
+        margin-right: 48px;
+      }
+      
+      span:has(.marketing-promo),
+      span:has(.marketing-promo) a,
+      .marketing-promo {
+        width: 100% !important;
+      }
+  
+      .marketing-promo.cover {
+      
+      }
+      
+      .main-title {
+        margin: 64px 0 24px;
+      }
+      
+      .main-subtitle {
+        margin: 0 0 48px;
+      }
+      
+      table[data-rex-type="button"]:has(.main-button) {
+        margin: 0 0 80px;
+      }
+      
+      .main-menu a:not(:last-child) {
+        margin-right: 38px;
+      }
+  
+      @media (min-width: 431px) {
+        .marketing-promo.cover {
+          height: 600px;
+          object-fit: cover;
+        }
+      }
+      
+      @media (max-width: 430px) {
+        .header-menu a:not(:last-child) {
+          margin-right: 16px;
+        }
+  
+        .header-menu a {
+          font-size: 14px !important;
+        }
+  
+        .main-title {
+          margin: 40px 0 8px;
+          font-size: 16px !important;
+        }
+  
+        .main-subtitle {
+          margin: 0 0 32px;
+          font-size: 14px !important;
+        }
+  
+        .main-grid img {
+          height: 300px !important;
+          object-fit: cover;
+        }
+  
+        table[data-rex-type="button"]:has(.main-button) {
+          margin: 0 0 40px;
+        }
+  
+        .main-menu a:not(:last-child) {
+          margin-right: 19.5px;
+        }
+  
+        .main-menu a {
+          font-size: 12px !important;
+        }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="0"
+        background-color="#E5D5C6"
+      >
+        <re-block
+          align="center"
+          padding="12px 10px"
+          background-color="#3C2B2480"
+        >
+          <re-text
+            font-size="16px"
+            color="#ffffff"
+            text-transform="uppercase"
+            margin="0"
+          >
+            Promotional letter for the client
+          </re-text>
+        </re-block>
+        <re-spacer height="32px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="102px"
+        ></re-image>
+        <re-spacer height="28px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+        <re-spacer height="16px"></re-spacer>
+        <re-menu align="center" class="header-menu">
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Hotel
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Events
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Spa
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Massage
+          </re-menu-item>
+          <re-menu-item
+            font-size="16px"
+            text-transform="uppercase"
+          >
+            Restaurant
+          </re-menu-item>
+        </re-menu>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6">
+      <re-block
+        align="center"
+        padding="64px 30px 32px"
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/aaf25b0a-80dd-4f4a-b63d-85e75a0dd487/marketing-promo.png"
+          alt="marketing-promo"
+          class="marketing-promo"
+          width="684px"
+          border-radius="8px"
+          responsive="true"
+        ></re-image>
+        <re-heading
+          align="center"
+          font-size="32px"
+          font-weight="normal"
+          line-height="100%"
+          level="h2"
+          text-transform="uppercase"
+          class="main-title"
+        >
+          All prices are down
+        </re-heading>
+        <re-text
+          align="center"
+          font-size="16px"
+          class="main-subtitle"
+          color="#3C2B247F"
+          max-width="611px"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </re-text>
+        <re-grid class="main-grid">
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/05ca4fd1-7e9b-447c-9b16-feb1504bac0f/markeing-image.png"
+              border-radius="8px"
+              alt=""
+              responsive="true"
+            ></re-image>
+            <re-spacer height="16px"></re-spacer>
+            <re-text margin="0">
+              Provided services on: <b>Monday, 04/03/2023</b> <br/>
+              Price: <b>$110.00</b> <br/>
+              Cook duration: <b>70 minutes</b> <br/>
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="84px"></re-column-spacer>
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/2255383d-c250-4f50-b98e-4d955ee2ebf3/markeing-image2.png"
+              border-radius="8px"
+              alt=""
+              responsive="true"
+            ></re-image>
+            <re-spacer height="16px"></re-spacer>
+            <re-text align="left" margin="0">
+              Provided services on: <b>Monday, 04/03/2023</b> <br/>
+              Price: <b>$110.00</b> <br/>
+              Cook duration: <b>70 minutes</b> <br/>
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+        </re-grid>
+        <re-grid class="main-grid">
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/f49c8072-07ef-4893-8893-123837bba7c5/markeing-image3.png"
+              border-radius="8px"
+              alt=""
+              responsive="true"
+            ></re-image>
+            <re-spacer height="16px"></re-spacer>
+            <re-text margin="0">
+              Provided services on: <b>Monday, 04/03/2023</b> <br/>
+              Price: <b>$110.00</b> <br/>
+              Cook duration: <b>70 minutes</b> <br/>
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="84px"></re-column-spacer>
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/1cd3e30b-a3fa-460b-bc1f-eea510c63018/markeing-image4.png"
+              border-radius="8px"
+              alt=""
+              responsive="true"
+            ></re-image>
+            <re-spacer height="16px"></re-spacer>
+            <re-text align="left" margin="0">
+              Provided services on: <b>Monday, 04/03/2023</b> <br/>
+              Price: <b>$110.00</b> <br/>
+              Cook duration: <b>70 minutes</b> <br/>
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+        </re-grid>
+        <re-grid class="main-grid">
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/0459d13a-490c-4dfc-a67b-2d74c61711b0/markeing-image5.png"
+              border-radius="8px"
+              alt=""
+              responsive="true"
+            ></re-image>
+            <re-spacer height="16px"></re-spacer>
+            <re-text margin="0">
+              Provided services on: <b>Monday, 04/03/2023</b> <br/>
+              Price: <b>$110.00</b> <br/>
+              Cook duration: <b>70 minutes</b> <br/>
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="84px"></re-column-spacer>
+          <re-column>
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/071b31e1-dbc1-4af1-9813-fe21cd3bd371/markeing-image6.png"
+              border-radius="8px"
+              alt=""
+              responsive="true"
+            ></re-image>
+            <re-spacer height="16px"></re-spacer>
+            <re-text align="left" margin="0">
+              Provided services on: <b>Monday, 04/03/2023</b> <br/>
+              Price: <b>$110.00</b> <br/>
+              Cook duration: <b>70 minutes</b> <br/>
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+        </re-grid>
+        <re-spacer height="32px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/1c268ebe-ee68-4e16-9a89-745d7de89847/markeing-image7.png"
+          alt="marketing-promo"
+          class="marketing-promo"
+          width="684px"
+          border-radius="8px"
+          responsive="true"
+        ></re-image>
+        <re-spacer height="32px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-heading
+              align="center"
+              font-size="40px"
+              font-weight="bold"
+              line-height="100%"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 16px"
+            >
+              -30% off
+            </re-heading>
+            <re-text
+              align="center"
+              font-size="18px;"
+              color="#3C2B247F"
+              margin="0"
+            >
+              for all SPA services
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="64px"></re-column-spacer>
+          <re-column>
+            <re-heading
+              align="center"
+              font-size="40px"
+              font-weight="bold"
+              line-height="100%"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 16px"
+            >
+              -10% off
+            </re-heading>
+            <re-text
+              align="center"
+              font-size="18px;"
+              color="#3C2B247F"
+              margin="0"
+            >
+              for Hotel booking
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+          <re-column-spacer width="64px"></re-column-spacer>
+          <re-column>
+            <re-heading
+              align="center"
+              font-size="40px"
+              font-weight="bold"
+              line-height="100%"
+              level="h1"
+              text-transform="uppercase"
+              margin="0 0 16px"
+            >
+              -60% off
+            </re-heading>
+            <re-text
+              align="center"
+              font-size="18px;"
+              color="#3C2B247F"
+              margin="0"
+            >
+              for Massage services
+            </re-text>
+            <re-spacer height="32px"></re-spacer>
+          </re-column>
+        </re-grid>
+        <re-spacer height="8px"></re-spacer>
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+          text-transform="uppercase"
+          class="main-button"
+        >
+          reserve now
+        </re-button>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/7c1082a9-c349-44f0-a592-c8a90f63f4b7/markeing-image8.png"
+          class="marketing-promo cover"
+          border-radius="8px"
+        ></re-image>
+        <re-spacer height="24px"></re-spacer>
+        <re-text align="left" margin="0">
+          Our spa services are now available for booking! Relax and rejuvenate with our massages, facials, and body treatments. Our expert therapists will tailor your experience to your needs.
+        </re-text>
+        <re-spacer height="8px"></re-spacer>
+        <re-text align="left" color="#3C2B24" font-size="14px" class="main-link" margin="0">
+          —— &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://peoplevine.com/" style="color: #3C2B24"
+          >Sign up</a>
+        </re-text>
+        <re-spacer height="40px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/320fa009-c268-43f2-a79d-1fe126a65864/markeing-image9.png"
+          class="marketing-promo cover"
+          border-radius="8px"
+        ></re-image>
+        <re-spacer height="24px"></re-spacer>
+        <re-text align="left" margin="0">
+          Experience the ultimate culinary adventure at our hotel restaurant. <br/>
+          Our doors are now open, welcoming guests to indulge in the finest flavours.
+        </re-text>
+        <re-spacer height="8px"></re-spacer>
+        <re-text align="left" color="#3C2B24" font-size="14px" class="main-link" margin="0">
+          —— &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://peoplevine.com/" style="color: #3C2B24"
+          >Sign up</a>
+        </re-text>
+        <re-heading
+          align="center"
+          font-size="32px"
+          font-weight="bold"
+          line-height="100%"
+          level="h2"
+          text-transform="uppercase"
+          class="main-title"
+        >
+          All prices are down
+        </re-heading>
+        <re-text
+          align="center"
+          font-size="16px"
+          class="main-subtitle"
+          color="#3C2B247F"
+          max-width="611px"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </re-text>
+        <re-spacer height="12px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/ec879179-2103-453d-b6c0-7b40a8dc97e0/markeing-image10.png"
+          width="160"
+          border-radius="160px"
+        ></re-image>
+        <re-spacer height="48px"></re-spacer>
+        <re-heading
+          align="center"
+          font-size="16px"
+          font-weight="bold"
+          line-height="100%"
+          level="h4"
+          text-transform="uppercase"
+          margin="0 0 16px"
+        >
+          Mike stoltenberg
+        </re-heading>
+        <re-text
+          align="center"
+          font-size="16px"
+          color="#3C2B247F"
+          max-width="390px"
+          margin="0 0 32px"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </re-text>
+        <re-button
+          background-color="transparent"
+          border="1px solid #3C2B247F"
+          font-size="16px"
+          color="#3C2B24"
+          text-transform="uppercase"
+          class="main-button"
+        >
+          reserve now
+        </re-button>
+        <re-menu align="center" class="main-menu">
+          <re-menu-item
+            font-size="22px"
+            text-transform="uppercase"
+          >
+            Company logo 1
+          </re-menu-item>
+          <re-menu-item
+            font-size="22px"
+            font-weight="bold"
+            font-style="italic"
+            text-transform="uppercase"
+          >
+            Company logo 2
+          </re-menu-item>
+          <re-menu-item
+            font-size="22px"
+            font-style="italic"
+            text-transform="uppercase"
+          >
+            Company logo 3
+          </re-menu-item>
+        </re-menu>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        background-color="#E5D5C6"
+        padding="0 30px 33px"
+      >
+        <re-divider height="1px" background-color="#3C2B2480"></re-divider>
+        <re-spacer height="26px"></re-spacer>
+        <re-social align="center">
+          <re-social-item
+            href="https://facebook.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+            width="20px"
+            alt="Facebook"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://twitter.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+            width="20px"
+            alt="Twitter"
+          ></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item
+            href="https://instagram.com/"
+            src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+            width="20px"
+            alt="Instagram"
+          ></re-social-item>
+        </re-social>
+        <re-spacer height="42px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" class="footer-main-text" margin="0">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
+        </re-text>
+        <re-spacer height="8px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Apre Pass Company | 27459 Sky Square 456 | Jupiter, BC X4Y 1DF | (034) 364-3456
+        </re-text>
+        <re-spacer height="16px"></re-spacer>
+        <re-text color="#3C2B24" font-size="12px" line-height="21px" align="center" margin="0">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+

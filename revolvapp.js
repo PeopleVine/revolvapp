@@ -13619,6 +13619,9 @@
       this.params = {
         width: "100%",
       };
+      this.data = {
+        class: { target: ["element"] },
+      }
     },
     render: function () {
       return this.$row;
@@ -14525,6 +14528,7 @@
         href: { target: ["element"] },
         class: { target: ["element"] },
         "font-weight": { target: ["element"] },
+        "font-style": { target: ["element"] },
         "text-transform": { target: ["element"], prop: this.getStyle("text", "text-transform")},
       };
     },
