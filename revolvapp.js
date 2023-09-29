@@ -8134,11 +8134,21 @@
                   .dom("<div>")
                   .addClass(self.prefix + "-popup-button-row");
                 row.forEach((icon) => {
+                  const $wrapper = self
+                  .dom("<div>")
+                  .addClass(self.prefix + "-popup-button-wrapper")
+                  $row.append($wrapper)
                   const $icon = self
                     .dom("<div>")
                     .attr("data-type", icon)
                     .addClass(self.prefix + "-popup-button-icon");
-                  $row.append($icon);
+                  const $text = self
+                    .dom("<p>")
+                    .attr("data-type", icon + "-title")
+                    .addClass(self.prefix + "-popup-button-title")
+                  $text.text(icon.charAt(0).toUpperCase() + icon.slice(1))
+                  $wrapper.append($icon);
+                  $wrapper.append($text);
                 });
                 $buttonImg.append($row);
               });
