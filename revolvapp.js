@@ -8164,6 +8164,8 @@
             if (self._isHiddenBlock(items[index].type)) {
               continue;
             }
+  
+            console.log(items);
 
             var $button = self
               .dom("<button>")
@@ -14949,28 +14951,6 @@
           type: "input",
           label: "## form.url ##",
         },
-        // "border-width": {
-        //   type: "number",
-        //   label: "## form.border-width ##",
-        // },
-        // "border-radius": {
-        //   type: "number",
-        //   label: "## form.border-radius ##",
-        // },
-        // "border-color": {
-        //   type: "input",
-        //   label: "## form.border-color ##",
-        // },
-        // "border-style": {
-        //   type: "select",
-        //   label: "## form.border-style ##",
-        //   options: {
-        //     none: "## form.none ##",
-        //     solid: "## form.solid ##",
-        //     dotted: "## form.dotted ##",
-        //     dashed: "## form.dashed ##",
-        //   },
-        // },
         width: {
           type: "number",
           label: "## form.width ##",
@@ -16511,6 +16491,39 @@
       this.block.add(image);
       this.block.add(heading);
       this.block.add(text);
+    },
+  });
+  Revolvapp.add("block", "block.image-heading-text-button", {
+    mixins: ["block"],
+    type: "image-heading-text-button",
+    icon: "image,heading,text,button",
+    set: true,
+    section: "one",
+    priority: 65,
+    build: function () {
+      // block
+      this.block = this.app.create("tag.block", {
+        padding: "10px 20px 20px 20px",
+      });
+
+      // elements
+      var image = this.app.create("tag.image", { placeholder: true });
+      var heading = this.app.create("tag.heading", {
+        html: this.lang.get("placeholders.lorem-heading"),
+        margin: "10px 0 5px 0",
+      });
+      var text = this.app.create("tag.text", {
+        html: this.lang.get("placeholders.lorem"),
+      });
+      var button = this.app.create("tag.button", {
+        html: this.lang.get("placeholders.button")
+      })
+
+      // add
+      this.block.add(image);
+      this.block.add(heading);
+      this.block.add(text);
+      this.block.add(button);
     },
   });
   Revolvapp.add("block", "block.button", {
