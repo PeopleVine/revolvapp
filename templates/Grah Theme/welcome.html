@@ -1,0 +1,214 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "'Times New Roman', serif", "font-size": "14px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "'Times New Roman', serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header-wrapper {
+        padding: 40px 30px 0;
+      }
+      
+      .main-wrapper {
+        padding: 45px 57px 0;
+      }
+  
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .main-image {
+        height: 366px;
+        object-fit: cover;
+        object-position: center bottom;
+      }
+      
+      .footer-wrapper {
+        padding: 60px 30px 24px;
+      }
+      
+      .footer-wrapper .social a {
+        display: block;
+      }
+      
+      @media (max-width: 430px) {
+      .header-wrapper {
+      padding: 40px 20px 0;
+      }
+  
+      .main-wrapper {
+      padding: 41px 20px 0;
+      }
+      
+      .header-wrapper .column {
+        display: inline-block !important;
+      }
+  
+      .header-wrapper .column:last-of-type {
+      width: 20% !important;
+      }
+  
+      .header-wrapper .column:first-of-type {
+        width: 80% !important;
+      }
+  
+      .footer-wrapper {
+      padding: 60px 20px 22px;
+      }
+  
+      .footer-wrapper .column {
+        display: inline-block !important;
+        width: 50% !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#ffffff" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#203942">
+      <re-block align="center" class="header-wrapper">
+        <re-grid>
+          <re-column align="left">
+            <re-spacer height="11px"></re-spacer>
+            <re-heading
+              font-size="32px"
+              align="left"
+              font-weight="bold"
+              line-height="100%"
+              color="#FDFDFD"
+              level="h1"
+              margin="0 0 4px"
+            >
+              Welcome to the Club
+            </re-heading>
+            <re-text
+              align="left"
+              font-size="12px"
+              color="#FDFDFD7F"
+              line-height="100%"
+              margin="0"
+            >
+              Dear Customer
+            </re-text>
+          </re-column>
+          <re-column align="right">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/white-logo.png" href="https://www.peoplevine.com/"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-header>
+    <re-main background-color="#203942">
+      <re-block align="left" background-color="#203942" class="main-wrapper">
+        <re-text
+          align="right"
+          font-size="14px"
+          color="#FDFDFD"
+          line-height="100%"
+          margin="0 0 8px"
+          text-transform="uppercase"
+        >
+          Info Letter no. 3575
+        </re-text>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/welcome.png"
+          border-radius="3px"
+          class="main-image"
+        ></re-image>
+        <re-spacer height="64px"></re-spacer>
+        <re-heading
+          font-size="16px"
+          align="left"
+          font-weight="bold"
+          line-height="100%"
+          color="#FDFDFD"
+          level="h6"
+          margin="0 0 8px"
+        >
+          The Property would like to share
+        </re-heading>
+        <re-text
+          align="left"
+          font-size="14px"
+          color="#FDFDFD7F"
+          line-height="100%"
+          margin="0"
+        >
+          24/04/2023 <br/>
+          to John Snow
+        </re-text>
+        <re-spacer height="64px"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-text
+            align="left"
+            font-size="14px"
+            font-weight="bold"
+            color="#2A2A2A"
+            margin="0"
+          >
+            We are so glad you are with us!
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" color="#2A2A2A80">
+            We are pleased to let you know that we have received your completed registration form. Your account has now been created and you can log in. Please visit our site for more detailed membership rules and any questions that may occur. We look forward to
+            welcoming you soon!
+          </re-text>
+        </re-block>
+        <re-spacer height="16px"></re-spacer>
+        <re-link align="center" font-size="12px" font-weight="normal" color="#FDFDFD7F">
+          View more at your profile
+        </re-link>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#203942">
+      <re-block align="center" background-color="#203942" class="footer-wrapper">
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+        <re-spacer height="18px"></re-spacer>
+        <re-grid>
+          <re-column align="left" valign="bottom">
+            <re-text
+              align="left"
+              color="#FDFDFD"
+              font-size="12px"
+              margin="0"
+            >
+              Copyright (c). All rights reserved.
+            </re-text>
+          </re-column>
+          <re-column align="right">
+            <re-social align="right">
+              <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/351435a9-486c-4106-a1cb-ebd14f7a3005/instagram-white.png" width="20px" alt="Instagram"></re-social-item>
+              <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+              <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/489ee6d3-e523-41fb-b6f3-3c539d43ee15/fb-white.png" width="20px" alt="Facebook"></re-social-item>
+              <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+              <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/840904fc-2417-48da-8b27-ecdc30c23702/youtube-white.png" width="20px" alt="Youtube"></re-social-item>
+            </re-social>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+

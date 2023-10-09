@@ -1847,6 +1847,54 @@
           label: "## form.text-type ##",
         },
       },
+      text: {
+        text: {
+          type: "input",
+          label: "## form.text ##",
+        },
+        "text-align": {
+          type: "select",
+          label: "## form.text-align ##",
+          options: {
+            left: "## form.left ##",
+            center: "## form.center ##",
+            right: "## form.right ##",
+          },
+        },
+        "font-size": {
+          type: "number",
+          label: "## form.text-size ##",
+        },
+        "font-weight": {
+          type: "select",
+          label: "## form.font-weight ##",
+          options: {
+            normal: "Normal",
+            bold: "Bold",
+          },
+        },
+        "font-family": {
+          type: "select",
+          options: {
+            "sans-serif": "sans-serf",
+            "Open Sans": "Open Sans",
+            Arial: "Arial",
+            "Helvetica Neue": "Helvetica Neue",
+            Helvetica: "Helvetica",
+            "Lucida Grande": "Lucida Grande",
+            "Tahoma, sans-serif": "Tahoma",
+            "Verdana, sans-serif": "Verdana",
+            "'Courier New', monospace": "Courier New",
+            "Georgia, serif": "Georgia",
+            "'Times New Roman', serif": "Times New Roman",
+          },
+          label: "## form.font-family ##",
+        },
+        color: {
+          type: "input",
+          label: "## form.color ##",
+        },
+      },
     },
 
     // private
@@ -8629,6 +8677,17 @@
         setter: "component.setData",
         form: instance.forms.settings,
       });
+  
+      if (instance.getType() === "button") {
+        this.app.popup.add("text", {
+          collapse: false,
+          title: "Text",
+          width: "300px",
+          getter: "component.getData",
+          setter: "component.setData",
+          form: this.opts.forms.text,
+        });
+      }
 
       if (names.indexOf(instance.getType()) !== -1) {
         this.app.popup.add("margin", {
@@ -14219,7 +14278,7 @@
         class: { target: ["img"] },
         src: { target: ["img"], setter: "setImage", getter: "getImage" },
         alt: { target: ["img"] },
-        "border-radius": { target: ["img"] },
+        "border-radius": { target: ["img"], getter: "getBorderRadius" },
         padding: { target: ["img"] },
         "padding-top": {
           target: ["img"],
@@ -14286,6 +14345,10 @@
     },
     setBorderWidth: function (value) {
       this.$img.css("border-width", value);
+    },
+    getBorderRadius: function () {
+      console.log(this.$img.css("border-radius"));
+      return this.$img.css("border-radius");
     },
     getImage: function () {
       return this.params.placeholder ? "" : this.$img.attr("src");
@@ -14886,28 +14949,28 @@
           type: "input",
           label: "## form.url ##",
         },
-        "border-width": {
-          type: "number",
-          label: "## form.border-width ##",
-        },
-        "border-radius": {
-          type: "number",
-          label: "## form.border-radius ##",
-        },
-        "border-color": {
-          type: "input",
-          label: "## form.border-color ##",
-        },
-        "border-style": {
-          type: "select",
-          label: "## form.border-style ##",
-          options: {
-            none: "## form.none ##",
-            solid: "## form.solid ##",
-            dotted: "## form.dotted ##",
-            dashed: "## form.dashed ##",
-          },
-        },
+        // "border-width": {
+        //   type: "number",
+        //   label: "## form.border-width ##",
+        // },
+        // "border-radius": {
+        //   type: "number",
+        //   label: "## form.border-radius ##",
+        // },
+        // "border-color": {
+        //   type: "input",
+        //   label: "## form.border-color ##",
+        // },
+        // "border-style": {
+        //   type: "select",
+        //   label: "## form.border-style ##",
+        //   options: {
+        //     none: "## form.none ##",
+        //     solid: "## form.solid ##",
+        //     dotted: "## form.dotted ##",
+        //     dashed: "## form.dashed ##",
+        //   },
+        // },
         width: {
           type: "number",
           label: "## form.width ##",
@@ -14915,52 +14978,6 @@
         height: {
           type: "number",
           label: "## form.height ##",
-        },
-        text: {
-          type: "input",
-          label: "## form.text ##",
-        },
-        "text-align": {
-          type: "select",
-          label: "## form.text-align ##",
-          options: {
-            left: "## form.left ##",
-            center: "## form.center ##",
-            right: "## form.right ##",
-          },
-        },
-        "font-size": {
-          type: "number",
-          label: "## form.text-size ##",
-        },
-        "font-weight": {
-          type: "select",
-          label: "## form.font-weight ##",
-          options: {
-            normal: "Normal",
-            bold: "Bold",
-          },
-        },
-        "font-family": {
-          type: "select",
-          options: {
-            "sans-serif": "sans-serf",
-            "Open Sans": "Open Sans",
-            Arial: "Arial",
-            "Helvetica Neue": "Helvetica Neue",
-            Helvetica: "Helvetica",
-            "Lucida Grande": "Lucida Grande",
-            "Tahoma, sans-serif": "Tahoma",
-            "Verdana, sans-serif": "Verdana",
-            "'Courier New', monospace": "Courier New",
-            "Georgia, serif": "Georgia",
-            "'Times New Roman', serif": "Times New Roman",
-          },
-          label: "## form.font-family ##",
-        },
-        color: {
-          type: "input",
-          label: "## form.color ##",
         },
       },
     },
