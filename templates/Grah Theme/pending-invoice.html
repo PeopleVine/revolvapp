@@ -1,0 +1,180 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .main-wrapper {
+        padding: 36px 57px 0;
+      }
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .text-block {
+      padding: 32px 47px;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 36px 20px 0;
+      }
+  
+      .main-wrapper .column {
+        display: inline-block !important;
+      }
+  
+      .main-wrapper .column:last-child {
+        width: 35% !important;
+      }
+  
+      .main-wrapper .column:first-child {
+        width: 65% !important;
+      }
+      
+      .main-wrapper .h6 {
+        font-size: 14px !important;
+      }
+      
+      .text-block {
+      padding: 32px 24px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/4a671113-b1c1-4b37-8c6f-c5391d5748ef/blue-logo.png" href="https://www.peoplevine.com/" width="102px"></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block align="left" background-color="#FDFDFD" class="main-wrapper">
+        <re-divider height="8px" background-color="#203942"></re-divider>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-heading
+              font-size="32px"
+              align="left"
+              font-weight="bold"
+              line-height="100%"
+              color="#2A2A2A"
+              level="h1"
+              margin="0 0 4px"
+            >
+              Invoice Unpaid
+            </re-heading>
+            
+            <re-text
+              align="left"
+              font-size="12px"
+              color="#2A2A2A80"
+              line-height="100%"
+              margin="0"
+              class="header-subtitle"
+            >
+              You have a pending Invoice
+            </re-text>
+          </re-column>
+          <re-column align="right">
+            <re-spacer height="16px"></re-spacer>
+            <re-heading
+              font-size="16px"
+              align="right"
+              font-weight="bold"
+              line-height="100%"
+              color="#2A2A2A"
+              level="h6"
+              margin="0 0 7px"
+            >
+              Invoice # 2345365
+            </re-heading>
+  
+            <re-text
+              align="right"
+              font-size="12px"
+              color="#2A2A2A80"
+              line-height="100%"
+              margin="0"
+            >
+              23/04/2023 <br>
+              Sum $ 485.00
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer></re-spacer>
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-heading
+            font-size="14px"
+            align="left"
+            font-weight="bold"
+            line-height="100%"
+            color="#2A2A2A"
+            level="h6"
+            margin="0 0 7px"
+            text-transform="uppercase"
+          >
+            Dear customer
+          </re-heading>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" color="#BAB6B6" margin="0">
+            Your invoice was unpaid. Please paid it as soon as possible or if you have any problems, please reach our Customer Support to help you.
+          </re-text>
+        </re-block>
+        <re-spacer height="16px"></re-spacer>
+        <re-link align="center" font-size="12px" font-weight="normal" color="#2A2A2A80">
+          Reach Customer Support
+        </re-link>
+        <re-spacer height="32px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/91401845-f9b4-4014-98d8-77fb979d3b6c/grah-invoice-notification-image.png"
+          class="main-image"
+        ></re-image>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="32px 0 53px">
+        <re-spacer height="18px"></re-spacer>
+        <re-social margin-bottom="16px" align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/fb04dc00-4839-4f23-a5bc-d3713d78d714/blue-circle-facebook.png" width="44px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-text align="center" margin="0" color="#2A2A2A" font-size="12px">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+
+
