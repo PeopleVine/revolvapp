@@ -1,0 +1,187 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#3C2B2480" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header span[data-rex-type="image"] {
+      margin-bottom: 32px;
+      transition: margin 0.3s;
+      }
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .text-block {
+      padding: 32px 47px;
+      }
+      
+      .text-block table[data-rex-type="button"] {
+      width: 390px
+      }
+      
+      @media (max-width: 430px) {
+      .header span[data-rex-type="image"] {
+      margin-bottom: 16px;
+      }
+      
+      .header .block p.header-subtitle {
+      font-size: 14px !important;
+      }
+      
+      .text-block {
+      padding: 32px 24px;
+      }
+      
+      .text-block table[data-rex-type="button"] {
+      width: 100%
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#F7F7F5">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/soft-logo.png" href="https://www.peoplevine.com/" width="120px"></re-image>
+        <re-text
+          align="center"
+          font-size="16px"
+          color="#8B8585"
+          line-height="100%"
+          text-transform="uppercase"
+          margin="0"
+          class="header-subtitle"
+        >
+          DEAR CUSTOMER
+        </re-text>
+        <re-heading
+          font-size="32px"
+          align="center"
+          font-weight="normal"
+          line-height="100%"
+          color="#3C2B24"
+          level="h1"
+          text-transform="uppercase"
+          margin="0 0 40px"
+        >
+          General rules and information <br/> about our summer club
+        </re-heading>
+        <re-divider height="6px" background-color="#ffffff"></re-divider>
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="#ffffff">
+      <re-block border-radius="0px" align="left" padding="8px 20px 0" background-color="#ffffff">
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/d09a7e9d-bec5-4d71-93a9-d2d06576ed42/general-soft-image.png"
+          class="main-image"
+        ></re-image>
+        <re-spacer height="24px"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#F7F7F5"
+          class="text-block"
+        >
+          <re-text align="left" margin="0">
+            I hope this message finds you well. We are writing to inform you about
+            some important changes to the rules and regulations of our property.
+            These changes have been made to ensure the safety and well-being of
+            our residents, visitors, and staff.<br />
+            Effective immediately, the following rules will be in place:<br />
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-list align="left" type="ordered">
+            <re-list-item>
+              Mask Wearing: All individuals entering our property must wear a mask
+              or other appropriate face covering. Masks must be worn in all common
+              areas, including the lobby, elevators, and hallways.
+            </re-list-item>
+            <re-list-item>
+              Social Distancing: We ask that all individuals maintain a distance
+              of at least six feet from others who are not in their household.
+              This includes in common areas, such as the gym and pool.
+            </re-list-item>
+            <re-list-item>
+              Visitors: Each apartment is allowed a maximum of two visitors at any
+              given time. Visitors must comply with our mask and social distancing
+              policies.
+            </re-list-item>
+            <re-list-item>
+              Fitness Center and Pool: The fitness center and pool will be open
+              with limited capacity to allow for social distancing. Reservations
+              will be required to use these facilities.
+            </re-list-item>
+          </re-list>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" margin="0">
+            We appreciate your cooperation in following these new rules. These
+            policies are in place to ensure the safety of all individuals on our
+            property. Failure to comply with these rules may result in
+            disciplinary action.<br />
+            If you have any questions or concerns, please do not hesitate to
+            contact us. We value your tenancy and thank you for your understanding
+            and cooperation during these challenging times.
+          </re-text>
+          <re-spacer height="16px"></re-spacer>
+          <re-text align="left" color="#3C2B24" font-size="14px" class="main-link" margin="0">
+            —— &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://peoplevine.com/" style="color: #3C2B24"
+            >Follow this link to read more</a
+            ><br />
+          </re-text>
+          <re-spacer height="64px"></re-spacer>
+          <re-button
+            background-color="#F8DE7C"
+            font-size="16px"
+            font-weight="bold"
+            text-transform="uppercase"
+            color="#201315"
+          >
+            go to profile
+          </re-button>
+        </re-block>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="8px 0 20px">
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+        <re-spacer height="18px"></re-spacer>
+        <re-social margin-bottom="8px" align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-text align="center" margin="0 0 8px" color="#201315" font-size="12px">
+          Want to change how you receive these emails?
+        </re-text>
+        <re-text align="center" color="#201315" font-size="12px" margin="0">
+          You can <a style="color: inherit" href="https://www.peoplevine.com/">unsubscribe</a> from this email list.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+

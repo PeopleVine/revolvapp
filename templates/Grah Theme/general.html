@@ -1,0 +1,192 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "'Times New Roman', serif", "font-size": "14px", "line-height":"1.5", "color": "#3C2B2480" }, "heading": { "font-family": "'Times New Roman', serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header-wrapper {
+      padding: 40px 30px 0;
+      }
+      
+      .main-wrapper {
+      padding: 64px 57px 0;
+      }
+  
+      .main-wrapper .grid:has(.image-column) {
+      margin-top: -20px;
+      }
+  
+      .main-wrapper .image-column > span {
+        transform: translateY(30%)
+      }
+      
+      .footer-wrapper {
+      padding: 150px 30px 24px;
+      }
+      
+      @media (max-width: 430px) {
+      .header-wrapper {
+      padding: 40px 20px 0;
+      }
+      
+      .main-wrapper {
+      padding: 64px 20px 0;
+      }
+      
+      .main-wrapper .image-column {
+      display: inline-block !important;
+      width: 47% !important;
+      }
+      
+      .main-wrapper .column-spacer {
+      display: inline-block !important;
+      }
+      
+      .header-wrapper .column {
+      display: inline-block !important;
+      }
+      
+      .header-wrapper .column:last-of-type {
+      width: 20% !important;
+      }
+      
+      .header-wrapper .column:first-of-type {
+      width: 80% !important;
+      }
+      
+      .footer-wrapper {
+      padding: 95px 20px 22px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#203942">
+      <re-block align="center" class="header-wrapper">
+        <re-grid>
+          <re-column align="left">
+            <re-heading
+              font-size="32px"
+              align="left"
+              font-weight="bold"
+              line-height="100%"
+              color="#FDFDFD"
+              level="h1"
+              margin="0 0 4px"
+            >
+              General Rules and Information About <br/>
+              our Summer Club
+            </re-heading>
+          </re-column>
+          <re-column align="right">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/white-logo.png" href="https://www.peoplevine.com/"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-header>
+    <re-main background-color="#203942">
+      <re-block align="left" background-color="#203942" class="main-wrapper">
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-text
+            align="left"
+            font-size="14px"
+            font-weight="bold"
+            color="#2A2A2A"
+            margin="0"
+            text-transform="uppercase"
+          >
+            Rules for Summer Club
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" margin="0">
+            I hope this message finds you well. We are writing to inform you about
+            some important changes to the rules and regulations of our property.
+            These changes have been made to ensure the safety and well-being of
+            our residents, visitors, and staff.<br />
+            Effective immediately, the following rules will be in place:<br />
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-list align="left" type="ordered">
+            <re-list-item>
+              Mask Wearing: All individuals entering our property must wear a mask
+              or other appropriate face covering. Masks must be worn in all common
+              areas, including the lobby, elevators, and hallways.
+            </re-list-item>
+            <re-list-item>
+              Social Distancing: We ask that all individuals maintain a distance
+              of at least six feet from others who are not in their household.
+              This includes in common areas, such as the gym and pool.
+            </re-list-item>
+            <re-list-item>
+              Visitors: Each apartment is allowed a maximum of two visitors at any
+              given time. Visitors must comply with our mask and social distancing
+              policies.
+            </re-list-item>
+            <re-list-item>
+              Fitness Center and Pool: The fitness center and pool will be open
+              with limited capacity to allow for social distancing. Reservations
+              will be required to use these facilities.
+            </re-list-item>
+          </re-list>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" margin="0">
+            We appreciate your cooperation in following these new rules. These
+            policies are in place to ensure the safety of all individuals on our
+            property. Failure to comply with these rules may result in
+            disciplinary action.<br />
+            If you have any questions or concerns, please do not hesitate to
+            contact us. We value your tenancy and thank you for your understanding
+            and cooperation during these challenging times.
+          </re-text>
+        </re-block>
+        <re-spacer height="16px"></re-spacer>
+        <re-link align="center" font-size="12px" font-weight="normal" color="#FDFDFD7F">
+          Reach Customer Support
+        </re-link>
+        <re-grid>
+          <re-column class="image-column">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/e85e4f5d-2ce3-4ad5-8b1c-83880a2a85df/general-grah-image.png"></re-image>
+          </re-column>
+          <re-column-spacer width="20px"></re-column-spacer>
+          <re-column class="image-column" align="right">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/39a36752-5014-4733-a3eb-bdc8a24e9f8d/general-grah-image-2.png"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#FDFDFD">
+      <re-block align="center" background-color="#FDFDFD" class="footer-wrapper">
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
