@@ -8972,7 +8972,7 @@
 
           this.$editor.height(height);
         }.bind(this),
-        350
+        700
       );
     },
     render: function ($nodes, $source) {
@@ -13218,6 +13218,7 @@
       };
 
       this.data = {
+        class: { target: ["cell"] },
         width: { target: ["element"], prop: this.params.width },
         height: {
           target: ["cell"],
