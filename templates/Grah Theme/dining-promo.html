@@ -1,0 +1,139 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "'Arial', serif", "font-size": "14px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "'Times New Roman', serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .title-block {
+      padding: 0 0 0 49px;
+      }
+      
+      .footer-wrapper {
+      padding: 60px 30px 24px;
+      }
+      
+      @media (max-width: 430px) {
+      .title-block {
+      padding: 0 0 0 6px;
+      }
+      
+      .footer-wrapper {
+      padding: 60px 20px 22px;
+      }
+      
+      .footer-wrapper .column {
+      display: inline-block !important;
+      width: 50% !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#ffffff" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#203942">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/white-logo.png" href="https://www.peoplevine.com/" width="51"></re-image>
+        <re-spacer height="30"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/bd2dbfd6-a679-40f3-bde5-2d1816eaa4c2/dining-promo-image.png"
+          class="main-image"
+        ></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="#203942">
+      <re-block align="left" background-color="#203942" padding="40px 30px 0">
+        <re-block class="title-block">
+          <re-heading
+            font-size="40px"
+            align="left"
+            font-weight="bold"
+            color="#FDFDFD"
+            level="h1"
+            margin="0 0 4px"
+          >
+            Dining Special Offer
+          </re-heading>
+          <re-text
+            align="left"
+            font-size="14px"
+            color="#FDFDFD7F"
+            line-height="100%"
+            margin="0"
+          >
+            From Company Name dated 23/04/2023
+          </re-text>
+        </re-block>
+        <re-spacer height="24px"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-text
+            align="left"
+            font-size="14px"
+            font-weight="bold"
+            color="#2A2A2A"
+            margin="0"
+            text-transform="uppercase"
+          >
+            Dear customer
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" color="#2A2A2A80" margin="0">
+            Thank you for registering to attend this Event. We look forward to you joining us at this event. More information can be found in your personal account. To read more, please follow the link below. To download your e-ticket, please press the button below.
+          </re-text>
+        </re-block>
+        <re-spacer height="16px"></re-spacer>
+        <re-link align="center" font-size="12px" font-weight="normal" color="#FDFDFD7F">
+          Download tickets
+        </re-link>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#203942">
+      <re-block align="center" background-color="#203942" padding="48px 0">
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/351435a9-486c-4106-a1cb-ebd14f7a3005/instagram-white.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/489ee6d3-e523-41fb-b6f3-3c539d43ee15/fb-white.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/840904fc-2417-48da-8b27-ecdc30c23702/youtube-white.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-spacer height="8"></re-spacer>
+        <re-text
+          align="center"
+          color="#FDFDFD7F"
+          font-size="12px"
+          margin="0"
+        >
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+
