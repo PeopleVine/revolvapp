@@ -1,0 +1,197 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman' ,sans-serif","font-weight": "bold", "color": "#2A2A2A" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .text-block {
+      padding: 32px 47px;
+      }
+      
+      @media (max-width: 430px) {
+      
+      .main-wrapper .column {
+      display: inline-block !important;
+      }
+      
+      .main-wrapper .column:last-child {
+      width: 35% !important;
+      }
+      
+      .main-wrapper .column:first-child {
+      width: 65% !important;
+      }
+      
+      .main-wrapper .h6 {
+      font-size: 14px !important;
+      }
+      
+      .text-block {
+      padding: 32px 24px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center" padding="32px 30px">
+        <re-grid>
+          <re-column>
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/4a671113-b1c1-4b37-8c6f-c5391d5748ef/blue-logo.png" href="https://www.peoplevine.com/" width="63px"></re-image>
+          </re-column>
+          <re-column align="right">
+            <re-heading
+              font-size="16px"
+              align="right"
+              font-weight="bold"
+              line-height="100%"
+              color="#2A2A2A"
+              level="h6"
+              margin="0 0 7px"
+            >
+              Ticket Number # 2345365
+            </re-heading>
+      
+            <re-text
+              align="right"
+              font-size="12px"
+              color="#2A2A2A80"
+              line-height="100%"
+              margin="0"
+            >
+              23/04/2023 <br>
+              Sum $ 485.00
+            </re-text>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block align="left" background-color="#FDFDFD" class="main-wrapper" padding="0 30px 80px">
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/event-confirmation-grah-image.png"
+          class="main-image"
+        ></re-image>
+        <re-spacer height="8"></re-spacer>
+        <re-heading
+          align="right"
+          font-size="14px"
+          font-weight="normal"
+          text-transform="uppercase"
+          level="h6"
+          margin="0"
+        >
+          Info Letter no. 3575
+        </re-heading>
+        <re-spacer height="40"></re-spacer>
+        <re-heading
+          align="left"
+          font-size="32px"
+          level="h1"
+          margin="0"
+        >
+          Event Confirmation
+        </re-heading>
+        <re-text font-size="12px" color="#2A2A2A80" margin="0">
+          Thank you for your event registration
+        </re-text>
+        <re-spacer height="24"></re-spacer>
+        <re-block
+          align="left"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-text
+            font-size="14px"
+            margin="0"
+            text-transform="uppercase"
+          >
+            Dear customer
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text color="#2A2A2A80" margin="0">
+            Thank you for registering to attend this Event. We look forward to you joining us at this event. More information can be found in your personal account. To read more, please follow the link below. To download your e-ticket, please press the button below.
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text margin="0">
+            Confirmation number: 347582462 <br/>
+            Chosen Booking: Kizikula Massage <br/>
+            Provided services on: Monday, 04/03/2023 <br/>
+            Price: $110.00 <br/>
+            Duration: 70 minutes
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text margin="0">
+            Save this event to your calendar
+          </re-text>
+          <re-menu align="left">
+            <re-menu-item
+              font-size="12px"
+              color="#2A2A2A80"
+              text-decoration="underline"
+            >ICalendar</re-menu-item>
+            <re-menu-spacer>&nbsp;&nbsp;</re-menu-spacer>
+            <re-menu-item
+              font-size="12px"
+              color="#2A2A2A80"
+              text-decoration="underline"
+            >Google Calendar</re-menu-item>
+            <re-menu-spacer>&nbsp;&nbsp;</re-menu-spacer>
+            <re-menu-item
+              font-size="12px"
+              color="#2A2A2A80"
+              text-decoration="underline"
+            >Outlook</re-menu-item>
+          </re-menu>
+        </re-block>
+        <re-spacer height="8px"></re-spacer>
+        <re-link align="left" font-size="12px" font-weight="normal" color="#2A2A2A80">
+          Download tickets
+        </re-link>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="0 0 20px">
+        <re-spacer height="18px"></re-spacer>
+        <re-social margin-bottom="16px" align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/fb04dc00-4839-4f23-a5bc-d3713d78d714/blue-circle-facebook.png" width="44px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-text align="center" margin="0" color="#2A2A2A" font-size="12px">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+
+
