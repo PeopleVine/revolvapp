@@ -1,0 +1,336 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "'Arial', serif", "font-size": "14px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "'Times New Roman', serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header-wrapper {
+      padding: 40px 30px 0;
+      }
+  
+      .header-wrapper .column:nth-child(2) {
+      padding: 16px 0 0;
+      }
+      
+      .main-wrapper {
+      padding: 80px 57px 0;
+      }
+  
+      .main-wrapper .main-grid .column:last-child {
+      width: 43% !important;
+      padding: 0 24px 0 0;
+      }
+  
+      .main-wrapper .main-grid .column:first-child {
+      width: 43% !important;
+      padding: 0 0 0 24px;
+      }
+  
+      .main-wrapper .column:last-child {
+      width: 15%
+      }
+  
+      .main-wrapper .column:first-child {
+      width: 85%
+      }
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .main-image {
+      height: 312px;
+      object-fit: cover;
+      object-position: center center;
+      }
+      
+      .footer-wrapper {
+      padding: 86px 30px 24px;
+      }
+      
+      .footer-wrapper .social a {
+      display: block;
+      }
+      
+      @media (max-width: 430px) {
+      .header-wrapper {
+      padding: 32px 20px 0;
+      }
+      
+      .header-title {
+        font-size: 18px !important;
+      }
+      
+      .header-subtitle {
+        max-width: 136px;
+      }
+      
+      .header-title2 {
+        font-size: 10px !important;
+      }
+      
+      .main-wrapper {
+      padding: 107px 20px 0;
+      }
+  
+      .main-wrapper .column {
+      display: inline-block !important;
+      width: 50% !important;
+      }
+  
+      .main-wrapper .column:last-child {
+      width: 25% !important;
+      }
+  
+      .main-wrapper .column:first-child {
+      width: 75% !important;
+      }
+      
+      .header-wrapper .column {
+      display: inline-block !important;
+      }
+      
+      .header-wrapper .column:last-of-type {
+      width: 20% !important;
+      }
+      
+      .header-wrapper .column:first-of-type {
+      width: 50% !important;
+      }
+  
+      .header-wrapper .column:nth-child(2) {
+      padding: 8px 0 0;
+      }
+      
+      .footer-wrapper {
+      padding: 74px 20px 22px;
+      }
+      
+      .footer-wrapper .column {
+      display: inline-block !important;
+      width: 50% !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#ffffff" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#203942">
+      <re-block align="center" class="header-wrapper">
+        <re-grid>
+          <re-column align="left">
+            <re-heading
+              font-size="32px"
+              align="left"
+              font-weight="bold"
+              line-height="100%"
+              color="#FDFDFD"
+              level="h1"
+              margin="0 0 4px"
+              class="header-title"
+            >
+              Invoice #34537573
+            </re-heading>
+            <re-text
+              align="left"
+              font-size="12px"
+              color="#FDFDFD7F"
+              line-height="100%"
+              margin="0"
+              class="header-subtitle"
+            >
+              From Company Name dated 23/04/2023
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              font-size="14px"
+              color="#FDFDFD"
+              line-height="100%"
+              margin="0"
+              text-transform="uppercase"
+              class="header-title2"
+            >
+              Info Letter no. 3575
+            </re-text>
+          </re-column>
+          <re-column align="right">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/white-logo.png" href="https://www.peoplevine.com/"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-header>
+    <re-main background-color="#203942">
+      <re-block align="left" background-color="#203942" class="main-wrapper">
+        <re-divider height="8" background-color="#E9F2F51A"></re-divider>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid class="main-grid">
+          <re-column>
+            <re-heading
+              align="left"
+              color="#FDFDFD"
+              margin="0 0 8px"
+              level="h6"
+            >
+              Billed to:
+            </re-heading>
+            <re-text
+              align="left"
+              color="#FDFDFD80"
+              margin="0"
+            >
+              Customer Name <br/>
+              346 9th Street West <br/>
+              El Dorado, AN 45335345
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-heading
+              align="right"
+              color="#FDFDFD"
+              margin="0 0 8px"
+              level="h6"
+            >
+              Paid date
+            </re-heading>
+            <re-text
+              align="right"
+              color="#FDFDFD80"
+              margin="0"
+            >
+              35/02/2023
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="64px"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-grid>
+            <re-column>
+              <re-text
+                align="left"
+                color="#203942"
+                font-size="12px"
+                font-weight="bold"
+                margin="0"
+              >
+                Description
+              </re-text>
+            </re-column>
+            <re-column>
+              <re-text
+                align="right"
+                color="#203942"
+                font-size="12px"
+                font-weight="bold"
+                margin="0"
+              >
+                Amount
+              </re-text>
+            </re-column>
+          </re-grid>
+          <re-spacer height="8px"></re-spacer>
+          <re-divider height="2px" background-color="#2A2A2A"></re-divider>
+          <re-spacer height="24px"></re-spacer>
+          <re-grid>
+            <re-column>
+              <re-text align="left" color="#2A2A2A80" margin="0">
+                Club Pass
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="8px"></re-spacer>
+              <re-text align="left" color="#2A2A2A80" margin="0">
+                Tax
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="24px"></re-spacer>
+              <re-text align="right" color="#203942" font-weight="bold" margin="0">
+                Total:
+              </re-text>
+            </re-column>
+            <re-column>
+              <re-text align="right" color="#2A2A2A80" margin="0">
+                $ 699.00
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="8px"></re-spacer>
+              <re-text align="right" color="#2A2A2A80" margin="0">
+                $ 9.00
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="24px"></re-spacer>
+              <re-text align="right" color="#203942" font-size="14px" font-weight="bold" margin="0">
+                $ 708.00
+              </re-text>
+            </re-column>
+          </re-grid>
+        </re-block>
+        <re-spacer height="16px"></re-spacer>
+        <re-link align="center" font-size="12px" font-weight="normal" color="#FDFDFD7F">
+          View more at your profile
+        </re-link>
+        <re-spacer height="24px"></re-spacer>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/invoice-paid-image.png"
+          border-radius="3px"
+          class="main-image"
+        ></re-image>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#203942">
+      <re-block align="center" background-color="#203942" class="footer-wrapper">
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+        <re-spacer height="18px"></re-spacer>
+        <re-grid>
+          <re-column align="left" valign="bottom">
+            <re-text
+              align="left"
+              color="#FDFDFD"
+              font-size="12px"
+              margin="0"
+            >
+              Copyright (c). All rights reserved.
+            </re-text>
+          </re-column>
+          <re-column align="right">
+            <re-social align="right">
+              <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/351435a9-486c-4106-a1cb-ebd14f7a3005/instagram-white.png" width="20px" alt="Instagram"></re-social-item>
+              <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+              <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/489ee6d3-e523-41fb-b6f3-3c539d43ee15/fb-white.png" width="20px" alt="Facebook"></re-social-item>
+              <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+              <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/840904fc-2417-48da-8b27-ecdc30c23702/youtube-white.png" width="20px" alt="Youtube"></re-social-item>
+            </re-social>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
