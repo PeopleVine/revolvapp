@@ -339,6 +339,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Guest Pass Received",
+          url: "./templates/Soft Theme/guest-pass-received.html",
+          description: "Notify guests that their pass has been received for an upcoming event.",
+          image: "/img/guest-pass-received-soft.png",
+          type: "templates",
+          tags: ["Event", "Guest Pass", "Notification"],
+          saved: false
+        },
+        {
+          name: "Guest Pass Received",
+          url: "./templates/Grah Theme/guest-pass-received.html",
+          description: "Notify guests that their pass has been received for an upcoming event.",
+          image: "/img/guest-pass-received-grah.png",
+          type: "templates",
+          tags: ["Event", "Guest Pass", "Notification"],
+          saved: false
+        },
+        {
           name: "Order Confirmation",
           url: "./templates/Simple Theme/order-confirmation.html",
           description: "Confirm the details of an order placed by a customer.",

@@ -1,0 +1,153 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "12px", "line-height":"1.5", "color": "#201315" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#201315" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header span[data-rex-type="image"] {
+      margin-bottom: 32px;
+      transition: margin 0.3s;
+      }
+      
+      .main-grid .column:last-child {
+      padding: 0 46px 0 0;
+      }
+      
+      .main-grid .column:first-child {
+      padding: 0 0 0 46px;
+      }
+      
+      .text-block {
+      padding: 32px 48.5px;
+      }
+      
+      .text-block table[data-rex-type="button"] {
+      width: 390px
+      }
+      
+      @media (max-width: 430px) {
+      .header span[data-rex-type="image"] {
+      margin-bottom: 16px;
+      }
+      
+      .main-grid.grid .column {
+      padding: 0;
+      }
+      
+      .header .block p.header-subtitle {
+      font-size: 14px !important;
+      }
+      
+      .header .block p.h1 {
+      font-size: 37px !important;
+      }
+      
+      .text-block {
+      padding: 32px 21px;
+      }
+      
+      .text-block table[data-rex-type="button"] {
+      width: 100%
+      }
+      
+      .main .grid .column {
+      display: inline-block !important;
+      width: 50% !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#F7F7F5">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/soft-logo.png" href="https://www.peoplevine.com/" width="120px"></re-image>
+        <re-text
+          align="center"
+          font-size="16px"
+          color="#8B8585"
+          line-height="100%"
+          text-transform="uppercase"
+          margin="0"
+          class="header-subtitle"
+        >
+          dear customer
+        </re-text>
+        <re-heading
+          font-size="54px"
+          align="center"
+          font-weight="normal"
+          line-height="100%"
+          color="#3C2B24"
+          level="h1"
+          text-transform="uppercase"
+          margin="0 0 40px"
+        >
+          Guest Pass Received
+        </re-heading>
+        <re-divider height="6px" background-color="#ffffff"></re-divider>
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="#ffffff">
+      <re-block align="center" padding="64px 44px 0" background-color="#ffffff">
+        <re-text align="left" margin="0" max-width="340px">
+          You have just received a Super Pass. <br/>
+          <br/>
+          Gift your Guest Pass to a friend for them to try out this for Free. <br/>
+          <br/>
+          Click on the following link to gift your Pass to a friend now.
+        </re-text>
+        <re-spacer height="4"></re-spacer>
+        <re-text align="left" margin="0" max-width="340px">
+          —— &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" style="color:inherit;">More Information and our Rules</a>
+        </re-text>
+        <re-spacer height="40"></re-spacer>
+        <re-button
+          background-color="#F8DE7C"
+          font-size="16px"
+          font-weight="bold"
+          text-transform="uppercase"
+          color="#201315"
+        >
+          Gift a guest pass now!
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="100px 0">
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+        <re-spacer height="18px"></re-spacer>
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-spacer height="14px"></re-spacer>
+        <re-text align="center" margin="0 35px" max-width="616px">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
