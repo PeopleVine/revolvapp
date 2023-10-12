@@ -7,12 +7,18 @@
     <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
     <re-style>
       .main-wrapper {
-      padding: 64px 57px 0;
+      padding: 14px 90px 0;
+      }
+  
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
       }
       
       @media (max-width: 430px) {
       .main-wrapper {
-      padding: 64px 30px 0;
+      padding: 14px 30px 0;
       }
       }
     </re-style>
@@ -22,49 +28,18 @@
       {@preheader@}
     </re-preheader>
     <re-header background-color="#FDFDFD">
-      <re-block align="center" padding="64px 0 0">
-        <re-heading
-          font-size="54px"
-          level="h1"
-          margin="0"
-        >
-          Member Access
-        </re-heading>
-        <re-text
-          align="center"
-          font-size="16px"
-          color="#8B8585"
-          line-height="100%"
-          text-transform="uppercase"
-          margin="0"
-          class="header-subtitle"
-        >
-          Dear customer, here is your
-        </re-text>
-        <re-spacer height="32"></re-spacer>
-        <re-divider height="8" background-color="#203942"></re-divider>
-        <re-spacer height="5"></re-spacer>
-        <re-divider height="4" background-color="#203942"></re-divider>
+      <re-block align="center">
+        <re-divider height="28" background-color="#203942"></re-divider>
+        <re-spacer height="3"></re-spacer>
+        <re-divider height="3" background-color="#203942"></re-divider>
+        <re-spacer height="16"></re-spacer>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/4a671113-b1c1-4b37-8c6f-c5391d5748ef/blue-logo.png" href="https://www.peoplevine.com/" width="64px"></re-image>
+        <re-spacer></re-spacer>
       </re-block>
     </re-header>
     <re-main background-color="#FDFDFD">
       <re-block align="left" background-color="#FDFDFD" class="main-wrapper">
-        <re-heading
-          align="right"
-          level="h6"
-          margin="0 0 8px"
-        >
-          Access Number # 2345365
-        </re-heading>
-  
-        <re-text
-          align="right"
-          color="#2A2A2A80"
-          margin="0"
-        >
-          23/04/2023 <br/>
-          Subscription Sum $ 485.00
-        </re-text>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/d3427108-9a30-4fc4-a83b-b4a71c6b3bed/spa-service-promo-grah-image.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
         <re-spacer height="40"></re-spacer>
         <re-block
           align="center"
@@ -78,22 +53,32 @@
             text-transform="uppercase"
             margin="0"
           >
-            Your details:
+            Dear customer
           </re-text>
           <re-spacer height="24px"></re-spacer>
           <re-text align="left" color="#2A2A2A80" margin="0">
-            Your Member Card can be downloaded by pressing the button below. <br/>
-            Your Member ID is 47543854535.
+            Thank you for registering to attend this Event. We look forward to you joining us at this event. More information can be found in your personal account. To read more, please follow the link below. To download your e-ticket, please press the button below.
           </re-text>
         </re-block>
-        <re-spacer height="16"></re-spacer>
-        <re-link align="center" font-size="12px" font-weight="normal" color="#2A2A2A80">
-          Reach Customer Support
-        </re-link>
+        <re-spacer height="12"></re-spacer>
+        <re-menu align="center">
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+            text-transform="uppercase"
+          >SPA for Women</re-menu-item>
+          <re-menu-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-menu-spacer>
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+            text-transform="uppercase"
+          >SPA for Men</re-menu-item>
       </re-block>
     </re-main>
     <re-footer background-color="#ffffff">
-      <re-block align="center" padding="100px 0 58px">
+      <re-block align="center" padding="40px 0 0">
         <re-social align="center">
           <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
           <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
@@ -101,10 +86,10 @@
           <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
           <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
         </re-social>
-        <re-spacer height="8"></re-spacer>
-        <re-text align="center" margin="0" font-size="12px">
-          Copyright (c). All rights reserved.
-        </re-text>
+        <re-spacer height="16"></re-spacer>
+        <re-divider height="3" background-color="#203942"></re-divider>
+        <re-spacer height="3"></re-spacer>
+        <re-divider height="28" background-color="#203942"></re-divider>
       </re-block>
     </re-footer>
   </re-body>
@@ -122,3 +107,4 @@
     
   }
 </script>
+

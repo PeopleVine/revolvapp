@@ -8164,8 +8164,6 @@
             if (self._isHiddenBlock(items[index].type)) {
               continue;
             }
-  
-            console.log(items);
 
             var $button = self
               .dom("<button>")
@@ -12748,7 +12746,6 @@
     },
 
     setFontFamily: function (value) {
-      console.log(value);
       this.$element.css("font-family", value);
       this.$cell.find("p").css("font-family", value);
       this.$cell.find("a.rex-editable").css("font-family", value);
@@ -14350,7 +14347,6 @@
       this.$img.css("border-width", value);
     },
     getBorderRadius: function () {
-      console.log(this.$img.css("border-radius"));
       return this.$img.css("border-radius");
     },
     getImage: function () {
