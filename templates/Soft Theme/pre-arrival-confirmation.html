@@ -11,28 +11,24 @@
     ></re-font>
     <re-style>
       .main-wrapper {
-      padding: 40px 67px 238px 66px;
+      padding: 64px 94px 65px 93px;
       }
       
-      .main-wrapper table[data-rex-type="button"] {
-      width: 387px;
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
       }
-      
-      .footer .main-footer-block {
-      padding: 300px 44px 80px;
+  
+      .main-image {
+        height: 290px;
+        object-fit: cover;
+        object-position: center;
       }
       
       @media (max-width: 430px) {
       .main-wrapper {
-      padding: 40px 21.5px 142px;
-      }
-      
-      .header p.h1 {
-      font-size: 40px !important;
-      }
-      
-      .footer .main-footer-block {
-      padding: 151px 17.5px 40px;
+      padding: 64px 20px 29px;
       }
       }
     </re-style>
@@ -42,72 +38,76 @@
     <re-header background-color="#F7F7F5">
       <re-block align="center" padding="40px 0 0">
         <re-image src="https://peoplevine.blob.core.windows.net/media/1087/soft-logo.png" href="https://www.peoplevine.com/" width="120px"></re-image>
-        <re-spacer height="32px"></re-spacer>
-        <re-text
-          align="center"
-          font-size="16px"
-          color="#8B8585"
-          line-height="100%"
-          text-transform="uppercase"
-          margin="0"
-          class="header-subtitle"
-        >
-          Dear customer
-        </re-text>
-        <re-heading
-          font-size="64px"
-          align="center"
-          font-weight="normal"
-          line-height="100%"
-          color="#3C2B24"
-          level="h1"
-          text-transform="uppercase"
-          margin="0 0 40px"
-        >
-          Refer a friend
-        </re-heading>
+        <re-spacer height="40"></re-spacer>
         <re-divider height="6px" background-color="#ffffff"></re-divider>
         <re-divider height="1px" background-color="#2013151A"></re-divider>
       </re-block>
     </re-header>
     <re-main background-color="#FFFFFF">
       <re-block align="center" class="main-wrapper">
-        <re-text align="left" margin="0">
-          You have been invited to apply for membership at our Hotel by an existing member of the community. To submit an application, please follow the link via the button below.<br/>
+        <re-text
+          align="left"
+          margin="0 0 8px"
+          class="main-text"
+        >
+          Dear Customer, <br/>
           <br/>
-          Our team will be in touch upon receipt and remains at your disposal should you have any questions.
+          We're excited to welcome you to {@company_name@} on {CHECK IN DATE IF PMS INTEGRATED} until {CHECK OUT DATE}. <br/>
+          <br/>
+          We'd like to confirm the following reservations (IF THEY EXIST):{APPOINTMENT TITLE}: DATE OF APPOINTMENT, NO. OF GUESTS; TIME{EVENTS TITLE} (as above){RESERVATIONS} (as above) <br/>
+          <br/>
+          If you'd like to change any of these, please login to the portal and apply changes. <br/>
+          <br/>
+          SECTION FOR OTHER FORMS (e.g. guest details, vehicle reg no. etc) <br/>
+          <br/>
+          Thank you.
         </re-text>
-        <re-spacer height="24"></re-spacer>
-        <re-button
-          align="center"
-          background-color="#F8DE7C"
+        <re-text
+          align="left"
+          class="main-link"
+          margin="0 0 40px"
+        >
+          —— &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#" style="color:inherit;">More info can be find here</a>
+        </re-text>
+        <re-text
+          align="left"
           font-size="16px"
           font-weight="bold"
           text-transform="uppercase"
-          color="#201315"
+          margin="0 0 16px"
         >
-          Submit an application
-        </re-button>
+          You maybe interested in
+        </re-text>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/3dafb64c-5310-4d7a-a6f9-ed1166c13adc/pre-arrival-confirmation-img.png"
+          href="https://www.peoplevine.com/"
+          margin="0 0 8px"
+          responsive="true"
+          class="main-image"
+        ></re-image>
+        <re-link
+          align="center"
+          font-size="16px"
+          text-transform="uppercase"
+          color="inherit"
+        >
+          spa day
+        </re-link>
       </re-block>
     </re-main>
     <re-footer background-color="#ffffff">
       <re-block align="center">
         <re-divider height="1px" background-color="#2013151A"></re-divider>
         <re-spacer height="6px"></re-spacer>
-        <re-block align="center" background-color="#F7F7F5" padding="18px 0 24px">
-          <re-social margin-bottom="14px" align="center">
+        <re-block align="center" background-color="#F7F7F5" padding="40px 0">
+          <re-social align="center">
             <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
             <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
             <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
             <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
             <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
           </re-social>
-          <re-text margin="0 0 8px" font-size="12px">
-            Want to change how you receive these emails?
-          </re-text>
-          <re-text font-size="12px" margin="0">
-            You can <a style="color: inherit" href="https://www.peoplevine.com/">unsubscribe</a> from this email list.
-          </re-text>
         </re-block>
       </re-block>
     </re-footer>

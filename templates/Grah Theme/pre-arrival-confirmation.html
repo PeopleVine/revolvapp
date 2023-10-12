@@ -1,0 +1,100 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman', sans-serif","font-weight": "bold", "color": "#2A2A2A" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .main-wrapper {
+      padding: 64px 57px 0;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 64px 30px 0;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/blue-logo-bigger.png" href="https://www.peoplevine.com/" width="102px"></re-image>
+        <re-spacer height="32"></re-spacer>
+        <re-divider height="8" background-color="#203942"></re-divider>
+        <re-spacer height="5"></re-spacer>
+        <re-divider height="4" background-color="#203942"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block align="left" background-color="#FDFDFD" class="main-wrapper">
+        <re-heading
+          align="right"
+          level="h6"
+          margin="0 0 8px"
+        >
+          Letter Number # 2345365
+        </re-heading>
+        
+        <re-text
+          align="right"
+          color="#2A2A2A80"
+          margin="0"
+        >
+          23/04/2023
+        </re-text>
+        <re-spacer height="32"></re-spacer>
+        <re-spacer height="24"></re-spacer>
+        <re-text align="left" color="#2A2A2A" margin="0">
+          Dear Customer, <br/>
+          <br/>
+          We're excited to welcome you to<span class="variable-block">{@company_name@}</span>on {CHECK IN DATE IF PMS INTEGRATED} until {CHECK OUT DATE}. <br/>
+          <br/>
+          We'd like to confirm the following reservations (IF THEY EXIST):{APPOINTMENT TITLE}: DATE OF APPOINTMENT, NO. OF GUESTS; TIME{EVENTS TITLE} (as above){RESERVATIONS} (as above) <br/>
+          <br/>
+          If you'd like to change any of these, please login to the portal and apply changes. <br/>
+          <br/>
+          SECTION FOR OTHER FORMS (e.g. guest details, vehicle reg no. etc) <br/>
+          <br/>
+          Thank you.
+        </re-text>
+        <re-spacer height="24"></re-spacer>
+        <re-link align="left" font-size="12px" font-weight="normal" color="#2A2A2A80">
+          More details can be find by this link.
+        </re-link>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" padding="64px 0 120px">
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-spacer height="8"></re-spacer>
+        <re-text align="center" margin="0" font-size="12px">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>

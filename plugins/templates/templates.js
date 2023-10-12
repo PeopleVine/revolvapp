@@ -393,6 +393,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Pre-Arrival Confirmation",
+          url: "./templates/Soft Theme/pre-arrival-confirmation.html",
+          description: "Confirm a guest's upcoming arrival and provide essential information.",
+          image: "/img/pre-arrival-confirmation-soft.png",
+          type: "templates",
+          tags: ["Pre-Arrival", "Confirmation", "Guest Information", "Travel"],
+          saved: false
+        },
+        {
+          name: "Pre-Arrival Confirmation",
+          url: "./templates/Grah Theme/pre-arrival-confirmation.html",
+          description: "Confirm a guest's upcoming arrival and provide essential information.",
+          image: "/img/pre-arrival-confirmation-grah.png",
+          type: "templates",
+          tags: ["Pre-Arrival", "Confirmation", "Guest Information", "Travel"],
+          saved: false
+        },
+        {
           name: "Update Payment on File",
           url: "./templates/Simple Theme/update-payment.html",
           description: "Notify customers to update their payment information on file for future transactions.",
