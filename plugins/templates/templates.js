@@ -366,6 +366,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Order Confirmation",
+          url: "./templates/Soft Theme/order-confirmation.html",
+          description: "Confirm the details of an order placed by a customer.",
+          image: "/img/order-confirmation-soft.png",
+          type: "templates",
+          tags: ["Order", "Confirmation", "Shopping", "Receipt"],
+          saved: false
+        },
+        {
+          name: "Order Confirmation",
+          url: "./templates/Grah Theme/order-confirmation.html",
+          description: "Confirm the details of an order placed by a customer.",
+          image: "/img/order-confirmation-grah.png",
+          type: "templates",
+          tags: ["Order", "Confirmation", "Shopping", "Receipt"],
+          saved: false
+        },
+        {
           name: "Pre-Arrival Confirmation",
           url: "./templates/Simple Theme/pre-arrival-confirmation.html",
           description: "Confirm a guest's upcoming arrival and provide essential information.",

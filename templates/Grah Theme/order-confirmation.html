@@ -1,0 +1,331 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "'Arial', serif", "font-size": "14px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "'Times New Roman', serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header-wrapper {
+      padding: 32px 57px 0;
+      }
+      
+      .main-wrapper {
+      padding: 64px 57px 0;
+      }
+      
+      .main-grid .column:last-child {
+      padding: 0 24px 0 0;
+      }
+      
+      .main-grid .column:first-child {
+      padding: 0 0 0 24px;
+      }
+      
+      .table-block .column:last-child {
+      width: 15%
+      }
+      
+      .table-block .column:first-child {
+      width: 85%
+      }
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+  
+      span:has(.main-image) {
+      transform: translateY(64px)
+      }
+      
+      .main-image {
+      height: 264px;
+      object-fit: cover;
+      object-position: center center;
+      }
+      
+      @media (max-width: 430px) {
+      .header-wrapper {
+      padding: 32px 30px 0;
+      }
+      
+      .main-wrapper {
+      padding: 64px 30px 0;
+      }
+  
+      .main-grid.grid .column {
+      padding: 0;
+      }
+      
+      .main-wrapper .column {
+      display: inline-block !important;
+      width: 50% !important;
+      }
+      
+      .table-block .column:last-child {
+      width: 25% !important;
+      }
+      
+      .table-block .column:first-child {
+      width: 75% !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#ffffff" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#203942">
+      <re-block align="left" class="header-wrapper">
+        <re-heading
+          font-size="32px"
+          align="left"
+          font-weight="bold"
+          line-height="100%"
+          color="#FDFDFD"
+          level="h1"
+          margin="0 0 4px"
+          class="header-title"
+        >
+          Order Confirmation
+        </re-heading>
+        <re-text
+          align="left"
+          font-size="12px"
+          color="#FDFDFD7F"
+          line-height="100%"
+          margin="0"
+          class="header-subtitle"
+        >
+          Thank you for your order!
+        </re-text>
+      </re-block>
+    </re-header>
+    <re-main background-color="#203942">
+      <re-block align="left" background-color="#203942" class="main-wrapper">
+        <re-grid>
+          <re-column align="left">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/white-logo.png" href="https://www.peoplevine.com/"></re-image>
+          </re-column>
+          <re-column align="right">
+            <re-heading
+              align="right"
+              font-weight="bold"
+              color="#FDFDFD"
+              level="h6"
+              margin="0 0 8px"
+              class="header-title"
+            >
+              Ticket Number # 2345365
+            </re-heading>
+            <re-text
+              align="right"
+              font-size="14px"
+              color="#FDFDFD7F"
+              margin="0"
+            >
+              23/04/2023 <br/>
+              Sum $ 485.00
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="32"></re-spacer>
+        <re-divider height="1" background-color="#E9F2F51A"></re-divider>
+        <re-spacer height="16px"></re-spacer>
+        <re-grid class="main-grid">
+          <re-column>
+            <re-heading
+              align="left"
+              color="#FDFDFD"
+              margin="0 0 8px"
+              level="h6"
+            >
+              Billed to:
+            </re-heading>
+            <re-text
+              align="left"
+              color="#FDFDFD80"
+              margin="0"
+            >
+              Customer Name <br/>
+              346 9th Street West <br/>
+              El Dorado, AN 45335345
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-heading
+              align="right"
+              color="#FDFDFD"
+              margin="0 0 8px"
+              level="h6"
+            >
+              Paid date
+            </re-heading>
+            <re-text
+              align="right"
+              color="#FDFDFD80"
+              margin="0"
+            >
+              35/02/2023
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="64px"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+          class="table-block"
+        >
+          <re-grid>
+            <re-column>
+              <re-text
+                align="left"
+                color="#203942"
+                font-size="12px"
+                font-weight="bold"
+                margin="0"
+                text-transform="uppercase"
+              >
+                Description
+              </re-text>
+            </re-column>
+            <re-column>
+              <re-text
+                align="right"
+                color="#203942"
+                font-size="12px"
+                font-weight="bold"
+                margin="0"
+                text-transform="uppercase"
+                class="mobile-hidden"
+              >
+                Amount
+              </re-text>
+            </re-column>
+          </re-grid>
+          <re-spacer height="8px"></re-spacer>
+          <re-divider height="2px" background-color="#2A2A2A"></re-divider>
+          <re-spacer height="24px"></re-spacer>
+          <re-grid>
+            <re-column>
+              <re-text align="left" color="#2A2A2A80" margin="0">
+                Club Pass
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="8px"></re-spacer>
+              <re-text align="left" color="#2A2A2A80" margin="0">
+                Tax
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="24px"></re-spacer>
+              <re-text align="right" color="#203942" font-weight="bold" margin="0">
+                Total:
+              </re-text>
+            </re-column>
+            <re-column>
+              <re-text align="right" color="#2A2A2A80" margin="0">
+                $ 699.00
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="8px"></re-spacer>
+              <re-text align="right" color="#2A2A2A80" margin="0">
+                $ 9.00
+              </re-text>
+              <re-spacer height="8px"></re-spacer>
+              <re-divider height="1px" background-color="#00000033"></re-divider>
+              <re-spacer height="24px"></re-spacer>
+              <re-text align="right" color="#203942" font-size="14px" font-weight="bold" margin="0">
+                $ 708.00
+              </re-text>
+            </re-column>
+          </re-grid>
+        </re-block>
+        <re-spacer height="8"></re-spacer>
+        <re-link align="center" font-size="12px" font-weight="normal" color="#FDFDFD7F">
+          View Order
+        </re-link>
+        <re-spacer height="40"></re-spacer>
+        <re-divider height="1" background-color="#E9F2F51A"></re-divider>
+        <re-spacer height="16px"></re-spacer>
+        <re-grid class="main-grid">
+          <re-column>
+            <re-heading
+              align="left"
+              color="#FDFDFD"
+              margin="0 0 8px"
+              level="h6"
+            >
+              Billed to:
+            </re-heading>
+            <re-text
+              align="left"
+              color="#FDFDFD80"
+              margin="0"
+            >
+              Customer Name <br/>
+              346 9th Street West <br/>
+              El Dorado, AN 45335345
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-heading
+              align="right"
+              color="#FDFDFD"
+              margin="0 0 8px"
+              level="h6"
+            >
+              Shipping Method
+            </re-heading>
+            <re-text
+              align="right"
+              color="#FDFDFD80"
+              margin="0"
+            >
+              Standard
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/order-confirmation-template-image.png"
+          border-radius="3px"
+          class="main-image"
+        ></re-image>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="104px 0 30px">
+        <re-social margin-bottom="16px" align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/fb04dc00-4839-4f23-a5bc-d3713d78d714/blue-circle-facebook.png" width="44px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-text align="center" margin="0" color="#2A2A2A" font-size="12px">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
