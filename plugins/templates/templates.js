@@ -447,6 +447,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Reservation Confirmation",
+          url: "./templates/Soft Theme/reservation-confirmation.html",
+          description: "Confirm a reservation and provide details to the guest.",
+          image: "/img/reservation-confirmation-soft.png",
+          type: "templates",
+          tags: ["Reservation", "Confirmation", "Travel", "Booking"],
+          saved: false
+        },
+        {
+          name: "Reservation Confirmation",
+          url: "./templates/Grah Theme/reservation-confirmation.html",
+          description: "Confirm a reservation and provide details to the guest.",
+          image: "/img/reservation-confirmation-grah.png",
+          type: "templates",
+          tags: ["Reservation", "Confirmation", "Travel", "Booking"],
+          saved: false
+        },
+        {
           name: "Reservation Cancelled",
           url: "./templates/Simple Theme/reservation-cancelled.html",
           description: "Notify guests that their reservation has been cancelled.",
