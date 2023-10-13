@@ -528,6 +528,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Forgot Password",
+          url: "./templates/Soft Theme/forgot-password.html",
+          description: "Send instructions for resetting the user's password.",
+          image: "/img/forgot-password-soft.png",
+          type: "templates",
+          tags: ["Password", "Reset", "Security", "Authentication"],
+          saved: false
+        },
+        {
+          name: "Forgot Password",
+          url: "./templates/Grah Theme/forgot-password.html",
+          description: "Send instructions for resetting the user's password.",
+          image: "/img/forgot-password-grah.png",
+          type: "templates",
+          tags: ["Password", "Reset", "Security", "Authentication"],
+          saved: false
+        },
+        {
           name: "Password Changed",
           url: "./templates/Simple Theme/password-changed.html",
           description: "Notify users that their password has been successfully changed.",
