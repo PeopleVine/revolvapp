@@ -1,0 +1,108 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "Arial, sans-serif","font-weight": "bold", "color": "#201315" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .main-wrapper {
+      padding: 24px 22px 0;
+      }
+      
+      .footer-wrapper {
+      padding: 171px 0 0;
+      }
+      
+      .main-wrapper table[data-rex-type="button"] {
+      width: 100%;
+      }
+      
+      span:has(.main-image),
+      span:has(.main-image) a,
+      .main-image {
+        width: 100% !important;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 24px 40px 0;
+      }
+  
+      .image-column {
+      padding: 16px 0 0;
+      }
+      
+      .footer-wrapper {
+        padding: 0;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#fff">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/soft-logo.png" href="https://www.peoplevine.com/" width="120px"></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FFFFFF">
+      <re-block align="center" class="main-wrapper">
+        <re-grid>
+          <re-column
+            align="left"
+            width="50%"
+            padding="24px 16px"
+            background-color="#F7F7F5"
+          >
+            <re-heading
+              level="h3"
+              font-size="24px"
+              font-weight="normal"
+              margin="0"
+            >
+              Gift Card!
+            </re-heading>
+            <re-spacer height="32"></re-spacer>
+            <re-text margin="0" color="#3C2B24">
+              <b>From</b>: Customer 1 <br/>
+              <b>Gift Card Value</b>: $ 500.00
+            </re-text>
+            <re-spacer height="24"></re-spacer>
+            <re-text margin="0" color="#3C2B2480">
+              Please find your total balance on your account. To use the Gift Card, just simply choose the payment method while shopping in our Shop. <br/>
+              <br/>
+              If you have any questions, do not hesitate to contact our Customer Support for any help. <br/>
+              <br/>
+              Cheers! <br/>
+              Your Customer Team.
+            </re-text>
+            <re-spacer height="64"></re-spacer>
+            <re-button
+              align="center"
+              background-color="#F8DE7C"
+              font-size="16px"
+              font-weight="bold"
+              text-transform="uppercase"
+              color="#201315"
+            >
+              Go shopping
+            </re-button>
+          </re-column>
+          <re-column width="50%" class="image-column">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/db9b54e0-2880-4f9f-a6dc-a96849cbdd8e/gift-card-received-soft-image.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#fff">
+      <re-block align="center" class="footer-wrapper">
+        <re-spacer height="56"></re-spacer>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>

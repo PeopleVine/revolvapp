@@ -582,6 +582,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Gift Card Received",
+          url: "./templates/Soft Theme/gift-card-received.html",
+          description: "Notify recipients that they have received a gift card.",
+          image: "/img/gift-card-received-soft.png",
+          type: "templates",
+          tags: ["Gift Card", "Received", "Notification", "Gift"],
+          saved: false
+        },
+        {
+          name: "Gift Card Received",
+          url: "./templates/Grah Theme/gift-card-received.html",
+          description: "Notify recipients that they have received a gift card.",
+          image: "/img/gift-card-received-grah.png",
+          type: "templates",
+          tags: ["Gift Card", "Received", "Notification", "Gift"],
+          saved: false
+        },
+        {
           name: "Membership Renewal",
           url: "./templates/Simple Theme/membership-renewal.html",
           description: "Notify members about the renewal of their membership and provide renewal details.",
