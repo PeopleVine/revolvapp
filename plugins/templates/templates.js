@@ -474,6 +474,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Reservation Cancelled",
+          url: "./templates/Soft Theme/reservation-cancelled.html",
+          description: "Notify guests that their reservation has been cancelled.",
+          image: "/img/reservation-cancelled-soft.png",
+          type: "templates",
+          tags: ["Reservation", "Cancelled", "Travel", "Booking"],
+          saved: false
+        },
+        {
+          name: "Reservation Cancelled",
+          url: "./templates/Grah Theme/reservation-cancelled.html",
+          description: "Notify guests that their reservation has been cancelled.",
+          image: "/img/reservation-cancelled-grah.png",
+          type: "templates",
+          tags: ["Reservation", "Cancelled", "Travel", "Booking"],
+          saved: false
+        },
+        {
           name: "Reservation Reminder",
           url: "./templates/Simple Theme/reservation-reminder.html",
           description: "Send a reminder to guests about their upcoming reservation.",
