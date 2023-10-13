@@ -1,0 +1,143 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman', sans-serif","font-weight": "bold", "color": "#2A2A2A" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .main-wrapper {
+      padding: 40px 57px 0;
+      }
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .main-image {
+      height: 301px;
+      object-fit: cover;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 40px 30px 0;
+      }
+      
+      .mobile-right p {
+        text-align: left;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center">
+        <re-divider height="28" background-color="#203942"></re-divider>
+        <re-spacer height="3"></re-spacer>
+        <re-divider height="3" background-color="#203942"></re-divider>
+        <re-spacer height="16"></re-spacer>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/4a671113-b1c1-4b37-8c6f-c5391d5748ef/blue-logo.png" href="https://www.peoplevine.com/" width="64px"></re-image>
+        <re-spacer></re-spacer>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block align="left" class="main-wrapper">
+        <re-grid>
+          <re-column>
+            <re-heading level="h1" margin="0">
+              Reservation Reminder
+            </re-heading>
+            <re-spacer height="4"></re-spacer>
+            <re-text font-size="12px" color="#2A2A2A80" margin="0">
+              Dear Customer
+            </re-text>
+            <re-spacer height="16"></re-spacer>
+          </re-column>
+          <re-column align="right" class="mobile-right">
+            <re-spacer height="16"></re-spacer>
+            <re-heading level="h6" margin="0">
+              Ticket Number # 2345365
+            </re-heading>
+            <re-spacer height="4"></re-spacer>
+            <re-text font-size="12px" color="#2A2A2A80" margin="0">
+              23/04/2023 <br/>
+              Sum $ 485.00
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="24"></re-spacer>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/85909e11-b416-4542-b34b-3d0b767f6b6b/reservation-reminder-grah-image.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+        <re-spacer height="40"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-text
+            align="left"
+            font-weight="bold"
+            text-transform="uppercase"
+            margin="0"
+          >
+            Dear customer
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" color="#2A2A2A80" margin="0">
+            This is a reminder that you have an upcoming reservation on <b style="color: #2A2A2A;">Thursday, 14/03/2023</b>. If you need to make any changes, you can do so below:
+          </re-text>
+        </re-block>
+        <re-spacer height="12"></re-spacer>
+        <re-menu align="center">
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+            text-transform="uppercase"
+          >Customer Support</re-menu-item>
+          <re-menu-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-menu-spacer>
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+            text-transform="uppercase"
+          >Your Account</re-menu-item>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" padding="40px 0 0">
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-spacer height="16"></re-spacer>
+        <re-divider height="3" background-color="#203942"></re-divider>
+        <re-spacer height="3"></re-spacer>
+        <re-divider height="28" background-color="#203942"></re-divider>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+

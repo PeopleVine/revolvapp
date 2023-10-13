@@ -501,6 +501,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Reservation Reminder",
+          url: "./templates/Soft Theme/reservation-reminder.html",
+          description: "Send a reminder to guests about their upcoming reservation.",
+          image: "/img/reservation-reminder-soft.png",
+          type: "templates",
+          tags: ["Reservation", "Reminder", "Travel", "Booking"],
+          saved: false
+        },
+        {
+          name: "Reservation Reminder",
+          url: "./templates/Grah Theme/reservation-reminder.html",
+          description: "Send a reminder to guests about their upcoming reservation.",
+          image: "/img/reservation-reminder-grah.png",
+          type: "templates",
+          tags: ["Reservation", "Reminder", "Travel", "Booking"],
+          saved: false
+        },
+        {
           name: "Forgot Password",
           url: "./templates/Simple Theme/forgot-password.html",
           description: "Send instructions for resetting the user's password.",
