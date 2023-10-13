@@ -420,6 +420,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Update Payment on File",
+          url: "./templates/Soft Theme/update-payment.html",
+          description: "Notify customers to update their payment information on file for future transactions.",
+          image: "/img/update-payment-soft.png",
+          type: "templates",
+          tags: ["Payment", "Update", "Billing", "Transaction"],
+          saved: false
+        },
+        {
+          name: "Update Payment on File",
+          url: "./templates/Grah Theme/update-payment.html",
+          description: "Notify customers to update their payment information on file for future transactions.",
+          image: "/img/update-payment-grah.png",
+          type: "templates",
+          tags: ["Payment", "Update", "Billing", "Transaction"],
+          saved: false
+        },
+        {
           name: "Reservation Confirmation",
           url: "./templates/Simple Theme/reservation-confirmation.html",
           description: "Confirm a reservation and provide details to the guest.",
