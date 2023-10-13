@@ -555,6 +555,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Password Changed",
+          url: "./templates/Soft Theme/password-changed.html",
+          description: "Notify users that their password has been successfully changed.",
+          image: "/img/password-changed-soft.png",
+          type: "templates",
+          tags: ["Password", "Changed", "Security", "Authentication"],
+          saved: false
+        },
+        {
+          name: "Password Changed",
+          url: "./templates/Grah Theme/password-changed.html",
+          description: "Notify users that their password has been successfully changed.",
+          image: "/img/password-changed-grah.png",
+          type: "templates",
+          tags: ["Password", "Changed", "Security", "Authentication"],
+          saved: false
+        },
+        {
           name: "Gift Card Received",
           url: "./templates/Simple Theme/gift-card-received.html",
           description: "Notify recipients that they have received a gift card.",
