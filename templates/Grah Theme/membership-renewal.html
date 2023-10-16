@@ -1,0 +1,187 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman', serif","font-weight": "bold", "color": "#111" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header-wrapper {
+      padding: 40px 30px 0;
+      }
+      
+      .main-wrapper {
+      padding: 64px 57px 0;
+      }
+      
+      .main-wrapper .grid:has(.image-column) {
+      margin-top: -20px;
+      }
+      
+      .main-wrapper .image-column > span {
+      transform: translateY(30%)
+      }
+      
+      .footer-wrapper {
+      padding: 150px 30px 24px;
+      }
+      
+      @media (max-width: 430px) {
+      .header-wrapper {
+      padding: 40px 20px 0;
+      }
+      
+      .main-wrapper {
+      padding: 64px 20px 0;
+      }
+      
+      .main-wrapper .image-column {
+      display: inline-block !important;
+      width: 47% !important;
+      }
+      
+      .main-wrapper .column-spacer {
+      display: inline-block !important;
+      }
+      
+      .header-wrapper .column {
+      display: inline-block !important;
+      }
+      
+      .header-wrapper .column:last-of-type {
+      width: 20% !important;
+      }
+      
+      .header-wrapper .column:first-of-type {
+      width: 80% !important;
+      }
+      
+      .link-grid .column {
+      display: inline-block !important;
+      width: 47.8% !important;
+      }
+      
+      .footer-wrapper {
+      padding: 95px 20px 22px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#203942">
+      <re-block align="center" class="header-wrapper">
+        <re-grid>
+          <re-column align="left">
+            <re-spacer height="19"></re-spacer>
+            <re-heading
+              font-size="32px"
+              align="left"
+              font-weight="bold"
+              line-height="100%"
+              color="#FDFDFD"
+              level="h1"
+              margin="0 0 4px"
+            >
+              Membership Renewal
+            </re-heading>
+          </re-column>
+          <re-column align="right">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/white-logo.png" href="https://www.peoplevine.com/"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-header>
+    <re-main background-color="#203942">
+      <re-block align="left" background-color="#203942" class="main-wrapper">
+        <re-block
+          align="center"
+          background-color="#E9F2F5"
+          border-radius="3px"
+          padding="24px 24px 48px"
+        >
+          <re-text
+            align="left"
+            font-size="14px"
+            font-weight="bold"
+            color="#2A2A2A"
+            margin="0"
+            text-transform="uppercase"
+          >
+            Dear Customer,
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+          <re-text align="left" margin="0">
+            We hope this message finds you well. <br/>
+            We would like to remind you that your hotel membership is due for renewal soon. As a valued member, we would like to thank you for your loyalty and continued patronage. <br/>
+            <br/>
+            Renewing your membership will allow you to continue enjoying the many benefits and perks that come with being a member, including discounted rates, exclusive promotions, and access to our premium amenities. <br/>
+            <br/>
+            To renew your membership, please visit our website or contact our membership services team for assistance. <br/>
+            We look forward to your continued membership with us and providing you with exceptional experiences during your stays. <br/>
+            <br/>
+            Your Details: <br/>
+            Membership Type: <b>Silver</b> <br/>
+            Membership Fee: <b>$110/month</b> <br/>
+            Member: <b>Jack London</b> <br/>
+            <br/>
+            Thank you for your continued support. <br/>
+            <br/>
+            Best regards, <br/>
+            Hotel Team
+          </re-text>
+          <re-spacer height="24px"></re-spacer>
+        </re-block>
+        <re-spacer height="16px"></re-spacer>
+        <re-grid class="link-grid">
+          <re-column align="right" width="50%">
+            <re-link font-size="12px" font-weight="normal" color="#FDFDFD7F">
+              Update payment
+            </re-link>
+          </re-column>
+          <re-column-spacer width="16px"></re-column-spacer>
+          <re-column align="left" width="50%">
+            <re-link font-size="12px" font-weight="normal" color="#FDFDFD7F">
+              Pay now
+            </re-link>
+          </re-column>
+        </re-grid>
+        <re-grid>
+          <re-column class="image-column">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/f98044ad-b276-4ba6-a6a8-b75108afaa7a/membership-renewal-grah-image.png"></re-image>
+          </re-column>
+          <re-column-spacer width="20px"></re-column-spacer>
+          <re-column class="image-column" align="right">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/1cd5acae-cc17-4f54-ad11-34bb60b84721/membership-renewal-grah-image2.png"></re-image>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#FDFDFD">
+      <re-block align="center" background-color="#FDFDFD" class="footer-wrapper">
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>

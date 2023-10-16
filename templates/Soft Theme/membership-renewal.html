@@ -1,0 +1,179 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#201315" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#201315" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .header span[data-rex-type="image"] {
+      margin-bottom: 32px;
+      transition: margin 0.3s;
+      }
+      
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .text-block {
+      padding: 32px 47px;
+      }
+      
+      .text-block table[data-rex-type="button"] {
+      width: 274px
+      }
+      
+      @media (max-width: 430px) {
+      .header span[data-rex-type="image"] {
+      margin-bottom: 16px;
+      }
+      
+      .header .block p.header-subtitle {
+      font-size: 14px !important;
+      }
+      
+      .text-block {
+      padding: 32px 24px;
+      }
+      
+      .text-block table[data-rex-type="button"] {
+      width: 100%
+      }
+      
+      .text-block .column:first-child table[data-rex-type="button"] {
+        margin: 0 0 24px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8" padding-top="20px" padding-right="6px" padding-bottom="0px" padding-left="6px">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#F7F7F5">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/soft-logo.png" href="https://www.peoplevine.com/" width="120px"></re-image>
+        <re-heading
+          font-size="32px"
+          align="center"
+          font-weight="normal"
+          line-height="100%"
+          color="#3C2B24"
+          level="h1"
+          text-transform="uppercase"
+          margin="0 0 40px"
+        >
+          Membership renewal
+        </re-heading>
+        <re-divider height="6px" background-color="#ffffff"></re-divider>
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="#ffffff">
+      <re-block border-radius="0px" align="left" padding="24px 20px 0" background-color="#ffffff">
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1087/47bce5c7-97f2-42a7-aec2-c327294030fa/membership-renewal-soft-image.png"
+          class="main-image"
+        ></re-image>
+        <re-spacer height="24px"></re-spacer>
+        <re-block
+          align="center"
+          background-color="#F7F7F5"
+          class="text-block"
+        >
+          <re-text align="left" margin="0">
+            Dear Customer, <br/>
+            <br/>
+            We hope this message finds you well. <br/>
+            We would like to remind you that your hotel membership is due for renewal soon. As a valued member, we would like to thank you for your loyalty and continued patronage. <br/>
+            <br/>
+            Renewing your membership will allow you to continue enjoying the many benefits and perks that come with being a member, including discounted rates, exclusive promotions, and access to our premium amenities. <br/>
+            <br/>
+            To renew your membership, please visit our website or contact our membership services team for assistance. <br/>
+            We look forward to your continued membership with us and providing you with exceptional experiences during your stays. <br/>
+            <br/>
+            Your Details: <br/>
+            Membership Type: <b>Silver</b> <br/>
+            Membership Fee: <b>$110/month</b> <br/>
+            Member: <b>Jack London</b> <br/>
+            <br/>
+            Thank you for your continued support. <br/>
+            <br/>
+            Best regards, <br/>
+            Hotel Team
+          </re-text>
+          <re-spacer height="16px"></re-spacer>
+          <re-text align="left" color="#201315" font-size="14px" class="main-link" margin="0">
+            —— &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://peoplevine.com/" style="color: #3C2B24"
+            >Follow this link to read more</a
+            ><br />
+          </re-text>
+          <re-spacer height="64px"></re-spacer>
+          <re-grid>
+            <re-column width="50%" align="right">
+              <re-button
+                background-color="transparent"
+                border="1px solid #201315"
+                color="#3C2B24"
+                font-size="16px"
+                font-weight="bold"
+                text-transform="uppercase"
+                border-radius="32px"
+              >
+                Update payment
+              </re-button>
+            </re-column>
+            <re-column-spacer width="32px"></re-column-spacer>
+            <re-column width="50%">
+              <re-button
+                background-color="#F8DE7C"
+                font-size="16px"
+                font-weight="bold"
+                text-transform="uppercase"
+                color="#201315"
+              >
+                pay now
+              </re-button>
+            </re-column>
+          </re-grid>
+        </re-block>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="48px 0 20px">
+        <re-divider height="1px" background-color="#2013151A"></re-divider>
+        <re-spacer height="18px"></re-spacer>
+        <re-social margin-bottom="8px" align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/0d388983-24d7-405d-b0b2-dcc216814d7d/instagram-black.png" width="20px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/7694dfc5-e178-4ee5-b27d-fa3f6f7877b8/fb-black.png" width="20px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/56ff1f84-ecc7-4b9c-9c6d-ccc3abfaeaeb/youtube-black.png" width="20px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-text align="center" margin="0 0 8px" color="#201315" font-size="12px">
+          Want to change how you receive these emails?
+        </re-text>
+        <re-text align="center" color="#201315" font-size="12px" margin="0">
+          You can <a style="color: inherit" href="https://www.peoplevine.com/">unsubscribe</a> from this email list.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+

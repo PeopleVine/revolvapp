@@ -609,6 +609,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Membership Renewal",
+          url: "./templates/Soft Theme/membership-renewal.html",
+          description: "Notify members about the renewal of their membership and provide renewal details.",
+          image: "/img/membership-renewal-soft.png",
+          type: "templates",
+          tags: ["Membership", "Renewal", "Subscription", "Notification"],
+          saved: false
+        },
+        {
+          name: "Membership Renewal",
+          url: "./templates/Grah Theme/membership-renewal.html",
+          description: "Notify members about the renewal of their membership and provide renewal details.",
+          image: "/img/membership-renewal-grah.png",
+          type: "templates",
+          tags: ["Membership", "Renewal", "Subscription", "Notification"],
+          saved: false
+        },
+        {
           name: "Transaction Receipt",
           url: "./templates/Simple Theme/transaction-receipt.html",
           description: "Send a receipt to customers for their recent transaction.",
