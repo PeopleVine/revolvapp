@@ -636,6 +636,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Transaction Receipt",
+          url: "./templates/Soft Theme/transaction-receipt.html",
+          description: "Send a receipt to customers for their recent transaction.",
+          image: "/img/transaction-receipt-soft.png",
+          type: "templates",
+          tags: ["Receipt", "Transaction", "Billing", "Payment"],
+          saved: false
+        },
+        {
+          name: "Transaction Receipt",
+          url: "./templates/Grah Theme/transaction-receipt.html",
+          description: "Send a receipt to customers for their recent transaction.",
+          image: "/img/transaction-receipt-grah.png",
+          type: "templates",
+          tags: ["Receipt", "Transaction", "Billing", "Payment"],
+          saved: false
+        },
+        {
           name: "Shared Voucher",
           url: "./templates/Simple Theme/shared-voucher.html",
           description: "Share a voucher or coupon with customers.",
