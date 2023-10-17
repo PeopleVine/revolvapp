@@ -690,6 +690,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Booking Confirmation",
+          url: "./templates/Soft Theme/booking-confirmation.html",
+          description: "Confirm a booking made through Book4Time and provide booking details.",
+          image: "/img/booking-confirmation-soft.png",
+          type: "templates",
+          tags: ["Booking", "Confirmation", "Reservation", "Booking System"],
+          saved: false
+        },
+        {
+          name: "Booking Confirmation",
+          url: "./templates/Grah Theme/booking-confirmation.html",
+          description: "Confirm a booking made through Book4Time and provide booking details.",
+          image: "/img/booking-confirmation-grah.png",
+          type: "templates",
+          tags: ["Booking", "Confirmation", "Reservation", "Booking System"],
+          saved: false
+        },
+        {
           name: "Booking Reminder",
           url: "./templates/Simple Theme/booking-reminder.html",
           description: "Send a reminder to customers about their upcoming booking through Book4Time.",
