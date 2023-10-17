@@ -771,6 +771,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Marketing Newsletter",
+          url: "./templates/Soft Theme/marketing-newsletter.html",
+          description: "Send a marketing newsletter to your subscribers with updates and promotions.",
+          image: "/img/marketing-newsletter-soft.png",
+          type: "templates",
+          tags: ["Marketing", "Newsletter", "Promotions", "Updates"],
+          saved: false
+        },
+        {
+          name: "Marketing Newsletter",
+          url: "./templates/Grah Theme/marketing-newsletter.html",
+          description: "Send a marketing newsletter to your subscribers with updates and promotions.",
+          image: "/img/marketing-newsletter-grah.png",
+          type: "templates",
+          tags: ["Marketing", "Newsletter", "Promotions", "Updates"],
+          saved: false
+        },
+        {
           name: "Sign-Up Email",
           url: "./templates/Simple Theme/sign-up-email.html",
           description: "Welcome new users and provide information about their sign-up process.",

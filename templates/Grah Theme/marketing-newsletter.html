@@ -1,0 +1,455 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman', sans-serif","font-weight": "bold", "color": "#2A2A2A" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .menu-grid .header-menu a:first-child {
+      display: inline-block;
+      padding: 0 32px 0 0;
+      border-right: 1px solid #dcdcdc;
+      }
+      .menu-grid .header-menu a:last-child{
+      display: inline-block;
+      padding: 0 0 0 32px;
+      }
+      .menu-grid .header-menu a:not(:last-child) {
+      display: inline-block;
+      padding: 0 32px 0 ;
+      border-right: 1px solid #dcdcdc;
+      }
+  
+      .main-image,
+      span:has(.main-image),
+      span:has(.main-image) a {
+      width: 100% !important;
+      }
+      
+      .header-wrapper .main-image,
+      .cover-image {
+      object-fit: cover;
+      border-radius: 3px;
+      }
+  
+      .header-wrapper .big-image {
+      height: 343px;
+      }
+  
+      .header-wrapper .small-image {
+      height: 168px;
+      }
+  
+      table[data-rex-type="button"] {
+      width: 100%;
+      }
+  
+      .main-menu a:not(:last-child) {
+      margin-right: 52px;
+      }
+      
+      @media (min-width: 431px) {
+      .display-hidden {
+      display: none;
+      }
+  
+      table[data-rex-type="button"] {
+      width: 400px;
+      }
+      }
+      
+      @media (max-width: 430px) {
+      .display-grid .column {
+      display: table-cell !important;
+      width: 50% !important;
+      }
+      .header-wrapper .menu-grid .column:first-child {
+      width: 20% !important;
+      }
+      
+      .menu-grid .header-menu a:first-child {
+      font-size: 12px;
+      padding: 0 12px 0 0;
+      }
+      .menu-grid .header-menu a:last-child{
+      font-size: 12px;
+      padding: 0 0 0 12px;
+      }
+      .menu-grid .header-menu a:not(:last-child) {
+      font-size: 12px;
+      padding: 0 12px 0 ;
+      }
+      
+      .header-wrapper .column-spacer, .display- {
+        display: table-cell !important;
+      }
+  
+      .header-wrapper .big-image {
+      height: 316px;
+      }
+  
+      .header-wrapper .small-image {
+      height: 150px;
+      }
+      
+      .image-column {
+      padding-top: 20px
+      }
+  
+      .main-menu a:not(:last-child) {
+      margin-right: 13.5px;
+      }
+  
+      .main-menu a {
+      font-size: 12px !important;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center" class="header-wrapper">
+        <re-block align="center" padding="8px 10px" background-color="#2A2A2A80">
+          <re-text
+            font-weight="bold"
+            text-transform="uppercase"
+            color="#FDFDFD"
+            margin="0"
+          >
+            Promotional header notice
+          </re-text>
+        </re-block>
+        <re-spacer height="16"></re-spacer>
+        <re-grid class="menu-grid display-grid">
+          <re-column align="left" padding="0 0 0 30px">
+            <re-image
+              src="https://peoplevine.blob.core.windows.net/media/1087/logo-black.png"
+              href="https://www.peoplevine.com/"
+              width="56px"
+            ></re-image>
+          </re-column>
+          <re-column align="right" valign="middle" padding="0 30px 0 0">
+            <re-menu class="header-menu">
+              <re-menu-item
+                font-size="14px"
+                font-weight="bold"
+                text-transform="uppercase"
+              >
+                Promotions
+              </re-menu-item>
+              <re-menu-item
+                font-size="14px"
+                font-weight="bold"
+                text-transform="uppercase"
+              >
+                Shop
+              </re-menu-item>
+              <re-menu-item
+                font-size="14px"
+                font-weight="bold"
+                text-transform="uppercase"
+              >
+                Account
+              </re-menu-item>
+            </re-menu>
+          </re-column>
+        </re-grid>
+        <re-spacer height="8"></re-spacer>
+        <re-block padding="27px 30px 33px" background-color="#203942">
+          <re-grid class="display-grid">
+            <re-column>
+              <re-image src="https://peoplevine.blob.core.windows.net/media/1087/be7aa56d-aee3-4cb7-b228-7b337e76e72a/newsletter-marketing-image.png" href="https://www.peoplevine.com/" class="small-image main-image"></re-image>
+              <re-spacer height="8"></re-spacer>
+              <re-spacer height="8" class="display-hidden"></re-spacer>
+              <re-image src="https://peoplevine.blob.core.windows.net/media/1087/f5a1d7ab-f891-459e-b218-520685781dfe/newsletter-marketing-image2.png" href="https://www.peoplevine.com/" class="small-image main-image"></re-image>
+            </re-column>
+            <re-column-spacer width="20px"></re-column-spacer>
+            <re-column>
+              <re-image src="https://peoplevine.blob.core.windows.net/media/1087/f7001e63-7375-4cf0-b9aa-65c0d2e5154e/newsletter-marketing-image3.png" href="https://www.peoplevine.com/" class="big-image main-image"></re-image>
+            </re-column>
+          </re-grid>
+        </re-block>
+        <re-spacer height="2"></re-spacer>
+        <re-divider height="6" background-color="#203942"></re-divider>
+        <re-spacer height="24"></re-spacer>
+        <re-button
+          align="center"
+          background-color="#203942"
+          font-size="16px"
+          font-weight="bold"
+          text-transform="uppercase"
+          color="#FDFDFD"
+          border-radius="4px"
+        >
+          Visit shop
+        </re-button>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block
+        align="left"
+        background-color="#FDFDFD"
+        class="main-wrapper"
+        padding="64px 0 0"
+      >
+        <re-block padding="0 30px">
+          <re-grid class="first-main-grid">
+            <re-column
+              align="left"
+              width="50%"
+              padding="24px"
+              background-color="#E9F2F5"
+              border-radius="3px"
+            >
+              <re-text text-transform="uppercase" margin="0">
+                for Summer Club 2023
+              </re-text>
+              <re-spacer height="4"></re-spacer>
+              <re-heading level="h1" margin="0">
+                Special services for VIP
+              </re-heading>
+              <re-spacer height="40"></re-spacer>
+              <re-text color="#2A2A2A7F" margin="0">
+                We are excited to announce our VIP services for the summer season at our hotel! As a valued guest, you can expect the ultimate in luxury and personalised attention. <br/>
+                <br/>
+                Our VIP services include a dedicated concierge who will cater to your every need, from arranging transportation to making dinner reservations at the best restaurants in town. <br/>
+                You'll also have access to our exclusive VIP lounge, where you can enjoy complimentary refreshments and snacks throughout the day. <br/>
+                <br/>
+                And when you're ready to unwind, our VIP guests have access to our private spa and wellness center, complete with luxurious amenities and treatments.
+              </re-text>
+              <re-spacer height="40"></re-spacer>
+              <re-link font-size="12px" color="#2A2A2A">
+                Reach Customer Support for Access
+              </re-link>
+            </re-column>
+            <re-column-spacer width="20px"></re-column-spacer>
+            <re-column width="50%" class="image-column">
+              <re-image src="https://peoplevine.blob.core.windows.net/media/1087/395444f7-a80c-4b9e-b854-0c7f32cbc8f6/newsletter-marketing-image4.png" href="https://www.peoplevine.com/" class="main-image cover-image" height="626px"></re-image>
+            </re-column>
+          </re-grid>
+        </re-block>
+        <re-spacer height="64"></re-spacer>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/5b8a29bd-462d-48f7-9b43-0a2274bfd27b/newsletter-marketing-image5.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+        <re-spacer height="32"></re-spacer>
+        <re-block padding="0 30px">
+          <re-image src="https://peoplevine.blob.core.windows.net/media/1087/73f06d3d-3bd6-4033-88cf-5ec61f420b7c/newsletter-marketing-image6.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+          <re-spacer height="16"></re-spacer>
+          <re-link color="#2A2A2A" font-weight="bold">
+            Check this option
+          </re-link>
+          <re-spacer height="32"></re-spacer>
+          <re-image src="https://peoplevine.blob.core.windows.net/media/1087/1b4a3262-491a-454b-aa32-ad4f65cb9cae/newsletter-marketing-image7.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+          <re-spacer height="16"></re-spacer>
+          <re-link color="#2A2A2A" font-weight="bold">
+            Check this option
+          </re-link>
+          <re-spacer height="64"></re-spacer>
+          <re-block padding="48px 24px 24px" background-color="E9F2F5">
+            <re-heading font-size="45px" level="h1" margin="0">
+              Special Access to our Restaurant
+            </re-heading>
+            <re-spacer height="16"></re-spacer>
+            <re-divider height="8" background-color="#203942"></re-divider>
+            <re-spacer height="4"></re-spacer>
+            <re-divider height="4" background-color="#203942"></re-divider>
+            <re-spacer height="24"></re-spacer>
+            <re-grid>
+              <re-column width="50%">
+                <re-image src="https://peoplevine.blob.core.windows.net/media/1087/9594642b-6cf4-4524-96ba-2f758a216397/newsletter-marketing-image8.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+                <re-spacer height="24"></re-spacer>
+              </re-column>
+              <re-column-spacer width="24px"></re-column-spacer>
+              <re-column width="50%" valign="middle">
+                <re-text
+                  font-size="20px"
+                  font-weight="bold"
+                  text-transform="uppercase"
+                  margin="0"
+                >
+                  for Summer Club 2023
+                </re-text>
+                <re-spacer height="16"></re-spacer>
+                <re-text color="#2A2A2A7F" margin="0">
+                  We are excited to announce our VIP services for the summer season at our hotel! As a valued guest, you can expect the ultimate in luxury and personalised attention. <br/>
+                  <br/>
+                  Our VIP services include a dedicated concierge who will cater to your every need.
+                </re-text>
+              </re-column>
+            </re-grid>
+            <re-spacer height="40"></re-spacer>
+            <re-grid>
+              <re-column>
+                <re-text
+                  font-weight="bold"
+                  text-transform="uppercase"
+                  margin="0"
+                >
+                  for Summer Club 2023
+                </re-text>
+                <re-spacer height="8"></re-spacer>
+                <re-text color="#2A2A2A7F" margin="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna varius, blandit commodo dui. Nunc justo orci, placerat a augue eget, dictum egestas urna.
+                </re-text>
+                <re-spacer height="24"></re-spacer>
+              </re-column>
+              <re-column-spacer width="24px"></re-column-spacer>
+              <re-column>
+                <re-text
+                  font-weight="bold"
+                  text-transform="uppercase"
+                  margin="0"
+                >
+                  for Summer Club 2023
+                </re-text>
+                <re-spacer height="8"></re-spacer>
+                <re-text color="#2A2A2A7F" margin="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna varius, blandit commodo dui. Nunc justo orci, placerat a augue eget, dictum egestas urna.
+                </re-text>
+                <re-spacer height="24"></re-spacer>
+              </re-column>
+              <re-column-spacer width="24px"></re-column-spacer>
+              <re-column>
+                <re-text
+                  font-weight="bold"
+                  text-transform="uppercase"
+                  margin="0"
+                >
+                  for Summer Club 2023
+                </re-text>
+                <re-spacer height="8"></re-spacer>
+                <re-text color="#2A2A2A7F" margin="0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna varius, blandit commodo dui. Nunc justo orci, placerat a augue eget, dictum egestas urna.
+                </re-text>
+                <re-spacer height="24"></re-spacer>
+              </re-column>
+            </re-grid>
+          </re-block>
+        </re-block>
+        <re-spacer height="32"></re-spacer>
+        <re-button
+          align="center"
+          background-color="#203942"
+          font-size="16px"
+          font-weight="bold"
+          text-transform="uppercase"
+          color="#FDFDFD"
+          border-radius="4px"
+  
+        >
+          Visit shop
+        </re-button>
+        <re-spacer height="64"></re-spacer>
+        <re-block align="center" padding="32px 30px" background-color="#203942">
+          <re-grid>
+            <re-column width="50%">
+              <re-image src="https://peoplevine.blob.core.windows.net/media/1087/58e65b74-41d4-4d60-ab51-9d85b2c6ed08/newsletter-marketing-image9.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+            </re-column>
+            <re-column-spacer width="20px"></re-column-spacer>
+            <re-column width="50%" class="image-column">
+              <re-image src="https://peoplevine.blob.core.windows.net/media/1087/af19a51e-228e-452d-87e8-04c7d1b56960/newsletter-marketing-image10.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+            </re-column>
+          </re-grid>
+          <re-spacer height="40"></re-spacer>
+          <re-heading
+            level="h3"
+            color="#FDFDFD"
+            text-transform="uppercase"
+            margin="0"
+          >
+            Dear customer, your reservation is cancelled
+          </re-heading>
+          <re-spacer height="8"></re-spacer>
+          <re-text color="#FDFDFD" margin="0">
+            Your reservation has been cancelled by the hotel on 14/03/2023.
+          </re-text>
+          <re-spacer height="24"></re-spacer>
+          <re-link font-size="12px" color="#FDFDFD80">
+            View details
+          </re-link>
+        </re-block>
+        <re-block padding="32px 30px 0">
+          <re-image src="https://peoplevine.blob.core.windows.net/media/1087/8075e240-ef92-47ab-a83e-3012789f1a55/newsletter-marketing-image11.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+          <re-spacer height="16"></re-spacer>
+          <re-link color="#2A2A2A" font-weight="bold">
+            Check this option
+          </re-link>
+          <re-spacer height="32"></re-spacer>
+          <re-image src="https://peoplevine.blob.core.windows.net/media/1087/0b1cf301-4dc9-4722-b296-7a757d0c67e9/newsletter-marketing-image12.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+          <re-spacer height="16"></re-spacer>
+          <re-link color="#2A2A2A" font-weight="bold">
+            Check this option
+          </re-link>
+          <re-spacer height="64"></re-spacer>
+          <re-menu align="center" class="main-menu">
+            <re-menu-item
+              font-size="21px"
+              text-transform="uppercase"
+            >
+              Company logo 1
+            </re-menu-item>
+            <re-menu-item
+              font-size="21px"
+              font-weight="bold"
+              font-style="italic"
+              text-transform="uppercase"
+            >
+              Company logo 2
+            </re-menu-item>
+            <re-menu-item
+              font-size="21px"
+              font-style="italic"
+              text-transform="uppercase"
+            >
+              Company logo 3
+            </re-menu-item>
+          </re-menu>
+        </re-block>
+        <re-spacer height="40"></re-spacer>
+        <re-divider height="8" background-color="#203942"></re-divider>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" background-color="#ffffff" padding="16px 33px 40px">
+        <re-spacer height="16"></re-spacer>
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/fb04dc00-4839-4f23-a5bc-d3713d78d714/blue-circle-facebook.png" width="44px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-spacer height="32"></re-spacer>
+        <re-text font-size="12px" margin="0">
+          Before you forward this email, please note auto-login is enabled. To disable, click any link twice in this email before forwarding to deactivate it.
+        </re-text>
+        <re-spacer height="8"></re-spacer>
+        <re-text font-size="12px" margin="0">
+          Apre Pass Company | 27459 Sky Square 456 | Jupiter, BC X4Y 1DF | (034) 364-3456
+        </re-text>
+        <re-spacer height="16"></re-spacer>
+        <re-text margin="0" font-size="12px">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
+
+

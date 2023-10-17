@@ -13143,6 +13143,7 @@
       };
 
       this.data = {
+        class: { target: ["cell"] },
         height: {
           target: ["cell"],
           setter: "setHeight",
@@ -14275,6 +14276,7 @@
       this.data = {
         placeholder: { target: ["img"] },
         width: { target: ["img"], setter: "setWidth", getter: "getWidth" },
+        height: { target: ["img"] },
         class: { target: ["img"] },
         src: { target: ["img"], setter: "setImage", getter: "getImage" },
         alt: { target: ["img"] },
