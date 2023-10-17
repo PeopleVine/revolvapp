@@ -1,0 +1,130 @@
+<re-html>
+  <re-options
+  >{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px",
+    "line-height":"1.5", "color": "#3C2B24" }, "heading": { "font-family":
+    "Arial, sans-serif","font-weight": "bold", "color": "#201315" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>
+      .main-wrapper {
+      padding: 24px 22px 0;
+      }
+      
+      .main-wrapper table[data-rex-type="button"] {
+      width: 100%;
+      }
+  
+      .image-column {
+      padding: 101px 38px;
+      border: 1px solid #2013151A;
+      }
+      
+      span:has(.main-image),
+      span:has(.main-image) a,
+      .main-image {
+      width: 100% !important;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 24px 20px 0;
+      }
+      
+      .image-column {
+      padding: 101px 58px;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#fff">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/soft-logo.png" href="https://www.peoplevine.com/" width="120px"></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FFFFFF">
+      <re-block align="center" class="main-wrapper">
+        <re-grid>
+          <re-column
+            align="left"
+            width="50%"
+            padding="24px 16px"
+            background-color="#F7F7F5"
+          >
+            <re-heading
+              level="h3"
+              font-size="24px"
+              font-weight="normal"
+              margin="0"
+              text-transform="uppercase"
+            >
+              Your Voucher
+            </re-heading>
+            <re-spacer height="32"></re-spacer>
+            <re-text margin="0" color="#3C2B24">
+              <b>Details</b>: Single day guest Pass <br/>
+              <b>Can be used</b>: by 1 person, expires 24 hours after use. <br/>
+              <b>Expires</b>: 23/04/2023
+            </re-text>
+            <re-spacer height="64"></re-spacer>
+            <re-heading
+              level="h6"
+              font-weight="normal"
+              margin="0"
+              text-transform="uppercase"
+            >
+              Voucher details
+            </re-heading>
+            <re-spacer height="8"></re-spacer>
+            <re-text margin="0" color="#3C2B2480">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            </re-text>
+          </re-column>
+          <re-column width="50%" class="image-column">
+            <re-image src="https://peoplevine.blob.core.windows.net/media/1087/qr-code-soft.png" href="https://www.peoplevine.com/" class="main-image"></re-image>
+          </re-column>
+        </re-grid>
+        <re-text
+          align="left"
+          font-size="16px"
+          margin="0 0 8x"
+          text-transform="uppercase"
+        >
+          Company info
+        </re-text>
+        <re-text
+          align="left"
+          margin="0 0 24px"
+          color="#3C2B2480"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </re-text>
+        <re-text
+          align="left"
+          font-size="16px"
+          margin="0 0 8x"
+          text-transform="uppercase"
+        >
+          Terms And Conditions
+        </re-text>
+        <re-text
+          align="left"
+          margin="0"
+          color="#3C2B2480"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </re-text>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#fff">
+      <re-block align="center" class="footer-wrapper">
+        <re-spacer height="56"></re-spacer>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>

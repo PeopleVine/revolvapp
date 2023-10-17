@@ -663,6 +663,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Shared Voucher",
+          url: "./templates/Soft Theme/shared-voucher.html",
+          description: "Share a voucher or coupon with customers.",
+          image: "/img/shared-voucher-soft.png",
+          type: "templates",
+          tags: ["Voucher", "Coupon", "Promotion", "Discount"],
+          saved: false
+        },
+        {
+          name: "Shared Voucher",
+          url: "./templates/Grah Theme/shared-voucher.html",
+          description: "Share a voucher or coupon with customers.",
+          image: "/img/shared-voucher-grah.png",
+          type: "templates",
+          tags: ["Voucher", "Coupon", "Promotion", "Discount"],
+          saved: false
+        },
+        {
           name: "Booking Confirmation",
           url: "./templates/Simple Theme/booking-confirmation.html",
           description: "Confirm a booking made through Book4Time and provide booking details.",

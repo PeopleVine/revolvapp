@@ -1,0 +1,151 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman', sans-serif","font-weight": "bold", "color": "#2A2A2A" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .main-wrapper {
+      padding: 40px 81px 0;
+      }
+      
+      table:has(.main-button) {
+      width: 400px;
+      }
+      
+      span:has(.main-image),
+      span:has(.main-image) a,
+      .main-image {
+      width: 100% !important;
+      }
+      
+      .main-image {
+      height: 138px;
+      object-fit: cover;
+      object-position: center 75%;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 40px 20px 0;
+      }
+      
+      table:has(.main-button) {
+      width: 100%;
+      }
+      
+      .main-image {
+      object-position: center 85%;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/blue-logo-bigger.png" href="https://www.peoplevine.com/" width="102px"></re-image>
+        <re-spacer height="24"></re-spacer>
+        <re-divider height="8" background-color="#203942"></re-divider>
+        <re-spacer height="4"></re-spacer>
+        <re-divider height="4" background-color="#203942"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block align="center" background-color="#FDFDFD" class="main-wrapper">
+        <re-heading
+          align="left"
+          font-size="20px"
+          font-weight="bold"
+          text-transform="uppercase"
+          margin="0"
+          level="h4"
+        >
+          Voucher
+        </re-heading>
+        <re-spacer height="16"></re-spacer>
+        <re-text align="left" color="#2A2A2A" margin="0">
+          <b>Details</b>: Single day guest Pass <br/>
+          <b>Can be used</b>: by 1 person, expires 24 hours after use. <br/>
+          <b>Expires</b>: 23/04/2023
+        </re-text>
+        <re-spacer height="40"></re-spacer>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/qr-code-grah.png" width="116px"></re-image>
+        <re-spacer height="40"></re-spacer>
+        <re-button
+          align="center"
+          border-radius="4px"
+          background-color="#203942"
+          class="main-button"
+          font-size="16px"
+          text-transform="uppercase"
+        >
+          Go to profile
+        </re-button>
+        <re-spacer height="64"></re-spacer>
+        <re-text
+          align="left"
+          font-size="16px"
+          margin="0 0 8x"
+          text-transform="uppercase"
+        >
+          Company info
+        </re-text>
+        <re-text
+          align="left"
+          margin="0 0 24px"
+          color="#2A2A2A80"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </re-text>
+        <re-text
+          align="left"
+          font-size="16px"
+          margin="0 0 8x"
+          text-transform="uppercase"
+        >
+          Terms And Conditions
+        </re-text>
+        <re-text
+          align="left"
+          margin="0"
+          color="#2A2A2A80"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </re-text>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" padding="0 0 32px">
+        <re-spacer height="32"></re-spacer>
+        <re-social align="center">
+          <re-social-item href="https://instagram.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Instagram"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://facebook.com/" src="https://peoplevine.blob.core.windows.net/media/1087/fb04dc00-4839-4f23-a5bc-d3713d78d714/blue-circle-facebook.png" width="44px" alt="Facebook"></re-social-item>
+          <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+          <re-social-item href="https://youtube.com/" src="https://peoplevine.blob.core.windows.net/media/1087/34f5a107-6203-448e-ba10-3890307e00db/blue-circle-Instagram.png" width="44px" alt="Youtube"></re-social-item>
+        </re-social>
+        <re-spacer height="16"></re-spacer>
+        <re-text align="center" margin="0" font-size="12px">
+          Copyright (c). All rights reserved.
+        </re-text>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
