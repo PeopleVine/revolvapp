@@ -717,6 +717,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Booking Reminder",
+          url: "./templates/Soft Theme/booking-reminder.html",
+          description: "Send a reminder to customers about their upcoming booking through Book4Time.",
+          image: "/img/booking-reminder-soft.png",
+          type: "templates",
+          tags: ["Booking", "Reminder", "Reservation", "Booking System"],
+          saved: false
+        },
+        {
+          name: "Booking Reminder",
+          url: "./templates/Grah Theme/booking-reminder.html",
+          description: "Send a reminder to customers about their upcoming booking through Book4Time.",
+          image: "/img/booking-reminder-grah.png",
+          type: "templates",
+          tags: ["Booking", "Reminder", "Reservation", "Booking System"],
+          saved: false
+        },
+        {
           name: "Post-Appointment Follow-up",
           url: "./templates/Simple Theme/post-apt-follow-up.html",
           description: "Follow up with customers after their appointment through Book4Time.",

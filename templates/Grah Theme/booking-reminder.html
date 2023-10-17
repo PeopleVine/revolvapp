@@ -1,0 +1,124 @@
+<re-html>
+  <re-options>{ "text": { "font-family": "Arial, sans-serif", "font-size": "14px", "line-height":"1.5", "color": "#2A2A2A" }, "heading": { "font-family": "'Times New Roman', sans-serif","font-weight": "bold", "color": "#2A2A2A" } }</re-options>
+  <re-head>
+    <re-title>
+      My Email
+    </re-title>
+    <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
+    <re-style>
+      .main-wrapper {
+      padding: 40px 188px 36px;
+      }
+  
+      table:has(.main-button) {
+      width: 100%;
+      }
+      
+      span:has(.main-image),
+      span:has(.main-image) a,
+      .main-image {
+      width: 100% !important;
+      }
+      
+      @media (max-width: 430px) {
+      .main-wrapper {
+      padding: 40px 20px 36px;
+      }
+      
+      .main-image {
+      object-position: center 85%;
+      }
+      }
+    </re-style>
+  </re-head>
+  <re-body background-color="#d8d8d8">
+    <re-preheader>
+      {@preheader@}
+    </re-preheader>
+    <re-header background-color="#FDFDFD">
+      <re-block align="center" padding="40px 0 0">
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/blue-logo-bigger.png" href="https://www.peoplevine.com/" width="102px"></re-image>
+        <re-spacer height="24"></re-spacer>
+        <re-divider height="8" background-color="#203942"></re-divider>
+        <re-spacer height="4"></re-spacer>
+        <re-divider height="4" background-color="#203942"></re-divider>
+      </re-block>
+    </re-header>
+    <re-main background-color="#FDFDFD">
+      <re-block align="left" background-color="#FDFDFD" class="main-wrapper">
+        <re-heading
+          align="left"
+          font-size="20px"
+          font-weight="bold"
+          text-transform="uppercase"
+          margin="0"
+          level="h4"
+        >
+          Your appointment is confirmed
+        </re-heading>
+        <re-spacer height="16"></re-spacer>
+        <re-text align="left" color="#2A2A2A" margin="0">
+          Confirmation number: <b>347582462</b> <br/>
+          Chosen Booking: <b>Kizikula Massage</b> <br/>
+          Provided services on: <b>Monday, 04/03/2023</b> <br/>
+          Price: <b>$110.00</b> <br/>
+          Duration: <b>70 minutes</b>
+        </re-text>
+        <re-spacer height="32"></re-spacer>
+        <re-text margin="0 0 8px">
+          Save this event to your calendar
+        </re-text>
+        <re-menu align="left">
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+          >ICalendar</re-menu-item>
+          <re-menu-spacer>&nbsp;&nbsp;</re-menu-spacer>
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+          >Google Calendar</re-menu-item>
+          <re-menu-spacer>&nbsp;&nbsp;</re-menu-spacer>
+          <re-menu-item
+            font-size="12px"
+            color="#2A2A2A80"
+            text-decoration="underline"
+          >Outlook</re-menu-item>
+        </re-menu>
+        <re-spacer height="24"></re-spacer>
+        <re-image src="https://peoplevine.blob.core.windows.net/media/1087/68388ef7-6d6e-4eb2-ac95-e18cec4aaa22/booking-reminder-image2.png" class="main-image"></re-image>
+        <re-spacer height="48"></re-spacer>
+        <re-button
+          align="center"
+          border-radius="4px"
+          background-color="#203942"
+          class="main-button"
+          font-size="16px"
+          text-transform="uppercase"
+        >
+          Shop now
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#ffffff">
+      <re-block align="center" padding="0">
+        <re-spacer height="100"></re-spacer>
+      </re-block>
+    </re-footer>
+  </re-body>
+</re-html>
+
+<script>
+  if (getCookie("membershipSKU") === "GRANT") {
+    $('.bg-primary').addClass('bg-grant')
+    $('.text-orange').addClass('text-grant')
+    $('.bg-dark').addClass('bg-grant')
+    $('.bg-dark').removeClass("bg-dark")
+    $('a.edit-profile').attr('href', function(index, href) {
+      return href + '?g=Y';
+    });
+    
+  }
+</script>
