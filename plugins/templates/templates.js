@@ -744,6 +744,24 @@ function debounce(func, wait) {
           saved: false
         },
         {
+          name: "Post-Appointment Follow-up",
+          url: "./templates/Soft Theme/post-apt-follow-up.html",
+          description: "Follow up with customers after their appointment through Book4Time.",
+          image: "/img/post-apt-follow-up-soft.png",
+          type: "templates",
+          tags: ["Booking", "Follow-up", "Appointment", "Booking System"],
+          saved: false
+        },
+        {
+          name: "Post-Appointment Follow-up",
+          url: "./templates/Soft Theme/post-apt-follow-up.html",
+          description: "Follow up with customers after their appointment through Book4Time.",
+          image: "/img/post-apt-follow-up-grah.png",
+          type: "templates",
+          tags: ["Booking", "Follow-up", "Appointment", "Booking System"],
+          saved: false
+        },
+        {
           name: "Marketing Newsletter",
           url: "./templates/Simple Theme/marketing-newsletter.html",
           description: "Send a marketing newsletter to your subscribers with updates and promotions.",
