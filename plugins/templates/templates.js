@@ -796,7 +796,25 @@ function debounce(func, wait) {
           type: "templates",
           tags: ["Sign-Up", "Welcome", "Registration", "User Onboarding"],
           saved: false
-        }
+        },
+        {
+          name: "Sign-Up Email",
+          url: "./templates/Soft Theme/sign-up-email.html",
+          description: "Welcome new users and provide information about their sign-up process.",
+          image: "/img/sign-up-email-soft.png",
+          type: "templates",
+          tags: ["Sign-Up", "Welcome", "Registration", "User Onboarding"],
+          saved: false
+        },
+        {
+          name: "Sign-Up Email",
+          url: "./templates/Grah Theme/sign-up-email.html",
+          description: "Welcome new users and provide information about their sign-up process.",
+          image: "/img/sign-up-email-grah.png",
+          type: "templates",
+          tags: ["Sign-Up", "Welcome", "Registration", "User Onboarding"],
+          saved: false
+        },
       ];
       
       // Create a navigation menu and append it to the stack
