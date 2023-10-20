@@ -164,17 +164,4 @@
   </re-body>
 </re-html>
 
-<script>
-  if (getCookie("membershipSKU") === "GRANT") {
-    $('.bg-primary').addClass('bg-grant')
-    $('.text-orange').addClass('text-grant')
-    $('.bg-dark').addClass('bg-grant')
-    $('.bg-dark').removeClass("bg-dark")
-    $('a.edit-profile').attr('href', function(index, href) {
-      return href + '?g=Y';
-    });
-    
-  }
-</script>
-
 

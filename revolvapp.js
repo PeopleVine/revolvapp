@@ -2987,6 +2987,10 @@
             }
           }
           break;
+        case "data-pv-component":
+        case "data-pv-type":
+          $target.attr(name, value)
+          break;
       }
     },
     _setIsRemove: function (name, value) {
@@ -13357,6 +13361,8 @@
         },
         "letter-spacing": { target: ["element"] },
         "text-transform": { target: ["element"] },
+        "data-pv-component": { target: ["element"] },
+        "data-pv-type": { target: ["element"] },
       };
     },
     render: function () {
