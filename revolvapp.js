@@ -2872,6 +2872,10 @@
     // set
     _set: function ($target, name, value) {
       var tag = $target.get().tagName.toLowerCase();
+      var isDataAttr = name.startsWith("data-")
+      if (isDataAttr) {
+        $target.attr(name, value)
+      }
       switch (name) {
         case "html":
           $target.html(value);
@@ -2986,10 +2990,6 @@
               $target.attr("valign", value);
             }
           }
-          break;
-        case "data-pv-component":
-        case "data-pv-type":
-          $target.attr(name, value)
           break;
       }
     },
@@ -13057,6 +13057,8 @@
           setter: "setColumnSpace",
         },
         "box-shadow": { target: ["element"] },
+        "data-pv-component": { target: ["element"] },
+        "data-pv-type": { target: ["element"] },
       };
     },
     render: function () {
