@@ -13059,6 +13059,7 @@
         "box-shadow": { target: ["element"] },
         "data-pv-component": { target: ["element"] },
         "data-pv-type": { target: ["element"] },
+        "data-pv-parameters": { target: ["element"] },
       };
     },
     render: function () {
@@ -13365,6 +13366,7 @@
         "text-transform": { target: ["element"] },
         "data-pv-component": { target: ["element"] },
         "data-pv-type": { target: ["element"] },
+        "data-pv-parameters": { target: ["element"] },
       };
     },
     render: function () {
