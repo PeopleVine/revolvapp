@@ -13060,6 +13060,13 @@
         "data-pv-component": { target: ["element"] },
         "data-pv-type": { target: ["element"] },
         "data-pv-parameters": { target: ["element"] },
+        "data-pv-object": { target: ["element"] },
+        "data-pv-element": { target: ["element"] },
+        "data-pv-repeater": { target: ["element"] },
+        "data-pv-format": { target: ["element"] },
+        "data-pv-formatter": { target: ["element"] },
+        "data-pv-do": { target: ["element"] },
+        "data-pv-conditional": { target: ["element"] },
       };
     },
     render: function () {
@@ -13367,6 +13374,11 @@
         "data-pv-component": { target: ["element"] },
         "data-pv-type": { target: ["element"] },
         "data-pv-parameters": { target: ["element"] },
+        "data-pv-object": { target: ["element"] },
+        "data-pv-element": { target: ["element"] },
+        "data-pv-repeater": { target: ["element"] },
+        "data-pv-format": { target: ["element"] },
+        "data-pv-formatter": { target: ["element"] },
       };
     },
     render: function () {

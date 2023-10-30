@@ -77,6 +77,10 @@
         align="center"
         background-color="#E5D5C6"
         class="main-block"
+        data-pv-component="commerce"
+        data-pv-type="orders"
+        data-pv-parameters="{order_no:'{@reference_no@}',includeLineItems:'true',includeShipping:'true',returnTotal:'1'}"
+        data-pv-object="order"
       >
         <re-text
           align="center"
@@ -122,24 +126,66 @@
         <re-spacer height="24px"></re-spacer>
         <re-grid>
           <re-column>
-            <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
               Club Pass
             </re-text>
-            <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
+              $ 699.00
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-grid>
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
               Tax
             </re-text>
-            <re-text align="left" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
+            <re-text
+              align="left"
+              color="#3C2B24"
+              font-size="14px"
+              font-weight="bold"
+              margin="0"
+            >
               Total
             </re-text>
           </re-column>
           <re-column>
-            <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
-              $ 699.00
-            </re-text>
-            <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
               $ 9.00
             </re-text>
-            <re-text align="right" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="14px"
+              font-weight="bold"
+              margin="0"
+            >
               $ 708.00
             </re-text>
           </re-column>
@@ -149,12 +195,24 @@
         <re-spacer height="24px"></re-spacer>
         <re-grid>
           <re-column>
-            <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+            <re-text
+              align="left"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              argin="0"
+            >
               Billing info
             </re-text>
           </re-column>
           <re-column>
-            <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              margin="0"
+            >
               Payment info
             </re-text>
           </re-column>
@@ -162,7 +220,13 @@
         <re-spacer height="24px"></re-spacer>
         <re-grid>
           <re-column>
-            <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
               Smiley Smiles <br/>
               586 Montgomery St <br/>
               Colorado CA <br/>
@@ -171,10 +235,22 @@
             </re-text>
           </re-column>
           <re-column>
-            <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
               Mastercard *0495
             </re-text>
-            <re-text align="right" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="14px"
+              font-weight="bold"
+              margin="0"
+            >
               $ 699.00
             </re-text>
           </re-column>
@@ -184,12 +260,24 @@
         <re-spacer height="24px"></re-spacer>
         <re-grid>
           <re-column>
-            <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+            <re-text
+              align="left"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              margin="0"
+            >
               Shipping Address
             </re-text>
           </re-column>
           <re-column>
-            <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              margin="0"
+            >
               Delivery Method
             </re-text>
           </re-column>
@@ -197,7 +285,13 @@
         <re-spacer height="24px"></re-spacer>
         <re-grid>
           <re-column>
-            <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
               Smiley Smiles <br/>
               586 Montgomery St <br/>
               Colorado CA <br/>
@@ -206,7 +300,13 @@
             </re-text>
           </re-column>
           <re-column>
-            <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
               Standard Shipping
             </re-text>
           </re-column>
@@ -235,7 +335,13 @@
         <re-spacer height=16px"></re-spacer>
         <re-grid>
           <re-column>
-            <re-link color="#3C2B24" font-size="12px" font-weight="normal" margin="0" text-decoration="none">
+            <re-link
+              color="#3C2B24"
+              font-size="12px"
+              font-weight="normal"
+              margin="0"
+              text-decoration="none"
+            >
               MyCompanySite.com
             </re-link>
           </re-column>
