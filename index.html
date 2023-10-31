@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Revolvapp</title>
     <meta charset="utf-8" />
 
@@ -10,84 +11,71 @@
     <link rel="stylesheet" href="./css/modal.css" />
     <link rel="stylesheet" href="./css/dark-theme.css" />
     <link rel="stylesheet" href="/plugins/variable/variable.css" />
-    <script
-      src="https://kit.fontawesome.com/261503e59d.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/261503e59d.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Roboto:wght@100;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
     <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/helvetica-255" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-  </head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+</head>
 
-  <body class="">
+<body class="">
     <!-- element -->
     <div class="blur-layout closed"></div>
     <div class="master-bar">
-      <div class="master-bar-inner">
-        <div>
-          <button class="next">Save and Continue</button>
-        </div>
-        <nav class="nav">
-          <button class="nav-item selected">
+        <div class="master-bar-inner">
+            <div>
+                <button class="next">Save and Continue</button>
+            </div>
+            <nav class="nav">
+                <button class="nav-item selected">
             3/5.&nbsp;&nbsp; Editing Invoice
             <img
               class="nav-chevron"
               src="https://peoplevine.blob.core.windows.net/media/361/chevron.png"
             />
           </button>
-          <div class="nav-options">
-            <div class="nav-item">1. Menu</div>
-            /
-            <div class="nav-item">2. Templates</div>
-            /
-            <div class="nav-item on">3. Editor</div>
-            /
-            <div class="nav-item">4. Select audience</div>
-            /
-            <div class="nav-item">5. Send</div>
-          </div>
-        </nav>
-        <div class="prev-wrapper">
-          Close and back to menu
-          <button class="prev modal-opener"><img src="./icons/close.png" /></button>
+                <div class="nav-options">
+                    <div class="nav-item">1. Menu</div>
+                    /
+                    <div class="nav-item">2. Templates</div>
+                    /
+                    <div class="nav-item on">3. Editor</div>
+                    /
+                    <div class="nav-item">4. Select audience</div>
+                    /
+                    <div class="nav-item">5. Send</div>
+                </div>
+            </nav>
+            <div class="prev-wrapper">
+                Close and back to menu
+                <button class="prev modal-opener"><img src="./icons/close.png" /></button>
+            </div>
         </div>
-      </div>
     </div>
     <div id="myemail"></div>
 
     <div class="rex-popup-default">Select a component</div>
-    
+
     <div class="exit-modal closed">
-      <div class="img-container">
-        <img src="https://peoplevine.blob.core.windows.net/media/1087/modal-img.png" alt="">
-      </div>
-      <h5>Are you sure?</h5>
-      <span class="spacer"></span>
-      <p>Are you sure you want to quit without saving your work? Tap “Save and Exit” if no.</p>
-      
-      <div class="btns-container">
-        <button class="secondary prev">Exit without saving</button>
-        <button class="primary next">Save and exit</button>
-      </div>
-  
-  
-      <div class="close-btn-container">
-        <button class="exit-btn"><img src="https://peoplevine.blob.core.windows.net/media/1087/close.png" alt=""></button>
-      </div>
+        <div class="img-container">
+            <img src="https://peoplevine.blob.core.windows.net/media/1087/modal-img.png" alt="">
+        </div>
+        <h5>Are you sure?</h5>
+        <span class="spacer"></span>
+        <p>Are you sure you want to quit without saving your work? Tap “Save and Exit” if no.</p>
+
+        <div class="btns-container">
+            <button class="secondary prev">Exit without saving</button>
+            <button class="primary next">Save and exit</button>
+        </div>
+
+
+        <div class="close-btn-container">
+            <button class="exit-btn"><img src="https://peoplevine.blob.core.windows.net/media/1087/close.png" alt=""></button>
+        </div>
     </div>
 
     <!-- revolvapp js -->
@@ -103,113 +91,110 @@
     <script src="/plugins/templates/templates.js"></script>
     <script src="/plugins/undo/undo.js"></script>
     <script src="/plugins/redo/redo.js"></script>
-    
+
     <!-- modal-->
     <script src="modal-opener"></script>
 
     <!-- call -->
     <script>
-      function getHtml(action) {
-        var app = Revolvapp("#myemail");
-        var html = app.editor.getHtml();
+        function getHtml(action) {
+            var app = Revolvapp("#myemail");
+            var html = app.editor.getHtml();
 
-        var body = app.editor.getTemplate();
+            var body = app.editor.getTemplate();
 
-        var updateMethod;
-        switch ("newsletter") {
-          case "content":
-            updateMethod = "updatePage";
-            dataObject = {
-              page: {
-                page_no: 0,
-                archivePrevious: true,
-                page_status: "active",
-                updateFields:
-                  "page_status, page_content, template_fields, template_no",
-                template_no: -1,
-                template_fields: body,
-                page_content: html,
-              },
-            };
-            break;
-          case "newsletter":
-            updateMethod = "updateNewsletter";
-            dataObject = {
-              newsletter: {
-                newsletter_no: 30461,
-                updateFields: "newsletter_body, template_fields, template_no",
-                newsletter_body: html,
-                template_fields: body,
-                template_no: -1,
-              },
-            };
-            break;
+            var updateMethod;
+            switch ("newsletter") {
+                case "content":
+                    updateMethod = "updatePage";
+                    dataObject = {
+                        page: {
+                            page_no: 0,
+                            archivePrevious: true,
+                            page_status: "active",
+                            updateFields: "page_status, page_content, template_fields, template_no",
+                            template_no: -1,
+                            template_fields: body,
+                            page_content: html,
+                        },
+                    };
+                    break;
+                case "newsletter":
+                    updateMethod = "updateNewsletter";
+                    dataObject = {
+                        newsletter: {
+                            newsletter_no: 30461,
+                            updateFields: "newsletter_body, template_fields, template_no",
+                            newsletter_body: html,
+                            template_fields: body,
+                            template_no: -1,
+                        },
+                    };
+                    break;
+            }
+
+            ajaxCall({
+                type: "POST",
+                url: "/methods.asmx/" + updateMethod,
+                data: dataObject,
+                success: function(response) {
+                    var result = JSON.parse(response).d;
+                    // Optional Success Callback
+                    console.log(result);
+                },
+                fail: function(http) {
+                    // Optional Fail Callback
+                    console.log(http);
+                },
+                always: function(http) {
+                    // Optional Always Callback
+                    console.log(http);
+                },
+            });
         }
 
-        ajaxCall({
-          type: "POST",
-          url: "/methods.asmx/" + updateMethod,
-          data: dataObject,
-          success: function (response) {
-            var result = JSON.parse(response).d;
-            // Optional Success Callback
-            console.log(result);
-          },
-          fail: function (http) {
-            // Optional Fail Callback
-            console.log(http);
-          },
-          always: function (http) {
-            // Optional Always Callback
-            console.log(http);
-          },
-        });
-      }
-
-      Revolvapp("#myemail", {
-        plugins: [
-          "add",
-          "variable",
-          "reorder",
-          //"code",
-          "templates",
-          //"style",
-          "undo",
-          "redo",
-        ],
-        style: {
-          styles: {
-            block: {
-              shadow: {
-                title: "Shadow",
-                css: {
-                  "box-shadow": "0 20px 30px rgba(0, 0, 0, .3)",
+        Revolvapp("#myemail", {
+            plugins: [
+                "add",
+                "variable",
+                "reorder",
+                //"code",
+                "templates",
+                //"style",
+                "undo",
+                "redo",
+            ],
+            style: {
+                styles: {
+                    block: {
+                        shadow: {
+                            title: "Shadow",
+                            css: {
+                                "box-shadow": "0 20px 30px rgba(0, 0, 0, .3)",
+                            },
+                        },
+                        dark: {
+                            title: "Dark",
+                            css: {
+                                "background-color": "#111",
+                                color: "#eee",
+                                "link-color": "#fff",
+                            },
+                        },
+                    },
                 },
-              },
-              dark: {
-                title: "Dark",
-                css: {
-                  "background-color": "#111",
-                  color: "#eee",
-                  "link-color": "#fff",
-                },
-              },
             },
-          },
-        },
-        variable: {
-          items: ["email", "first_name", "last_name"],
-        },
-        editor: {
-          font: "Open Sans, Helvetica, sans-serif",
-          path: "./",
-          template: "./templates/Grah Theme/membership-renewal.html",
-        },
-      });
+            variable: {
+                items: ["email", "first_name", "last_name"],
+            },
+            editor: {
+                font: "Open Sans, Helvetica, sans-serif",
+                path: "./",
+                template: "./templates/Grah Theme/order-confirmation.html",
+            },
+        });
     </script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
-  </body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
 </html>
