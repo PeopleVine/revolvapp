@@ -1,165 +1,330 @@
 <re-html>
-    <re-options>{ "text": { "font-family": "sans-serif", "font-size": "18px", "line-height":"1.5", "color": "#222" }, "heading": { "font-family": "sans-serif","font-weight": "bold", "color": "#111" } }</re-options>
-    <re-head>
-        <re-title> My Email </re-title>
-        <re-font href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"></re-font>
-        <re-style>
-
-            .main .main-block { padding: 38px 27px 0; transition: padding 0.3s; } .main .column:first-of-type { padding: 0 0 0 40px; } .main .column:nth-of-type(2) { padding: 0 40px 0 0; } .main .block p.h1 { transition: margin 0.5s; } @media (max-width: 430px) {
-            .column { display: inline-block !important; width: calc((100% - 32px) / 2) !important; } .footer .column { width: 50% !important; } .main .main-block { padding: 38px 20px 0; } .main .column:first-of-type { padding: 0 0 0 16px; } .main .column:nth-of-type(2)
-            { padding: 0 16px 0 0; } .main .block p.h1 { font-size: 32px !important; } }
-        </re-style>
-    </re-head>
-    <re-body background-color="#9F9EA6">
-        <re-preheader> {@preheader@} </re-preheader>
-        <re-header background-color="#E5D5C6">
-            <re-block align="center" padding="24px 0 0" background-color="#E5D5C6">
-                <re-image src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png" href="https://www.peoplevine.com/" width="50px"></re-image>
-            </re-block>
-        </re-header>
-        <re-main background-color="E5D5C6" border-radius="6px">
-            <re-block border-radius="0px" align="center" background-color="#E5D5C6" class="main-block" data-pv-component="commerce" data-pv-type="orders" data-pv-parameters="{order_no:'{@reference_no@}',includeLineItems:'true',includeShipping:'true',returnTotal:'1'}"
-                data-pv-object="order">
-                <re-text align="center" font-size="16px" color="#3C2B24" text-transform="uppercase" margin="0">
-                    thank you for your order!
-                </re-text>
-                <re-heading align="center" font-size="40px" font-weight="normal" line-height="100%" color="#2B2D1F" level="h1" text-transform="uppercase" margin="0 0 16px">
-                    Order confirmation
-                </re-heading>
-                <re-text font-size="14px" color="#3C2B2480" text-transform="uppercase" margin="0 0 56px">
-                    {@orderInfo.order_date:date(MM/dd/yyyy)@}
-                </re-text>
-                <re-grid>
-                    <re-column>
-                        <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
-                            Items Description
-                        </re-text>
-                    </re-column>
-                    <re-column>
-                        <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
-                            Amount
-                        </re-text>
-                    </re-column>
-                </re-grid>
-                <re-spacer height="24px"></re-spacer>
-                <re-grid data-pv-repeater="itemInfo">
-                    <re-column>
-                        <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
-                            {@product.product_short@}
-                        </re-text>
-                    </re-column>
-                    <re-column>
-                        <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
-                            {@order_price:currency@}
-                        </re-text>
-                    </re-column>
-                </re-grid>
-                <re-grid>
-                    <re-column>
-                        <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
-                            Tax
-                        </re-text>
-                        <re-text align="left" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
-                            Total
-                        </re-text>
-                    </re-column>
-                    <re-column>
-                        <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0 0 8px">
-                            {@orderInfo.tax_total:currency@}
-                        </re-text>
-                        <re-text align="right" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
-                            {@orderInfo.order_total:currency@}
-                        </re-text>
-                    </re-column>
-                </re-grid>
-                <re-spacer height="16px"></re-spacer>
-                <re-divider height="1px" background-color="#3C2B24"></re-divider>
-                <re-spacer height="24px"></re-spacer>
-                <re-grid>
-                    <re-column>
-                        <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" argin="0">
-                            Billing info
-                        </re-text>
-                    </re-column>
-                    <re-column>
-                        <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
-                            Payment info
-                        </re-text>
-                    </re-column>
-                </re-grid>
-                <re-spacer height="24px"></re-spacer>
-                <re-grid>
-                    <re-column>
-                        <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
-                            {@first_name@} {@last_name@} <br/> {@address@} <br/> {@city@} {@state@} <br/> {@zip_code@} <br/>
-                        </re-text>
-                    </re-column>
-                    <!-- <re-column>
-                        <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
-                            Mastercard *0495
-                        </re-text>
-                        <re-text align="right" color="#3C2B24" font-size="14px" font-weight="bold" margin="0">
-                            $ 699.00
-                        </re-text>
-                    </re-column> -->
-                </re-grid>
-                <re-spacer height="16px"></re-spacer>
-                <re-divider height="1px" background-color="#3C2B24"></re-divider>
-                <re-spacer height="24px"></re-spacer>
-                <re-grid>
-                    <re-column>
-                        <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
-                            Shipping Address
-                        </re-text>
-                    </re-column>
-                    <re-column>
-                        <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
-                            Delivery Method
-                        </re-text>
-                    </re-column>
-                </re-grid>
-                <re-spacer height="24px"></re-spacer>
-                <re-grid>
-                    <re-column>
-                        <re-text align="left" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
-                            {@first_name@} {@last_name@} <br/> {@address@} <br/> {@city@} {@state@} <br/> {@zip_code@} <br/>
-                        </re-text>
-                    </re-column>
-                    <re-column>
-                        <re-text align="right" color="#3C2B2480" font-size="14px" font-weight="normal" margin="0">
-                            {@shippingInfo.shipping_method@}
-                        </re-text>
-                    </re-column>
-                </re-grid>
-                <re-spacer height="16px"></re-spacer>
-                <re-divider height="1px" background-color="#3C2B24"></re-divider>
-                <re-spacer height="24px"></re-spacer>
-                <re-button background-color="#E19C5C" border="1px solid #E19C5C " font-size="16px " text-transform="uppercase ">
-                    View order
-                </re-button>
-            </re-block>
-        </re-main>
-        <re-footer background-color="#E5D5C6 ">
-            <re-block align="center" padding="64px 20px 126px " background-color="#E5D5C6 " class="main-footer-block ">
-                <re-divider height="1px" background-color="#3C2B24 "></re-divider>
-                <re-spacer height="16px"></re-spacer>
-                <re-grid>
-                    <re-column>
-                        <re-link color="#3C2B24 " font-size="12px " font-weight="normal " margin="0 " text-decoration="none ">
-                            MyCompanySite.com
-                        </re-link>
-                    </re-column>
-                    <re-column>
-                        <re-social align="right ">
-                            <re-social-item href="https://facebook.com/ " src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png " width="24px " alt="Facebook "></re-social-item>
-                            <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
-                            <re-social-item href="https://twitter.com/ " src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png " width="24px " alt="Twitter "></re-social-item>
-                            <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
-                            <re-social-item href="https://instagram.com/ " src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png " width="24px " alt="Instagram "></re-social-item>
-                        </re-social>
-                    </re-column>
-                </re-grid>
-            </re-block>
-        </re-footer>
-    </re-body>
+  <re-options
+  >{ "text": { "font-family": "sans-serif", "font-size": "18px",
+    "line-height":"1.5", "color": "#222" }, "heading": { "font-family":
+    "sans-serif","font-weight": "bold", "color": "#111" } }</re-options
+  >
+  <re-head>
+    <re-title> My Email </re-title>
+    <re-font
+      href="https://fonts.googleapis.com/css?family=Inter:400,400i,700,700i"
+    ></re-font>
+    <re-style>.main .main-block { adding: 38px 27px 0; transition: padding 0.3s;}.main .column:first-of-type{padding: 0 0 0 40px;}.main .column:nth-of-type(2) {padding: 0 40px 0 0;}.main .block p.h1{transition: margin 0.5s;}@media (max-width: 430px) {.column {display: inline-block !important;width: calc((100% - 32px) / 2) !important;.footer .column {width: 50% !important;}.main .main-block { padding: 38px 20px 0;}.main .column:first-of-type {padding: 0 0 0 16px;}.main .column:nth-of-type(2) { padding: 0 16px 0 0;}.main .block p.h1 {font-size: 32px !important;}}</re-style>
+  </re-head>
+  <re-body background-color="#9F9EA6">
+    <re-preheader> {@preheader@} </re-preheader>
+    <re-header background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="24px 0 0"
+        background-color="#E5D5C6"
+      >
+        <re-image
+          src="https://peoplevine.blob.core.windows.net/media/1153/695afd4e-ac11-4503-9851-a631c1ada0e6/Mask_group.png"
+          href="https://www.peoplevine.com/"
+          width="50px"
+        ></re-image>
+      </re-block>
+    </re-header>
+    <re-main background-color="E5D5C6" border-radius="6px">
+      <re-block
+        border-radius="0px"
+        align="center"
+        background-color="#E5D5C6"
+        class="main-block"
+        data-pv-component="commerce"
+        data-pv-type="orders"
+        data-pv-parameters="{order_no:'{@reference_no@}',includeLineItems:'true',includeShipping:'true',returnTotal:'1'}"
+        data-pv-object="order"
+      >
+        <re-text
+          align="center"
+          font-size="16px"
+          color="#3C2B24"
+          text-transform="uppercase"
+          margin="0"
+        >
+          thank you for your order!
+        </re-text>
+        <re-heading
+          align="center"
+          font-size="40px"
+          font-weight="normal"
+          line-height="100%"
+          color="#2B2D1F"
+          level="h1"
+          text-transform="uppercase"
+          margin="0 0 16px"
+        >
+          Order confirmation
+        </re-heading>
+        <re-text
+          font-size="14px"
+          color="#3C2B2480"
+          text-transform="uppercase"
+          margin="0 0 56px"
+        >
+          <span class="variable-block">{@orderInfo.order_date:date(MM/dd/yyyy)@}</span>
+        </re-text>
+        <re-grid>
+          <re-column>
+            <re-text align="left" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+              Items Description
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text align="right" color="#3C2B24" font-size="16px" font-weight="bold" margin="0">
+              Amount
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid data-pv-repeater="itemInfo">
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
+              <span class="variable-block">{@product.product_short@}</span>
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
+              <span class="variable-block">{@order_price:currency@}</span>
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-grid>
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
+              Tax
+            </re-text>
+            <re-text
+              align="left"
+              color="#3C2B24"
+              font-size="14px"
+              font-weight="bold"
+              margin="0"
+            >
+              Total
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0 0 8px"
+            >
+              <span class="variable-block">{@orderInfo.tax_total:currency@}</span>
+            </re-text>
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="14px"
+              font-weight="bold"
+              margin="0"
+            >
+              <span class="variable-block">{@orderInfo.order_total:currency@}</span>
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="16px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B24"></re-divider>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              argin="0"
+            >
+              Billing info
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              margin="0"
+            >
+              Payment info
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
+              <span class="variable-block">{@first_name@}</span> <span class="variable-block">{@last_name@}</span> <br/>
+              <span class="variable-block">{@address@}</span> <br/>
+              <span class="variable-block">{@city@}</span> <span class="variable-block">{@state@}</span> <br/>
+              <span class="variable-block">{@zip_code@}</span><br/>
+            </re-text>
+          </re-column>
+<!--          <re-column>-->
+<!--            <re-text-->
+<!--              align="right"-->
+<!--              color="#3C2B2480"-->
+<!--              font-size="14px"-->
+<!--              font-weight="normal"-->
+<!--              margin="0"-->
+<!--            >-->
+<!--              Mastercard *0495-->
+<!--            </re-text>-->
+<!--            <re-text-->
+<!--              align="right"-->
+<!--              color="#3C2B24"-->
+<!--              font-size="14px"-->
+<!--              font-weight="bold"-->
+<!--              margin="0"-->
+<!--            >-->
+<!--              $ 699.00-->
+<!--            </re-text>-->
+<!--          </re-column>-->
+        </re-grid>
+        <re-spacer height="16px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B24"></re-divider>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              margin="0"
+            >
+              Shipping Address
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              color="#3C2B24"
+              font-size="16px"
+              font-weight="bold"
+              margin="0"
+            >
+              Delivery Method
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="24px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-text
+              align="left"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
+              <span class="variable-block">{@first_name@}</span> <span class="variable-block">{@last_name@}</span> <br/>
+              <span class="variable-block">{@address@}</span> <br/>
+              <span class="variable-block">{@city@}</span> <span class="variable-block">{@state@}</span> <br/>
+              <span class="variable-block">{@zip_code@}</span><br/>
+            </re-text>
+          </re-column>
+          <re-column>
+            <re-text
+              align="right"
+              color="#3C2B2480"
+              font-size="14px"
+              font-weight="normal"
+              margin="0"
+            >
+              <span class="variable-block">{@shippingInfo.shipping_method@}</span>
+            </re-text>
+          </re-column>
+        </re-grid>
+        <re-spacer height="16px"></re-spacer>
+        <re-divider height="1px" background-color="#3C2B24"></re-divider>
+        <re-spacer height=24px"></re-spacer>
+        <re-button
+          background-color="#E19C5C"
+          border="1px solid #E19C5C"
+          font-size="16px"
+          text-transform="uppercase"
+        >
+          View order
+        </re-button>
+      </re-block>
+    </re-main>
+    <re-footer background-color="#E5D5C6">
+      <re-block
+        align="center"
+        padding="64px 20px 126px"
+        background-color="#E5D5C6"
+        class="main-footer-block"
+      >
+        <re-divider height="1px" background-color="#3C2B24"></re-divider>
+        <re-spacer height=16px"></re-spacer>
+        <re-grid>
+          <re-column>
+            <re-link
+              color="#3C2B24"
+              font-size="12px"
+              font-weight="normal"
+              margin="0"
+              text-decoration="none"
+            >
+              MyCompanySite.com
+            </re-link>
+          </re-column>
+          <re-column>
+            <re-social align="right">
+              <re-social-item
+                href="https://facebook.com/"
+                src="https://peoplevine.blob.core.windows.net/media/1153/inages/instagram.png"
+                width="24px"
+                alt="Facebook"
+              ></re-social-item>
+              <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+              <re-social-item
+                href="https://twitter.com/"
+                src="https://peoplevine.blob.core.windows.net/media/1153/inages/fb.png"
+                width="24px"
+                alt="Twitter"
+              ></re-social-item>
+              <re-social-spacer>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</re-social-spacer>
+              <re-social-item
+                href="https://instagram.com/"
+                src="https://peoplevine.blob.core.windows.net/media/1153/inages/youtube-dark.png"
+                width="24px"
+                alt="Instagram"
+              ></re-social-item>
+            </re-social>
+          </re-column>
+        </re-grid>
+      </re-block>
+    </re-footer>
+  </re-body>
 </re-html>
+
