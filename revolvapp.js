@@ -13337,6 +13337,7 @@
         "line-height": {
           target: ["element"],
           prop: this.getStyle("text", "line-height"),
+          setter: "setLineHeight",
         },
         "link-color": {
           target: false,
@@ -13391,6 +13392,10 @@
         $a.length !== 0 ? $a.get().style.color : this.getStyle("link", "color");
 
       return this.app.color.normalize(color);
+    },
+    setLineHeight: function(value) {
+      const currentValue = value.includes("%") ? value.slice(0, -1) / 100 : value;
+      this.$element.css("line-height", currentValue);
     },
     setTopMargin: function (value) {
       const marginTop = value + "px";
@@ -13481,6 +13486,7 @@
         "line-height": {
           target: ["link"],
           prop: this.getStyle("text", "line-height"),
+          setter: "setLineHeight",
         },
         "text-decoration": {
           target: ["link"],
@@ -13503,6 +13509,10 @@
       this._createElementLink();
 
       return this.$link;
+    },
+    setLineHeight: function(value) {
+      const currentValue = value.includes("%") ? value.slice(0, -1) / 100 : value;
+      this.$element.css("line-height", currentValue);
     },
     setTopMargin: function (value) {
       const marginTop = value + "px";
@@ -13643,6 +13653,7 @@
         "line-height": {
           target: ["element", "link"],
           prop: this.getHeadingStyleByLevel(this.params.level, "line-height"),
+          setter: "setLineHeight",
         },
         align: { target: ["element"], getter: "getAlign" },
         margin: { target: ["element"] },
@@ -13674,6 +13685,10 @@
       this._createElementLink();
 
       return this.$element;
+    },
+    setLineHeight: function(value) {
+      const currentValue = value.includes("%") ? value.slice(0, -1) / 100 : value;
+      this.$element.css("line-height", currentValue);
     },
     setTopMargin: function (value) {
       const marginTop = value + "px";
